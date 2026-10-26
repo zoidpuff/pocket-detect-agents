@@ -8,3 +8,4 @@
 4. After any session restart, check `git status` + on-disk outputs and resume agents by SendMessage with their file list, rather than relaunching (evidence: 16:18 restart; 5 agents resumed with zero lost work).
 5. Verify the harness against published per-method predictions before building anything on it (evidence: LIGYSIS reproduction passed for 28 variants in one run — this makes every later comparison trustworthy).
 6. Sub-agents must never run git add/commit/reset (evidence: 8.9k unreachable objects ≈169 MB found in .git at 16:25 from an agent's staging; pruned).
+7. Launch any job > ~5 min with nohup + log file; agent loops die on session restarts but detached processes survive (evidence: 16:29 restart — Track A pool and geometry bench kept running).
