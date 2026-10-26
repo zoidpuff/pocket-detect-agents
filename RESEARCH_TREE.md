@@ -23,9 +23,10 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - [~] 0. Infrastructure
   - [x] 0.1 Hardware/data inspection
   - [x] 0.2 Python env (.venv: numpy 2.5/scipy/numba 0.68/gemmi 0.7.5/torch 2.6-cu124 4 GPUs OK/lightgbm/xgboost)
-  - [~] 0.3 Eval harness (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
+  - [x] 0.3 Eval harness — [!] reproduces P2Rank 2.5.1 evaluator on COACH420/HOLO4K(+mlig) to 0.1% (rules `p2rank_strict` = O2 headline)
+  - [~] 0.4 LIGYSIS protocol + reproduction gate, cluster bootstrap, gated test runner, CryptoBench/PocketWatch GT (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
-- [~] 2. Data acquisition (DATA.md)
+- [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
   - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
   - [~] 2.C AF test set (LIGYSIS UniProts on AFDB v6)
   - [~] 2.D Dimer benchmark (assembly-1, symmetric-copy aware)
