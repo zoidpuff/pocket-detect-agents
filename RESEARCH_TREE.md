@@ -61,7 +61,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [x] NMS 10 Å chosen by one-to-one P1K (raw P1K rewards duplicates; 14 Å would inflate top-N+2 to 72.6 by spreading — rejected)
     - [-] fpocket candidates + BURROW ranker: top-N+2 64.8 but DCA4 39.7 vs 56.2, P1K 59.4 vs 72.1 → own candidates matter for precision/localisation
     - [-] G1 on BioLiP dev: 58.6% at ≤40 geometric candidates (fpocket 47.3%) → gate failed as specified but fallback would be worse; kept BURROW candidates (deviation, G1.md addendum). Full pre-ranking pool 93.6%.
-  - [~] 5.3 Independent review of dev results (separate agent)
+  - [x] 5.3 Independent review: CONFIRMED (own scorer + harness; CLI 30/30 bit-identical; gains hold at DCC≤4 Å +16.4 and one-to-one +24.8; BURROW hits median DCC 3.3 Å; surface tiling 15–38%; largest gain on fold-novel chains TM<0.5 +19.4). [!] Caveat: ion-only sites (34%) carry ~2/3 of `all` gain; non-ion ≈ +5 (CI touches 0 on 2/3 seeds). Bug: 8% top pockets empty residue list.
   - [~] 5.4 Phase 3: `small` ranker + within-protein ranking improvements (selection by train cluster-CV; dev once); FREEZE 23:00
 - [~] 6. AF mode
   - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
