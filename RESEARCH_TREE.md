@@ -27,7 +27,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 0.2 Python env (.venv: numpy 2.5/scipy/numba 0.68/gemmi 0.7.5/torch 2.6-cu124 4 GPUs OK/lightgbm/xgboost)
   - [x] 0.3 Eval harness — [!] reproduces P2Rank 2.5.1 evaluator on COACH420/HOLO4K(+mlig) to 0.1% (rules `p2rank_strict` = O2 headline)
   - [!] 0.4a LIGYSIS reproduction gate PASSED: our harness on authors' per-chain predictions reproduces published top-N/top-N+2/max recall for all 28 method variants within ≤0.05 pts (DeepPocket-Seg 0.38); 6,721 NR scored sites, 2,775 chains (results/validation/ligysis_reproduction.md)
-  - [~] 0.4 LIGYSIS protocol + reproduction gate, cluster bootstrap, gated test runner, CryptoBench/PocketWatch GT (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
+  - [x] 0.4 LIGYSIS protocol (33/33 variants reproduce; authors' code agrees), cluster bootstrap (30% MMseqs2 over test union), gated run_test_eval.py + ledger, CryptoBench (222/270 sites) + PocketWatch (1,566/1,573) GT
+  - [~] 0.5 LIGYSIS ligand coords (C1-strict DCA), AF + dimer GT into test runner, pLDDT-filter baseline + hallucination metric (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
   - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
@@ -39,7 +40,11 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
   - [x] 4.3 Review round 2 (external PI+stats; data+agent risks) → DESIGN v3 + docs/PREREG.md frozen (sha256 582b8b56349cb2ab762d0f59a495738a938ee1d592c01e2517dbf581e049f8d6). Reviews capped at 2 rounds (time; round-2 changes were refinements, no structural objections).
 - [~] 5. Method development
-  - [~] 5.1 BURROW pipeline v0 (CPU end-to-end), G1 candidate-recall gate, geometry-only ranking, first LightGBM point+pocket model (dev: CHEN11/JOINED until Track A dev arrives)
+  - [x] 5.1 BURROW v0 (CPU end-to-end): 1 Å shell grid + prefilter + metal candidates → 86 feats (60 rays, first-hit chemistry) → LGBM point scorer → multi-scale pockets → LGBM ranker (cross-fitted) → NMS
+    - [!] G1 PASSED: candidate recall 90.97% (≤40 pockets) vs fpocket 77.5%, P2Rank-all 83.4% (CHEN11+JOINED, 974 ligands)
+    - [x] Trained on CHEN11 only → JOINED: DCA4 top-n 71.1–71.8 vs P2Rank 73.5; top-n+2 82.4–83.2 vs 79.7; LDCC12 top-n+2 89–91 vs 88.0 (unpaired). Geometry-only: DCA4 top-n 35.4.
+    - [-] Speed: 586 ms/structure (target 70) — Python loops; perf pass after feature stabilisation
+  - [~] 5.2 Phase 2: BioLiP2 train/dev, `all`/`small` rankers, NMS tuning with DCA4/P1K guard, fpocket-candidate ablation
 - [ ] 6. AF mode
 - [~] 7. CPU/GPU backends + throughput
   - [~] 7.1 Geometry primitives (SAS pts, ray-cast buriedness w/ soft occlusion, neighbor feats, clustering) CPU+GPU — started early as design-independent
