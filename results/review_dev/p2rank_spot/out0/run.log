@@ -1,0 +1,78 @@
+[INFO] Console - predicting pockets for proteins from dataset [in0.ds]
+[INFO] PredictPocketsRoutine - outdir: /cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out0
+[INFO] Model - Loading model from directory (v3 format): /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/models/default
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Dataset - processing dataset [in0.ds] using 0 threads
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [A0ABF7PFZ5__5kef_B.cif] (1/3)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Console - processing [A0ABF7PFZ5__5kef_B.cif] (1/3)
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q90WW1__3alr_C.cif] (3/3)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q5SPW0__3n1e_B.cif] (2/3)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Console - processing [Q90WW1__3alr_C.cif] (3/3)
+[INFO] Console - processing [Q5SPW0__3n1e_B.cif] (2/3)
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/A0ABF7PFZ5__5kef_B.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q5SPW0__3n1e_B.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q90WW1__3alr_C.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/A0ABF7PFZ5__5kef_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q5SPW0__3n1e_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q90WW1__3alr_C.cif]
+[INFO] Struct - all groups in chain B: 141
+[INFO] Struct - all groups in chain C: 67
+[INFO] Struct - all groups in chain B: 152
+[INFO] Struct - all groups in chain B: 141
+[INFO] Struct - all groups in chain C: 67
+[INFO] Struct - all groups in chain B: 152
+[INFO] Struct - 67 groups in chain C
+[INFO] Struct - 141 groups in chain B
+[INFO] Struct - 152 groups in chain B
+[INFO] Protein - structure atoms: 532
+[INFO] Protein - protein   atoms: 519
+[INFO] Protein - ignoring ligands
+[INFO] Protein - structure atoms: 1139
+[INFO] Protein - structure atoms: 1222
+[INFO] Protein - protein   atoms: 1127
+[INFO] Protein - protein   atoms: 1206
+[INFO] Protein - ignoring ligands
+[INFO] Protein - ignoring ligands
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Protein - SAS points: 1705
+[INFO] Protein - SAS points: 2808
+[INFO] Protein - SAS points: 3274
+[INFO] Protein - exposed protein atoms: 417 of 519
+[INFO] Protein - exposed protein atoms: 860 of 1127
+[INFO] Protein - exposed protein atoms: 898 of 1206
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 1705
+[INFO] PocketPredictor - LIGANDABLE POINTS: 0
+[INFO] PocketPredictor - CLUSTERS: 0
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 2808
+[INFO] PocketPredictor - LIGANDABLE POINTS: 1
+[INFO] PocketPredictor - CLUSTERS: 1
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+[INFO] SLinkClusterer - clustering [4] elements
+[INFO] SLinkClusterer - clusters: [id:1( 2 ), id:3( 2 )]
+[INFO] SLinkClusterer - clusters together: 4 / 4
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 3274
+[INFO] PocketPredictor - LIGANDABLE POINTS: 4
+[INFO] PocketPredictor - CLUSTERS: 2
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+[INFO] Console - predicting pockets finished in 0 hours 0 minutes 1.800 seconds
+[INFO] Console - results saved to directory [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out0]
+[INFO] Console - 
+[INFO] Console - Finished successfully in 0 hours 0 minutes 2.524 seconds.

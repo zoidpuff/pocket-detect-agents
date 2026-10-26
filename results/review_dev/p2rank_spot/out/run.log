@@ -1,0 +1,152 @@
+[INFO] Console - predicting pockets for proteins from dataset [in.ds]
+[INFO] PredictPocketsRoutine - outdir: /cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out
+[INFO] Model - Loading model from directory (v3 format): /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/models/default
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Dataset - processing dataset [in.ds] using 0 threads
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [A0A6M4WP55__9ca3_B.cif] (1/5)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [A3QAV3__3ntd_A.cif] (2/5)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [I7MIJ7__8b6f_A5.cif] (3/5)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q2VZ87__2oh3_A.cif] (4/5)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Console - processing [A0A6M4WP55__9ca3_B.cif] (1/5)
+[INFO] Console - processing [I7MIJ7__8b6f_A5.cif] (3/5)
+[INFO] Console - processing [Q2VZ87__2oh3_A.cif] (4/5)
+[INFO] Console - processing [A3QAV3__3ntd_A.cif] (2/5)
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/A0A6M4WP55__9ca3_B.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/A3QAV3__3ntd_A.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/Q2VZ87__2oh3_A.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/I7MIJ7__8b6f_A5.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/A0A6M4WP55__9ca3_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/I7MIJ7__8b6f_A5.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/A3QAV3__3ntd_A.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/Q2VZ87__2oh3_A.cif]
+[INFO] Struct - all groups in chain A: 149
+[INFO] Struct - all groups in chain A5: 282
+[INFO] Struct - all groups in chain B: 260
+[INFO] Struct - all groups in chain A: 565
+[INFO] Struct - all groups in chain B: 260
+[INFO] Struct - all groups in chain A: 565
+[INFO] Struct - all groups in chain A5: 282
+[INFO] Struct - all groups in chain A: 149
+[INFO] Struct - 260 groups in chain B
+[INFO] Struct - 282 groups in chain A5
+[INFO] Struct - 149 groups in chain A
+[INFO] Struct - 565 groups in chain A
+[INFO] Protein - structure atoms: 1178
+[INFO] Protein - protein   atoms: 1150
+[INFO] Protein - ignoring ligands
+[INFO] Protein - structure atoms: 2069
+[INFO] Protein - protein   atoms: 2010
+[INFO] Protein - ignoring ligands
+[INFO] Protein - structure atoms: 2347
+[INFO] Protein - protein   atoms: 2289
+[INFO] Protein - ignoring ligands
+[INFO] Protein - structure atoms: 4295
+[INFO] Protein - protein   atoms: 4217
+[INFO] Protein - ignoring ligands
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Protein - SAS points: 2712
+[INFO] Protein - exposed protein atoms: 846 of 1150
+[INFO] Protein - SAS points: 4936
+[INFO] Protein - exposed protein atoms: 1510 of 2010
+[INFO] Protein - SAS points: 7625
+[INFO] Protein - SAS points: 7920
+[INFO] Protein - exposed protein atoms: 1999 of 2289
+[INFO] Protein - exposed protein atoms: 2724 of 4217
+[INFO] SLinkClusterer - clustering [22] elements
+[INFO] SLinkClusterer - clusters: [id:6( 1 ), id:8( 1 ), id:11( 1 ), id:14( 12 ), id:21( 7 )]
+[INFO] SLinkClusterer - clusters together: 22 / 22
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 2712
+[INFO] PocketPredictor - LIGANDABLE POINTS: 22
+[INFO] PocketPredictor - CLUSTERS: 5
+[INFO] PocketPredictor - FILTERED CLUSTERS: 2
+[INFO] SLinkClusterer - clustering [101] elements
+[INFO] SLinkClusterer - clusters: [id:34( 98 ), id:35( 3 )]
+[INFO] SLinkClusterer - clusters together: 101 / 101
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 4936
+[INFO] PocketPredictor - LIGANDABLE POINTS: 101
+[INFO] PocketPredictor - CLUSTERS: 2
+[INFO] PocketPredictor - FILTERED CLUSTERS: 2
+[INFO] PocketPredictor - pocket 1 -  surf_atoms:  22   points:  12   score:    4.3
+[INFO] PocketPredictor - pocket 1 -  surf_atoms:  77   points:  98   score:   43.5
+[INFO] PocketPredictor - pocket 2 -  surf_atoms:  16   points:   7   score:    2.0
+[INFO] PocketPredictor - pocket 2 -  surf_atoms:  13   points:   3   score:    1.0
+[INFO] SLinkClusterer - clustering [7] elements
+[INFO] SLinkClusterer - clusters: [id:1( 2 ), id:6( 5 )]
+[INFO] SLinkClusterer - clusters together: 7 / 7
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 7625
+[INFO] PocketPredictor - LIGANDABLE POINTS: 7
+[INFO] PocketPredictor - CLUSTERS: 2
+[INFO] PocketPredictor - FILTERED CLUSTERS: 1
+[INFO] PocketPredictor - pocket 1 -  surf_atoms:  19   points:   5   score:    2.1
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q739E5__3fgg_B.cif] (5/5)
+------------------------------------------------------------------------------------------------------------------------
+
+[INFO] Console - processing [Q739E5__3fgg_B.cif] (5/5)
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/Q739E5__3fgg_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in/Q739E5__3fgg_B.cif]
+[INFO] SLinkClusterer - clustering [107] elements
+[INFO] SLinkClusterer - clusters: [id:55( 5 ), id:59( 6 ), id:63( 1 ), id:68( 5 ), id:71( 9 ), id:80( 52 ), id:85( 3 ), id:87( 4 ), id:90( 1 ), id:96( 9 ), id:100( 3 ), id:103( 1 ), id:106( 8 )]
+[INFO] SLinkClusterer - clusters together: 107 / 107
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 7920
+[INFO] Struct - all groups in chain B: 146
+[INFO] PocketPredictor - LIGANDABLE POINTS: 107
+[INFO] PocketPredictor - CLUSTERS: 13
+[INFO] PocketPredictor - FILTERED CLUSTERS: 10
+[INFO] Struct - all groups in chain B: 146
+[INFO] Struct - 146 groups in chain B
+[INFO] Protein - structure atoms: 1184
+[INFO] Protein - protein   atoms: 1164
+[INFO] Protein - ignoring ligands
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] PocketPredictor - pocket 1 -  surf_atoms:  66   points:  52   score:   17.6
+[INFO] PocketPredictor - pocket 2 -  surf_atoms:  20   points:   9   score:    3.1
+[INFO] PocketPredictor - pocket 3 -  surf_atoms:  23   points:   9   score:    3.0
+[INFO] PocketPredictor - pocket 4 -  surf_atoms:  13   points:   6   score:    2.8
+[INFO] PocketPredictor - pocket 5 -  surf_atoms:  33   points:   8   score:    2.5
+[INFO] PocketPredictor - pocket 6 -  surf_atoms:  14   points:   5   score:    2.1
+[INFO] PocketPredictor - pocket 7 -  surf_atoms:  12   points:   3   score:    1.5
+[INFO] PocketPredictor - pocket 8 -  surf_atoms:  20   points:   5   score:    1.5
+[INFO] PocketPredictor - pocket 9 -  surf_atoms:  20   points:   3   score:    1.1
+[INFO] PocketPredictor - pocket10 -  surf_atoms:  10   points:   4   score:    0.8
+[INFO] Protein - SAS points: 3151
+[INFO] Protein - exposed protein atoms: 917 of 1164
+[INFO] SLinkClusterer - clustering [36] elements
+[INFO] SLinkClusterer - clusters: [id:2( 4 ), id:4( 1 ), id:33( 21 ), id:35( 10 )]
+[INFO] SLinkClusterer - clusters together: 36 / 36
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 3151
+[INFO] PocketPredictor - LIGANDABLE POINTS: 36
+[INFO] PocketPredictor - CLUSTERS: 4
+[INFO] PocketPredictor - FILTERED CLUSTERS: 3
+[INFO] PocketPredictor - pocket 1 -  surf_atoms:  24   points:  21   score:    7.7
+[INFO] PocketPredictor - pocket 2 -  surf_atoms:  26   points:  10   score:    3.7
+[INFO] PocketPredictor - pocket 3 -  surf_atoms:  18   points:   4   score:    1.6
+[INFO] Console - predicting pockets finished in 0 hours 0 minutes 3.153 seconds
+[INFO] Console - results saved to directory [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out]
+[INFO] Console - 
+[INFO] Console - Finished successfully in 0 hours 0 minutes 4.720 seconds.

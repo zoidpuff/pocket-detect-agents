@@ -1,0 +1,7 @@
+method,n_pockets_mean,n_pockets_median,frac_at_cap50,res_per_pocket_all,res_per_pocket_topN2,frac_empty_res_all,frac_empty_res_topN2,dist_nearest_atom_all,dist_nearest_atom_topN2,frac_centre_gt4A_from_atoms_topN2,atoms_within8_all,atoms_within8_topN2
+burnms10,46.729,50.0,0.731,6.876,10.301,0.0,0.0,3.017,3.042,0.0,67.05,103.969
+burrow_accurate_s0,37.107,38.0,0.287,8.593,13.209,0.016,0.001,3.249,3.388,0.246,53.155,63.661
+burrow_default_s0,40.876,46.0,0.437,4.388,11.405,0.218,0.083,3.496,3.355,0.213,44.771,65.861
+fpocket,20.665,17.0,0.047,9.135,12.171,0.0,0.0,3.571,3.344,0.099,63.795,71.253
+p2rank,4.231,3.0,0.0,13.289,14.735,0.0,0.0,3.349,3.36,0.087,76.706,76.009
+tile12_bur,38.637,40.0,0.333,4.188,8.555,0.0,0.0,3.009,3.027,0.0,40.665,84.68

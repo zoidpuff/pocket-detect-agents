@@ -1,0 +1,128 @@
+P2Rank 2.5.1
+[INFO] Console - P2Rank 2.5.1
+
+[INFO] Console - 
+[INFO] Main - loading default config from [/cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/default.groovy]
+DIR: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_data
+[INFO] Console - DIR: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_data
+DIR2: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_data
+[INFO] Console - DIR2: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_data
+DIR: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_output
+[INFO] Console - DIR: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_output
+DIR2: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_output
+[INFO] Console - DIR2: /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/config/../test_output
+[INFO] Main - looking for dataset in dataset_base_dir [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0.ds]...
+[INFO] Dataset - loading dataset [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0.ds]
+predicting pockets for proteins from dataset [in0.ds]
+[INFO] Console - predicting pockets for proteins from dataset [in0.ds]
+[INFO] PredictPocketsRoutine - outdir: /cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out0
+[INFO] Model - Loading model from directory (v3 format): /cluster/project/beltrao/gmagnus/pocket_detect/baselines/tools/p2rank/models/default
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Dataset - processing dataset [in0.ds] using 0 threads
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [A0ABF7PFZ5__5kef_B.cif] (1/3)
+------------------------------------------------------------------------------------------------------------------------
+
+processing [A0ABF7PFZ5__5kef_B.cif] (1/3)
+[INFO] Console - processing [A0ABF7PFZ5__5kef_B.cif] (1/3)
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q90WW1__3alr_C.cif] (3/3)
+------------------------------------------------------------------------------------------------------------------------
+
+processing [Q90WW1__3alr_C.cif] (3/3)
+[INFO] Dataset - 
+------------------------------------------------------------------------------------------------------------------------
+processing [Q5SPW0__3n1e_B.cif] (2/3)
+------------------------------------------------------------------------------------------------------------------------
+
+processing [Q5SPW0__3n1e_B.cif] (2/3)
+[INFO] Console - processing [Q90WW1__3alr_C.cif] (3/3)
+[INFO] Console - processing [Q5SPW0__3n1e_B.cif] (2/3)
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/A0ABF7PFZ5__5kef_B.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q5SPW0__3n1e_B.cif]
+[INFO] Protein - loading protein [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q90WW1__3alr_C.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/A0ABF7PFZ5__5kef_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q5SPW0__3n1e_B.cif]
+[INFO] PdbUtils - loading file [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/in0/Q90WW1__3alr_C.cif]
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/MET.cif OR store locally to /tmp/chemcomp/MET.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ALA.cif OR store locally to /tmp/chemcomp/ALA.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/MET.cif OR store locally to /tmp/chemcomp/MET.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ASP.cif OR store locally to /tmp/chemcomp/ASP.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/GLU.cif OR store locally to /tmp/chemcomp/GLU.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/VAL.cif OR store locally to /tmp/chemcomp/VAL.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/GLN.cif OR store locally to /tmp/chemcomp/GLN.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ARG.cif OR store locally to /tmp/chemcomp/ARG.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/PHE.cif OR store locally to /tmp/chemcomp/PHE.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/TRP.cif OR store locally to /tmp/chemcomp/TRP.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/LYS.cif OR store locally to /tmp/chemcomp/LYS.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/TYR.cif OR store locally to /tmp/chemcomp/TYR.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/CYS.cif OR store locally to /tmp/chemcomp/CYS.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/SER.cif OR store locally to /tmp/chemcomp/SER.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/THR.cif OR store locally to /tmp/chemcomp/THR.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/SER.cif OR store locally to /tmp/chemcomp/SER.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/LEU.cif OR store locally to /tmp/chemcomp/LEU.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/LEU.cif OR store locally to /tmp/chemcomp/LEU.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/HIS.cif OR store locally to /tmp/chemcomp/HIS.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/HIS.cif OR store locally to /tmp/chemcomp/HIS.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/PRO.cif OR store locally to /tmp/chemcomp/PRO.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ILE.cif OR store locally to /tmp/chemcomp/ILE.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ASN.cif OR store locally to /tmp/chemcomp/ASN.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/ILE.cif OR store locally to /tmp/chemcomp/ILE.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/GLY.cif OR store locally to /tmp/chemcomp/GLY.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/GLY.cif OR store locally to /tmp/chemcomp/GLY.cif.gz Error =Connection refused
+[ERROR] DownloadChemCompProvider - Could not download https://files.rcsb.org/ligands/download/GLY.cif OR store locally to /tmp/chemcomp/GLY.cif.gz Error =Connection refused
+[INFO] Struct - all groups in chain B: 141
+[INFO] Struct - all groups in chain C: 67
+[INFO] Struct - all groups in chain B: 152
+[INFO] Struct - all groups in chain B: 141
+[INFO] Struct - all groups in chain C: 67
+[INFO] Struct - all groups in chain B: 152
+[INFO] Struct - 67 groups in chain C
+[INFO] Struct - 141 groups in chain B
+[INFO] Struct - 152 groups in chain B
+[INFO] Protein - structure atoms: 532
+[INFO] Protein - protein   atoms: 519
+[INFO] Protein - ignoring ligands
+[INFO] Protein - structure atoms: 1139
+[INFO] Protein - structure atoms: 1222
+[INFO] Protein - protein   atoms: 1127
+[INFO] Protein - protein   atoms: 1206
+[INFO] Protein - ignoring ligands
+[INFO] Protein - ignoring ligands
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] FeatureSetup - enabledFeatures: [chem, volsite, protrusion, bfactor, atom_table]
+[INFO] Protein - SAS points: 1705
+[INFO] Protein - SAS points: 2808
+[INFO] Protein - SAS points: 3274
+[INFO] Protein - exposed protein atoms: 417 of 519
+[INFO] Protein - exposed protein atoms: 860 of 1127
+[INFO] Protein - exposed protein atoms: 898 of 1206
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 1705
+[INFO] PocketPredictor - LIGANDABLE POINTS: 0
+[INFO] PocketPredictor - CLUSTERS: 0
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 2808
+[INFO] PocketPredictor - LIGANDABLE POINTS: 1
+[INFO] PocketPredictor - CLUSTERS: 1
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+[INFO] SLinkClusterer - clustering [4] elements
+[INFO] SLinkClusterer - clusters: [id:1( 2 ), id:3( 2 )]
+[INFO] SLinkClusterer - clusters together: 4 / 4
+[INFO] PocketPredictor - PREDICTING POCKETS.... ====================================
+[INFO] PocketPredictor - SAS POINTS: 3274
+[INFO] PocketPredictor - LIGANDABLE POINTS: 4
+[INFO] PocketPredictor - CLUSTERS: 2
+[INFO] PocketPredictor - FILTERED CLUSTERS: 0
+predicting pockets finished in 0 hours 0 minutes 1.800 seconds
+[INFO] Console - predicting pockets finished in 0 hours 0 minutes 1.800 seconds
+results saved to directory [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out0]
+[INFO] Console - results saved to directory [/cluster/project/beltrao/gmagnus/pocket_detect/results/review_dev/p2rank_spot/out0]
+
+[INFO] Console - 
+Finished successfully in 0 hours 0 minutes 2.524 seconds.
+[INFO] Console - Finished successfully in 0 hours 0 minutes 2.524 seconds.
