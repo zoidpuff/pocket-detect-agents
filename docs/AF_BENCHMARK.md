@@ -228,3 +228,125 @@ During development, `MIN_RESTYPE_ID` was lowered from 0.9 to 0.75 after inspecti
 | SIFTS pdb_chain_uniprot | `https://ftp.ebi.ac.uk/pub/databases/msd/sifts/flatfiles/tsv/pdb_chain_uniprot.tsv.gz` | 2026-10-18 (PDB 42.26, UniProt 2026.03); retrieved 2026-10-26 | sha256 `3ff549da37104bdd950cd78a939be55e93d7eb0279877f57d2134f58762f0f39` | CC-BY 4.0 (EMBL-EBI) | `data/processed/af/external/pdb_chain_uniprot.tsv.gz` | chain → UniProt residue mapping; PDB entry counts |
 | AF test-set ground truth | derived (scripts/data/build_af_set.py) from LIGYSIS (Zenodo 14645504, MIT) + PDB mirror | 2026-10-26 | input sha256 in `data/processed/af/build_info.json` | derived; MIT / CC0 inputs | `data/processed/af/` | 3,465 proteins, 10,341 sites (benchmark subset 6,731) |
 | AFDB PAE | `https://alphafold.ebi.ac.uk/files/AF-<ACC>-F1-predicted_aligned_error_v6.json` | not obtained (HTTP 403 from the cluster) | — | CC-BY 4.0 | — | not used (DESIGN §2.6 requires train + test) |
+
+---
+
+# Track C2: AF-model training and dev labels for the AF-aware ranker (DESIGN §2.6 item 4)
+
+```
+nohup .venv/bin/python scripts/data/build_af_train_index.py --jobs 16 > data/processed/af_train/index.log 2>&1   # ~1.5 min
+nohup .venv/bin/python scripts/data/build_af_train_set.py   --jobs 16 > data/processed/af_train/build.log 2>&1   # ~1 min
+.venv/bin/python scripts/data/build_af_stress.py            # AF stress list (descriptive)
+.venv/bin/python scripts/data/build_af_train_verify.py      # 19 checks -> data/processed/af_train/verify_report.json
+```
+
+The build uses Track A's **audit-filtered** manifests: train has 6,475 entries and dev has 579. The 186 entries in `data/manifests/train_dev_audit_exclusions.tsv` are absent. The sha256 of each manifest is recorded in `build_info.json`, and the verify script fails if either manifest changes. If Track A changes its manifests again, re-run `build_af_train_set.py` and the verify script. The index step only needs re-running if new UniProts appear. `build_af_train_set.py` deletes old entry files before writing, so entries from a previous manifest cannot survive.
+
+## C2.1 Accession → tar index (single pass per tar)
+
+- All 47 local tars were scanned in parallel with 16 processes: 46 proteome tars plus `swissprot_cif_v6.tar`. `swissprot_pdb_v6.tar` was skipped because it holds the same models as PDB.
+- The index `afdb_index.parquet` has 1,661,814 members over 989,696 accessions. It stores tar offsets, so later lookups need no rescan.
+- In the same pass, the F1 `cif.gz` was extracted for every train/dev accession; the 7,260 accessions are taken from the pre-audit manifests, a superset of the current ones.
+  - Fragmented proteins (any F > 1) are skipped.
+  - A proteome tar is preferred over SwissProt. Where both contain a model, the sha256 values are identical.
+- Result: 3,323 models extracted (277 MB), 8 fragmented, 3,929 absent.
+
+Most absent accessions are unreviewed (TrEMBL) entries from species outside the 46 proteomes. The local mirror holds only those proteomes plus SwissProt.
+
+## C2.2 Transfer of site ligands
+
+**Mapping.** Each Track A representative chain is mapped onto the AF model as follows:
+
+- The representative's observed sequence (`rep_seq`, matched to `rep_res_keys`) is aligned to the AF sequence. The alignment is a numba Gotoh overlap alignment with free end gaps: match +3, mismatch −2, gap open −8, gap extend −1.
+- For chimeric entries with several accessions, the accession that maps the most site residues to identical residue types is used.
+- SIFTS was not used for the mapping, so it serves as an independent check: on a sample, 728 of 728 site residues agree with SIFTS.
+
+**Superposition.** For each site:
+
+- A Kabsch fit is computed on the Cα of the mapped site residues. If fewer than 3 Cα are available, the fit uses the Cα of mapped residues within 8 Å of the site's ligand atoms.
+- All pooled ligand heavy atoms of the site are moved rigidly with that fit.
+
+**Drop rules.** A site is dropped, and counted, for any of the following:
+
+- fewer than 50% of its residues mapped (`unmapped`);
+- fewer than 3 superposition pairs (`too_few_pairs`);
+- residue-type identity below 0.75 (`identity`);
+- local RMSD above 3 Å (`rmsd`).
+
+| | train | dev |
+|---|---|---|
+| entries (Track A, filtered) | 6,475 | 579 |
+| entries with an AF model | 2,902 (**44.8%**) | 283 (**48.9%**) |
+| skipped: no AF model / fragmented | 3,566 / 7 | 296 / 0 |
+| **entries with ≥ 1 transferred site (`ok`)** | **2,844 (43.9%)**; 2,474 30% clusters; 2,311 with `rank_in_cluster==0` | **278 (48.0%)**; 254 clusters; 240 rank-0 |
+| entries with an AF model but no valid site | 58 | 5 |
+| sites on entries with an AF model → kept | 6,394 → **6,238** | 624 → **607** |
+| dropped sites: RMSD > 3 / identity < 0.75 / unmapped / too few pairs | 89 / 49 / 17 / 1 | 7 / 7 / 3 / 0 |
+
+- Local RMSD of kept sites: median 0.23 Å; 90th percentile 0.72 Å; 99th percentile 2.25 Å.
+- Mean pLDDT of kept sites: ≥ 90 for 5,989; 70–90 for 799; 50–70 for 50; < 50 for 7.
+- Median fraction of residues with pLDDT < 50 per protein: 0.017 for train, 0.011 for dev.
+
+**Caveats.**
+
+- **Coverage.** Coverage is about 45% of entries, limited to proteins in the local AFDB copy. The covered subset is biased towards SwissProt and model organisms.
+- **Holo bias.** Training sites are as holo-biased and high-confidence as the test sites.
+- **Few low-confidence examples.** The ranker will see few low-pLDDT sites. Low-pLDDT *negatives* (hallucinated pockets) are plentiful, because every model carries its disordered regions.
+
+**Split integrity.** The split is exactly Track A's. The verify script confirms:
+
+- No accession is shared between train and dev.
+- No train/dev accession appears in the AF test set.
+- There are no stale files.
+
+## C2.3 Files (`data/processed/af_train/`, git-ignored)
+
+| file | content |
+|---|---|
+| `afdb_index.parquet` | accession, fragment, version, extension, tar, member, data offset, size (all local AFDB members) |
+| `model_index.csv`, `index_info.json` | per train/dev accession: extracted / fragmented / absent, source tar, sha256 |
+| `models/AF-<ACC>-F1-model_v6.cif.gz` | 3,323 models |
+| `{train,dev}/manifest.csv` | one row per Track A entry: `status` (ok / no_af_model / fragmented / no_alignment / no_valid_site), `acc`, `model_path`, `npz`, alignment identity and coverage, protein pLDDT stats, site counts and drop counts, `cluster30` / `group` / `rank_in_cluster` (copied from Track A) |
+| `{train,dev}/entries/<entry_id>.npz` | AF-frame labels; no pickles |
+| `sites.csv` | one row per site considered: kept or drop reason, RMSD, identity, mapped fraction, pairs, superposition set, pLDDT |
+
+The `.npz` entry files contain:
+
+- `meta_json`
+- `af_res_nums`, `af_seq`, `plddt` (per residue)
+- `lig_coords`, `lig_elements`, `lig_ptr`, `lig_site`, `lig_is_ion`, `lig_ccd`, `lig_id`
+- `site_residues` (`;`-joined AF residue numbers, which equal UniProt positions)
+- `site_src_index` (index of the site in the Track A entry)
+- `site_rmsd`, `site_identity`, `site_frac_mapped`, `site_n_pairs`, `site_sup_set`, `site_is_ion`, `site_plddt_mean`, `site_plddt_min`, `site_center`
+
+**Loader.** `scripts/data/build_af_train_io.py` mirrors `pocketdetect.datasets.trainset`:
+
+- `read_af_manifest(split)`
+- `load_af_entry(npz)`, which returns an `AFTrainEntry` with `.ligand_atoms(ions)`, `.site_table()`, `.site_residues()`, `.plddt`, `.res_nums`
+- `load_af_input(entry)`, which loads the AF model with protein heavy atoms only; the B-factor holds pLDDT
+
+## C2.4 AF stress set (descriptive; no new labels)
+
+`data/processed/af/af_stress_set.csv` lists 300 proteins: the included LBS-subset proteins of the AF test set with the largest fraction of residues at pLDDT < 50 (ties broken by accession). The threshold is a fraction of at least 0.375. Labels are the existing AF test-set sites; filter `load_af_dataset()` by `structure_id`. Statistics are in `af_stress_stats.json`:
+
+| | stress (300) | rest (2,227) |
+|---|---|---|
+| fraction pLDDT < 50, median (10th–90th percentile) | 0.49 (0.39–0.70) | 0.086 (0.004–0.26) |
+| length, median | 745 | 440 |
+| sites (all LIGYSIS sites) / per protein | 876 / 2.9 | 6,444 / 2.9 |
+| sites within 8 Å of a prunable segment | **42.8%** | 17.4% |
+| site pLDDT bands (≥ 90 / 70–90 / 50–70 / < 50) | 553 / 309 / 8 / 6 | 4,763 / 1,575 / 97 / 9 |
+
+The true sites are still mostly confident; they are structured domains embedded in disordered proteins. The stress lies in the large disordered mass next to the sites. This set is therefore suited to measuring hallucinated pockets, for example pockets with mean pLDDT < 50 that match no site, and occlusion of real sites by nearby low-confidence segments.
+
+## C2.5 Verification (`build_af_train_verify.py`: 19/19 PASS)
+
+- **Split integrity** (12 checks): AF manifest entries equal the filtered Track A manifests; split columns are correct; no audit-excluded entries; manifest sha256 matches; npz files equal the ok entries; no accession shared between train and dev or with the AF test set.
+- **Thresholds**: every kept site has RMSD ≤ 3 Å, identity ≥ 0.75 and mapped fraction ≥ 0.5.
+- **Models**: model sha256 equals the index for all 3,122 ok entries.
+- **Seeded sample of 200 entries**:
+  - pLDDT equals the Cα B-factor.
+  - Rigid-body transfer: intra-ligand distances deviate from the source atoms by at most 6×10⁻⁶ Å.
+  - Every transferred site ligand lies within 4.63 Å of its AF site residues (median 2.3 Å).
+  - Alignment mapping agrees with SIFTS for 728 of 728 residues.
+- **Stress set**: 300 included LBS proteins, sorted, with nothing above the threshold left out.
