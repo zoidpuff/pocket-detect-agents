@@ -44,7 +44,10 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 2.C AF test set: 2,527 proteins/6,731 sites (LBS subset, primary O5); holo-biased (median local RMSD 0.38 Å), only 95 sites pLDDT<70; PAE unavailable (403) → dropped
   - [x] 2.D Dimer benchmark: 400 complexes (274 homo/126 hetero), 807 unique sites, 243 interface (177 homo, 66 hetero); oracle ceiling 1.0 (J≥0.5)
 - [x] 3. Baselines wrapped: P2Rank 2.5.1/2.4.2 (Temurin 17), fpocket 4.2.3/4.0.3 (-O0), fpocket+PRANK; optional: pyKVFinder, DeepPocket, PUResNet v2 (torch port), GrASP, VN-EGNN, IF-SitePred, Kalasanty, PocketMiner
-  - [~] 3.1 Run mandatory baselines on all test sets; LIGYSIS re-run reproduction gate (±2 pts); P2Rank batch-mode timing
+  - [x] 3.1 Mandatory baselines on all test sets; [!] LIGYSIS re-run gate PASS (P2Rank 2.4.2 52.6 vs pub 51.9; fpocket4.2.3+PRANK 59.5 vs 60.4); PREREG A3 (authors used fpocket 4.2.x)
+    - Baseline headlines (P2Rank 2.5.1 / fpocket / fpocket+PRANK): COACH420 DCA4 top-n 69.4/39.6/67.0; HOLO4K 76.6/35.6/70.5; CryptoBench top-N+2 71.9/34.1/59.6; PocketWatch 75.3 (af 75.8)/32.7/70.2; AF set 47.3 (af 51.4)/33.0/48.6; dimer interface (assembly) 87.7/63.4/86.8, (isolated chain) 55.4/49.8/68.3; LIGYSIS C1-strict DCA top-N+2: P2Rank 29.8, fpocket4.0.3+PRANK 31.8
+    - Speed: P2Rank 2.5.1 one JVM 0.3 s/struct (1 thread), 0.05 s (8 threads), 3.3 s with JVM per structure; fpocket 0.62 s (loaded shared node)
+    - Optional: GrASP CryptoBench 71.9, PUResNet v2 64.4 (scPDB-trained, leaky)
 - [~] 4. DESIGN.md + review rounds
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
   - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
