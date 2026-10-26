@@ -83,6 +83,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [x] Strata: near-low-pLDDT sites (train-OOF 640): no mechanism helps vs pLDDT<70 filter (prune+soft −1.6 [−4.3,+1.2]; λ and stronger curves hurt); pl-AF-ranker −3.0 recall there but P@k +7.7 / top-1 +4.8 in >30%-disorder proteins; hallucinations in >30% bin 37.1% naive → ~0.2% pruned
     - [x] D8: --af-mode = prune + soft occlusion + standard ranker (recall-optimal; O5); pl AF ranker optional `--af-ranker` for calibrated proteome screening
 - [~] 7. CPU/GPU backends + throughput
+  - [!] 7.3 Fast backend ported to FREEZE v1 (exact 64/64 × 4 models × CPU/GPU). Default preset: 66 ms/core median warm excl. parsing (81 incl.; p90 148) on 40 LIGYSIS chains, 109 ms median on 200 larger chains; 6,392 structs/min on 32 CPU workers, 5,505/min on 3 GPUs; P2Rank 47 ms/struct and fpocket 39 ms/struct at 32-way parallelism on the same chains (node load ~80)
+  - [~] 7.4 Proteome-scale demo: human AFDB v6 naive vs --af-mode, P2Rank-alphafold 500-protein comparison
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
 - [ ] 8. Final benchmark + REPORT.md
