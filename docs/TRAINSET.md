@@ -270,3 +270,69 @@ are the place to see it.
 20. The 50%-identity diversity clusters (`clu50`) only steer which extra UniProts are added per 30% cluster; `rank_in_cluster == 0` is the strict one-per-cluster set.
 21. Sequences of obsolete test entries (10) come from the dataset files' observed residues.
 
+
+## 12. Apo counterparts of train/dev entries (Track A2)
+
+Purpose: apo-robust training (pocket labels on ligand-free conformations). Runner:
+`scripts/data/build_apo_train_all.sh` (search → pool → leakcheck → verify; detached with nohup).
+Scripts `scripts/data/build_apo_train_{search,pool,leakcheck}.py`, `scripts/data/verify_apo_train.py`;
+reader `pocketdetect.datasets.apotrain` (`read_apo_manifest`, `load_apo_entry` = `trainset.load_entry`,
+`load_input`). Output `data/processed/apo_train/{train,dev}/{manifest.csv,entries/*.npz}` (104 MB incl. work).
+Parents = the audit-filtered manifests (train 6,475, dev 579 entries).
+
+**Method.**
+1. Candidates: MMseqs2 search of each parent's observed representative sequence against all
+   1,069,687 protein chains of the mirror (`pdb_seqres.txt`, 176,858 unique sequences; DBs created
+   explicitly as protein — easy-search mis-typed this set as nucleotide), fident ≥ 0.95, query
+   coverage ≥ 0.90; X-ray/EM, 0 < resolution ≤ 3.0 Å (`resolu.idx`); excluded: any test PDB ID
+   (builder union + audit idmaps), the parent's own entry, the parent's pooled holo source entries.
+   → 20,513 chains for 1,668 train / 161 dev parents. (Most parents are single-structure proteins
+   after leakage removal, hence only ~26% have any candidate.)
+2. Per parent, up to 15 candidate entries (best resolution first; one chain per entry). **Apo test**:
+   no BioLiP2-listed ligand of that entry (any receptor chain; ions and peptide/RNA/DNA ligand
+   chains included) with a heavy atom ≤ 6 Å from any heavy atom of the parent's site residues mapped
+   onto the candidate. Entries released after the BioLiP2 snapshot (≈1–2%) use a stricter rule: any
+   non-water hetero group outside a fixed additive list, and any nucleic acid, counts. Non-relevant
+   hetero groups / protein partners near the site and BioLiP ligands elsewhere on the chain are
+   allowed and recorded (`n_biolip_ligands_on_chain` > 0 for 4.7% train inputs).
+3. Transfer per parent site: local Cα superposition (parent residues within 10 Å of the site's pooled
+   ligand atoms, ≥ 6 aligned pairs, ≥ 70% of site residues present), kept if local RMSD ≤ 3.0 Å.
+   Recorded: `site_local_rmsd`, `site_ca_rmsd`, `site_pocket_rmsd` (heavy-atom RMSD of matched
+   site-residue atoms), `site_cryptic_like` = pocket RMSD ≥ 2.0 Å, `site_clash_frac`. Ligand atoms are not
+   clash-trimmed (`lig_atom_min_dist` stored); ligands > 4.5 Å from the apo chain are dropped (14).
+   Untransferred parent sites are stored as `mask_residues['untransferred_site']`.
+4. ≤ 2 apo chains per parent, different entries: largest max pocket RMSD first, then the one whose
+   per-site pocket-RMSD vector differs most (L1).
+5. Leakage check of every selected chain (observed AND SEQRES sequence): §9 rule vs builder test union
+   and the audit observed-sequence test set (`results/audit/test_union.fasta`), and vs the other
+   split's representatives + apo inputs; test PDB IDs re-checked. 135 of 1,951 inputs dropped
+   (`leak_dropped.tsv`: 116 test union, 105 audit set (overlapping), 20 other split) — mostly
+   longer SEQRES constructs.
+
+Candidate outcomes (5,365 chains examined): holo at site 4,404 · accepted 2,892 · no site transferable
+228 · alignment identity < 0.9 151 · site residues unresolved 126.
+
+**Results** (`pool_counts.json`, `leakcheck_counts.json`, `verify_report.json`):
+
+| | train | dev |
+|---|---|---|
+| apo inputs | **1,656** | **160** |
+| parents with ≥ 1 apo chain (of all parents) | 1,223 (18.9%) | 114 (19.7%) |
+| parents with 2 apo chains | 433 | 46 |
+| transferred sites | 3,202 | 325 |
+| cryptic-like sites (pocket RMSD ≥ 2 Å) | 297 (**9.3%**) | 24 (7.4%) |
+| apo inputs with ≥ 1 cryptic-like site | 263 | 22 |
+| pocket RMSD median / p90 / p99 (Å) | 0.73 / 1.92 / 3.82 | 0.73 / 1.82 / 4.31 |
+
+**Verification: PASS** — parents in the same split, no apo chain in both splits, none equal to its parent
+chain; structure-derived sequences: 0 rule hits vs builder test union, vs audit test set, and vs the
+other split's representatives; no PDB overlap with any test set, CryptoBench (apo+holo) or PocketMiner
+entries; seeded 300-input sample: 0 BioLiP-relevant ligands within 6 Å of site residues (296
+BioLiP-covered), 100% of transferred ligands within 4.5 Å of the apo chain (min-distance median 2.3 Å,
+5% < 1.0 Å = closed/cryptic pockets).
+
+**Assumptions / caveats.** Apo = "no BioLiP-relevant ligand near the site" (crystallisation additives,
+non-relevant ions and protein partners may be present); the cryptic-like flag uses heavy-atom pocket RMSD
+(side chains included), so it also captures side-chain rotamer changes; the chain with the largest pocket
+change is preferred (selection bias toward conformational diversity, by design); apo inputs inherit the
+parent's UniProt/cluster, so cluster-level weighting should count parent + apo together.

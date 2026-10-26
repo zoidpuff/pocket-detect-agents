@@ -50,3 +50,22 @@ def mmseqs_search(query_fasta: str | Path, target_fasta: str | Path, out_m8: str
     subprocess.run(cmd, check=True, env={**os.environ, "OMP_NUM_THREADS": str(threads)})
     shutil.rmtree(tmp, ignore_errors=True)
     return read_m8(out_m8)
+
+
+def mmseqs_search_protein(query_fasta, target_fasta, out_m8, tmp, threads: int = 24, extra: list | None = None,
+                          columns: list | None = None, mmseqs=MMSEQS) -> None:
+    """Like :func:`mmseqs_search` but with databases created explicitly as amino-acid (``--dbtype 1``):
+    easy-search auto-detects the type from the first sequences and can mistake a protein set that
+    starts with e.g. poly-Ala for nucleotides (observed for the full PDB seqres set)."""
+    tmp = Path(tmp)
+    if tmp.exists():
+        shutil.rmtree(tmp)
+    tmp.mkdir(parents=True)
+    env = {**os.environ, "OMP_NUM_THREADS": str(threads)}
+    run = lambda *a: subprocess.run([str(mmseqs), *map(str, a)], check=True, env=env)  # noqa: E731
+    run("createdb", query_fasta, tmp / "q", "--dbtype", "1", "-v", "1")
+    run("createdb", target_fasta, tmp / "t", "--dbtype", "1", "-v", "1")
+    run("search", tmp / "q", tmp / "t", tmp / "r", tmp / "w", "--threads", threads, "-v", "1", *(extra or []))
+    run("convertalis", tmp / "q", tmp / "t", tmp / "r", out_m8, "--format-output", ",".join(columns or M8_COLUMNS),
+        "--threads", threads, "-v", "1")
+    shutil.rmtree(tmp, ignore_errors=True)

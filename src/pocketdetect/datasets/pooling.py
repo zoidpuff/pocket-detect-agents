@@ -20,7 +20,7 @@ import gemmi
 import numpy as np
 from scipy.cluster.hierarchy import fcluster, linkage
 
-__all__ = ["ChainData", "EntryData", "load_entry", "align_map", "kabsch", "cluster_sites", "parse_bres",
+__all__ = ["ChainData", "EntryData", "load_entry", "prep_structure", "align_map", "kabsch", "cluster_sites", "parse_bres",
            "residue_key"]
 
 _STD20 = set("ACDEFGHIKLMNPQRSTVWY")
@@ -41,6 +41,7 @@ class ChainData:
     ca: np.ndarray  # (R,3) float64, NaN if no CA
     atoms: np.ndarray  # (A,3) float32 protein heavy atoms
     atom_res: np.ndarray  # (A,) int32 residue index
+    atom_names: list | None = None  # (A,) atom names (for per-residue atom matching)
 
     @property
     def key_index(self) -> dict:
@@ -63,16 +64,22 @@ def _one_letter(name: str) -> str:
     return c if c in _STD20 else "X"
 
 
-def load_entry(path: str, want_ligands: bool = True) -> EntryData:
+def prep_structure(path: str) -> gemmi.Structure:
     st = gemmi.read_structure(str(path))
     st.setup_entities()
     st.remove_hydrogens()
     st.remove_alternative_conformations()
+    return st
+
+
+def load_entry(path: str, want_ligands: bool = True, structure: gemmi.Structure | None = None) -> EntryData:
+    """``structure``: an already prepared gemmi.Structure (see :func:`prep_structure`)."""
+    st = structure if structure is not None else prep_structure(path)
     model = st[0]
     ed = EntryData(pdb=st.name.lower())
     for ch in model:
         poly = ch.get_polymer()
-        keys, names, seq, ca, atoms, ares = [], [], [], [], [], []
+        keys, names, seq, ca, atoms, ares, anames = [], [], [], [], [], [], []
         for r in poly:
             info = gemmi.find_tabulated_residue(r.name)
             is_aa = (info is not None and info.is_amino_acid()) or (r.find_atom("CA", "*") is not None and r.find_atom("N", "*") is not None)
@@ -87,6 +94,7 @@ def load_entry(path: str, want_ligands: bool = True) -> EntryData:
             for at in r:
                 atoms.append((at.pos.x, at.pos.y, at.pos.z))
                 ares.append(ri)
+                anames.append(at.name)
         if keys:
             if ch.name in ed.chains:  # same author chain split into several gemmi chains: append
                 old = ed.chains[ch.name]
@@ -94,10 +102,11 @@ def load_entry(path: str, want_ligands: bool = True) -> EntryData:
                 ed.chains[ch.name] = ChainData(ch.name, old.res_keys + keys, old.res_names + names, old.seq + "".join(seq),
                                                np.vstack([old.ca, np.array(ca, float)]),
                                                np.vstack([old.atoms, np.array(atoms, np.float32)]),
-                                               np.concatenate([old.atom_res, np.array(ares, np.int32) + off]))
+                                               np.concatenate([old.atom_res, np.array(ares, np.int32) + off]),
+                                               (old.atom_names or []) + anames)
             else:
                 ed.chains[ch.name] = ChainData(ch.name, keys, names, "".join(seq), np.array(ca, float),
-                                               np.array(atoms, np.float32).reshape(-1, 3), np.array(ares, np.int32))
+                                               np.array(atoms, np.float32).reshape(-1, 3), np.array(ares, np.int32), anames)
         if want_ligands:
             for r in ch:
                 if r.is_water():
