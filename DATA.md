@@ -306,3 +306,9 @@ Most common HOLO4K ligands: NAD, FAD, HEM, PLP, ADP, FMN. These numbers are sani
 - Built by `scripts/data/build_dimer_{common,scan,select}.py` from BioLiP2 (2025-11-12) + local PDB mirror assembly-1 files; spec docs/DIMER_BENCHMARK.md, eval `scripts/eval_dimer.py`.
 - 400 complexes (274 homo, 126 hetero) over 450 LIGYSIS UniProts; 807 unique sites (J≥0.5 grouping; PREREG A1): 494 single-chain, 177 homo-interface, 66 hetero-interface, 70 minor-interface; 301 ions.
 - Local: data/processed/dimer/ (git-ignored; regenerable). Chain manifest copy: data/manifests/dimer_manifest_chains.tsv (sha256 of original 0196c7e3…). License: derived from CC0 PDB + BioLiP2 (freely available).
+
+## Derived: AF-mode benchmark (Track C, 2026-10-26)
+- Built by `scripts/data/build_af_{extract,set,io}.py` from AFDB v6 human proteome tar (+5 from SwissProt tar) and LIGYSIS sites; spec/caveats docs/AF_BENCHMARK.md; verify `scripts/data/verify_af_set.py` (25/25 checks).
+- 3,465 proteins / 10,341 sites (all LIGYSIS sites); **primary O5 set = LBS-benchmark subset: 2,527 proteins / 6,731 sites** (PI decision: same chains/sites as C1 → paired PDB-vs-AF comparison). 42 fragmented proteins excluded. Ligand atoms transferred by local Cα superposition (median RMSD 0.37 Å).
+- PAE: not obtainable (AFDB file endpoint HTTP 403 from cluster) → PAE mechanism dropped (it was on the cut list); structure-only inter-domain surrogate only.
+- Local: data/processed/af/ (git-ignored; regenerable). AFDB license CC-BY 4.0.
