@@ -20,6 +20,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D8 (21:15): AF mode default = prune + soft (40/80) + standard ranker; AF (pLDDT-feature) ranker optional — it trades recall near disorder for cross-protein calibration.
 - D7 (20:15): Accept G1 deviation (fallback worse than primary); NMS by one-to-one P1K; phase-3 selection on train-CV to limit dev optimism; freeze 23:00.
 - D6 (18:40): Leakage audit fix is conservative — drop every entry flagged under any tier (186 entries, ~2.6%) rather than only the 8 hard failures; manifests filtered by scripts/data/apply_audit_exclusions.py.
 - D5 (17:15): Speed budget — default preset ≤ ~100 ms/core (≥5× faster than P2Rank) within 0.5 pts of best dev setting; optional `--preset accurate` if >1 pt better; pre-registered claims use the default. Feature design freeze ~23:00 (backend port before 01:00 freeze). Fast backend post-feature path already bit-identical (79 vs 252 ms).
@@ -75,7 +76,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [x] They remove hallucinated pockets (6.6% → 0.1%) without discarding 50–70 pLDDT pockets; random pruning costs −2.5 to −3.1 (control OK); no-op byte-identical; 1/607 sites lost to pruning
     - [x] AF ranker (pLDDT features, AF+PDB rows): P1K +6.9 [+4.5,+9.9], DCA4 +0.7 [+0.1,+1.3]; PDB-dev non-inferior on DCC12
     - [-] Side-chain tolerance λ on all side chains hurts badly (λ0.25: −16 pts); domain surrogate no help
-    - [~] Stratify by proximity to low-pLDDT regions + disorder bins
+    - [x] Strata: near-low-pLDDT sites (train-OOF 640): no mechanism helps vs pLDDT<70 filter (prune+soft −1.6 [−4.3,+1.2]; λ and stronger curves hurt); pl-AF-ranker −3.0 recall there but P@k +7.7 / top-1 +4.8 in >30%-disorder proteins; hallucinations in >30% bin 37.1% naive → ~0.2% pruned
+    - [x] D8: --af-mode = prune + soft occlusion + standard ranker (recall-optimal; O5); pl AF ranker optional `--af-ranker` for calibrated proteome screening
 - [~] 7. CPU/GPU backends + throughput
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
