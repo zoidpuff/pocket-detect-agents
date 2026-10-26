@@ -50,7 +50,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [-] Speed: 586 ms/structure (target 70) — Python loops; perf pass after feature stabilisation
   - [~] 5.2 Phase 2: BioLiP2 train/dev, `all`/`small` rankers, NMS tuning with DCA4/P1K guard, fpocket-candidate ablation
 - [~] 6. AF mode
-  - [~] 6.1 Track C2: AFDB models for train/dev UniProts + transferred pooled labels; AF stress set (high-disorder proteins)
+  - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
+  - [~] 6.2 AF-mode developer: dev harness, mechanism ablations + mandatory controls, AF-aware ranker, P2Rank-alphafold on AF dev
 - [~] 7. CPU/GPU backends + throughput
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
