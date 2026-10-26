@@ -1,0 +1,19 @@
+mode            geometry  learned
+n_atoms           2093.5   2093.5
+parse_ms            13.6     13.6
+feat_points         15.4     15.3
+feat_prefilter      14.8     14.8
+feat_metal          17.5     17.4
+feat_rays           71.6     71.4
+feat_neighbors      29.2     30.7
+feat_misc           12.5     12.5
+features           164.3    161.7
+point_score          0.0    103.8
+pockets            104.6    150.8
+rank                23.3    159.9
+total              298.2    585.6
+mean:
+           total  parse_ms
+mode                     
+geometry  374.7      15.8
+learned   664.3      15.8

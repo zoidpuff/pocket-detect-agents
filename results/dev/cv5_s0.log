@@ -1,0 +1,7 @@
+fold 0: point model on 740679 pts (0.309 pos) (16s)
+fold 1: point model on 783172 pts (0.312 pos) (32s)
+fold 2: point model on 745773 pts (0.311 pos) (49s)
+fold 3: point model on 795440 pts (0.310 pos) (65s)
+fold 4: point model on 782864 pts (0.318 pos) (81s)
+pockets: 248258 candidates, 0.089 pos (97s)
+cv5 done (188s)
