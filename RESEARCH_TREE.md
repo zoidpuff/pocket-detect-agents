@@ -20,6 +20,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D9 (21:35): Test v1 = FREEZE v1 (5e13267) runs as soon as the gated pipeline is validated; a v2 cycle on apo robustness runs in parallel with a pre-fixed adoption gate; all test versions will be reported (≤3 before final per PREREG).
 - D8 (21:15): AF mode default = prune + soft (40/80) + standard ranker; AF (pLDDT-feature) ranker optional — it trades recall near disorder for cross-protein calibration.
 - D7 (20:15): Accept G1 deviation (fallback worse than primary); NMS by one-to-one P1K; phase-3 selection on train-CV to limit dev optimism; freeze 23:00.
 - D6 (18:40): Leakage audit fix is conservative — drop every entry flagged under any tier (186 entries, ~2.6%) rather than only the 8 hard failures; manifests filtered by scripts/data/apply_audit_exclusions.py.
@@ -67,7 +68,9 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [-] G1 on BioLiP dev: 58.6% at ≤40 geometric candidates (fpocket 47.3%) → gate failed as specified but fallback would be worse; kept BURROW candidates (deviation, G1.md addendum). Full pre-ranking pool 93.6%.
   - [x] 5.3 Independent review: CONFIRMED (own scorer + harness; CLI 30/30 bit-identical; gains hold at DCC≤4 Å +16.4 and one-to-one +24.8; BURROW hits median DCC 3.3 Å; surface tiling 15–38%; largest gain on fold-novel chains TM<0.5 +19.4). [!] Caveat: ion-only sites (34%) carry ~2/3 of `all` gain; non-ion ≈ +5 (CI touches 0 on 2/3 seeds). Bug: 8% top pockets empty residue list.
   - [x] 5.3b Apo-dev (CryptoBench train folds, 885 apo, 1,091 cryptic sites; dev only): [!] NEGATIVE — BURROW-small cryptic DCC12 62.1 vs P2Rank 68.5 (−6.3 [−9.2,−3.5]); DCA4 55.3 vs 50.6 (+4.5 [+1.8,+7.2]); non-cryptic DCC12 53.8 vs fpocket+PRANK 64.1; holo DCC12 72.1 vs 76.1. Max recall 99.5 vs 76.4 → ranking deficit on apo; O4 (CryptoBench test, DCC12 non-inferiority) at risk.
-  - [~] 5.4 Phase 3: `small` ranker + within-protein ranking improvements (selection by train cluster-CV; dev once); FREEZE 23:00
+  - [x] 5.4 Phase 3: 5 ranker candidates (relative feats, pair context, LambdaRank, seed ensemble, atom-propensity) selected on train 5-fold cluster-CV with pre-fixed rule → [-] none beat V0 (70.44 vs best alt 69.92); dev used once. Residue-list fix; provenance in models.
+  - [!] 5.5 FREEZE v1 = commit 5e13267 (21:28): dev `all` default top-N+2 65.0/DCA4 55.7/P1K 70.2 vs P2Rank 54.1/36.0/46.3 (all seeds CI>0); `small` non-ion 64.2/60.3/62.0 vs 58.4/47.8/41.1 (top-N+2 CI lo<0 for 1/3 seeds); apo-dev cryptic 61.8 vs 68.5
+  - [~] 5.6 v2 cycle (apo robustness; dev only): H1 AF-model augmentation, H2 side-chain dropout, H3 enclosure-independent ranker feats, H4 apo PDB chains (Track A2). Gate fixed: apo-dev cryptic +3 (CI>0) & BioLiP-dev top-N+2/DCA4 ≥ −0.5, P1K ≥ −1
 - [~] 6. AF mode
   - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
   - [~] 6.2 AF-mode developer (interim, AF dev 278 entries/607 sites + 10× train-OOF set):
