@@ -30,3 +30,4 @@
 | 2026-10-26 18:47 | dimer_assembly | grasp | GrASP train_full (scPDB) | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 1352 | 36.3/39.2 | 0 | baselines/outputs/dimer_assembly/grasp |
 | 2026-10-26 18:53 | dimer_chains | puresnet | PUResNet v2 | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 334 | 39.7/45.2 | 0 | baselines/outputs/dimer_chains/puresnet |
 | 2026-10-26 19:10 | dimer_chains | grasp | GrASP train_full (scPDB) | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 1011 | 45.4/35.3 | 0 | baselines/outputs/dimer_chains/grasp |
+| 2026-10-26 19:26 | af_set | puresnet | PUResNet v2 | baselines/outputs/inputs/af_set (see baselines/bench_inputs.py) | 2526 | 990 | 32.7/50.5 | 0 | baselines/outputs/af_set/puresnet |

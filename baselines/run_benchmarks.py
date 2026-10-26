@@ -105,6 +105,8 @@ def make_preds(bench, vdir):
     n = 0
     for f in raw.glob("*.pockets.csv"):
         stem = f.name[: -len(".pockets.csv")]
+        if bench == "af_set" and stem.endswith("-model_v6"):  # wrappers that resolve symlinks name outputs after the AFDB file
+            stem = stem[: -len("-model_v6")]
         shutil.copy(f, pdir / f"{stem}{suffix}.csv")
         n += 1
     if bench == "ligysis":
