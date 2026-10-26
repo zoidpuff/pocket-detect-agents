@@ -15,6 +15,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D6 (18:40): Leakage audit fix is conservative — drop every entry flagged under any tier (186 entries, ~2.6%) rather than only the 8 hard failures; manifests filtered by scripts/data/apply_audit_exclusions.py.
 - D5 (17:15): Speed budget — default preset ≤ ~100 ms/core (≥5× faster than P2Rank) within 0.5 pts of best dev setting; optional `--preset accurate` if >1 pt better; pre-registered claims use the default. Feature design freeze ~23:00 (backend port before 01:00 freeze). Fast backend post-feature path already bit-identical (79 vs 252 ms).
 - D4 (16:20): Session restart interrupted 5 agents; all resumed via SendMessage from on-disk state (no work lost). Node is SHARED with other users (foreign processes, GPU 2 partly used) → prefer GPUs 0,1,3; respect 128 GB RAM.
 - D3 (15:55): Start method pipeline before train set exists (dev on P2Rank's CHEN11/JOINED training sets — not test sets) to de-risk G1. Note: timestamps in D1/D2/PREREG header were estimated ~20 min late; git commit times are authoritative.
@@ -33,7 +34,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
   - [x] 2.A Train/dev: 6,644 train / 596 dev entries (5,303/513 clusters; 14,073/1,261 sites; ~37% ion-only sites); 77.4% of 268k BioLiP2 chains removed by leakage rule; test-union sha 27c3d793; 60% of train fold-disjoint (TM<0.5); verify PASS
-  - [~] 2.A' Independent leakage audit (separate agent, re-implemented checks from original sources)
+  - [x] 2.A' Independent leakage audit: marginal FAIL (7 assembly-partner inputs missed by builder; 85 borderline 0.30–0.35 id hits via observed-vs-canonical seq; 1 UniProt overlap) → D6: drop all flagged entries (train 6,475, dev 579)
   - [x] 2.C AF test set: 2,527 proteins/6,731 sites (LBS subset, primary O5); holo-biased (median local RMSD 0.38 Å), only 95 sites pLDDT<70; PAE unavailable (403) → dropped
   - [x] 2.D Dimer benchmark: 400 complexes (274 homo/126 hetero), 807 unique sites, 243 interface (177 homo, 66 hetero); oracle ceiling 1.0 (J≥0.5)
 - [x] 3. Baselines wrapped: P2Rank 2.5.1/2.4.2 (Temurin 17), fpocket 4.2.3/4.0.3 (-O0), fpocket+PRANK; optional: pyKVFinder, DeepPocket, PUResNet v2 (torch port), GrASP, VN-EGNN, IF-SitePred, Kalasanty, PocketMiner
