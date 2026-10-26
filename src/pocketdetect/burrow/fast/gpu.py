@@ -53,6 +53,14 @@ def prep(P, cfg: BurrowConfig = BurrowConfig(), weights=None) -> Prepped:
     return Prepped(P, R, c, X, weights, mp, md, np.argsort(X[:, 0].astype(np.float64), kind="stable"))
 
 
+def _f32x(x):
+    """Python floats reach Triton kernels as fp32: only allow values that are exact in fp32."""
+    x = float(x)
+    if float(np.float32(x)) != x:
+        raise ValueError(f"kernel scalar {x!r} is not exactly representable in float32")
+    return x
+
+
 class _Frames:
     """Per-structure absolute-aligned grids (host-computed, float64 exact like the CPU code)."""
 
@@ -91,7 +99,7 @@ def _grid_points(X64, radii64, batch, Xs, cfg, dev):
         gidx = (torch.arange(n, device=dev) - first[batch]).to(torch.int32)
         _launch(_grid64_kernel, (n,), dev, X64.contiguous(), fr.origin[batch].contiguous(), fr.atom_c0(X64, batch),
                 fr.base[batch].contiguous(), fr.dims[batch].to(torch.int32).contiguous(), off, off.shape[0],
-                ((radii64 + cfg.probe) ** 2).contiguous(), gidx, float(cfg.spacing), float(cfg.max_dist) ** 2,
+                ((radii64 + cfg.probe) ** 2).contiguous(), gidx, _f32x(cfg.spacing), _f32x(float(cfg.max_dist) ** 2),
                 key, clash, BO=256, num_warps=4)
     flat = torch.nonzero((key != INIT) & (clash == 0), as_tuple=True)[0]
     vb = torch.searchsorted(fr.base, flat, right=True) - 1
@@ -125,7 +133,7 @@ class _DualGrid:
             _launch(_dual64_kernel, (n,), dev, X64.contiguous(), fr.origin[batch].contiguous(), fr.atom_c0(X64, batch),
                     fr.base[batch].contiguous(), fr.dims[batch].to(torch.int32).contiguous(), off, off.shape[0],
                     rb64.contiguous(), mu_atom.contiguous(), bb.to(torch.int8).contiguous(),
-                    order_rank.to(torch.int32).contiguous(), float(spacing), self.mu, self.mub, key, BO=256, num_warps=4)
+                    order_rank.to(torch.int32).contiguous(), _f32x(spacing), self.mu, self.mub, key, BO=256, num_warps=4)
         has = key != INIT
         atom_of_rank = torch.empty_like(order_rank)
         atom_of_rank[order_rank] = torch.arange(len(order_rank), device=dev)
@@ -148,7 +156,8 @@ def _psp(pts, pb, grid, cfg, dev):
     bp = 64
     _launch(_psp64_kernel, ((P + bp - 1) // bp,), dev, pts.contiguous(), grid.origin[pb].contiguous(),
             grid.dims[pb].to(torch.int32).contiguous(), grid.base[pb].contiguous(), dirs, grid.mu, out, P,
-            dirs.shape[0], int(n_steps), float(grid.spacing), float(min_mu), BP=bp, DB=8, num_warps=4)
+            dirs.shape[0], int(n_steps), _f32x(grid.spacing),
+            torch.tensor([float(min_mu)], dtype=torch.float64, device=dev), BP=bp, DB=8, num_warps=4)
     return out
 
 
@@ -171,7 +180,8 @@ def _march(pts, pb, grid, cfg, dev):
     _launch(_march64_kernel, ((P + bp - 1) // bp,), dev, pts.contiguous(), grid.origin[pb].contiguous(),
             grid.dims[pb].to(torch.int32).contiguous(), grid.base[pb].contiguous(), dirs.contiguous(), grid.mu,
             grid.mub, grid.label, torch.as_tensor(ck, dtype=torch.int32, device=dev), blocked, blocked_bb, depth, hit,
-            P, K, float(step), float(ck[-1] * step), 1.0 / grid.spacing, NL=NL, NC=NC, BP=bp, RB=rb, num_warps=4)
+            P, K, _f32x(step), _f32x(ck[-1] * step), _f32x(1.0 / grid.spacing),
+            torch.tensor([0.6931471805599453], dtype=torch.float64, device=dev), NL=NL, NC=NC, BP=bp, RB=rb, num_warps=4)
     return blocked, blocked_bb, depth, hit
 
 

@@ -1,0 +1,249 @@
+{
+ "n_structures": 23586,
+ "n_proteins": 20550,
+ "n_fragmented_proteins": 215,
+ "n_fragments_of_fragmented": 3251,
+ "extraction_s": 49.5,
+ "modes": {
+  "naive": {
+   "structures_ok": 23586,
+   "structures_error": 0,
+   "errors": {},
+   "proteins_with_output": 20550,
+   "wall_s": 169.0,
+   "load": "52.96 62.40 72.33",
+   "structures_per_min_run": 8373.7,
+   "structures_per_min_incl_tar": 6476.7,
+   "pockets_per_protein_after_nms": {
+    "median": 50.0,
+    "mean": 54.08
+   },
+   "proteins_without_pockets": 0,
+   "top1_low_plddt": {
+    "n_pockets": 20550,
+    "frac_mean_plddt_lt50": 0.0781,
+    "frac_mean_plddt_lt70": 0.1794
+   },
+   "top3_low_plddt": {
+    "n_pockets": 61650,
+    "frac_mean_plddt_lt50": 0.0797,
+    "frac_mean_plddt_lt70": 0.1911
+   },
+   "by_disorder": {
+    "[0,0.1]": {
+     "n_proteins": 7409,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 22227,
+     "frac_mean_plddt_lt50": 0.006,
+     "frac_mean_plddt_lt70": 0.0635
+    },
+    "[0.1,0.3]": {
+     "n_proteins": 7170,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 21510,
+     "frac_mean_plddt_lt50": 0.0431,
+     "frac_mean_plddt_lt70": 0.1634
+    },
+    "[0.3,0.5]": {
+     "n_proteins": 3471,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 10413,
+     "frac_mean_plddt_lt50": 0.1183,
+     "frac_mean_plddt_lt70": 0.2927
+    },
+    "[0.5,1.0]": {
+     "n_proteins": 2500,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 7500,
+     "frac_mean_plddt_lt50": 0.3493,
+     "frac_mean_plddt_lt70": 0.5073
+    }
+   },
+   "known_pocket_recall": {
+    "all": {
+     "n_sites": 9754,
+     "n_proteins": 4247,
+     "recall_top1": 0.2232,
+     "recall_top3": 0.3814,
+     "recall_top5": 0.4502,
+     "recall_top10": 0.53,
+     "recall_top20": 0.5964
+    },
+    "ion": {
+     "n_sites": 3440,
+     "n_proteins": 1626,
+     "recall_top1": 0.3125,
+     "recall_top3": 0.5427,
+     "recall_top5": 0.6485,
+     "recall_top10": 0.7544,
+     "recall_top20": 0.8203
+    },
+    "nucleic": {
+     "n_sites": 1429,
+     "n_proteins": 794,
+     "recall_top1": 0.0189,
+     "recall_top3": 0.0595,
+     "recall_top5": 0.0917,
+     "recall_top10": 0.1414,
+     "recall_top20": 0.1966
+    },
+    "peptide": {
+     "n_sites": 973,
+     "n_proteins": 769,
+     "recall_top1": 0.0761,
+     "recall_top3": 0.1346,
+     "recall_top5": 0.1799,
+     "recall_top10": 0.2343,
+     "recall_top20": 0.296
+    },
+    "small_molecule": {
+     "n_sites": 3912,
+     "n_proteins": 2240,
+     "recall_top1": 0.2559,
+     "recall_top3": 0.4185,
+     "recall_top5": 0.4739,
+     "recall_top10": 0.5483,
+     "recall_top20": 0.6201
+    }
+   }
+  },
+  "afmode": {
+   "structures_ok": 23586,
+   "structures_error": 0,
+   "errors": {},
+   "proteins_with_output": 20421,
+   "wall_s": 128.7,
+   "load": "61.54 62.17 70.91",
+   "structures_per_min_run": 10995.8,
+   "structures_per_min_incl_tar": 7941.4,
+   "pockets_per_protein_after_nms": {
+    "median": 50.0,
+    "mean": 49.44
+   },
+   "proteins_without_pockets": 129,
+   "top1_low_plddt": {
+    "n_pockets": 20421,
+    "frac_mean_plddt_lt50": 0.0091,
+    "frac_mean_plddt_lt70": 0.113
+   },
+   "top3_low_plddt": {
+    "n_pockets": 61099,
+    "frac_mean_plddt_lt50": 0.0087,
+    "frac_mean_plddt_lt70": 0.1204
+   },
+   "by_disorder": {
+    "[0,0.1]": {
+     "n_proteins": 7409,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 22227,
+     "frac_mean_plddt_lt50": 0.0006,
+     "frac_mean_plddt_lt70": 0.0551
+    },
+    "[0.1,0.3]": {
+     "n_proteins": 7170,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 21510,
+     "frac_mean_plddt_lt50": 0.0042,
+     "frac_mean_plddt_lt70": 0.1011
+    },
+    "[0.3,0.5]": {
+     "n_proteins": 3471,
+     "median_pockets_after_nms": 50.0,
+     "n_pockets": 10412,
+     "frac_mean_plddt_lt50": 0.0166,
+     "frac_mean_plddt_lt70": 0.1802
+    },
+    "[0.5,1.0]": {
+     "n_proteins": 2500,
+     "median_pockets_after_nms": 49.0,
+     "n_pockets": 6950,
+     "frac_mean_plddt_lt50": 0.0363,
+     "frac_mean_plddt_lt70": 0.2994
+    }
+   },
+   "known_pocket_recall": {
+    "all": {
+     "n_sites": 9754,
+     "n_proteins": 4247,
+     "recall_top1": 0.2322,
+     "recall_top3": 0.3953,
+     "recall_top5": 0.4625,
+     "recall_top10": 0.5353,
+     "recall_top20": 0.6045
+    },
+    "ion": {
+     "n_sites": 3440,
+     "n_proteins": 1626,
+     "recall_top1": 0.3186,
+     "recall_top3": 0.552,
+     "recall_top5": 0.659,
+     "recall_top10": 0.7549,
+     "recall_top20": 0.8294
+    },
+    "nucleic": {
+     "n_sites": 1429,
+     "n_proteins": 794,
+     "recall_top1": 0.0259,
+     "recall_top3": 0.0588,
+     "recall_top5": 0.0931,
+     "recall_top10": 0.1407,
+     "recall_top20": 0.1959
+    },
+    "peptide": {
+     "n_sites": 973,
+     "n_proteins": 769,
+     "recall_top1": 0.0689,
+     "recall_top3": 0.1408,
+     "recall_top5": 0.1757,
+     "recall_top10": 0.2292,
+     "recall_top20": 0.2857
+    },
+    "small_molecule": {
+     "n_sites": 3912,
+     "n_proteins": 2240,
+     "recall_top1": 0.2722,
+     "recall_top3": 0.4438,
+     "recall_top5": 0.4959,
+     "recall_top10": 0.5624,
+     "recall_top20": 0.6352
+    }
+   }
+  }
+ },
+ "p2rank_subset": {
+  "n": 500,
+  "rows": [
+   {
+    "method": "BURROW naive (3 GPUs x 8 workers)",
+    "wall_s": 10.8,
+    "per_min": 2782.6,
+    "top3_lt50": 0.09,
+    "top3_lt70": 0.2027,
+    "median_pockets": 50.0
+   },
+   {
+    "method": "BURROW afmode (3 GPUs x 8 workers)",
+    "wall_s": 10.4,
+    "per_min": 2895.0,
+    "top3_lt50": 0.0102,
+    "top3_lt70": 0.1253,
+    "median_pockets": 50.0
+   },
+   {
+    "method": "P2Rank 2.5.1 -c alphafold (one JVM, 24 threads)",
+    "wall_s": 31.2,
+    "per_min": 960.5,
+    "top3_lt50": 0.0161,
+    "top3_lt70": 0.0985,
+    "median_pockets": 3.0
+   }
+  ],
+  "note": "500 random non-fragmented human AFDB proteins (seed 20261026). Wall-clock includes parsing, JVM / process start-up and writing; same node, run after the proteome jobs. Pocket pLDDT = mean residue pLDDT of the pocket's residues (P2Rank: its residue list; BURROW: residues <= 4 \u00c5 of pocket points).",
+  "load": [
+   "55.91",
+   "59.98",
+   "69.34"
+  ]
+ },
+ "peak_rss_GB": 17.5
+}

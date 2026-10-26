@@ -4,9 +4,11 @@
   "model": "burrow_small_default_s0.json",
   "device": "cpu",
   "ranker": "learned",
+  "af_mode": false,
+  "n_with_exact_w075_or_w05_atoms": 0,
   "top10_identical": 64,
   "exact": 64,
-  "date": "2026-10-26 21:34"
+  "date": "2026-10-26 22:14"
  },
  "rows": [
   {

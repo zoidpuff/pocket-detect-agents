@@ -6,18 +6,25 @@ Presets (`results/dev/FREEZE.md`): **default** = 30 rays, 6/10/16 Å, 3 Å sub-l
 
 ## Equivalence (fast backend == reference)
 
-`scripts/verify_burrow_fast.py`, 64 random BioLiP dev structures per run; `exact` = identical scores, centres, residue sets and pocket points for every structure.
+`scripts/verify_burrow_fast.py` against the frozen v1 reference (worktree at b6a896b): 64 random BioLiP dev structures per standard-mode run, 40 random AF dev models (`results/dev_af/af_dev_entries.csv`) per AF-mode run; `exact` = identical scores, centres, residue sets and pocket points for every structure.
 
-| model | device | structures | top-10 identical | exact |
-|---|---|---|---|---|
-| burrow_all_accurate_s0.json | cpu | 64 | 64 | 64 |
-| burrow_all_accurate_s0.json | cuda:0 | 64 | 64 | 64 |
-| burrow_all_default_s0.json | cpu | 64 | 64 | 64 |
-| burrow_all_default_s0.json | cuda:0 | 64 | 64 | 64 |
-| burrow_small_accurate_s0.json | cpu | 64 | 64 | 64 |
-| burrow_small_accurate_s0.json | cuda:0 | 64 | 64 | 64 |
-| burrow_small_default_s0.json | cpu | 64 | 64 | 64 |
-| burrow_small_default_s0.json | cuda:0 | 64 | 64 | 64 |
+| model | mode | device | structures | with pLDDT 60/70 atoms (w = 0.5/0.75) | top-10 identical | exact |
+|---|---|---|---|---|---|---|
+| burrow_all_accurate_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_all_accurate_s0.json | AF | cuda:0 | 40 | 8 | 40 | 40 |
+| burrow_all_default_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_all_default_s0.json | AF | cuda:0 | 40 | 8 | 40 | 40 |
+| burrow_all_accurate_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
+| burrow_all_accurate_s0.json | standard | cuda:3 | 64 | 0 | 64 | 64 |
+| burrow_all_default_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
+| burrow_all_default_s0.json | standard | cuda:0 | 64 | 0 | 64 | 64 |
+| burrow_small_accurate_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
+| burrow_small_accurate_s0.json | standard | cuda:0 | 64 | 0 | 64 | 64 |
+| burrow_small_default_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
+| burrow_small_default_s0.json | standard | cuda:1 | 64 | 0 | 64 | 64 |
+
+**Fix 2026-10-26 22:10 (GPU AF mode):** Triton passes Python float kernel arguments as fp32. The first-hit threshold ln 2 (and the PSP opacity threshold) therefore reached the fp64 ray-march kernel rounded. Atoms with pLDDT exactly 70 have w = 0.75 and mu = ln 2 (float32), so tau == float32(ln 2) decided first-hit differently from the CPU reference. depth / hit_* features differed for 6 of 40 human AF models in AF mode; standard mode was unaffected (w = 1). Both thresholds are now passed as fp64 tensors, other scalars are checked to be exact in fp32, and a regression test with exact 0.5 / 0.75 weights was added (`tests/test_burrow_fast_equivalence.py::test_af_soft_weights_identical`).
+
 
 ## DEFAULT preset — 1 core, warm (ms per structure)
 

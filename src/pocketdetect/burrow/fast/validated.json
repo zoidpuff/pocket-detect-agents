@@ -1,6 +1,15 @@
 {
- "features": "5a098600d5e741e3",
- "formation": "a1043ec0c1fc9e23",
- "pocket_features": "2a1d439147deab34",
- "scoring": "fe2496319fd74012"
+ "features": [
+  "5a098600d5e741e3"
+ ],
+ "formation": [
+  "a1043ec0c1fc9e23"
+ ],
+ "pocket_features": [
+  "2a1d439147deab34"
+ ],
+ "scoring": [
+  "fe2496319fd74012",
+  "d3b91193ce4e4f69"
+ ]
 }

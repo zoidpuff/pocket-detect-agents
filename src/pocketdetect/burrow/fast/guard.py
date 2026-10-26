@@ -4,7 +4,8 @@ The fast stages replicate specific reference functions.  Their source hashes at 
 stored in ``validated.json``; if the reference code changes (the method is still evolving), the
 affected fast stage is disabled and the pipeline falls back to the reference implementation with a
 warning, so results stay correct.  Re-validate (tests/test_burrow_fast_*.py) and run
-``python -m pocketdetect.burrow.fast.guard --update`` to re-enable.
+``python -m pocketdetect.burrow.fast.guard --update`` to re-enable (several validated reference
+versions can be listed per stage, e.g. the frozen v1 code and a later working tree).
 """
 from __future__ import annotations
 
@@ -60,7 +61,8 @@ def _status() -> dict:
     except FileNotFoundError:
         val = {}
     cur = current_hashes()
-    ok = {st: val.get(st) == h for st, h in cur.items()}
+    acc = lambda v: v if isinstance(v, list) else [v]       # several validated reference versions allowed
+    ok = {st: h in acc(val.get(st)) for st, h in cur.items()}
     bad = [st for st, v in ok.items() if not v]
     if bad:
         warnings.warn(f"burrow.fast: reference code changed since validation for stages {bad}; "
@@ -72,8 +74,18 @@ def stage_ok(stage: str) -> bool:
     return _status().get(stage, False)
 
 
-def update():
-    _FILE.write_text(json.dumps(current_hashes(), indent=1) + "\n")
+def update(keep_old: bool = True):
+    """Record the current reference hashes as validated (keeping previously validated ones)."""
+    try:
+        val = json.loads(_FILE.read_text())
+    except FileNotFoundError:
+        val = {}
+    out = {}
+    for st, h in current_hashes().items():
+        old = val.get(st, [])
+        old = (old if isinstance(old, list) else [old]) if keep_old else []
+        out[st] = old + [h] if h not in old else old
+    _FILE.write_text(json.dumps(out, indent=1) + "\n")
     _status.cache_clear()
 
 

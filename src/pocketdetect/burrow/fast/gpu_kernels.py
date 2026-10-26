@@ -229,8 +229,9 @@ def _dual64_kernel(ax_ptr, org_ptr, c0_ptr, lin0_ptr, dims_ptr, off_ptr, n_off, 
 
 
 @triton.jit
-def _psp64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, out_ptr, P, ND, n_steps, h, min_mu,
+def _psp64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, out_ptr, P, ND, n_steps, h, min_mu_ptr,
                   BP: tl.constexpr, DB: tl.constexpr):
+    min_mu = tl.load(min_mu_ptr)              # fp64
     pid = tl.program_id(0)
     p = pid * BP + tl.arange(0, BP)
     k = tl.arange(0, DB)
@@ -273,8 +274,9 @@ def _psp64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, out_pt
 
 @triton.jit
 def _march64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, mub_ptr, lab_ptr, ck_ptr,
-                    blk_ptr, blkb_ptr, depth_ptr, hit_ptr, P, K, step, lmax, inv_h,
+                    blk_ptr, blkb_ptr, depth_ptr, hit_ptr, P, K, step, lmax, inv_h, ln2_ptr,
                     NL: tl.constexpr, NC: tl.constexpr, BP: tl.constexpr, RB: tl.constexpr):
+    ln2 = tl.load(ln2_ptr)                    # fp64 (Python float kernel args are passed as fp32!)
     pid = tl.program_id(0)
     p = pid * BP + tl.arange(0, BP)
     k = tl.arange(0, RB)
@@ -312,7 +314,7 @@ def _march64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, mub_
             v = tl.load(mu_ptr + lin, mask=act, other=0.0).to(tl.float64)
             vb = tl.load(mub_ptr + lin, mask=act, other=0.0).to(tl.float64)
             tau_new = tl.where(v > 0.0, tau + v * step, tau)
-            first = (tau_new > 0.6931471805599453) & (tau <= 0.6931471805599453)
+            first = (tau_new > ln2) & (tau <= ln2)   # fp64 arg: a literal would be fp32
             lab = tl.load(lab_ptr + lin, mask=act & first, other=-1).to(tl.int32)
             hit_t = tl.where(first, t, hit_t)
             hcls = tl.where(first, lab, hcls)

@@ -149,6 +149,10 @@ def _extras(P, ps, fm, Fp, fn, idx_list, centers, tree=None):
         from ..model import context_features
         Fx, nx = context_features(Fp, fn, centers, ctx)
         Fp, fn = np.concatenate([Fp, Fx], 1), fn + nx
+    if meta.get("apo_feats"):              # post-freeze reference option (v2/H3), same order as the reference
+        from ..model import APO_NAMES, apo_pocket_features
+        Fx = apo_pocket_features(idx_list, ps.vol, ps.feats, ps.names)
+        Fp, fn = np.concatenate([Fp, Fx], 1), fn + APO_NAMES
     if meta.get("propensity"):
         from scipy.spatial import cKDTree
         from ..propensity import PROP_NAMES, atom_logodds, pocket_propensity
@@ -199,7 +203,7 @@ def predict_from_points(P, ps, fm: FastModel, ranker: str = "learned", score=Non
     elif len(c):
         rch, nch = residue_chains(P.residue_ids)
         Fp, fn = pocket_features(c, ps.X, ps.vol, ps.feats, names, score, len(P.coords), rch, nch)
-        if fm.model.meta.get("context") or fm.model.meta.get("propensity"):
+        if any(fm.model.meta.get(k) for k in ("context", "apo_feats", "propensity")):
             Fp, fn = _extras(P, ps, fm, Fp, fn, [c.members(i) for i in range(len(c))], c.center)
         rs = fm.rank_predict(Fp[:, [fn.index(n) for n in fm.model.rank_features]])
     else:

@@ -101,7 +101,11 @@ def test_af_soft_weights_identical(dev):
     from pocketdetect.burrow.fast.pipeline import predict_protein as fast
     Ps, m, fm = dev
     P = Ps[1]
-    w = np.clip(np.random.default_rng(0).uniform(0.2, 1.6, len(P.coords)), 0, 1).astype(np.float32)
+    rng = np.random.default_rng(0)
+    w = np.clip(rng.uniform(0.2, 1.6, len(P.coords)), 0, 1).astype(np.float32)
+    # exact AF weights (pLDDT 60 / 70 -> w = 0.5 / 0.75 -> mu = ln2/2, ln2): first-hit ties at tau == ln2
+    w[rng.random(len(w)) < 0.3] = 0.75
+    w[rng.random(len(w)) < 0.2] = 0.5
     r = ref(P, m, weights=w)
     assert same_prediction(r, fast(P, fm, weights=w))
     if cuda():
