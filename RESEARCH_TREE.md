@@ -9,7 +9,13 @@ Project started 2026-10-26 14:54 CET; review due ~2026-10-27 14:30 (24 h budget)
 
 Plan: parallel kick-off of (a) literature review → LITERATURE.md, (b) benchmark dataset acquisition → DATA.md, (c) baseline tool installation (P2Rank, fpocket, others), (d) core I/O + evaluation harness with toy-data verification. Then DESIGN.md → up to 3 review rounds → implementation and experiments.
 
+### 2026-10-26 15:50 — M1 design v2
+Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered primary claim C1: LIGYSIS full top-N+2 DCC≤12 Å ≥ fpocket+PRANK bar + 2 pts with cluster-bootstrap CI>0 for all 3 seeds; C1-strict at DCA 4 Å; P1K within 3 pts of best). Key decisions: ions included in headline (`all` ranker) with a pre-registered `small` ranker for ion-free benchmarks; LIGYSIS-style pooled training labels from BioLiP2 with domain-aware 30% leakage removal; gated test runs with ledger (≤3 versions before final); candidate-recall gate G1 at T+7 h with fpocket-candidate fallback.
+
+Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
+
 ## Decisions log
+- D1 (15:45): DESIGN v2 — see DESIGN §8 for reviewer→change map. Not adopted: LIGYSIS dev slice (use BioLiP2 LIGYSIS-like dev instead to keep all 2,775 chains comparable to published table).
 - D0 (14:55): Single uv venv at `.venv` shared by all agents; restricted/large data kept out of git under `data/raw`, `data/processed`; manifests + checksums committed. Git identity set locally to gmagnusson <gmagnusson@ethz.ch> (no preset identity found in container).
 
 ## Tree
@@ -19,10 +25,14 @@ Plan: parallel kick-off of (a) literature review → LITERATURE.md, (b) benchmar
   - [~] 0.3 Eval harness (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [~] 2. Data acquisition (DATA.md)
+  - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
+  - [~] 2.C AF test set (LIGYSIS UniProts on AFDB v6)
+  - [~] 2.D Dimer benchmark (assembly-1, symmetric-copy aware)
 - [~] 3. Baselines (P2Rank, fpocket, …)
 - [~] 4. DESIGN.md + review rounds
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
-  - [~] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF
+  - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
+  - [~] 4.3 Review round 2 (external PI+stats; data+agent risks)
 - [ ] 5. Method development
 - [ ] 6. AF mode
 - [~] 7. CPU/GPU backends + throughput
