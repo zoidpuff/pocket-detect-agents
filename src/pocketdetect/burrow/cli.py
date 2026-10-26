@@ -14,11 +14,11 @@ from pathlib import Path
 
 # (ranker, preset) -> model JSON (the JSON also carries its feature design: rays, lengths, sub-lattice,
 # score floor).  Phase 2: BioLiP2-trained dev models; frozen models will move to a release dir.
-DEFAULT_MODELS = {  # frozen models (results/dev/FREEZE.md), D6-audited BioLiP2 train set, seed SEEDS[0]
-    ("all", "default"): "results/dev/freeze/models/burrow_all_default_s0.json",
-    ("small", "default"): "results/dev/freeze/models/burrow_small_default_s0.json",
-    ("all", "accurate"): "results/dev/freeze/models/burrow_all_accurate_s0.json",
-    ("small", "accurate"): "results/dev/freeze/models/burrow_small_accurate_s0.json",
+DEFAULT_MODELS = {  # FREEZE v2 (results/dev/FREEZE_v2.md; D13): v1 models + output score floor 0.03, seed SEEDS[0]
+    ("all", "default"): "results/dev/freeze_v2/models/burrow_all_default_s0.json",
+    ("small", "default"): "results/dev/freeze_v2/models/burrow_small_default_s0.json",
+    ("all", "accurate"): "results/dev/freeze_v2/models/burrow_all_accurate_s0.json",
+    ("small", "accurate"): "results/dev/freeze_v2/models/burrow_small_accurate_s0.json",
 }
 # AF-mode ranker (owned by the AF-mode developer, burrow/af_rank.py); retrained after the feature freeze.
 DEFAULT_AF_RANKER = None  # decision D8: --af-mode default = standard ranker (pruning + soft occlusion only)
