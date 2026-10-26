@@ -75,7 +75,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [!] 5.5 FREEZE v1 = commit 5e13267 (21:28): dev `all` default top-N+2 65.0/DCA4 55.7/P1K 70.2 vs P2Rank 54.1/36.0/46.3 (all seeds CI>0); `small` non-ion 64.2/60.3/62.0 vs 58.4/47.8/41.1 (top-N+2 CI lo<0 for 1/3 seeds); apo-dev cryptic 61.8 vs 68.5
   - [~] 5.6 v2 cycle interim: [!] apo 'deficit' is an output-length effect of the LIGYSIS closest-pocket rule — any-pocket top-N+2 BURROW 77.8 vs P2Rank 72.3 on apo-dev cryptic; 403/417 BURROW misses have a pocket ≤12 Å ranked > N+2 (BURROW ~42 pockets/structure vs P2Rank 4.5); P2Rank max recall 76.4 vs 98.7. H3 +0.3, H2 +0.0, H1+H2 −1.9 on apo cryptic (no effect). H5 score-floor output cap approved (D12).
   - [~] 5.6 v2 cycle (apo robustness; dev only): H1 AF-model augmentation, H2 side-chain dropout, H3 enclosure-independent ranker feats, H4 apo PDB chains (Track A2 [x]: 1,656 train / 160 dev apo inputs, 9.3% cryptic-like, leakage re-checked). Gate fixed: apo-dev cryptic +3 (CI>0) & BioLiP-dev top-N+2/DCA4 ≥ −0.5, P1K ≥ −1
-- [~] 6. AF mode
+- [x] 6. AF mode (dev complete; O5 test pending in v1)
   - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
   - [~] 6.2 AF-mode developer (interim, AF dev 278 entries/607 sites + 10× train-OOF set):
     - [!] BURROW naive on AF dev DCC12 top-N+2 65.2 vs P2Rank -c alphafold 56.2 (DCA4 56.0 vs 36.9; P1K 51.5 vs 31.3)
@@ -84,6 +84,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [x] AF ranker (pLDDT features, AF+PDB rows): P1K +6.9 [+4.5,+9.9], DCA4 +0.7 [+0.1,+1.3]; PDB-dev non-inferior on DCC12
     - [-] Side-chain tolerance λ on all side chains hurts badly (λ0.25: −16 pts); domain surrogate no help
     - [x] Strata: near-low-pLDDT sites (train-OOF 640): no mechanism helps vs pLDDT<70 filter (prune+soft −1.6 [−4.3,+1.2]; λ and stronger curves hurt); pl-AF-ranker −3.0 recall there but P@k +7.7 / top-1 +4.8 in >30%-disorder proteins; hallucinations in >30% bin 37.1% naive → ~0.2% pruned
+    - [x] FINAL on frozen all_default_s0: AF dev DCC12 top-N+2 64.3 (naive 63.1, pLDDT<70 filter 63.4, P2Rank-alphafold 56.2); DCA4 56.3 vs 36.9; P1K 49.2 vs 31.3; vs filter = equivalent (dev +0.8 [−1.3,+3.1]); hallucinations 5.0%→0.2%; no-op byte-identical (3 seeds). Optional pl ranker afr_final (sha 935f8871): P1K +6.7
     - [x] D8: --af-mode = prune + soft occlusion + standard ranker (recall-optimal; O5); pl AF ranker optional `--af-ranker` for calibrated proteome screening
 - [~] 7. CPU/GPU backends + throughput
   - [!] 7.3 Fast backend ported to FREEZE v1 (exact 64/64 × 4 models × CPU/GPU). Default preset: 66 ms/core median warm excl. parsing (81 incl.; p90 148) on 40 LIGYSIS chains, 109 ms median on 200 larger chains; 6,392 structs/min on 32 CPU workers, 5,505/min on 3 GPUs; P2Rank 47 ms/struct and fpocket 39 ms/struct at 32-way parallelism on the same chains (node load ~80)
