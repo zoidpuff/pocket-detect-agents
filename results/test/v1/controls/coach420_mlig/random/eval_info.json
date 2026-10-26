@@ -1,0 +1,39 @@
+{
+  "benchmark": {
+    "name": "coach420_mlig",
+    "kind": "ligands",
+    "path": "data/raw/p2rank_datasets/current/coach420(mlig).ds",
+    "cluster_sources": [
+      "coach420"
+    ],
+    "headline": [
+      "success_DCA4_topn",
+      "success_DCA4_topn2"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O2a",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/raw/p2rank_datasets/current/coach420(mlig).ds",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/_common/controls/coach420_mlig/random/preds",
+  "n_boot": 200,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "success_DCA4_topn": {
+      "value": 0.04221635883905013,
+      "ci_low": 0.02539054523177456,
+      "ci_high": 0.06285888959333394
+    },
+    "success_DCA4_topn2": {
+      "value": 0.09498680738786279,
+      "ci_low": 0.06743220904727087,
+      "ci_high": 0.12433481672749305
+    }
+  }
+}

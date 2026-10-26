@@ -1,0 +1,808 @@
+structure_id,complex_id,site,site_class,class_consistent,is_ion,n_copies,ccd,copies,n_sites,n_pred_kept,rank_DCC12,success_DCC12_topn,success_DCC12_topn2,success_DCC12_all,rank_DCA4,success_DCA4_topn,success_DCA4_topn2,success_DCA4_all,rank_LDCC12,min_dcc,success_LDCC12_topn,success_LDCC12_topn2,success_LDCC12_all
+3eue,3eue,0,homo_interface,True,True,2,MG,MG|A:311 MG|B:311,1,24,2,False,True,True,-1,False,False,False,2,11.249400072892776,False,True,True
+8p96,8p96,0,homo_interface,False,False,2,DXC,DXC|A:404 DXC|B:607,7,36,4,True,True,True,6,True,True,True,6,3.676244415160661,True,True,True
+8p96,8p96,1,single_chain,True,False,1,DXC,DXC|A:407,7,36,28,False,False,True,-1,False,False,False,28,7.312960617971378,False,False,True
+8p96,8p96,2,minor_interface,True,False,2,DXC,DXC|B:601 DXC|B:606,7,36,4,True,True,True,5,True,True,True,6,9.290371413458129,True,True,True
+8p96,8p96,3,single_chain,True,False,1,DXC,DXC|B:602,7,36,5,True,True,True,-1,False,False,False,5,10.176414004942998,True,True,True
+8p96,8p96,4,minor_interface,True,False,1,XBE,XBE|B:610,7,36,2,True,True,True,12,False,False,True,12,3.6030872873134783,False,False,True
+8p96,8p96,5,single_chain,True,True,2,ZN,ZN|A:401 ZN|B:603,7,36,1,True,True,True,-1,False,False,False,1,8.283247249720361,True,True,True
+8p96,8p96,6,single_chain,True,True,2,ZN,ZN|A:402 ZN|B:604,7,36,1,True,True,True,-1,False,False,False,1,9.153814669305905,True,True,True
+6c9m,6c9m,0,hetero_interface,True,False,1,IHP,IHP|A:901,1,76,1,True,True,True,1,True,True,True,1,3.800246702518141,True,True,True
+3u15,3u15,0,homo_interface,True,False,2,03M,03M|A:1 03M|B:1,1,9,1,True,True,True,1,True,True,True,1,1.3262250940168476,True,True,True
+8u15,8u15,0,hetero_interface,True,False,1,8W7,8W7|A:502,4,91,1,True,True,True,1,True,True,True,1,4.230225880493853,True,True,True
+8u15,8u15,1,single_chain,True,True,1,ZN,ZN|A:501,4,91,44,False,False,True,-1,False,False,False,44,8.612272464338318,False,False,True
+8u15,8u15,2,single_chain,True,True,1,ZN,ZN|C:501,4,91,5,False,True,True,-1,False,False,False,5,10.415074219610727,False,True,True
+8u15,8u15,3,single_chain,True,True,1,ZN,ZN|C:502,4,91,1,True,True,True,-1,False,False,False,18,8.207271532001363,False,False,True
+6ofb,6ofb,0,single_chain,True,False,8,AMP,AMP|A:902 AMP|B:902 AMP|C:902 AMP|D:902 AMP|E:902 AMP|F:902 AMP|G:902 AMP|H:902,3,60,4,False,True,True,4,False,True,True,16,4.987157707552467,False,False,True
+6ofb,6ofb,1,homo_interface,True,False,8,DND,DND|A:901 DND|B:901 DND|C:901 DND|D:901 DND|E:901 DND|F:901 DND|G:901 DND|H:901,3,60,7,False,False,True,7,False,False,True,14,3.7066359411196554,False,False,True
+6ofb,6ofb,2,single_chain,True,False,16,MG&POP,MG|A:904 MG|B:904 MG|C:904 MG|D:904 MG|E:904 MG|F:904 MG|G:904 MG|H:904 POP|A:903 POP|B:903 POP|C:903 POP|D:903 POP|E:903 POP|F:903 POP|G:903 POP|H:903,3,60,4,False,True,True,4,False,True,True,4,4.054204360907324,False,True,True
+3grt,3grt,0,minor_interface,True,False,2,FAD,FAD|A:479 FAD|B:479,2,20,1,True,True,True,1,True,True,True,1,1.3196010760832328,True,True,True
+3grt,3grt,1,homo_interface,True,False,2,TS2,TS2|A:17 TS2|B:17,2,20,2,True,True,True,3,False,True,True,2,7.085880820335605,True,True,True
+3ko0,3ko0,0,single_chain,True,True,2,CA,CA|A:301 CA|B:301,4,12,4,True,True,True,-1,False,False,False,4,11.13716575256021,True,True,True
+3ko0,3ko0,1,single_chain,True,True,2,CA,CA|A:302 CA|B:302,4,12,4,True,True,True,-1,False,False,False,7,6.9477584154891305,False,False,True
+3ko0,3ko0,2,single_chain,True,False,2,TFP,TFP|A:201 TFP|B:201,4,12,1,True,True,True,-1,False,False,False,2,6.995965837538088,True,True,True
+3ko0,3ko0,3,homo_interface,True,False,2,TFP,TFP|A:202 TFP|B:202,4,12,2,True,True,True,2,True,True,True,2,2.939223196696706,True,True,True
+7ny2,7ny2,0,single_chain,True,False,2,PLP,PLP|A:402 PLP|B:402,2,34,1,True,True,True,-1,False,False,False,1,7.825876053196856,True,True,True
+7ny2,7ny2,1,homo_interface,True,False,2,UUQ,UUQ|A:401 UUQ|B:401,2,34,1,True,True,True,1,True,True,True,1,2.4877598356754658,True,True,True
+4zdl,4zdl,0,homo_interface,True,False,4,PLR,PLR|A:1001 PLR|B:1001 PLR|C:1001 PLR|D:1001,1,40,1,True,True,True,-1,False,False,False,1,5.131460026152403,True,True,True
+2r0m,2r0m,0,single_chain,True,False,4,4NI,4NI|A:402 4NI|B:402 4NI|C:402 4NI|D:402,2,26,1,True,True,True,-1,False,False,False,2,7.717574295074841,True,True,True
+2r0m,2r0m,1,homo_interface,True,False,4,FAD,FAD|A:401 FAD|B:401 FAD|C:401 FAD|D:401,2,26,1,True,True,True,1,True,True,True,1,2.163215430788154,True,True,True
+5bwv,5bwv,0,homo_interface,True,False,2,775,775|A:402 775|B:402,2,36,1,True,True,True,1,True,True,True,1,2.6240026676815686,True,True,True
+5bwv,5bwv,1,single_chain,True,False,2,PLP,PLP|A:401 PLP|B:401,2,36,1,True,True,True,-1,False,False,False,1,6.1063450606725445,True,True,True
+8bb3,8bb3,0,hetero_interface,True,False,1,Q3X,Q3X|B:407,1,38,1,True,True,True,1,True,True,True,5,10.003879547455577,False,False,True
+2fir,2fir,0,single_chain,True,False,1,0G7,0G7|H:701,10,45,2,True,True,True,2,True,True,True,2,2.5387120750490824,True,True,True
+2fir,2fir,1,single_chain,True,True,1,CA,CA|H:1009,10,45,13,False,False,True,-1,False,False,False,13,7.613430567096543,False,False,True
+2fir,2fir,2,single_chain,True,True,2,CA,CA|L:1002 CA|L:1003,10,45,14,False,False,True,26,False,False,True,26,3.9521279078491385,False,False,True
+2fir,2fir,3,single_chain,True,True,1,CA,CA|L:1005,10,45,26,False,False,True,-1,False,False,False,26,7.726327652902121,False,False,True
+2fir,2fir,4,single_chain,True,True,1,CA,CA|L:1006,10,45,26,False,False,True,-1,False,False,False,26,9.492234194329594,False,False,True
+2fir,2fir,5,single_chain,True,True,1,CA,CA|L:1008,10,45,17,False,False,True,-1,False,False,False,39,9.187973498002712,False,False,True
+2fir,2fir,6,hetero_interface,True,False,1,FUC,FUC|L:901,10,45,33,False,False,True,33,False,False,True,33,2.3453515727924454,False,False,True
+2fir,2fir,7,single_chain,True,True,1,MG,MG|L:1001,10,45,26,False,False,True,-1,False,False,False,26,9.918069418994813,False,False,True
+2fir,2fir,8,single_chain,True,True,1,MG,MG|L:1004,10,45,26,False,False,True,-1,False,False,False,26,4.594366659290486,False,False,True
+2fir,2fir,9,single_chain,True,True,1,MG,MG|L:1007,10,45,20,False,False,True,-1,False,False,False,20,7.577051999293657,False,False,True
+6upr,6upr,0,hetero_interface,True,False,1,GDP,GDP|A:1401,2,33,1,True,True,True,4,False,True,True,4,1.5358056517671763,False,True,True
+6upr,6upr,1,hetero_interface,True,False,1,GTP,GTP|B:401,2,33,2,True,True,True,2,True,True,True,5,2.8038247092141835,False,False,True
+4kxu,4kxu,0,single_chain,True,True,2,MG,MG|A:1006 MG|B:1006,2,32,1,True,True,True,-1,False,False,False,1,8.330525133507491,True,True,True
+4kxu,4kxu,1,homo_interface,True,False,2,S6P&TPP,S6P&TPP|A:1014&A:1015 S6P&TPP|B:1014&B:1015,2,32,1,True,True,True,1,True,True,True,1,2.3737352421868785,True,True,True
+3iwx,3iwx,0,homo_interface,True,False,1,CPT,CPT|A:69,1,4,2,False,True,True,-1,False,False,False,2,8.59626668967407,False,True,True
+1u3w,1u3w,0,homo_interface,False,False,2,FXY,FXY|A:1378 FXY|B:2378,4,22,1,True,True,True,1,True,True,True,1,2.4025209676504398,True,True,True
+1u3w,1u3w,1,minor_interface,True,False,2,NAD,NAD|A:1377 NAD|B:2377,4,22,1,True,True,True,1,True,True,True,2,3.2557059142373417,True,True,True
+1u3w,1u3w,2,single_chain,True,True,2,ZN,ZN|A:375 ZN|B:375,4,22,8,False,False,True,-1,False,False,False,8,8.926370146929825,False,False,True
+1u3w,1u3w,3,single_chain,True,True,2,ZN,ZN|A:376 ZN|B:376,4,22,1,True,True,True,-1,False,False,False,1,5.1137358164066296,True,True,True
+2ydx,2ydx,0,single_chain,True,False,2,NAP,NAP|A:1339 NAP|B:1339,3,18,1,True,True,True,1,True,True,True,1,5.080041830536448,True,True,True
+2ydx,2ydx,1,single_chain,True,False,2,STL,STL|A:501 STL|B:501,3,18,1,True,True,True,-1,False,False,False,1,5.5364268260313905,True,True,True
+2ydx,2ydx,2,homo_interface,True,False,2,STL,STL|A:502 STL|B:502,3,18,2,True,True,True,2,True,True,True,2,4.045669413088519,True,True,True
+7mr6,7mr6,0,homo_interface,True,False,1,ZMV,ZMV|B:201,1,13,1,True,True,True,1,True,True,True,1,7.67291874060973,True,True,True
+4d2w,4d2w,0,homo_interface,False,False,2,NF5,NF5|A:1334 NF5|D:1334,1,30,1,True,True,True,-1,False,False,False,12,9.15850249767941,False,False,True
+7myj,7myj,0,single_chain,True,False,1,4O7,4O7|A:601,4,60,2,True,True,True,2,True,True,True,2,1.859587588687338,True,True,True
+7myj,7myj,1,single_chain,True,False,1,AMP,AMP|E:401,4,60,1,True,True,True,12,False,False,True,12,1.2127547155134015,False,False,True
+7myj,7myj,2,minor_interface,True,False,1,AMP,AMP|E:402,4,60,4,True,True,True,4,True,True,True,4,1.7678339854183174,True,True,True
+7myj,7myj,3,hetero_interface,True,False,1,ZQV,ZQV|A:602,4,60,6,False,True,True,6,False,True,True,6,1.4333488758847255,False,True,True
+4l59,4l59,0,homo_interface,True,False,2,1VZ,1VZ|A:601 1VZ|B:601,1,28,1,True,True,True,-1,False,False,False,1,10.17753948653603,True,True,True
+4az0,4az0,0,hetero_interface,True,False,2,S61,S61|A:1262 S61|E:1262,1,27,1,True,True,True,1,True,True,True,1,1.744411362035915,True,True,True
+6upq,6upq,0,hetero_interface,True,False,1,GDP,GDP|A:1401,2,40,1,True,True,True,1,True,True,True,1,5.610182617348565,True,True,True
+6upq,6upq,1,hetero_interface,True,False,1,GTP,GTP|B:500,2,40,2,True,True,True,2,True,True,True,3,3.0671395468742526,False,True,True
+6xq1,6xq1,0,homo_interface,True,False,2,V74,V74|A:306&C:306 V74|B:305&D:305,1,24,1,True,True,True,1,True,True,True,1,4.201001904308066,True,True,True
+5lvx,5lvx,0,homo_interface,False,False,4,79B&7E4,79B|A:507 79B|D:508 7E4|B:504 7E4|C:506,2,41,1,True,True,True,2,True,True,True,2,6.28778068955971,True,True,True
+5lvx,5lvx,1,single_chain,True,False,2,MAN,MAN|E:5 MAN|H:5&H:6,2,41,-1,False,False,False,-1,False,False,False,-1,15.802794879387633,False,False,False
+1rwv,1rwv,0,hetero_interface,True,False,2,5PH,5PH|A:501 5PH|C:501,1,18,4,False,False,True,4,False,False,True,4,5.143510571584356,False,False,True
+6fof,6fof,0,homo_interface,False,False,4,BGC&GAL,BGC&GAL|M:1&M:2 BGC&GAL|N:1&N:2 BGC&GAL|O:1&O:2 BGC&GAL|P:1&P:2,1,17,1,True,True,True,2,False,True,True,2,2.674266067540773,False,True,True
+2wbi,2wbi,0,homo_interface,True,False,4,FAD,FAD|A:600 FAD|B:600 FAD|C:600 FAD|D:600,1,33,2,False,True,True,1,True,True,True,2,10.588581491399118,False,True,True
+5hwl,5hwl,0,minor_interface,True,False,2,GSH,GSH|A:301 GSH|B:301,2,18,1,True,True,True,1,True,True,True,1,5.686628702491485,True,True,True
+5hwl,5hwl,1,homo_interface,True,False,1,NNE,NNE|B:302,2,18,1,True,True,True,1,True,True,True,2,3.6325518578542004,True,True,True
+6tx0,6tx0,0,homo_interface,True,False,4,CZF,CZF|A:706 CZF|B:707 CZF|C:706 CZF|D:707,5,36,1,True,True,True,-1,False,False,False,19,10.725334913185694,False,False,True
+6tx0,6tx0,1,single_chain,True,False,4,DZ4,DZ4|A:705 DZ4|B:706 DZ4|C:705 DZ4|D:706,5,36,2,True,True,True,2,True,True,True,2,0.830665395932683,True,True,True
+6tx0,6tx0,2,homo_interface,True,False,4,DZ4,DZ4|A:707 DZ4|B:701 DZ4|C:707 DZ4|D:701,5,36,1,True,True,True,1,True,True,True,1,3.5987215785609203,True,True,True
+6tx0,6tx0,3,single_chain,True,True,4,FE,FE|A:701 FE|B:702 FE|C:701 FE|D:702,5,36,2,True,True,True,-1,False,False,False,2,6.243465063568467,True,True,True
+6tx0,6tx0,4,single_chain,True,True,4,MG,MG|A:702 MG|B:703 MG|C:702 MG|D:703,5,36,2,True,True,True,-1,False,False,False,2,6.1539142827959505,True,True,True
+2a1u,2a1u,0,single_chain,True,False,1,AMP,AMP|B:600,2,27,1,True,True,True,-1,False,False,False,1,7.767514789171631,True,True,True
+2a1u,2a1u,1,hetero_interface,True,False,1,FAD,FAD|A:599,2,27,2,True,True,True,2,True,True,True,2,7.623951337725072,True,True,True
+3w3m,3w3m,0,homo_interface,True,False,2,RX8,RX8|A:901 RX8|E:901,1,46,1,True,True,True,1,True,True,True,1,0.7029046877066599,True,True,True
+2j2p,2j2p,0,single_chain,True,False,1,BMA,BMA|C:1291,5,20,-1,False,False,False,-1,False,False,False,-1,29.83124350408477,False,False,False
+2j2p,2j2p,1,single_chain,True,True,3,CA,CA|A:1289 CA|B:1291 CA|C:1292,5,20,-1,False,False,False,-1,False,False,False,-1,13.5651740497496,False,False,False
+2j2p,2j2p,2,minor_interface,True,False,2,SC2,SC2|A:1290 SC2|C:1289,5,20,2,True,True,True,4,True,True,True,4,4.547133822530408,True,True,True
+2j2p,2j2p,3,single_chain,True,False,2,SC2,SC2|B:1289 SC2|C:1290,5,20,7,False,True,True,17,False,False,True,17,1.5443739832048449,False,False,True
+2j2p,2j2p,4,homo_interface,False,False,2,SC2,SC2|B:1290 SC2|B:1294,5,20,1,True,True,True,1,True,True,True,1,4.531980803136747,True,True,True
+6mxy,6mxy,0,homo_interface,True,False,1,K6M,K6M|B:1701,1,12,1,True,True,True,1,True,True,True,1,0.7811389121020678,True,True,True
+7b0i,7b0i,0,hetero_interface,True,False,1,SJT,SJT|D:1401,4,138,2,True,True,True,2,True,True,True,2,5.215806840748608,True,True,True
+7b0i,7b0i,1,single_chain,True,True,1,ZN,ZN|D:1402,4,138,2,True,True,True,-1,False,False,False,59,6.240144950239539,False,False,True
+7b0i,7b0i,2,single_chain,True,True,1,ZN,ZN|D:1403,4,138,4,True,True,True,-1,False,False,False,4,5.4011277526087085,True,True,True
+7b0i,7b0i,3,single_chain,True,True,1,ZN,ZN|D:1404,4,138,65,False,False,True,-1,False,False,False,65,6.552656407900536,False,False,True
+6qvg,6qvg,0,homo_interface,True,False,2,DDF,DDF|A:607 DDF|B:602,2,48,1,True,True,True,1,True,True,True,1,5.098148781665754,True,True,True
+6qvg,6qvg,1,homo_interface,True,False,2,PLP,PLP|A:608 PLP|B:603,2,48,1,True,True,True,2,True,True,True,2,0.9605982510914751,True,True,True
+4twk,4twk,0,single_chain,True,False,1,37X,37X|A:403,5,32,12,False,False,True,-1,False,False,False,12,11.751349071489622,False,False,True
+4twk,4twk,1,single_chain,True,False,1,37X,37X|A:404,5,32,-1,False,False,False,-1,False,False,False,-1,24.184611429584724,False,False,False
+4twk,4twk,2,single_chain,True,False,1,37X,37X|A:405,5,32,-1,False,False,False,-1,False,False,False,-1,14.29210040546875,False,False,False
+4twk,4twk,3,homo_interface,True,False,1,37X,37X|B:402,5,32,16,False,False,True,22,False,False,True,22,5.946703456537916,False,False,True
+4twk,4twk,4,single_chain,True,True,1,MG,MG|A:407,5,32,11,False,False,True,-1,False,False,False,11,6.113378852974843,False,False,True
+4gr9,4gr9,0,homo_interface,True,False,2,372,372|A:303 372|B:304,3,18,1,True,True,True,2,True,True,True,2,1.9705603264046492,True,True,True
+4gr9,4gr9,1,homo_interface,True,False,2,FAD,FAD|A:302 FAD|B:303,3,18,1,True,True,True,1,True,True,True,1,4.731894546584909,True,True,True
+4gr9,4gr9,2,single_chain,True,True,2,ZN,ZN|A:301 ZN|B:301,3,18,4,False,True,True,-1,False,False,False,4,5.825395008065977,False,True,True
+1a8j,1a8j,0,homo_interface,True,False,1,PME,PME|H:217,2,20,1,True,True,True,1,True,True,True,1,2.3020734132516285,True,True,True
+1a8j,1a8j,1,homo_interface,True,False,1,PME,PME|L:217,2,20,1,True,True,True,2,True,True,True,2,7.3071157784723795,True,True,True
+4w9n,4w9n,0,homo_interface,True,False,1,TCL,TCL|B:1905,1,22,1,True,True,True,1,True,True,True,1,2.574695515978542,True,True,True
+9axh,9axh,0,single_chain,True,False,2,ANP,ANP|A:402 ANP|B:402,4,56,1,True,True,True,1,True,True,True,1,7.4671130298127935,True,True,True
+9axh,9axh,1,homo_interface,True,False,2,ANP,ANP|C:901 ANP|D:901,4,56,3,True,True,True,3,True,True,True,25,2.6866466086927043,False,False,True
+9axh,9axh,2,single_chain,True,True,2,MG,MG|A:403 MG|B:403,4,56,1,True,True,True,1,True,True,True,1,3.836906827119991,True,True,True
+9axh,9axh,3,single_chain,True,True,2,MG,MG|C:902 MG|D:902,4,56,2,True,True,True,4,True,True,True,4,3.8162611283820644,True,True,True
+5svk,5svk,0,homo_interface,True,False,3,ATP,ATP|A:401 ATP|B:401 ATP|E:401,2,27,1,True,True,True,4,False,True,True,4,2.058611668090909,False,True,True
+5svk,5svk,1,single_chain,True,False,3,GLC,GLC|D:2 GLC|G:2 GLC|I:2,2,27,25,False,False,True,-1,False,False,False,25,7.890984095789338,False,False,True
+4z54,4z54,0,homo_interface,True,False,2,GDP,GDP|A:401 GDP|B:401,2,30,1,True,True,True,1,True,True,True,1,4.796760782027806,True,True,True
+4z54,4z54,1,single_chain,True,True,2,MG,MG|A:402 MG|B:402,2,30,1,True,True,True,-1,False,False,False,4,6.573806355529496,False,True,True
+9eqg,9eqg,0,hetero_interface,True,False,2,ABU,ABU|B:3505 ABU|E:3205,6,112,8,False,True,True,8,False,True,True,8,0.6877797612608323,False,True,True
+9eqg,9eqg,1,single_chain,True,False,1,MAN,MAN|F:5,6,112,57,False,False,True,-1,False,False,False,57,9.032930919696003,False,False,True
+9eqg,9eqg,2,single_chain,True,False,1,MAN,MAN|F:9,6,112,47,False,False,True,-1,False,False,False,57,8.356470905830996,False,False,True
+9eqg,9eqg,3,hetero_interface,True,False,1,PGW,PGW|A:501,6,112,16,False,False,True,-1,False,False,False,16,11.826672820366685,False,False,True
+9eqg,9eqg,4,hetero_interface,True,False,1,PGW,PGW|D:501,6,112,2,True,True,True,2,True,True,True,71,10.548958668987174,False,False,True
+9eqg,9eqg,5,single_chain,True,False,2,PT5,PT5|A:505 PT5|D:506,6,112,7,False,True,True,20,False,False,True,42,5.550831469248531,False,False,True
+5qqv,5qqv,0,homo_interface,False,False,2,PLP,PLP|A:601 PLP|B:601,1,35,1,True,True,True,-1,False,False,False,1,8.151898245194186,True,True,True
+2i7n,2i7n,0,homo_interface,True,False,2,ACO,ACO|A:796 ACO|B:896,1,35,1,True,True,True,1,True,True,True,1,4.30320636270212,True,True,True
+4h82,4h82,0,single_chain,True,True,2,CA,CA|A:303 CA|B:302,6,11,5,True,True,True,6,True,True,True,6,3.6498131459021304,True,True,True
+4h82,4h82,1,single_chain,True,True,2,CA,CA|A:304 CA|B:303,6,11,2,True,True,True,-1,False,False,False,2,10.641541288741964,True,True,True
+4h82,4h82,2,single_chain,True,True,2,CA,CA|A:305 CA|B:304,6,11,-1,False,False,False,-1,False,False,False,-1,17.290393228611084,False,False,False
+4h82,4h82,3,homo_interface,True,False,1,L29,L29|A:306,6,11,1,True,True,True,1,True,True,True,2,2.730888683194539,True,True,True
+4h82,4h82,4,single_chain,True,True,2,ZN,ZN|A:301 ZN|B:300,6,11,1,True,True,True,-1,False,False,False,1,4.742368184778571,True,True,True
+4h82,4h82,5,single_chain,True,True,2,ZN,ZN|A:302 ZN|B:301,6,11,3,True,True,True,-1,False,False,False,5,5.755847374626953,True,True,True
+1m6w,1m6w,0,homo_interface,False,False,2,12H,12H|A:4378 12H|B:5378,3,27,3,True,True,True,3,True,True,True,3,3.2195425140848815,True,True,True
+1m6w,1m6w,1,single_chain,True,True,2,ZN,ZN|A:1375 ZN|B:1375,3,27,12,False,False,True,-1,False,False,False,16,9.077934456692224,False,False,True
+1m6w,1m6w,2,single_chain,True,True,2,ZN,ZN|A:1376 ZN|B:1376,3,27,1,True,True,True,-1,False,False,False,3,5.618356521261357,True,True,True
+5kcj,5kcj,0,hetero_interface,True,False,1,6RM,6RM|B:302,1,40,1,True,True,True,1,True,True,True,1,4.2862932704144265,True,True,True
+4a69,4a69,0,hetero_interface,True,False,1,I0P,I0P|C:501,2,31,2,True,True,True,2,True,True,True,2,3.2174446382183453,True,True,True
+4a69,4a69,1,single_chain,True,True,1,ZN,ZN|A:500,2,31,1,True,True,True,-1,False,False,False,1,4.4296104794891376,True,True,True
+4clz,4clz,0,single_chain,True,False,3,4DS,4DS|A:1479 4DS|B:1479 4DS|C:1479,3,35,2,True,True,True,-1,False,False,False,2,6.831400295693415,True,True,True
+4clz,4clz,1,single_chain,True,False,3,4DS,4DS|A:1480 4DS|B:1480 4DS|C:1480,3,35,1,True,True,True,1,True,True,True,1,2.0358077021172725,True,True,True
+4clz,4clz,2,homo_interface,True,False,3,4DS,4DS|A:1481 4DS|B:1481 4DS|C:1481,3,35,6,False,False,True,6,False,False,True,6,6.0818918109417295,False,False,True
+7pr7,7pr7,0,hetero_interface,True,False,1,8I4,8I4|D:1,2,31,1,True,True,True,1,True,True,True,1,2.832327664660292,True,True,True
+7pr7,7pr7,1,single_chain,True,False,1,FUC,FUC|C:2,2,31,-1,False,False,False,-1,False,False,False,-1,12.77575528100003,False,False,False
+6tol,6tol,0,homo_interface,True,False,2,NQW,NQW|A:201 NQW|B:201,1,7,1,True,True,True,1,True,True,True,1,3.875146577872893,True,True,True
+6vgi,6vgi,0,homo_interface,True,False,3,QY7,QY7|A:201 QY7|E:201 QY7|F:201,1,27,2,False,True,True,2,False,True,True,9,3.5744511466797158,False,False,True
+1ne7,1ne7,0,homo_interface,True,False,6,16G,16G|A:4299 16G|B:2299 16G|C:3299 16G|D:7299 16G|E:5299 16G|F:6299,3,33,5,False,True,True,5,False,True,True,5,0.9230845031740054,False,True,True
+1ne7,1ne7,1,single_chain,True,False,6,AGP,AGP|A:2298 AGP|B:3298 AGP|C:4298 AGP|D:5298 AGP|E:6298 AGP|F:7298,3,33,2,True,True,True,2,True,True,True,2,3.9029483727049232,True,True,True
+1ne7,1ne7,2,single_chain,True,False,5,GLC,GLC|G:2 GLC|H:2 GLC|I:2 GLC|K:2 GLC|L:2,3,33,12,False,False,True,-1,False,False,False,12,10.959170315311283,False,False,True
+4mf0,4mf0,0,homo_interface,False,False,2,29Z,29Z|A:701 29Z|B:701,1,17,1,True,True,True,1,True,True,True,1,6.633326013396297,True,True,True
+6u66,6u66,0,homo_interface,True,True,3,CA,CA|A:301 CA|B:301 CA|C:301,1,14,2,False,True,True,-1,False,False,False,14,9.085189596260504,False,False,True
+4zht,4zht,0,homo_interface,True,False,4,NCC,NCC|A:502 NCC|B:502 NCC|C:502 NCC|D:502,2,35,3,False,True,True,3,False,True,True,11,0.9831281706878338,False,False,True
+4zht,4zht,1,single_chain,True,False,4,UDP,UDP|A:501 UDP|B:501 UDP|C:501 UDP|D:501,2,35,1,True,True,True,1,True,True,True,1,4.5171771052284395,True,True,True
+2nwg,2nwg,0,homo_interface,True,False,1,SGN&UAP,SGN&UAP|C:1&C:2,2,7,-1,False,False,False,-1,False,False,False,-1,12.947408196237577,False,False,False
+2nwg,2nwg,1,minor_interface,True,False,1,SGN&UAP,SGN&UAP|D:1&D:2,2,7,5,False,False,True,-1,False,False,False,5,11.07361210265196,False,False,True
+1rx0,1rx0,0,minor_interface,True,False,2,2MC,2MC|C:400 2MC|D:400,2,36,2,True,True,True,2,True,True,True,2,1.8608777498804199,True,True,True
+1rx0,1rx0,1,homo_interface,True,False,4,FAD,FAD|A:399 FAD|B:399 FAD|C:399 FAD|D:399,2,36,1,True,True,True,1,True,True,True,1,2.195844029069459,True,True,True
+1z8d,1z8d,0,single_chain,True,False,2,ADE,ADE|A:902 ADE|B:902,3,41,4,False,True,True,4,False,True,True,4,4.0293686850423605,False,True,True
+1z8d,1z8d,1,homo_interface,True,False,2,AMP,AMP|A:900 AMP|B:900,3,41,3,True,True,True,3,True,True,True,3,2.1502750986792414,True,True,True
+1z8d,1z8d,2,single_chain,True,False,2,GLC,GLC|A:901 GLC|B:901,3,41,2,True,True,True,2,True,True,True,2,5.714923796517324,True,True,True
+3ajm,3ajm,0,homo_interface,True,False,1,4IP,4IP|A:1,1,20,5,False,False,True,-1,False,False,False,5,7.160402921623892,False,False,True
+6lzz,6lzz,0,homo_interface,False,False,2,EZU,EZU|A:603 EZU|B:603,2,26,1,True,True,True,1,True,True,True,1,3.820668789623095,True,True,True
+6lzz,6lzz,1,single_chain,True,True,2,ZN,ZN|A:601 ZN|B:601,2,26,-1,False,False,False,-1,False,False,False,-1,13.054255627955202,False,False,False
+6v8d,6v8d,0,homo_interface,True,False,2,O78&PLP,O78&PLP|A:501&A:502 O78&PLP|B:501&B:502,1,30,1,True,True,True,1,True,True,True,1,3.9444858980607354,True,True,True
+5yvt,5yvt,0,minor_interface,True,True,1,MG,MG|A:401,3,43,4,False,True,True,-1,False,False,False,4,4.142603770577149,False,True,True
+5yvt,5yvt,1,single_chain,True,False,1,NAI,NAI|A:402,3,43,6,False,False,True,6,False,False,True,6,7.352226193473648,False,False,True
+5yvt,5yvt,2,hetero_interface,True,False,1,NAI,NAI|B:401,3,43,1,True,True,True,1,True,True,True,2,6.441808674588223,True,True,True
+6qcb,6qcb,0,hetero_interface,True,False,1,HWE,HWE|A:102,2,20,1,True,True,True,1,True,True,True,1,3.7668768230458505,True,True,True
+6qcb,6qcb,1,minor_interface,True,False,1,PO3,PO3|A:101,2,20,9,False,False,True,-1,False,False,False,9,5.914609454562491,False,False,True
+1dd1,1dd1,0,single_chain,True,False,2,SO4,SO4|A:553 SO4|C:554,4,32,4,True,True,True,-1,False,False,False,4,8.884827572890769,True,True,True
+1dd1,1dd1,1,single_chain,True,False,2,SO4,SO4|B:553 SO4|C:556,4,32,10,False,False,True,-1,False,False,False,10,6.659181556317566,False,False,True
+1dd1,1dd1,2,single_chain,True,False,2,SO4,SO4|B:554 SO4|C:553,4,32,25,False,False,True,26,False,False,True,26,2.7249222007242704,False,False,True
+1dd1,1dd1,3,homo_interface,False,False,2,SO4,SO4|B:555 SO4|C:555,4,32,9,False,False,True,9,False,False,True,9,2.3160053972303247,False,False,True
+5w4v,5w4v,0,homo_interface,True,False,2,9WA,9WA|A:501 9WA|B:501,1,25,1,True,True,True,1,True,True,True,1,5.222672208745252,True,True,True
+8g9p,8g9p,0,single_chain,True,False,1,GNP,GNP|A:201,3,18,1,True,True,True,1,True,True,True,1,10.458249997011928,True,True,True
+8g9p,8g9p,1,single_chain,True,True,1,MG,MG|A:202,3,18,1,True,True,True,-1,False,False,False,1,4.651618750499659,True,True,True
+8g9p,8g9p,2,hetero_interface,True,False,1,YV2,YV2|D:201,3,18,1,True,True,True,4,False,True,True,1,5.94635468165161,True,True,True
+2jif,2jif,0,minor_interface,True,False,4,COS,COS|A:1434 COS|B:1434 COS|C:1434 COS|D:1434,2,32,1,True,True,True,-1,False,False,False,1,11.520761997368048,True,True,True
+2jif,2jif,1,homo_interface,True,False,4,FAD,FAD|A:1433 FAD|B:1433 FAD|C:1433 FAD|D:1433,2,32,1,True,True,True,1,True,True,True,1,1.501262468724235,True,True,True
+1djs,1djs,0,single_chain,True,False,2,SO4,SO4|A:403 SO4|C:403,6,21,5,True,True,True,-1,False,False,False,15,10.317150139452277,False,False,True
+1djs,1djs,1,homo_interface,True,False,1,SO4,SO4|A:406&C:406,6,21,1,True,True,True,-1,False,False,False,1,5.547257791017107,True,True,True
+1djs,1djs,2,single_chain,True,False,2,SO4,SO4|B:401 SO4|D:401,6,21,7,False,True,True,10,False,False,True,10,0.962410515320776,False,False,True
+1djs,1djs,3,single_chain,True,False,2,SO4,SO4|B:402 SO4|D:402,6,21,7,False,True,True,7,False,True,True,7,2.5884879756336523,False,True,True
+1djs,1djs,4,hetero_interface,True,False,2,SO4,SO4|B:408 SO4|D:408,6,21,1,True,True,True,-1,False,False,False,16,9.319888089456867,False,False,True
+1djs,1djs,5,single_chain,True,False,2,SO4,SO4|B:409 SO4|D:409,6,21,8,False,True,True,8,False,True,True,8,3.0107874385283337,False,True,True
+1re1,1re1,0,hetero_interface,True,False,2,NA3,NA3|A:501 NA3|C:501,1,12,3,False,True,True,-1,False,False,False,3,8.527537628178484,False,True,True
+2wul,2wul,0,homo_interface,True,False,2,FES,FES|A:1150 FES|C:1149,2,15,1,True,True,True,2,True,True,True,2,3.925914288417413,True,True,True
+2wul,2wul,1,minor_interface,False,False,4,GSH,GSH|A:300 GSH|B:300 GSH|C:300 GSH|D:300,2,15,1,True,True,True,1,True,True,True,1,6.1822405323636485,True,True,True
+4g8a,4g8a,0,hetero_interface,True,False,2,LP4&LP5,LP4&LP5|C:202&C:203 LP4&LP5|D:202&D:203,1,68,1,True,True,True,1,True,True,True,59,8.999530765545504,False,False,True
+5j1s,5j1s,0,hetero_interface,True,False,1,ATP,ATP|A:401,2,41,1,True,True,True,1,True,True,True,1,1.8883882016153357,True,True,True
+5j1s,5j1s,1,single_chain,True,True,1,MG,MG|B:501,2,41,20,False,False,True,-1,False,False,False,20,9.683816654604733,False,False,True
+6ssu,6ssu,0,homo_interface,True,False,2,GSH,GSH|A:203 GSH|C:201,1,18,1,True,True,True,-1,False,False,False,4,6.8665253949869,False,False,True
+6sy1,6sy1,0,single_chain,True,True,2,MG,MG|A:1002 MG|B:1002,2,69,1,True,True,True,-1,False,False,False,1,9.411877708512788,True,True,True
+6sy1,6sy1,1,homo_interface,True,False,2,TPP,TPP|A:1001 TPP|B:1001,2,69,1,True,True,True,1,True,True,True,1,3.4175583389314634,True,True,True
+5ij8,5ij8,0,hetero_interface,True,False,1,6BN,6BN|A:9001,8,73,1,True,True,True,1,True,True,True,1,4.1914486755774565,True,True,True
+5ij8,5ij8,1,single_chain,True,True,1,ZN,ZN|A:9002,8,73,25,False,False,True,-1,False,False,False,60,7.223862540220431,False,False,True
+5ij8,5ij8,2,single_chain,True,True,1,ZN,ZN|A:9003,8,73,25,False,False,True,-1,False,False,False,46,6.902870852044101,False,False,True
+5ij8,5ij8,3,single_chain,True,True,1,ZN,ZN|A:9004,8,73,25,False,False,True,-1,False,False,False,60,5.251408287307324,False,False,True
+5ij8,5ij8,4,single_chain,True,True,1,ZN,ZN|A:9005,8,73,17,False,False,True,-1,False,False,False,19,6.449247165367448,False,False,True
+5ij8,5ij8,5,single_chain,True,True,1,ZN,ZN|A:9006,8,73,17,False,False,True,-1,False,False,False,19,8.544078358723075,False,False,True
+5ij8,5ij8,6,single_chain,True,True,1,ZN,ZN|A:9007,8,73,19,False,False,True,-1,False,False,False,19,8.969713373346998,False,False,True
+5ij8,5ij8,7,single_chain,True,True,1,ZN,ZN|A:9008,8,73,3,True,True,True,-1,False,False,False,5,6.365711036482875,True,True,True
+6i3y,6i3y,0,minor_interface,True,False,1,P5S,P5S|C:202,2,25,1,True,True,True,1,True,True,True,1,2.593572439705513,True,True,True
+6i3y,6i3y,1,homo_interface,True,False,1,P5S,P5S|F:201,2,25,-1,False,False,False,-1,False,False,False,-1,13.76046688888135,False,False,False
+3o8x,3o8x,0,single_chain,True,False,1,FUC,FUC|F:3,2,55,8,False,False,True,8,False,False,True,8,1.1647596318554305,False,False,True
+3o8x,3o8x,1,hetero_interface,True,False,1,GSL,GSL|A:501,2,55,1,True,True,True,1,True,True,True,1,4.409068949336128,True,True,True
+6k2z,6k2z,0,homo_interface,False,False,2,GAL,GAL|C:2 GAL|D:2,1,8,1,True,True,True,3,False,True,True,3,0.38946758530075554,False,True,True
+1yjx,1yjx,0,homo_interface,True,True,1,CL,CL|A:263,1,19,2,False,True,True,-1,False,False,False,2,11.445985060273314,False,True,True
+6z1n,6z1n,0,single_chain,True,False,2,FPP,FPP|A:401 FPP|C:401,2,33,1,True,True,True,1,True,True,True,1,4.2033047712484475,True,True,True
+6z1n,6z1n,1,hetero_interface,True,False,2,PO4,PO4|A:402 PO4|C:402,2,33,1,True,True,True,-1,False,False,False,1,6.56912429475954,True,True,True
+3qmk,3qmk,0,homo_interface,True,False,1,IDS&SGN,IDS&SGN|C:1&C:2&C:3&C:4,3,24,2,True,True,True,2,True,True,True,3,4.902961553999789,True,True,True
+3qmk,3qmk,1,single_chain,True,False,1,SO4,SO4|B:1,3,24,17,False,False,True,-1,False,False,False,17,7.5787086630903024,False,False,True
+3qmk,3qmk,2,single_chain,True,False,1,SO4,SO4|B:2,3,24,5,False,True,True,-1,False,False,False,5,10.38999889316645,False,True,True
+3lkj,3lkj,0,homo_interface,True,False,1,LKJ,LKJ|C:1,1,23,1,True,True,True,1,True,True,True,1,3.09534779952108,True,True,True
+6cfo,6cfo,0,hetero_interface,True,False,2,A5X,A5X|A:401 A5X|C:401,2,48,1,True,True,True,1,True,True,True,1,1.6149678015366087,True,True,True
+6cfo,6cfo,1,single_chain,True,True,2,MG,MG|A:402 MG|C:402,2,48,1,True,True,True,-1,False,False,False,6,7.850268657823121,False,False,True
+8ouo,8ouo,0,homo_interface,True,False,1,Q7G,Q7G|A:802,6,75,16,False,False,True,-1,False,False,False,16,11.441496449328639,False,False,True
+8ouo,8ouo,1,single_chain,True,False,1,Q7G,Q7G|B:806,6,75,-1,False,False,False,-1,False,False,False,-1,13.571626947422338,False,False,False
+8ouo,8ouo,2,minor_interface,True,False,1,W4E,W4E|A:803,6,75,9,False,False,True,16,False,False,True,16,6.628985216456584,False,False,True
+8ouo,8ouo,3,single_chain,True,False,2,Y01,Y01|A:805 Y01|B:804,6,75,28,False,False,True,7,False,True,True,30,3.8920998188638487,False,False,True
+8ouo,8ouo,4,minor_interface,False,False,2,Y01,Y01|A:806 Y01|B:805,6,75,2,True,True,True,2,True,True,True,29,2.3718891205113075,False,False,True
+8ouo,8ouo,5,homo_interface,True,False,2,Y01,Y01|A:807 Y01|B:803,6,75,20,False,False,True,20,False,False,True,20,7.039114575001607,False,False,True
+1jcq,1jcq,0,hetero_interface,True,False,1,739,739|B:3012,4,58,1,True,True,True,2,True,True,True,2,5.7998527567516645,True,True,True
+1jcq,1jcq,1,hetero_interface,True,False,1,FPP,FPP|B:3011,4,58,1,True,True,True,1,True,True,True,1,1.542872969495552,True,True,True
+1jcq,1jcq,2,hetero_interface,True,False,1,FRU&GLC,FRU&GLC|C:1&C:2,4,58,14,False,False,True,15,False,False,True,15,2.8078082199466596,False,False,True
+1jcq,1jcq,3,single_chain,True,True,1,ZN,ZN|B:1001,4,58,1,True,True,True,-1,False,False,False,3,7.32125187382595,True,True,True
+6vfz,6vfz,0,homo_interface,True,False,1,9UO,9UO|A:501,3,31,1,True,True,True,1,True,True,True,1,0.2689888473524508,True,True,True
+6vfz,6vfz,1,minor_interface,True,True,2,CA,CA|A:503 CA|B:502,3,31,1,True,True,True,-1,False,False,False,6,4.2153475538797505,False,False,True
+6vfz,6vfz,2,single_chain,True,False,2,NDP,NDP|A:502 NDP|B:501,3,31,2,True,True,True,2,True,True,True,10,4.586223391855218,False,False,True
+2xjf,2xjf,0,homo_interface,True,False,1,DG2,DG2|A:1489&B:1489,1,34,1,True,True,True,3,False,True,True,3,1.0670117150247227,False,True,True
+6y32,6y32,0,hetero_interface,True,False,1,GNP,GNP|A:301,2,43,1,True,True,True,2,True,True,True,2,4.290789437854064,True,True,True
+6y32,6y32,1,hetero_interface,True,False,1,GNP,GNP|B:701,2,43,1,True,True,True,1,True,True,True,1,3.171928750776103,True,True,True
+2d60,2d60,0,single_chain,True,False,2,HEM,HEM|A:142 HEM|C:142,3,24,2,True,True,True,2,True,True,True,2,2.372251462218959,True,True,True
+2d60,2d60,1,single_chain,True,False,2,HEM,HEM|B:147 HEM|D:147,3,24,1,True,True,True,1,True,True,True,1,2.7968383936151904,True,True,True
+2d60,2d60,2,hetero_interface,False,False,2,L35,L35|B:1200 L35|D:1201,3,24,4,False,True,True,-1,False,False,False,4,4.058204159477442,False,True,True
+6n3y,6n3y,0,homo_interface,True,False,1,HHJ,HHJ|A:201,1,8,2,False,True,True,2,False,True,True,2,2.091370125061559,False,True,True
+1fro,1fro,0,homo_interface,True,False,2,GSB,GSB|A:200 GSB|B:200,2,13,1,True,True,True,1,True,True,True,1,3.4851405997463023,True,True,True
+1fro,1fro,1,minor_interface,True,True,2,ZN,ZN|A:201 ZN|B:201,2,13,1,True,True,True,-1,False,False,False,1,4.369162276684165,True,True,True
+6j7x,6j7x,0,hetero_interface,True,False,1,GRG,GRG|B:401,1,66,1,True,True,True,1,True,True,True,2,0.7654142669169419,False,True,True
+1yah,1yah,0,single_chain,True,False,3,EEE,EEE|A:11 EEE|B:1282 EEE|C:1383,2,42,3,False,True,True,10,False,False,True,10,2.2981586107142373,False,False,True
+1yah,1yah,1,homo_interface,False,False,3,SIA,SIA|A:1180 SIA|A:1181 SIA|B:1280,2,42,5,False,False,True,5,False,False,True,5,4.747034232023186,False,False,True
+3ddw,3ddw,0,homo_interface,True,False,2,055,055|A:905 055|B:906,4,72,7,False,False,True,7,False,False,True,7,0.5193467050054286,False,False,True
+3ddw,3ddw,1,single_chain,True,False,2,CFF,CFF|A:903 CFF|B:903,4,72,5,False,True,True,5,False,True,True,5,2.952613757334341,False,True,True
+3ddw,3ddw,2,single_chain,True,False,2,NBG,NBG|A:901 NBG|B:901,4,72,1,True,True,True,1,True,True,True,1,5.0546419259923825,True,True,True
+3ddw,3ddw,3,single_chain,True,False,2,PLP,PLP|A:902 PLP|B:902,4,72,1,True,True,True,-1,False,False,False,1,6.976100773354704,True,True,True
+4ruh,4ruh,0,homo_interface,True,False,2,BES,BES|A:501 BES|B:501,3,39,1,True,True,True,1,True,True,True,1,0.7464422281730829,True,True,True
+4ruh,4ruh,1,single_chain,True,True,2,MN,MN|A:502 MN|B:502,3,39,1,True,True,True,-1,False,False,False,1,5.370509938544007,True,True,True
+4ruh,4ruh,2,single_chain,True,True,2,MN,MN|A:503 MN|B:503,3,39,1,True,True,True,-1,False,False,False,1,4.4463391683496285,True,True,True
+3n7s,3n7s,0,hetero_interface,True,False,1,3N6,3N6|A:1,1,12,1,True,True,True,2,False,True,True,2,7.780524918024489,False,True,True
+5vdh,5vdh,0,homo_interface,True,False,5,7C6,7C6|A:401 7C6|B:401 7C6|C:401 7C6|D:401 7C6|E:401,3,30,2,True,True,True,2,True,True,True,2,1.0660923974965562,True,True,True
+5vdh,5vdh,1,homo_interface,True,False,5,IVM,IVM|A:403 IVM|B:403 IVM|C:403 IVM|D:403 IVM|E:403,3,30,4,False,True,True,4,False,True,True,4,7.064818539778606,False,True,True
+5vdh,5vdh,2,single_chain,True,True,4,ZN,ZN|B:404 ZN|C:404 ZN|D:404 ZN|E:404,3,30,30,False,False,True,-1,False,False,False,30,9.722737577452152,False,False,True
+2uxw,2uxw,0,homo_interface,True,False,2,FAD,FAD|A:700 FAD|B:700,2,42,1,True,True,True,1,True,True,True,1,2.2876918498783887,True,True,True
+2uxw,2uxw,1,single_chain,True,False,2,TH3,TH3|A:750 TH3|B:750,2,42,2,True,True,True,2,True,True,True,2,3.960565742416103,True,True,True
+4h30,4h30,0,homo_interface,True,False,1,0ZD,0ZD|B:306,6,12,1,True,True,True,-1,False,False,False,1,1.5360722639251054,True,True,True
+4h30,4h30,1,single_chain,True,True,2,CA,CA|A:303 CA|B:303,6,12,3,True,True,True,-1,False,False,False,6,6.489681116973314,True,True,True
+4h30,4h30,2,single_chain,True,True,2,CA,CA|A:304 CA|B:304,6,12,7,False,True,True,-1,False,False,False,7,10.94047297880672,False,True,True
+4h30,4h30,3,single_chain,True,True,2,CA,CA|A:305 CA|B:305,6,12,1,True,True,True,-1,False,False,False,1,10.793800164909486,True,True,True
+4h30,4h30,4,single_chain,True,True,2,ZN,ZN|A:301 ZN|B:301,6,12,1,True,True,True,-1,False,False,False,1,7.5722642584632505,True,True,True
+4h30,4h30,5,single_chain,True,True,2,ZN,ZN|A:302 ZN|B:302,6,12,4,True,True,True,-1,False,False,False,4,6.437532601859195,True,True,True
+4nos,4nos,0,homo_interface,True,False,2,H2B&H4B,H2B|A:511 H4B|B:1011,4,35,1,True,True,True,3,True,True,True,3,0.747238248485715,True,True,True
+4nos,4nos,1,single_chain,True,False,2,HEM,HEM|A:510 HEM|B:1010,4,35,1,True,True,True,1,True,True,True,1,2.9346901028899084,True,True,True
+4nos,4nos,2,single_chain,True,False,2,ITU,ITU|A:512 ITU|B:1012,4,35,1,True,True,True,-1,False,False,False,1,5.106016647054728,True,True,True
+4nos,4nos,3,minor_interface,True,True,1,ZN,ZN|A:3000,4,35,2,True,True,True,-1,False,False,False,2,5.024438774629472,True,True,True
+6upa,6upa,0,hetero_interface,True,False,1,GDP,GDP|A:1401,2,37,1,True,True,True,1,True,True,True,1,0.7385418065350117,True,True,True
+6upa,6upa,1,hetero_interface,True,False,1,GTP,GTP|B:401,2,37,2,True,True,True,2,True,True,True,2,3.9238590698443794,True,True,True
+7ah8,7ah8,0,homo_interface,True,False,1,SVR,SVR|D:201,1,16,1,True,True,True,1,True,True,True,1,3.0656066283853196,True,True,True
+6wcv,6wcv,0,hetero_interface,True,False,1,TUY,TUY|A:401,1,47,5,False,False,True,5,False,False,True,5,5.4100152495164,False,False,True
+4drj,4drj,0,hetero_interface,True,False,1,RAP,RAP|A:201,1,12,1,True,True,True,1,True,True,True,1,3.632355434150133,True,True,True
+3bl7,3bl7,0,homo_interface,True,False,1,DD1,DD1|A:901,1,34,1,True,True,True,1,True,True,True,1,4.150629470333387,True,True,True
+4q6r,4q6r,0,homo_interface,True,False,2,30J,30J|A:903 30J|B:602,2,37,1,True,True,True,1,True,True,True,1,2.993560254947276,True,True,True
+4q6r,4q6r,1,homo_interface,True,False,1,PO4,PO4|B:601,2,37,-1,False,False,False,-1,False,False,False,-1,13.08312244840657,False,False,False
+4mpv,4mpv,0,homo_interface,True,False,2,2A4,2A4|A:301 2A4|C:301,1,22,3,False,True,True,3,False,True,True,16,7.058054831184018,False,False,True
+1r8q,1r8q,0,hetero_interface,True,False,1,AFB,AFB|A:403,3,30,1,True,True,True,1,True,True,True,1,5.349654661751543,True,True,True
+1r8q,1r8q,1,single_chain,True,False,1,G3D,G3D|A:401,3,30,2,True,True,True,2,True,True,True,2,8.224157403649329,True,True,True
+1r8q,1r8q,2,single_chain,True,True,1,ZN,ZN|E:601,3,30,14,False,False,True,-1,False,False,False,14,5.662659710771961,False,False,True
+5v84,5v84,0,homo_interface,False,False,4,96V,96V|A:602 96V|B:601 96V|C:601 96V|D:602,1,16,1,True,True,True,1,True,True,True,1,1.8721455605801602,True,True,True
+4ury,4ury,0,hetero_interface,True,False,1,RV1,RV1|R:1167,2,46,5,False,False,True,5,False,False,True,5,1.079854156819337,False,False,True
+4ury,4ury,1,single_chain,True,False,1,RV1,RV1|S:2046,2,46,19,False,False,True,19,False,False,True,19,2.17680591693426,False,False,True
+4is0,4is0,0,homo_interface,True,False,2,1R4,1R4|A:905 1R4|B:905,2,17,2,True,True,True,5,False,False,True,5,5.871260597180137,False,False,True
+4is0,4is0,1,single_chain,True,False,2,GDS,GDS|A:903 GDS|B:903,2,17,1,True,True,True,1,True,True,True,1,6.335429661830363,True,True,True
+1dtw,1dtw,0,single_chain,True,True,2,K,K|A:402 K|C:402,4,54,37,False,False,True,-1,False,False,False,37,9.113200864679765,False,False,True
+1dtw,1dtw,1,single_chain,True,True,2,K,K|B:343 K|D:343,4,54,29,False,False,True,-1,False,False,False,54,8.402840948155568,False,False,True
+1dtw,1dtw,2,single_chain,True,True,2,MG,MG|A:401 MG|C:401,4,54,1,True,True,True,-1,False,False,False,1,10.610796435706416,True,True,True
+1dtw,1dtw,3,hetero_interface,True,False,2,TPP,TPP|A:403 TPP|C:403,4,54,1,True,True,True,1,True,True,True,1,5.028512105981253,True,True,True
+3g3d,3g3d,0,homo_interface,True,False,2,5FU,5FU|A:3000 5FU|B:3000,1,16,1,True,True,True,1,True,True,True,1,1.4077936638584483,True,True,True
+5zm8,5zm8,0,homo_interface,True,False,4,IEP,IEP|A:501 IEP|B:501 IEP|C:501 IEP|D:501,1,22,1,True,True,True,4,False,False,True,1,6.1285911921093295,True,True,True
+9bc6,9bc6,0,homo_interface,False,False,4,PFL,PFL|A:703 PFL|B:701 PFL|C:701 PFL|D:701,1,42,1,True,True,True,2,False,True,True,2,0.4510631884780619,False,True,True
+8quc,8quc,0,minor_interface,True,False,4,WY9,WY9|A:601 WY9|B:601 WY9|C:601 WY9|D:601,2,40,10,False,False,True,10,False,False,True,10,6.491737825882981,False,False,True
+8quc,8quc,1,homo_interface,True,False,4,Y01,Y01|A:604 Y01|B:604 Y01|C:603 Y01|D:603,2,40,2,True,True,True,2,True,True,True,27,2.1122684488482983,False,False,True
+6poz,6poz,0,homo_interface,True,False,2,H4B&OSD,H4B|A:502 OSD|A:510,4,35,1,True,True,True,-1,False,False,False,1,8.781040086459013,True,True,True
+6poz,6poz,1,single_chain,True,False,2,HEM,HEM|A:501 HEM|B:501,4,35,1,True,True,True,1,True,True,True,1,5.130046491017378,True,True,True
+6poz,6poz,2,single_chain,True,False,2,OSD,OSD|A:503 OSD|B:502,4,35,1,True,True,True,3,True,True,True,3,5.028970570603884,True,True,True
+6poz,6poz,3,minor_interface,True,True,1,ZN,ZN|A:506,4,35,2,True,True,True,-1,False,False,False,2,5.799854222305932,True,True,True
+1g4u,1g4u,0,minor_interface,True,False,1,AF3,AF3|R:1002,3,36,1,True,True,True,-1,False,False,False,1,8.995645279800668,True,True,True
+1g4u,1g4u,1,hetero_interface,True,False,1,GDP,GDP|R:1000,3,36,1,True,True,True,1,True,True,True,1,2.1938680452570556,True,True,True
+1g4u,1g4u,2,single_chain,True,True,1,MG,MG|R:1001,3,36,1,True,True,True,-1,False,False,False,1,7.632558745270166,True,True,True
+7sql,7sql,0,homo_interface,True,False,2,AQX,AQX|C:301 AQX|D:301,1,24,2,False,True,True,2,False,True,True,5,2.2028910549548253,False,False,True
+4mzv,4mzv,0,homo_interface,True,False,2,DMU,DMU|A:301 DMU|B:301,1,24,4,False,False,True,4,False,False,True,4,5.13246344361068,False,False,True
+3cxq,3cxq,0,homo_interface,True,False,2,GLP,GLP|A:185 GLP|B:185,1,12,1,True,True,True,1,True,True,True,1,4.171353017906779,True,True,True
+1dnu,1dnu,0,minor_interface,True,True,2,CA,CA|C:603 CA|D:604,5,57,6,False,True,True,-1,False,False,False,23,9.283902950806842,False,False,True
+1dnu,1dnu,1,hetero_interface,True,False,2,HEM,HEM|C:605 HEM|D:601,5,57,1,True,True,True,1,True,True,True,1,1.6693238152018324,True,True,True
+1dnu,1dnu,2,minor_interface,True,False,2,MAN,MAN|E:5 MAN|F:5,5,57,2,True,True,True,-1,False,False,False,2,9.352018872949303,True,True,True
+1dnu,1dnu,3,hetero_interface,True,False,2,SCN,SCN|A:201 SCN|B:201,5,57,2,True,True,True,44,False,False,True,44,0.6220128616033593,False,False,True
+1dnu,1dnu,4,minor_interface,True,False,2,SCN,SCN|A:203 SCN|B:202,5,57,1,True,True,True,-1,False,False,False,1,5.61914468580406,True,True,True
+3bh7,3bh7,0,minor_interface,True,False,1,ALF,ALF|A:3,3,30,1,True,True,True,-1,False,False,False,1,8.08836510056266,True,True,True
+3bh7,3bh7,1,hetero_interface,True,False,1,GDP,GDP|A:2,3,30,1,True,True,True,1,True,True,True,1,0.8296396808253548,True,True,True
+3bh7,3bh7,2,single_chain,True,True,1,MG,MG|A:1,3,30,1,True,True,True,-1,False,False,False,1,7.809743785810136,True,True,True
+8aeu,8aeu,0,homo_interface,True,False,2,M0L,M0L|A:302 M0L|B:302,1,7,2,False,True,True,2,False,True,True,2,5.824881286343957,False,True,True
+8qz3,8qz3,0,minor_interface,True,True,1,K,K|A:401,4,51,19,False,False,True,-1,False,False,False,19,7.025725869972444,False,False,True
+8qz3,8qz3,1,homo_interface,True,True,1,K,K|A:402,4,51,19,False,False,True,-1,False,False,False,19,10.18199405814009,False,False,True
+8qz3,8qz3,2,homo_interface,False,True,2,K,K|A:403 K|B:602,4,51,24,False,False,True,-1,False,False,False,24,6.5640262034821335,False,False,True
+8qz3,8qz3,3,homo_interface,True,True,1,K,K|B:601,4,51,24,False,False,True,-1,False,False,False,24,11.689306822904433,False,False,True
+3vp6,3vp6,0,homo_interface,False,False,2,HLD,HLD|A:1001 HLD|B:1001,1,45,1,True,True,True,1,True,True,True,1,2.150510172028953,True,True,True
+1qzu,1qzu,0,homo_interface,True,False,3,FMN,FMN|A:801 FMN|B:801 FMN|C:801,1,11,1,True,True,True,1,True,True,True,1,1.2212952141067224,True,True,True
+6dxx,6dxx,0,minor_interface,True,False,1,TON,TON|A:205,2,20,2,True,True,True,2,True,True,True,2,1.6154677341253214,True,True,True
+6dxx,6dxx,1,hetero_interface,True,False,1,WTF,WTF|B:404,2,20,1,True,True,True,1,True,True,True,1,3.907799124827169,True,True,True
+8i0b,8i0b,0,homo_interface,True,False,1,NXO,NXO|B:403,1,21,1,True,True,True,1,True,True,True,1,1.8121881800740234,True,True,True
+7vwe,7vwe,0,single_chain,True,False,2,81O,81O|A:502 81O|B:502,2,35,1,True,True,True,1,True,True,True,1,3.296689399989027,True,True,True
+7vwe,7vwe,1,homo_interface,True,False,2,B7G,B7G|A:501 B7G|B:501,2,35,3,False,True,True,3,False,True,True,3,4.09280026387802,False,True,True
+6jjp,6jjp,0,hetero_interface,True,False,1,FUC,FUC|G:5,1,31,3,False,True,True,3,False,True,True,3,0.7759336311824598,False,True,True
+3nj4,3nj4,0,single_chain,True,False,4,AFX,AFX|A:601 AFX|B:602 AFX|C:603 AFX|D:604,2,41,2,True,True,True,2,True,True,True,2,1.140637541026943,True,True,True
+3nj4,3nj4,1,homo_interface,True,False,4,NAD,NAD|A:501 NAD|B:502 NAD|C:503 NAD|D:504,2,41,1,True,True,True,1,True,True,True,1,3.352846700939365,True,True,True
+6bky,6bky,0,homo_interface,True,False,1,K32,K32|D:503,2,36,2,True,True,True,2,True,True,True,2,1.025203394453999,True,True,True
+6bky,6bky,1,minor_interface,True,True,2,MG,MG|D:502 MG|D:504,2,36,1,True,True,True,-1,False,False,False,1,5.769731362897238,True,True,True
+3ep7,3ep7,0,hetero_interface,True,False,1,PYR&SMM,PYR&SMM|A:68&A:368,1,20,1,True,True,True,1,True,True,True,1,0.7504805127383396,True,True,True
+3w1w,3w1w,0,single_chain,True,False,2,FES,FES|A:1501 FES|B:501,2,38,2,True,True,True,2,True,True,True,2,2.6199730914648756,True,True,True
+3w1w,3w1w,1,homo_interface,True,False,1,SAL,SAL|A:1505,2,38,7,False,False,True,7,False,False,True,7,0.3234516965483414,False,False,True
+5cjp,5cjp,0,hetero_interface,False,False,4,GTP,GTP|A:201 GTP|B:201 GTP|C:201 GTP|D:201,2,68,1,True,True,True,1,True,True,True,2,3.158304133550157,True,True,True
+5cjp,5cjp,1,single_chain,True,True,4,MG,MG|A:202 MG|B:202 MG|C:202 MG|D:202,2,68,1,True,True,True,-1,False,False,False,2,6.445397117323338,True,True,True
+4b3w,4b3w,0,homo_interface,True,False,2,FC6,FC6|A:400 FC6|B:400,2,18,4,False,True,True,-1,False,False,False,4,8.167455540129984,False,True,True
+4b3w,4b3w,1,single_chain,True,False,2,HEM,HEM|A:200 HEM|B:200,2,18,1,True,True,True,1,True,True,True,1,2.1024511884940384,True,True,True
+2f1o,2f1o,0,homo_interface,True,False,2,DTC,DTC|A:2280 DTC|C:280,2,24,1,True,True,True,1,True,True,True,1,3.6414645405386,True,True,True
+2f1o,2f1o,1,homo_interface,True,False,2,FAD,FAD|A:301 FAD|C:2301,2,24,1,True,True,True,1,True,True,True,3,3.452511404760309,False,True,True
+5hl1,5hl1,0,homo_interface,True,False,2,63J,63J|A:601 63J|B:601,1,45,1,True,True,True,-1,False,False,False,1,6.727454942249708,True,True,True
+6sbu,6sbu,0,homo_interface,True,False,4,L5N,L5N|A:1001 L5N|B:1001 L5N|C:1001 L5N|D:1001,2,34,9,False,False,True,9,False,False,True,9,3.0580420206400043,False,False,True
+6sbu,6sbu,1,single_chain,True,False,1,NAI,NAI|A:1002,2,34,3,False,True,True,3,False,True,True,3,3.217800180247387,False,True,True
+6x83,6x83,0,homo_interface,True,False,2,UTS,UTS|A:201 UTS|C:201,1,15,1,True,True,True,1,True,True,True,1,1.769092422684582,True,True,True
+2nyr,2nyr,0,homo_interface,True,False,1,SVR,SVR|B:401,2,29,1,True,True,True,1,True,True,True,1,3.7142866071427494,True,True,True
+2nyr,2nyr,1,single_chain,True,True,2,ZN,ZN|A:501 ZN|B:501,2,29,9,False,False,True,-1,False,False,False,25,4.790823102557639,False,False,True
+6x7u,6x7u,0,homo_interface,False,False,2,AMP&FAD,AMP|C:201 FAD|A:201,3,16,1,True,True,True,1,True,True,True,1,5.176848268976019,True,True,True
+6x7u,6x7u,1,single_chain,True,True,2,MN,MN|A:202 MN|C:202,3,16,1,True,True,True,-1,False,False,False,1,6.072042242936059,True,True,True
+6x7u,6x7u,2,single_chain,True,True,1,MN,MN|A:204,3,16,9,False,False,True,-1,False,False,False,9,5.862370680876467,False,False,True
+3d9s,3d9s,0,homo_interface,True,False,1,PS6,PS6|D:266,1,24,4,False,False,True,4,False,False,True,4,0.7779987146518959,False,False,True
+6ue5,6ue5,0,hetero_interface,True,False,1,Q5J,Q5J|A:701,1,111,1,True,True,True,1,True,True,True,1,3.571361925092446,True,True,True
+6sge,6sge,0,hetero_interface,True,False,1,GTP,GTP|A:201,3,20,1,True,True,True,1,True,True,True,1,1.3877042192052245,True,True,True
+6sge,6sge,1,single_chain,True,True,1,MG,MG|A:202,3,20,1,True,True,True,-1,False,False,False,1,7.957981842150684,True,True,True
+6sge,6sge,2,single_chain,True,True,1,MG,MG|A:203,3,20,5,False,True,True,-1,False,False,False,5,11.918957336948566,False,True,True
+6dz0,6dz0,0,homo_interface,True,False,3,OS3,OS3|A:307 OS3|B:307 OS3|C:307,2,27,1,True,True,True,1,True,True,True,1,1.7134876713883862,True,True,True
+6dz0,6dz0,1,single_chain,True,False,3,PO4,PO4|A:301 PO4|B:301 PO4|C:301,2,27,1,True,True,True,1,True,True,True,1,5.352105566970815,True,True,True
+6rv3,6rv3,0,homo_interface,True,True,1,K,K|A:301,6,31,1,True,True,True,-1,False,False,False,1,10.264951339387826,True,True,True
+6rv3,6rv3,1,homo_interface,False,True,2,K,K|A:303 K|A:304,6,31,1,True,True,True,-1,False,False,False,1,4.073582452829446,True,True,True
+6rv3,6rv3,2,homo_interface,True,True,1,K,K|A:309,6,31,13,False,False,True,-1,False,False,False,13,9.081419437510856,False,False,True
+6rv3,6rv3,3,homo_interface,True,False,1,KKQ,KKQ|A:300,6,31,1,True,True,True,1,True,True,True,1,1.4401121484106703,True,True,True
+6rv3,6rv3,4,homo_interface,True,False,2,Y01,Y01|A:305 Y01|B:302,6,31,6,True,True,True,6,True,True,True,7,3.4152155129654704,False,True,True
+6rv3,6rv3,5,minor_interface,True,False,2,Y01,Y01|A:306 Y01|B:303,6,31,5,True,True,True,5,True,True,True,5,2.2308128563373484,True,True,True
+7mdn,7mdn,0,homo_interface,True,False,8,Y6V,Y6V|A:401 Y6V|B:401 Y6V|C:401 Y6V|D:401 Y6V|E:401 Y6V|F:401 Y6V|G:401 Y6V|H:401,1,13,1,True,True,True,1,True,True,True,1,1.176102886655753,True,True,True
+3mtg,3mtg,0,homo_interface,True,False,4,NAD,NAD|A:1 NAD|B:1 NAD|C:1 NAD|D:1,1,39,1,True,True,True,1,True,True,True,3,5.705064942662798,False,True,True
+3fd6,3fd6,0,homo_interface,True,False,2,ADP,ADP|A:393 ADP|B:393,3,31,1,True,True,True,1,True,True,True,1,4.545056435293187,True,True,True
+3fd6,3fd6,1,single_chain,True,True,2,MG,MG|A:395 MG|B:395,3,31,1,True,True,True,-1,False,False,False,1,7.401649005458178,True,True,True
+3fd6,3fd6,2,minor_interface,True,False,2,PO4,PO4|A:394 PO4|B:394,3,31,1,True,True,True,1,True,True,True,1,4.204619602294604,True,True,True
+5qjy,5qjy,0,homo_interface,True,False,2,K2S,K2S|A:304 K2S|A:305,2,11,1,True,True,True,1,True,True,True,1,4.062696395252789,True,True,True
+5qjy,5qjy,1,single_chain,True,True,4,MG,MG|A:301 MG|A:302 MG|B:302 MG|B:303,2,11,1,True,True,True,-1,False,False,False,1,6.457380351195058,True,True,True
+9cuj,9cuj,0,single_chain,True,False,4,Y01,Y01|A:801 Y01|B:803 Y01|C:803 Y01|D:807,3,53,10,False,False,True,1,True,True,True,10,2.9470563279312905,False,False,True
+9cuj,9cuj,1,homo_interface,True,False,4,Y01,Y01|A:802 Y01|B:804 Y01|C:804 Y01|D:808,3,53,2,True,True,True,2,True,True,True,2,5.082342570114691,True,True,True
+9cuj,9cuj,2,homo_interface,True,False,4,Y01,Y01|A:815 Y01|B:801 Y01|C:801 Y01|D:805,3,53,3,True,True,True,3,True,True,True,22,7.433343325852785,False,False,True
+2ass,2ass,0,single_chain,True,False,1,PO4,PO4|B:3,3,34,20,False,False,True,-1,False,False,False,20,8.582348221786386,False,False,True
+2ass,2ass,1,hetero_interface,True,False,1,PO4,PO4|B:5,3,34,1,True,True,True,-1,False,False,False,1,6.338086462016752,True,True,True
+2ass,2ass,2,single_chain,True,False,1,PO4,PO4|C:4,3,34,-1,False,False,False,-1,False,False,False,-1,12.662481984192514,False,False,False
+7aps,7aps,0,homo_interface,False,False,2,RR5,RR5|A:301 RR5|B:301,1,12,1,True,True,True,1,True,True,True,1,5.927687407412778,True,True,True
+6qd5,6qd5,0,homo_interface,True,False,3,Y01,Y01|A:408 Y01|B:408 Y01|C:408,1,20,3,False,True,True,3,False,True,True,3,5.094419888466202,False,True,True
+5hlo,5hlo,0,single_chain,True,True,2,CA,CA|A:101 CA|C:102,4,13,2,True,True,True,-1,False,False,False,8,6.906030553074608,False,False,True
+5hlo,5hlo,1,single_chain,True,True,2,CA,CA|A:102 CA|C:101,4,13,1,True,True,True,-1,False,False,False,2,10.81820585864403,True,True,True
+5hlo,5hlo,2,homo_interface,False,False,2,CAC&ZN,CAC|A:105 ZN|A:106,4,13,1,True,True,True,1,True,True,True,1,2.7673644501583095,True,True,True
+5hlo,5hlo,3,single_chain,True,True,1,ZN,ZN|C:103,4,13,1,True,True,True,-1,False,False,False,2,8.650027225390678,True,True,True
+6bw6,6bw6,0,homo_interface,True,False,2,PGW,PGW|A:502 PGW|B:501,2,32,1,True,True,True,1,True,True,True,1,4.532237637194238,True,True,True
+6bw6,6bw6,1,single_chain,True,False,2,TUM,TUM|A:501 TUM|B:502,2,32,2,True,True,True,2,True,True,True,5,2.1691032709394023,False,False,True
+3f5o,3f5o,0,homo_interface,True,False,4,COA,COA|A:150 COA|B:150 COA|C:150 COA|D:150,2,14,1,True,True,True,1,True,True,True,3,4.069741760849206,False,True,True
+3f5o,3f5o,1,homo_interface,False,False,4,UOC,UOC|A:149 UOC|B:149 UOC|C:149 UOC|D:149,2,14,1,True,True,True,1,True,True,True,2,4.8847368404039955,True,True,True
+5og0,5og0,0,homo_interface,True,False,2,PLP,PLP|A:401 PLP|B:401,1,19,1,True,True,True,2,False,True,True,2,1.6826699022684166,False,True,True
+7fs3,7fs3,0,single_chain,True,False,4,FBP,FBP|A:601 FBP|B:601 FBP|C:601 FBP|D:601,4,45,6,False,True,True,6,False,True,True,6,1.0469102158255976,False,True,True
+7fs3,7fs3,1,single_chain,True,True,4,MG,MG|A:603 MG|B:603 MG|C:603 MG|D:603,4,45,3,True,True,True,3,True,True,True,3,3.383813972428151,True,True,True
+7fs3,7fs3,2,homo_interface,True,False,2,O9I,O9I|C:605 O9I|D:605,4,45,1,True,True,True,1,True,True,True,1,1.3530665172119187,True,True,True
+7fs3,7fs3,3,single_chain,True,False,4,OXL,OXL|A:602 OXL|B:602 OXL|C:602 OXL|D:602,4,45,3,True,True,True,3,True,True,True,3,1.2864248909283427,True,True,True
+2hcr,2hcr,0,homo_interface,True,False,6,AMP,AMP|A:3001 AMP|B:3002 AMP|C:3001 AMP|D:3002 AMP|E:3001 AMP|F:3002,1,25,3,False,True,True,8,False,False,True,8,2.7885311545686577,False,False,True
+2vig,2vig,0,minor_interface,True,False,1,COS,COS|B:502,3,41,-1,False,False,False,-1,False,False,False,-1,12.499261538186968,False,False,False
+2vig,2vig,1,single_chain,True,False,2,COS,COS|C:502 COS|D:502,3,41,1,True,True,True,1,True,True,True,1,4.5746795516188925,True,True,True
+2vig,2vig,2,homo_interface,True,False,4,FAD,FAD|A:501 FAD|B:501 FAD|C:501 FAD|D:501,3,41,1,True,True,True,1,True,True,True,1,1.8147443346102483,True,True,True
+9dtq,9dtq,0,hetero_interface,True,False,1,IHP,IHP|D:401,1,95,1,True,True,True,1,True,True,True,1,6.197236319521792,True,True,True
+8qcm,8qcm,0,single_chain,True,False,2,CLR,CLR|A:703 CLR|B:702,3,71,4,False,True,True,4,False,True,True,4,10.001252871515652,False,True,True
+8qcm,8qcm,1,single_chain,True,False,2,CLR,CLR|A:704 CLR|B:704,3,71,13,False,False,True,25,False,False,True,25,3.185724407415044,False,False,True
+8qcm,8qcm,2,homo_interface,True,False,2,V0U,V0U|A:701 V0U|B:701,3,71,1,True,True,True,1,True,True,True,3,3.925728849525899,True,True,True
+4ttb,4ttb,0,homo_interface,True,False,2,FMN,FMN|A:301 FMN|B:301,1,20,2,False,True,True,2,False,True,True,3,3.819485436547704,False,True,True
+8ros,8ros,0,homo_interface,True,False,2,FMN,FMN|A:301 FMN|B:301,1,14,1,True,True,True,1,True,True,True,1,3.4092488908849092,True,True,True
+4jc7,4jc7,0,homo_interface,True,False,3,GTX,GTX|A:211 GTX|B:211 GTX|C:211,1,8,2,False,True,True,2,False,True,True,2,1.528828309523342,False,True,True
+3p0e,3p0e,0,homo_interface,True,False,2,BAU,BAU|A:400 BAU|B:400,2,22,1,True,True,True,1,True,True,True,1,4.0870508927587395,True,True,True
+3p0e,3p0e,1,minor_interface,True,False,2,PO4,PO4|A:401 PO4|B:401,2,22,1,True,True,True,1,True,True,True,1,4.202439767563602,True,True,True
+1vkg,1vkg,0,homo_interface,True,False,2,CRI,CRI|A:402 CRI|B:402,2,28,1,True,True,True,1,True,True,True,1,5.863494606461233,True,True,True
+1vkg,1vkg,1,single_chain,True,True,2,ZN,ZN|A:400 ZN|B:400,2,28,1,True,True,True,-1,False,False,False,1,7.281140157969761,True,True,True
+7mfz,7mfz,0,minor_interface,True,False,1,ZFP,ZFP|A:201,2,16,1,True,True,True,1,True,True,True,1,6.935472154078626,True,True,True
+7mfz,7mfz,1,homo_interface,True,False,2,ZFP,ZFP|B:202 ZFP|C:204,2,16,2,True,True,True,2,True,True,True,2,3.162411105470005,True,True,True
+1ege,1ege,0,homo_interface,True,False,4,FAD,FAD|A:399 FAD|B:399 FAD|C:399 FAD|D:399,1,51,1,True,True,True,1,True,True,True,1,1.2324946247347306,True,True,True
+2obv,2obv,0,homo_interface,True,False,2,SAM,SAM|A:501 SAM|B:501,1,24,1,True,True,True,1,True,True,True,1,1.8998626266127756,True,True,True
+3d8b,3d8b,0,homo_interface,True,False,2,ADP,ADP|A:900 ADP|B:900,1,32,1,True,True,True,-1,False,False,False,1,9.954793518702434,True,True,True
+6q94,6q94,0,single_chain,True,False,4,GDD,GDD|A:402 GDD|B:402 GDD|C:402 GDD|D:402,2,31,1,True,True,True,-1,False,False,False,11,7.172065114037933,False,False,True
+6q94,6q94,1,homo_interface,True,False,4,NAP,NAP|A:401 NAP|B:401 NAP|C:401 NAP|D:401,2,31,1,True,True,True,1,True,True,True,1,7.282984896318262,True,True,True
+8ucd,8ucd,0,single_chain,True,False,3,FAD,FAD|A:402 FAD|B:402 FAD|C:401,3,41,3,True,True,True,3,True,True,True,3,2.512155449011863,True,True,True
+8ucd,8ucd,1,single_chain,True,False,3,HEM,HEM|A:404 HEM|B:403 HEM|C:402,3,41,1,True,True,True,1,True,True,True,1,3.544611403242957,True,True,True
+8ucd,8ucd,2,homo_interface,True,False,3,LBN,LBN|A:401 LBN|A:403 LBN|B:401,3,41,2,True,True,True,2,True,True,True,9,3.4630769555411476,False,False,True
+7lub,7lub,0,homo_interface,True,False,4,APO,APO|A:601 APO|B:601 APO|C:601 APO|D:601,1,34,1,True,True,True,-1,False,False,False,1,7.681576530895214,True,True,True
+4g1n,4g1n,0,single_chain,True,True,4,MG,MG|A:602 MG|B:602 MG|C:602 MG|D:602,3,64,1,True,True,True,-1,False,False,False,5,4.207348214730983,False,True,True
+4g1n,4g1n,1,homo_interface,True,False,2,NZT,NZT|A:603 NZT|D:603,3,64,2,True,True,True,2,True,True,True,2,1.607181383665204,True,True,True
+4g1n,4g1n,2,single_chain,True,False,4,OXL,OXL|A:601 OXL|B:601 OXL|C:601 OXL|D:601,3,64,1,True,True,True,5,False,True,True,5,3.5709115082846847,False,True,True
+4yl1,4yl1,0,homo_interface,True,False,3,4U8,4U8|A:201 4U8|B:201 4U8|C:201,2,13,2,True,True,True,2,True,True,True,11,4.112311880195857,False,False,True
+4yl1,4yl1,1,homo_interface,True,False,3,GSH,GSH|A:203 GSH|B:203 GSH|C:203,2,13,1,True,True,True,1,True,True,True,1,1.363394660397348,True,True,True
+6t9n,6t9n,0,homo_interface,True,False,4,CLR,CLR|A:801 CLR|B:801 CLR|C:801 CLR|D:801,1,41,4,False,False,True,17,False,False,True,17,5.723894303706165,False,False,True
+4en3,4en3,0,hetero_interface,True,False,1,AGH,AGH|C:304,1,57,1,True,True,True,1,True,True,True,1,0.764579623060934,True,True,True
+5jcw,5jcw,0,single_chain,True,True,2,CA,CA|A:305 CA|B:305,4,15,9,False,False,True,-1,False,False,False,9,4.868263448089063,False,False,True
+5jcw,5jcw,1,single_chain,True,True,2,CA,CA|A:307 CA|B:307,4,15,12,False,False,True,-1,False,False,False,12,8.470553464797916,False,False,True
+5jcw,5jcw,2,homo_interface,True,False,1,GSH,GSH|A:308,4,15,5,False,True,True,5,False,True,True,5,1.914471467533533,False,True,True
+5jcw,5jcw,3,minor_interface,True,False,2,GVX,GVX|A:301 GVX|B:301,4,15,1,True,True,True,2,True,True,True,3,8.291157277485452,True,True,True
+6c98,6c98,0,hetero_interface,True,False,1,ER7,ER7|B:101,1,19,1,True,True,True,1,True,True,True,1,3.826178511256367,True,True,True
+5qhl,5qhl,0,homo_interface,True,False,2,GQ7,GQ7|A:308 GQ7|B:303,1,21,10,False,False,True,10,False,False,True,10,1.2528830751510749,False,False,True
+6boz,6boz,0,homo_interface,True,False,2,E1J,E1J|A:402 E1J|B:401,1,11,1,True,True,True,1,True,True,True,1,1.7757437878252582,True,True,True
+7dbj,7dbj,0,homo_interface,True,False,2,H1U,H1U|C:601 H1U|D:601,2,38,6,False,False,True,6,False,False,True,6,0.31977179362789454,False,False,True
+7dbj,7dbj,1,single_chain,True,False,4,NAI,NAI|A:401 NAI|B:401 NAI|C:602 NAI|D:602,2,38,2,True,True,True,2,True,True,True,2,5.883212132840357,True,True,True
+4cud,4cud,0,single_chain,True,True,2,CA,CA|A:1531 CA|B:1531,5,3,-1,False,False,False,-1,False,False,False,-1,14.3553559691148,False,False,False
+4cud,4cud,1,single_chain,True,True,2,CA,CA|A:1532 CA|B:1532,5,3,1,True,True,True,-1,False,False,False,1,11.218769896918289,True,True,True
+4cud,4cud,2,single_chain,True,True,2,CA,CA|A:1533 CA|B:1533,5,3,-1,False,False,False,-1,False,False,False,-1,41.37331362122208,False,False,False
+4cud,4cud,3,homo_interface,True,False,1,CA,CA|A:1534&B:1534,5,3,3,True,True,True,-1,False,False,False,3,11.116958981664006,True,True,True
+4cud,4cud,4,single_chain,True,False,2,FUC,FUC|A:1 FUC|B:1,5,3,1,True,True,True,-1,False,False,False,1,11.373070561638137,True,True,True
+7e4c,7e4c,0,homo_interface,True,False,1,GBJ,GBJ|B:205,1,8,3,False,True,True,-1,False,False,False,3,5.736763024563591,False,True,True
+6nyo,6nyo,0,hetero_interface,True,False,1,U94,U94|A:301,1,23,1,True,True,True,1,True,True,True,1,3.499147610490311,True,True,True
+6lig,6lig,0,homo_interface,False,False,2,EE6&PLP,EE6|A:501 PLP|B:501,1,28,1,True,True,True,1,True,True,True,1,1.3612266526923444,True,True,True
+1p4r,1p4r,0,homo_interface,True,False,2,354,354|A:1801 354|B:1802,3,51,1,True,True,True,2,True,True,True,3,4.57424485571116,True,True,True
+1p4r,1p4r,1,homo_interface,True,False,2,AMZ,AMZ|A:1701 AMZ|B:1702,3,51,1,True,True,True,1,True,True,True,1,2.970796694491229,True,True,True
+1p4r,1p4r,2,single_chain,True,False,1,XMP,XMP|A:1901,3,51,6,False,False,True,6,False,False,True,6,0.4580272917632774,False,False,True
+6rni,6rni,0,hetero_interface,True,False,1,KAQ,KAQ|B:402,1,19,1,True,True,True,1,True,True,True,1,4.146514439863917,True,True,True
+5e26,5e26,0,single_chain,True,False,2,ADP,ADP|A:601 ADP|B:602,2,27,1,True,True,True,-1,False,False,False,3,10.788042917971728,False,True,True
+5e26,5e26,1,homo_interface,True,False,2,PAU,PAU|A:602 PAU|B:601,2,27,1,True,True,True,1,True,True,True,1,3.192971969811199,True,True,True
+6dl7,6dl7,0,homo_interface,True,False,7,ONC,ONC|A:301 ONC|B:301 ONC|C:301 ONC|D:301 ONC|E:301 ONC|F:301 ONC|G:301,1,30,1,True,True,True,1,True,True,True,1,2.128132749618774,True,True,True
+1fkd,1fkd,0,homo_interface,True,False,2,818,818|A:108 818|B:108,1,6,1,True,True,True,1,True,True,True,1,3.5985627686619552,True,True,True
+3o9l,3o9l,0,hetero_interface,True,False,1,LPN,LPN|A:168,1,26,1,True,True,True,1,True,True,True,1,0.8596918052418555,True,True,True
+7p1n,7p1n,0,hetero_interface,True,False,1,4J1,4J1|F:601,3,36,1,True,True,True,1,True,True,True,2,1.4546717842867534,True,True,True
+7p1n,7p1n,1,single_chain,True,False,1,4J1,4J1|F:602,3,36,29,False,False,True,29,False,False,True,29,6.640662391659436,False,False,True
+7p1n,7p1n,2,single_chain,True,True,1,MG,MG|G:303,3,36,12,False,False,True,-1,False,False,False,12,6.123311359060558,False,False,True
+7zbg,7zbg,0,minor_interface,True,False,2,ADP,ADP|A:501 ADP|B:501,2,24,11,False,False,True,-1,False,False,False,11,11.152028246018748,False,False,True
+7zbg,7zbg,1,homo_interface,True,False,1,ITH,ITH|A:507&B:507,2,24,1,True,True,True,1,True,True,True,1,1.6134735820582884,True,True,True
+4azr,4azr,0,homo_interface,True,False,2,A9M,A9M|A:1135 A9M|B:1135,1,12,1,True,True,True,1,True,True,True,1,1.7351740546700207,True,True,True
+3kjn,3kjn,0,hetero_interface,True,False,2,B93,B93|A:950 B93|C:950,1,17,4,False,False,True,4,False,False,True,4,4.861429213718945,False,False,True
+1yci,1yci,0,single_chain,True,True,2,FE2,FE2|A:1350 FE2|B:1350,3,25,1,True,True,True,-1,False,False,False,1,5.221433902674627,True,True,True
+1yci,1yci,1,single_chain,True,False,2,NDF,NDF|A:400 NDF|B:400,3,25,1,True,True,True,1,True,True,True,1,3.5879183379781687,True,True,True
+1yci,1yci,2,homo_interface,True,False,2,NDF,NDF|A:401 NDF|B:401,3,25,12,False,False,True,14,False,False,True,14,1.7590702089456236,False,False,True
+5tde,5tde,0,single_chain,True,False,1,2HP,2HP|A:502,4,47,26,False,False,True,-1,False,False,False,26,6.316236616847092,False,False,True
+5tde,5tde,1,hetero_interface,True,False,1,2HP,2HP|B:901,4,47,-1,False,False,False,-1,False,False,False,-1,12.751029605486767,False,False,False
+5tde,5tde,2,single_chain,True,False,1,2HP,2HP|B:902,4,47,-1,False,False,False,-1,False,False,False,-1,17.287101029380256,False,False,False
+5tde,5tde,3,minor_interface,True,False,1,FLC,FLC|A:501,4,47,3,True,True,True,-1,False,False,False,3,11.00138554910244,True,True,True
+7ere,7ere,0,single_chain,True,False,1,JBR,JBR|A:402,3,22,3,True,True,True,4,False,True,True,4,2.5585560380808556,False,True,True
+7ere,7ere,1,homo_interface,True,False,1,JBR,JBR|A:403,3,22,2,True,True,True,5,False,True,True,5,2.725838036274349,False,True,True
+7ere,7ere,2,single_chain,True,False,2,NAP,NAP|A:401 NAP|B:401,3,22,1,True,True,True,1,True,True,True,1,3.522208824019382,True,True,True
+7cfo,7cfo,0,homo_interface,True,False,1,WZ6,WZ6|A:500,2,37,1,True,True,True,1,True,True,True,1,3.0003781428346663,True,True,True
+7cfo,7cfo,1,homo_interface,True,False,2,WZ6,WZ6|B:500 WZ6|C:500,2,37,1,True,True,True,2,True,True,True,1,7.149129387554822,True,True,True
+2bm2,2bm2,0,homo_interface,False,False,4,PM2,PM2|A:3211 PM2|B:3211 PM2|C:3211 PM2|D:3211,1,30,1,True,True,True,1,True,True,True,16,5.722220897518724,False,False,True
+8gm5,8gm5,0,hetero_interface,True,False,1,ADP,ADP|A:801,5,37,2,True,True,True,2,True,True,True,2,3.2608761092687946,True,True,True
+8gm5,8gm5,1,single_chain,True,True,1,CA,CA|B:201,5,37,2,True,True,True,-1,False,False,False,2,8.676628031672212,True,True,True
+8gm5,8gm5,2,single_chain,True,True,1,CA,CA|B:202,5,37,4,True,True,True,-1,False,False,False,22,8.583018175443883,False,False,True
+8gm5,8gm5,3,single_chain,True,False,1,EKI,EKI|A:802,5,37,1,True,True,True,-1,False,False,False,1,8.504025752548024,True,True,True
+8gm5,8gm5,4,single_chain,True,True,1,ZN,ZN|A:803,5,37,10,False,False,True,-1,False,False,False,16,7.546486003432328,False,False,True
+4euu,4euu,0,homo_interface,True,False,2,BX7,BX7|A:401 BX7|B:401,1,27,1,True,True,True,-1,False,False,False,1,9.87855196878571,True,True,True
+1mq0,1mq0,0,homo_interface,True,False,4,BRD,BRD|A:148 BRD|B:149 BRD|C:148 BRD|D:149,2,9,1,True,True,True,1,True,True,True,1,0.4959223729576997,True,True,True
+1mq0,1mq0,1,minor_interface,False,True,4,ZN,ZN|A:147 ZN|B:147 ZN|C:147 ZN|D:147,2,9,1,True,True,True,-1,False,False,False,1,5.626864935290345,True,True,True
+1ivh,1ivh,0,minor_interface,True,False,4,COS,COS|A:400 COS|B:400 COS|C:400 COS|D:400,2,36,5,False,False,True,5,False,False,True,5,2.8349950617240927,False,False,True
+1ivh,1ivh,1,homo_interface,True,False,4,FAD,FAD|A:399 FAD|B:399 FAD|C:399 FAD|D:399,2,36,1,True,True,True,1,True,True,True,1,1.508817749100273,True,True,True
+7t91,7t91,0,single_chain,True,True,2,ZN,ZN|A:401 ZN|B:401,2,8,1,True,True,True,-1,False,False,False,4,6.838241294368017,False,True,True
+7t91,7t91,1,single_chain,True,True,2,ZN,ZN|A:402 ZN|B:402,2,8,2,True,True,True,-1,False,False,False,6,7.67050519848595,False,False,True
+4yzu,4yzu,0,single_chain,True,False,1,4K6,4K6|A:301,1,23,1,True,True,True,1,True,True,True,1,4.3052384370671035,True,True,True
+6asy,6asy,0,single_chain,True,False,2,ATP,ATP|A:706 ATP|B:704,1,49,19,False,False,True,-1,False,False,False,19,10.752259343970458,False,False,True
+3ctz,3ctz,0,single_chain,True,True,2,MN,MN|A:624 MN|B:624,2,47,1,True,True,True,1,True,True,True,1,3.9002484536244624,True,True,True
+3ctz,3ctz,1,single_chain,True,True,2,MN,MN|A:625 MN|B:625,2,47,1,True,True,True,-1,False,False,False,1,4.981130795311444,True,True,True
+6zqr,6zqr,0,single_chain,True,True,4,CA,CA|A:501 CA|B:501 CA|D:501 CA|E:501,1,11,6,False,False,True,-1,False,False,False,6,8.887337058984535,False,False,True
+3hkv,3hkv,0,single_chain,True,False,2,3AB,3AB|A:1025 3AB|B:1,1,22,3,False,True,True,3,False,True,True,3,1.9450066837931455,False,True,True
+5jw7,5jw7,0,single_chain,True,True,1,ZN,ZN|B:101,2,19,1,True,True,True,-1,False,False,False,17,4.841186734675706,False,False,True
+5jw7,5jw7,1,single_chain,True,True,1,ZN,ZN|B:102,2,19,2,True,True,True,-1,False,False,False,11,9.059750769198896,False,False,True
+1q7l,1q7l,0,minor_interface,True,True,1,ZN,ZN|A:1001,2,15,1,True,True,True,-1,False,False,False,1,6.820333496244886,True,True,True
+1q7l,1q7l,1,single_chain,True,True,1,ZN,ZN|A:1002,2,15,1,True,True,True,-1,False,False,False,1,5.359982555941764,True,True,True
+2ha8,2ha8,0,single_chain,True,False,2,SAH,SAH|A:401 SAH|B:402,1,9,1,True,True,True,-1,False,False,False,7,10.280206612709685,False,False,True
+6v65,6v65,0,single_chain,True,False,1,GNP,GNP|C:501,3,40,1,True,True,True,-1,False,False,False,1,7.626991280970496,True,True,True
+6v65,6v65,1,single_chain,True,True,1,MG,MG|C:502,3,40,1,True,True,True,-1,False,False,False,2,8.54652449829754,True,True,True
+6v65,6v65,2,minor_interface,True,True,1,ZN,ZN|A:201,3,40,12,False,False,True,-1,False,False,False,12,6.886478708309495,False,False,True
+4u8d,4u8d,0,single_chain,True,True,2,MG,MG|A:201 MG|B:201,3,18,3,True,True,True,-1,False,False,False,14,4.305457699246389,False,False,True
+4u8d,4u8d,1,single_chain,True,True,1,MG,MG|A:202,3,18,13,False,False,True,-1,False,False,False,13,8.875459931744382,False,False,True
+4u8d,4u8d,2,single_chain,True,True,1,MG,MG|B:203,3,18,-1,False,False,False,-1,False,False,False,-1,22.86164980923293,False,False,False
+2vq3,2vq3,0,single_chain,True,False,2,NAP,NAP|A:301 NAP|B:301,1,18,1,True,True,True,1,True,True,True,1,7.031580618893585,True,True,True
+4cvh,4cvh,0,single_chain,True,True,2,MG,MG|A:1452 MG|B:1452,1,32,4,False,False,True,-1,False,False,False,4,6.093127029695012,False,False,True
+8cd0,8cd0,0,single_chain,True,False,1,A3P,A3P|A:901,2,50,1,True,True,True,1,True,True,True,1,1.576749187410604,True,True,True
+8cd0,8cd0,1,single_chain,True,True,1,CA,CA|A:902,2,50,2,True,True,True,-1,False,False,False,2,7.671421902098712,True,True,True
+2rib,2rib,0,single_chain,True,False,6,CA&GMH,CA|A:401 CA|B:401 CA|C:401 GMH|A:356 GMH|B:356 GMH|C:356,3,12,6,False,False,True,6,False,False,True,6,2.1739921802987237,False,False,True
+2rib,2rib,1,single_chain,True,True,3,CA,CA|A:402 CA|B:402 CA|C:402,3,12,6,False,False,True,-1,False,False,False,7,11.245700511751146,False,False,True
+2rib,2rib,2,single_chain,True,True,3,CA,CA|A:403 CA|B:403 CA|C:403,3,12,7,False,False,True,-1,False,False,False,7,10.62211269004429,False,False,True
+5wy5,5wy5,0,single_chain,True,True,1,ZN,ZN|A:301,2,34,3,False,True,True,-1,False,False,False,3,5.710247017424027,False,True,True
+5wy5,5wy5,1,single_chain,True,True,1,ZN,ZN|A:302,2,34,27,False,False,True,-1,False,False,False,27,11.721919382080733,False,False,True
+1y4j,1y4j,0,single_chain,True,True,2,CA,CA|A:1001 CA|B:1002,2,25,2,True,True,True,-1,False,False,False,14,7.461665564738211,False,False,True
+1y4j,1y4j,1,single_chain,True,True,2,CA,CA|A:1004 CA|B:1003,2,25,-1,False,False,False,-1,False,False,False,-1,13.245378137297552,False,False,False
+4q9z,4q9z,0,single_chain,True,False,2,PZW,PZW|A:801 PZW|B:801,1,35,1,True,True,True,-1,False,False,False,1,7.005660425684361,True,True,True
+6i4u,6i4u,0,minor_interface,True,False,2,FAD,FAD|A:501 FAD|B:501,1,43,1,True,True,True,1,True,True,True,1,0.8303222266084405,True,True,True
+3ojy,3ojy,0,single_chain,True,False,1,BMA,BMA|A:556,9,107,-1,False,False,False,-1,False,False,False,-1,15.140608541270723,False,False,False
+3ojy,3ojy,1,single_chain,True,False,1,BMA,BMA|A:557,9,107,20,False,False,True,-1,False,False,False,20,6.952058759820719,False,False,True
+3ojy,3ojy,2,single_chain,True,False,1,BMA,BMA|A:558,9,107,20,False,False,True,22,False,False,True,22,4.878402402426432,False,False,True
+3ojy,3ojy,3,single_chain,True,False,1,BMA,BMA|B:539,9,107,42,False,False,True,-1,False,False,False,42,10.888086057705458,False,False,True
+3ojy,3ojy,4,single_chain,True,False,1,BMA,BMA|B:540,9,107,82,False,False,True,-1,False,False,False,82,11.63632837281589,False,False,True
+3ojy,3ojy,5,single_chain,True,False,1,BMA,BMA|B:541,9,107,6,True,True,True,-1,False,False,False,6,6.5766315846335806,True,True,True
+3ojy,3ojy,6,single_chain,True,False,1,BMA,BMA|B:542,9,107,6,True,True,True,21,False,False,True,21,1.380320614929734,False,False,True
+3ojy,3ojy,7,single_chain,True,True,1,CA,CA|A:555,9,107,15,False,False,True,-1,False,False,False,65,7.9932195015525505,False,False,True
+3ojy,3ojy,8,single_chain,True,True,1,CA,CA|B:538,9,107,9,True,True,True,-1,False,False,False,57,9.622922944719033,False,False,True
+5neg,5neg,0,single_chain,True,False,2,8VK,8VK|A:201 8VK|B:201,1,10,3,False,True,True,3,False,True,True,3,7.502971211460164,False,True,True
+4fzv,4fzv,0,single_chain,True,False,1,SAM,SAM|A:401,1,42,1,True,True,True,1,True,True,True,1,6.980946712301995,True,True,True
+3ueh,3ueh,0,single_chain,True,True,2,ZN,ZN|A:143 ZN|B:143,1,10,1,True,True,True,-1,False,False,False,8,7.450727414152259,False,False,True
+6fzw,6fzw,0,minor_interface,True,True,3,CA,CA|A:301 CA|B:301 CA|C:301,3,46,4,False,True,True,-1,False,False,False,9,6.549031531455624,False,False,True
+6fzw,6fzw,1,single_chain,True,True,1,CA,CA|D:301,3,46,23,False,False,True,-1,False,False,False,30,7.248011175488076,False,False,True
+6fzw,6fzw,2,single_chain,True,True,1,CA,CA|D:302,3,46,1,True,True,True,-1,False,False,False,26,8.596395116559034,False,False,True
+7v6p,7v6p,0,single_chain,True,True,2,CA,CA|A:406 CA|B:406,1,14,1,True,True,True,-1,False,False,False,11,10.175423578406946,False,False,True
+4ueg,4ueg,0,single_chain,True,True,4,MG,MG|A:1270 MG|B:1266 MG|C:1270 MG|D:1266,1,22,1,True,True,True,-1,False,False,False,1,5.2947659060623256,True,True,True
+5vbn,5vbn,0,single_chain,True,True,1,ZN,ZN|B:2301,2,42,23,False,False,True,-1,False,False,False,23,9.611481103347183,False,False,True
+5vbn,5vbn,1,single_chain,True,True,1,ZN,ZN|B:2302,2,42,19,False,False,True,-1,False,False,False,19,7.318526764315336,False,False,True
+3doe,3doe,0,single_chain,True,False,1,GTP,GTP|A:201,2,22,1,True,True,True,1,True,True,True,1,2.9194715275200047,True,True,True
+3doe,3doe,1,single_chain,True,True,1,MG,MG|A:193,2,22,1,True,True,True,-1,False,False,False,1,5.343572400557519,True,True,True
+4uxu,4uxu,0,single_chain,True,False,2,MLK,MLK|A:1213 MLK|B:1213,1,18,2,False,True,True,2,False,True,True,2,4.395355958281422,False,True,True
+4chl,4chl,0,single_chain,True,True,2,FE,FE|A:501 FE|B:501,1,22,1,True,True,True,-1,False,False,False,1,7.237156762154597,True,True,True
+6f7h,6f7h,0,single_chain,True,False,3,GOL,GOL|A:404 GOL|B:407 GOL|C:405,2,28,9,False,False,True,9,False,False,True,9,1.332975993782338,False,False,True
+6f7h,6f7h,1,single_chain,True,False,1,GOL,GOL|A:405,2,28,5,False,False,True,-1,False,False,False,5,7.769315928703117,False,False,True
+5ahr,5ahr,0,single_chain,True,True,2,ZN,ZN|A:2041 ZN|B:2041,1,27,2,False,True,True,-1,False,False,False,4,6.058654966244572,False,False,True
+5l6w,5l6w,0,minor_interface,True,False,1,AGS,AGS|L:701,1,32,1,True,True,True,1,True,True,True,1,4.124634529264379,True,True,True
+8k7j,8k7j,0,single_chain,True,False,2,VNB,VNB|A:502 VNB|B:501,1,39,1,True,True,True,1,True,True,True,1,0.47261189151353533,True,True,True
+5mq4,5mq4,0,single_chain,True,True,2,ZN,ZN|A:1202 ZN|D:1202,2,15,1,True,True,True,-1,False,False,False,8,6.287557952019211,False,False,True
+5mq4,5mq4,1,single_chain,True,True,2,ZN,ZN|A:1203 ZN|D:1203,2,15,2,True,True,True,-1,False,False,False,2,10.288167280910628,True,True,True
+6dup,6dup,0,single_chain,True,False,1,HCJ,HCJ|A:501,1,38,1,True,True,True,1,True,True,True,1,1.0853487918637041,True,True,True
+4nqd,4nqd,0,single_chain,True,False,1,Q87,Q87|A:301,1,24,1,True,True,True,1,True,True,True,1,4.462816151265927,True,True,True
+7p0p,7p0p,0,single_chain,True,False,2,FES,FES|A:200 FES|B:200,1,6,1,True,True,True,4,False,False,True,4,0.26675082005497264,False,False,True
+7b51,7b51,0,single_chain,True,False,1,GTP,GTP|B:201,2,96,3,False,True,True,3,False,True,True,3,1.6990673912473282,False,True,True
+7b51,7b51,1,single_chain,True,True,1,MG,MG|B:202,2,96,3,False,True,True,-1,False,False,False,3,7.249951241215346,False,True,True
+6wu7,6wu7,0,single_chain,True,True,2,CA,CA|A:201 CA|B:201,3,24,12,False,False,True,-1,False,False,False,12,10.255810499419342,False,False,True
+6wu7,6wu7,1,single_chain,True,True,2,CA,CA|A:202 CA|B:202,3,24,11,False,False,True,-1,False,False,False,11,7.885065884315745,False,False,True
+6wu7,6wu7,2,single_chain,True,True,1,CA,CA|B:204,3,24,2,True,True,True,-1,False,False,False,2,9.354531842909081,True,True,True
+3ms5,3ms5,0,single_chain,True,False,2,REE,REE|A:391 REE|B:391,2,26,1,True,True,True,1,True,True,True,1,3.45604166641549,True,True,True
+3ms5,3ms5,1,single_chain,True,True,2,ZN,ZN|A:389 ZN|B:389,2,26,9,False,False,True,-1,False,False,False,9,10.880948947587248,False,False,True
+2ag5,2ag5,0,single_chain,True,False,4,NAD,NAD|A:2001 NAD|B:1001 NAD|C:3001 NAD|D:4001,2,24,2,True,True,True,2,True,True,True,4,2.9149825042356596,False,True,True
+2ag5,2ag5,1,single_chain,True,False,4,SO4,SO4|A:5001 SO4|B:5003 SO4|C:5002 SO4|D:5004,2,24,1,True,True,True,1,True,True,True,6,1.7586455015153015,False,False,True
+6yuz,6yuz,0,single_chain,True,True,2,CA,CA|A:705 CA|C:705,1,36,21,False,False,True,-1,False,False,False,21,7.797966465688347,False,False,True
+7pgm,7pgm,0,single_chain,True,False,1,IDS&SGN,IDS&SGN|D:3&D:4,1,65,-1,False,False,False,-1,False,False,False,-1,15.916708736419098,False,False,False
+2i9p,2i9p,0,single_chain,True,False,4,NAD,NAD|A:500 NAD|B:500 NAD|C:500 NAD|D:500,1,25,1,True,True,True,1,True,True,True,1,4.68344894281981,True,True,True
+4do4,4do4,0,single_chain,True,False,2,DJN,DJN|A:510 DJN|B:510,1,33,1,True,True,True,1,True,True,True,1,2.3057070499089876,True,True,True
+1yj6,1yj6,0,minor_interface,True,False,2,GSH,GSH|A:218 GSH|B:218,1,15,1,True,True,True,1,True,True,True,1,5.2907618544024455,True,True,True
+2ax4,2ax4,0,single_chain,True,False,2,ADP,ADP|A:800 ADP|B:801,1,18,1,True,True,True,1,True,True,True,6,2.5946107607886026,False,False,True
+4l0d,4l0d,0,single_chain,True,False,2,HEM,HEM|A:602 HEM|B:602,2,40,1,True,True,True,1,True,True,True,1,2.2574388142317368,True,True,True
+4l0d,4l0d,1,single_chain,True,False,2,PLP,PLP|A:601 PLP|B:601,2,40,3,False,True,True,3,False,True,True,3,1.313627420542066,False,True,True
+5olm,5olm,0,single_chain,True,True,2,ZN,ZN|A:501 ZN|B:501,4,9,2,True,True,True,-1,False,False,False,5,9.573815853670888,False,True,True
+5olm,5olm,1,single_chain,True,True,2,ZN,ZN|A:502 ZN|B:502,4,9,4,True,True,True,-1,False,False,False,4,6.993185468725966,True,True,True
+5olm,5olm,2,single_chain,True,True,2,ZN,ZN|A:503 ZN|B:503,4,9,1,True,True,True,-1,False,False,False,1,5.379413165020889,True,True,True
+5olm,5olm,3,single_chain,True,True,2,ZN,ZN|A:504 ZN|B:504,4,9,1,True,True,True,-1,False,False,False,1,9.205953019649838,True,True,True
+4pod,4pod,0,single_chain,True,False,1,PO4,PO4|B:301,1,28,1,True,True,True,1,True,True,True,1,0.6879978197639882,True,True,True
+4nzl,4nzl,0,single_chain,True,False,1,FUL,FUL|D:4,1,16,8,False,False,True,8,False,False,True,8,1.5696655694765038,False,False,True
+6hpr,6hpr,0,single_chain,True,True,1,ZN,ZN|A:701,2,17,13,False,False,True,-1,False,False,False,13,11.120584022433356,False,False,True
+6hpr,6hpr,1,single_chain,True,True,1,ZN,ZN|A:702,2,17,8,False,False,True,-1,False,False,False,8,10.958055530065543,False,False,True
+6agi,6agi,0,single_chain,True,True,2,CA,CA|A:601 CA|B:601,2,46,11,False,False,True,-1,False,False,False,22,9.781566847903251,False,False,True
+6agi,6agi,1,single_chain,True,True,2,CA,CA|A:602 CA|B:602,2,46,16,False,False,True,-1,False,False,False,25,9.123943062075735,False,False,True
+4bd9,4bd9,0,minor_interface,True,True,1,ZN,ZN|A:500,1,25,1,True,True,True,-1,False,False,False,1,6.043208584849612,True,True,True
+1ey2,1ey2,0,single_chain,True,True,6,FE2,FE2|A:1001 FE2|B:1001 FE2|C:1001 FE2|D:1001 FE2|E:1001 FE2|F:1001,1,28,2,False,True,True,-1,False,False,False,2,6.776438592653221,False,True,True
+2iby,2iby,0,single_chain,True,False,4,COA,COA|A:6001 COA|B:6002 COA|C:6003 COA|D:6004,2,38,1,True,True,True,1,True,True,True,7,6.368439133728139,False,False,True
+2iby,2iby,1,single_chain,True,True,4,K,K|A:3001 K|B:3002 K|C:3003 K|D:3004,2,38,1,True,True,True,-1,False,False,False,7,6.86100787056829,False,False,True
+3oxq,3oxq,0,single_chain,True,True,2,CA,CA|A:501 CA|D:513,4,19,1,True,True,True,-1,False,False,False,1,11.960814228136812,True,True,True
+3oxq,3oxq,1,single_chain,True,True,2,CA,CA|A:502 CA|D:514,4,19,1,True,True,True,-1,False,False,False,17,6.85807064705519,False,False,True
+3oxq,3oxq,2,single_chain,True,True,1,CA,CA|A:503,4,19,4,True,True,True,-1,False,False,False,4,7.874987809514375,True,True,True
+3oxq,3oxq,3,single_chain,True,True,2,CA,CA|A:504 CA|D:516,4,19,13,False,False,True,-1,False,False,False,13,8.192990662755573,False,False,True
+7jus,7jus,0,single_chain,True,False,1,ANP,ANP|B:1001,5,51,1,True,True,True,1,True,True,True,1,2.611429302125557,True,True,True
+7jus,7jus,1,single_chain,True,False,1,ANP,ANP|C:502,5,51,2,True,True,True,2,True,True,True,5,3.553897578715517,True,True,True
+7jus,7jus,2,single_chain,True,True,1,MG,MG|B:1002,5,51,1,True,True,True,1,True,True,True,1,1.654400797872151,True,True,True
+7jus,7jus,3,single_chain,True,True,1,MG,MG|C:503,5,51,2,True,True,True,-1,False,False,False,2,5.269470751413276,True,True,True
+7jus,7jus,4,single_chain,True,False,1,VKD,VKD|C:501,5,51,2,True,True,True,2,True,True,True,2,5.625340700793156,True,True,True
+6ks0,6ks0,0,single_chain,True,True,1,ZN,ZN|A:402,1,36,2,False,True,True,-1,False,False,False,2,9.105092036876949,False,True,True
+4bkx,4bkx,0,single_chain,True,True,2,ZN,ZN|B:600 ZN|D:600,1,35,2,False,True,True,-1,False,False,False,3,4.481284302518641,False,True,True
+6ii6,6ii6,0,single_chain,True,False,1,GTP,GTP|C:1001,2,39,1,True,True,True,1,True,True,True,2,4.825749579080953,True,True,True
+6ii6,6ii6,1,single_chain,True,True,1,MG,MG|C:1002,2,39,1,True,True,True,1,True,True,True,1,3.716071312555773,True,True,True
+2vr2,2vr2,0,single_chain,True,True,4,ZN,ZN|A:1494 ZN|B:1494 ZN|C:1494 ZN|D:1494,2,30,3,False,True,True,3,False,True,True,3,3.727951984669329,False,True,True
+2vr2,2vr2,1,single_chain,True,True,4,ZN,ZN|A:1495 ZN|B:1495 ZN|C:1495 ZN|D:1495,2,30,3,False,True,True,-1,False,False,False,3,4.227168082771255,False,True,True
+2y43,2y43,0,single_chain,True,True,2,ZN,ZN|A:1097 ZN|B:1096,2,10,1,True,True,True,-1,False,False,False,1,7.907750501881049,True,True,True
+2y43,2y43,1,single_chain,True,True,2,ZN,ZN|A:1098 ZN|B:1097,2,10,2,True,True,True,-1,False,False,False,5,6.820209234327052,False,False,True
+6gr8,6gr8,0,single_chain,True,False,1,F8Z,F8Z|A:401,1,23,1,True,True,True,1,True,True,True,1,4.57160332924894,True,True,True
+4yhj,4yhj,0,single_chain,True,False,2,AN2,AN2|A:601 AN2|B:601,1,53,1,True,True,True,1,True,True,True,2,2.7507164521266065,False,True,True
+2xsx,2xsx,0,single_chain,True,True,2,MG,MG|A:500 MG|B:500,1,36,1,True,True,True,-1,False,False,False,1,7.642599361473817,True,True,True
+3hy2,3hy2,0,minor_interface,True,False,2,ATP,ATP|X:1 ATP|Y:2,1,24,1,True,True,True,-1,False,False,False,1,9.568521202359326,True,True,True
+7wdb,7wdb,0,single_chain,True,False,4,657,657|A:905 657|B:905 657|C:905 657|D:905,4,60,5,False,True,True,5,False,True,True,5,0.8590337595228651,False,True,True
+7wdb,7wdb,1,single_chain,True,True,4,CA,CA|A:904 CA|B:904 CA|C:904 CA|D:904,4,60,5,False,True,True,-1,False,False,False,6,6.626611426664474,False,True,True
+7wdb,7wdb,2,minor_interface,True,False,4,Y01,Y01|A:902 Y01|B:902 Y01|C:902 Y01|D:902,4,60,11,False,False,True,-1,False,False,False,11,8.309040257454539,False,False,True
+7wdb,7wdb,3,single_chain,True,True,4,ZN,ZN|A:903 ZN|B:903 ZN|C:903 ZN|D:903,4,60,10,False,False,True,-1,False,False,False,10,5.173975357498334,False,False,True
+1ete,1ete,0,single_chain,True,True,1,ZN,ZN|A:135,3,8,-1,False,False,False,-1,False,False,False,-1,21.352061656898616,False,False,False
+1ete,1ete,1,single_chain,True,True,1,ZN,ZN|B:1136,3,8,-1,False,False,False,-1,False,False,False,-1,20.00046449460612,False,False,False
+1ete,1ete,2,single_chain,True,True,1,ZN,ZN|B:1137,3,8,-1,False,False,False,-1,False,False,False,-1,14.327368425499497,False,False,False
+2ns2,2ns2,0,single_chain,True,False,1,PO4,PO4|A:301,2,17,9,False,False,True,-1,False,False,False,9,7.304913483402797,False,False,True
+2ns2,2ns2,1,single_chain,True,False,1,PO4,PO4|A:302,2,17,9,False,False,True,-1,False,False,False,9,10.168534604356717,False,False,True
+4jps,4jps,0,single_chain,True,False,1,1LT,1LT|A:1102,1,97,1,True,True,True,1,True,True,True,1,2.318108927552802,True,True,True
+6ds6,6ds6,0,single_chain,True,True,2,ZN,ZN|A:5001 ZN|B:5001,2,1,-1,False,False,False,-1,False,False,False,-1,13.551219613009007,False,False,False
+6ds6,6ds6,1,single_chain,True,True,2,ZN,ZN|A:5002 ZN|B:5002,2,1,-1,False,False,False,-1,False,False,False,-1,19.842615024235084,False,False,False
+1orf,1orf,0,single_chain,True,False,2,0G6,0G6|A:1 0G6|B:1,1,14,3,False,True,True,3,False,True,True,5,3.2367040334265984,False,False,True
+6hcz,6hcz,0,single_chain,True,True,2,ZN,ZN|A:202 ZN|B:201,1,7,1,True,True,True,-1,False,False,False,3,7.861411450878269,False,True,True
+8uvb,8uvb,0,single_chain,True,False,2,XKC,XKC|A:603 XKC|B:603,1,31,1,True,True,True,1,True,True,True,1,2.7912194467651643,True,True,True
+4zlp,4zlp,0,single_chain,True,True,2,CA,CA|A:5001 CA|B:5001,3,17,3,True,True,True,-1,False,False,False,3,4.758826430959633,True,True,True
+4zlp,4zlp,1,single_chain,True,True,2,CA,CA|A:5002 CA|B:5002,3,17,7,False,False,True,-1,False,False,False,7,8.303149583140128,False,False,True
+4zlp,4zlp,2,single_chain,True,True,2,CA,CA|A:5003 CA|B:5003,3,17,1,True,True,True,-1,False,False,False,6,11.082983127299253,False,False,True
+2j8z,2j8z,0,single_chain,True,False,2,NAP,NAP|A:1334 NAP|B:1334,1,10,1,True,True,True,1,True,True,True,1,4.297463437889844,True,True,True
+1yb1,1yb1,0,single_chain,True,False,1,AOI,AOI|B:601,1,27,-1,False,False,False,-1,False,False,False,-1,15.354776325300218,False,False,False
+5j5t,5j5t,0,single_chain,True,False,2,6G2,6G2|A:901 6G2|B:901,1,21,1,True,True,True,1,True,True,True,1,5.880396330180473,True,True,True
+7jof,7jof,0,single_chain,True,True,2,CA,CA|A:201 CA|B:202,2,13,1,True,True,True,-1,False,False,False,3,6.09031099370139,False,True,True
+7jof,7jof,1,single_chain,True,True,2,CA,CA|A:202 CA|B:201,2,13,3,False,True,True,-1,False,False,False,3,5.0200950190210545,False,True,True
+6pol,6pol,0,single_chain,True,True,1,CA,CA|B:902,1,14,2,False,True,True,-1,False,False,False,2,11.027122834175739,False,True,True
+6usc,6usc,0,single_chain,True,True,3,CA,CA|A:401 CA|B:401 CA|C:401,4,17,6,False,True,True,-1,False,False,False,6,9.98061751596563,False,True,True
+6usc,6usc,1,single_chain,True,True,3,CA,CA|A:402 CA|B:402 CA|C:402,4,17,1,True,True,True,-1,False,False,False,1,7.899368962138685,True,True,True
+6usc,6usc,2,single_chain,True,True,3,CA,CA|A:403 CA|B:403 CA|C:403,4,17,1,True,True,True,-1,False,False,False,8,8.499021473087359,False,False,True
+6usc,6usc,3,single_chain,True,False,3,KO2,KO2|A:404 KO2|B:404 KO2|C:404,4,17,6,False,True,True,-1,False,False,False,6,8.830613172368043,False,True,True
+7ah6,7ah6,0,single_chain,True,False,2,HEM,HEM|A:501 HEM|B:501,3,35,1,True,True,True,1,True,True,True,2,7.307969895942375,True,True,True
+7ah6,7ah6,1,single_chain,True,False,2,RCW,RCW|A:502 RCW|B:502,3,35,1,True,True,True,2,True,True,True,2,2.8489047018108566,True,True,True
+7ah6,7ah6,2,single_chain,True,False,2,RCW,RCW|A:503 RCW|B:503,3,35,1,True,True,True,-1,False,False,False,1,6.980508863972598,True,True,True
+1yb5,1yb5,0,minor_interface,True,False,2,NAP,NAP|A:801 NAP|B:802,1,19,1,True,True,True,1,True,True,True,2,6.456553647264151,False,True,True
+3kuc,3kuc,0,single_chain,True,True,1,CA,CA|B:172,3,13,7,False,False,True,-1,False,False,False,7,9.666451572319598,False,False,True
+3kuc,3kuc,1,single_chain,True,False,1,GDP,GDP|A:170,3,13,1,True,True,True,1,True,True,True,1,4.732042053912879,True,True,True
+3kuc,3kuc,2,single_chain,True,True,1,MG,MG|A:171,3,13,1,True,True,True,-1,False,False,False,1,5.858958439859426,True,True,True
+7zh4,7zh4,0,single_chain,True,False,1,JDA,JDA|D:1001,2,25,1,True,True,True,1,True,True,True,1,0.853240880408343,True,True,True
+7zh4,7zh4,1,single_chain,True,True,1,ZN,ZN|D:1000,2,25,20,False,False,True,-1,False,False,False,20,6.453970328410259,False,False,True
+7qie,7qie,0,single_chain,True,False,1,DVF,DVF|A:501,2,38,2,True,True,True,2,True,True,True,2,0.862379266912186,True,True,True
+7qie,7qie,1,single_chain,True,False,1,DVF,DVF|B:501,2,38,1,True,True,True,1,True,True,True,1,1.2824683231955474,True,True,True
+6fe5,6fe5,0,single_chain,True,True,2,CA,CA|A:818 CA|F:818,4,39,11,False,False,True,-1,False,False,False,23,8.017050143288367,False,False,True
+6fe5,6fe5,1,single_chain,True,False,2,D6E,D6E|A:821 D6E|F:821,4,39,1,True,True,True,1,True,True,True,1,2.2342285021904096,True,True,True
+6fe5,6fe5,2,single_chain,True,True,2,ZN,ZN|A:816 ZN|F:816,4,39,1,True,True,True,-1,False,False,False,1,5.6714302428928836,True,True,True
+6fe5,6fe5,3,single_chain,True,True,2,ZN,ZN|A:817 ZN|F:817,4,39,1,True,True,True,-1,False,False,False,1,6.2467266628210965,True,True,True
+4umo,4umo,0,single_chain,True,True,2,CA,CA|C:201 CA|D:201,4,25,7,False,False,True,-1,False,False,False,7,10.035791697718722,False,False,True
+4umo,4umo,1,single_chain,True,True,2,CA,CA|C:202 CA|D:202,4,25,7,False,False,True,-1,False,False,False,17,9.967431063217843,False,False,True
+4umo,4umo,2,minor_interface,True,True,2,K,K|A:301 K|B:303,4,25,1,True,True,True,1,True,True,True,1,3.4918310382949507,True,True,True
+4umo,4umo,3,minor_interface,True,True,2,K,K|A:302 K|C:305,4,25,1,True,True,True,4,True,True,True,4,2.6347320546879147,True,True,True
+7env,7env,0,single_chain,True,False,1,BUX,BUX|A:201,1,10,1,True,True,True,1,True,True,True,1,2.634662976549374,True,True,True
+5txk,5txk,0,single_chain,True,True,1,ZN,ZN|A:1006,1,26,-1,False,False,False,-1,False,False,False,-1,12.509695160154784,False,False,False
+3l33,3l33,0,single_chain,True,True,1,CA,CA|A:9,1,16,8,False,False,True,-1,False,False,False,12,7.67281643205414,False,False,True
+6ndh,6ndh,0,single_chain,True,True,1,ZN,ZN|C:401,1,29,1,True,True,True,-1,False,False,False,1,5.296411426617093,True,True,True
+5w21,5w21,0,single_chain,True,True,1,ZN,ZN|A:1008,1,94,2,False,True,True,-1,False,False,False,4,7.109869830032051,False,False,True
+7mon,7mon,0,single_chain,True,False,1,ZL1,ZL1|A:501,2,45,2,True,True,True,2,True,True,True,5,3.117268997054952,False,False,True
+7mon,7mon,1,single_chain,True,False,1,ZL1,ZL1|B:401,2,45,1,True,True,True,1,True,True,True,1,2.7409731848378245,True,True,True
+3qfa,3qfa,0,minor_interface,True,False,2,FAD,FAD|A:600 FAD|B:600,1,57,1,True,True,True,1,True,True,True,1,1.3651538374849934,True,True,True
+5tjh,5tjh,0,single_chain,True,False,5,POP,POP|A:501 POP|B:501 POP|D:501 POP|E:501 POP|F:501,2,55,3,False,True,True,3,False,True,True,3,3.2305480959118973,False,True,True
+5tjh,5tjh,1,minor_interface,True,False,1,UPG,UPG|C:501,2,55,2,True,True,True,2,True,True,True,2,6.59835320364104,True,True,True
+4pcw,4pcw,0,single_chain,True,True,2,CA,CA|A:101 CA|B:102,2,15,13,False,False,True,-1,False,False,False,13,8.18545692066118,False,False,True
+4pcw,4pcw,1,single_chain,True,True,2,CA,CA|A:102 CA|B:101,2,15,9,False,False,True,-1,False,False,False,11,7.539839122952158,False,False,True
+6f2u,6f2u,0,single_chain,True,False,2,CJ2,CJ2|A:402 CJ2|B:402,2,30,1,True,True,True,1,True,True,True,1,1.963801924838651,True,True,True
+6f2u,6f2u,1,single_chain,True,False,2,NAP,NAP|A:401 NAP|B:401,2,30,1,True,True,True,1,True,True,True,7,6.422596593279075,False,False,True
+8fn8,8fn8,0,single_chain,True,True,1,CA,CA|A:2301,1,15,-1,False,False,False,-1,False,False,False,-1,15.421336517954598,False,False,False
+7jg0,7jg0,0,single_chain,True,False,2,GAR,GAR|A:1101 GAR|B:1101,2,14,1,True,True,True,1,True,True,True,1,6.915000289226313,True,True,True
+7jg0,7jg0,1,single_chain,True,False,2,V97,V97|A:1102 V97|B:1102,2,14,1,True,True,True,1,True,True,True,1,4.9237807627878825,True,True,True
+3qbt,3qbt,0,single_chain,True,False,1,GNP,GNP|A:200,2,25,1,True,True,True,1,True,True,True,1,1.0990059144517839,True,True,True
+3qbt,3qbt,1,single_chain,True,True,1,MG,MG|A:201,2,25,1,True,True,True,-1,False,False,False,1,5.993706032164072,True,True,True
+4zzi,4zzi,0,single_chain,True,False,2,1NS,1NS|A:702 1NS|B:702,3,22,1,True,True,True,1,True,True,True,1,0.6159163904297379,True,True,True
+4zzi,4zzi,1,single_chain,True,False,2,4TQ,4TQ|A:701 4TQ|B:701,3,22,12,False,False,True,12,False,False,True,12,8.133173181483349,False,False,True
+4zzi,4zzi,2,single_chain,True,True,2,ZN,ZN|A:703 ZN|B:703,3,22,9,False,False,True,-1,False,False,False,9,10.28912965221063,False,False,True
+1wuu,1wuu,0,single_chain,True,False,2,ANP,ANP|A:395 ANP|B:395,2,32,1,True,True,True,1,True,True,True,6,5.820767475170263,False,False,True
+1wuu,1wuu,1,single_chain,True,False,2,GLA,GLA|A:393 GLA|B:393,2,32,1,True,True,True,-1,False,False,False,1,7.503836751955623,True,True,True
+2vxo,2vxo,0,minor_interface,True,False,2,XMP,XMP|A:1694 XMP|B:1694,1,69,1,True,True,True,1,True,True,True,1,6.181060265035442,True,True,True
+4d6q,4d6q,0,single_chain,True,False,2,PD2,PD2|A:1343 PD2|B:1343,2,29,1,True,True,True,1,True,True,True,1,0.8375804438977786,True,True,True
+4d6q,4d6q,1,single_chain,True,True,2,ZN,ZN|A:1341 ZN|B:1341,2,29,4,False,True,True,-1,False,False,False,10,9.58241295290492,False,False,True
+8q6l,8q6l,0,single_chain,True,False,2,KIX,KIX|A:302 KIX|B:302,2,22,1,True,True,True,1,True,True,True,1,0.42235766833336946,True,True,True
+8q6l,8q6l,1,single_chain,True,True,2,ZN,ZN|A:301 ZN|B:301,2,22,1,True,True,True,1,True,True,True,1,3.996432033702062,True,True,True
+6pnx,6pnx,0,minor_interface,False,False,2,ACP,ACP|A:801 ACP|B:801,1,35,1,True,True,True,-1,False,False,False,1,6.496643825853468,True,True,True
+7eqv,7eqv,0,single_chain,True,True,2,ZN,ZN|A:403 ZN|B:403,1,31,11,False,False,True,-1,False,False,False,16,7.738562721849584,False,False,True
+5l0d,5l0d,0,single_chain,True,False,1,PIO,PIO|B:1201,1,17,12,False,False,True,-1,False,False,False,12,10.878922878667721,False,False,True
+4m6r,4m6r,0,single_chain,True,True,4,ZN,ZN|A:301 ZN|B:301 ZN|C:301 ZN|D:301,1,19,2,False,True,True,-1,False,False,False,2,8.621494186044542,False,True,True
+2bov,2bov,0,single_chain,True,False,1,GDP,GDP|A:1184,1,21,1,True,True,True,1,True,True,True,1,3.8954079375593036,True,True,True
+4kik,4kik,0,single_chain,True,False,1,KSA,KSA|A:800,2,99,2,True,True,True,2,True,True,True,2,0.48643704628656653,True,True,True
+4kik,4kik,1,single_chain,True,False,1,KSA,KSA|B:700,2,99,1,True,True,True,1,True,True,True,1,2.4668380571087356,True,True,True
+1tdi,1tdi,0,minor_interface,True,False,2,GSH,GSH|A:223 GSH|B:224,1,19,7,False,False,True,9,False,False,True,9,3.357349103087138,False,False,True
+8rok,8rok,0,single_chain,True,False,1,AGS,AGS|A:2001,1,32,1,True,True,True,1,True,True,True,1,3.1814943029966263,True,True,True
+2psr,2psr,0,single_chain,True,True,2,CA,CA|A:102 CA|B:102,2,8,8,False,False,True,-1,False,False,False,8,7.860655316193427,False,False,True
+2psr,2psr,1,minor_interface,True,True,2,ZN,ZN|A:103 ZN|B:103,2,8,-1,False,False,False,-1,False,False,False,-1,14.10976714903545,False,False,False
+4onm,4onm,0,single_chain,True,False,1,N2F,N2F|B:201,1,20,3,False,True,True,5,False,False,True,5,0.7099507025139168,False,False,True
+5ohh,5ohh,0,single_chain,True,False,1,5DU,5DU|B:313,3,29,2,True,True,True,2,True,True,True,3,3.4746530762077525,True,True,True
+5ohh,5ohh,1,single_chain,True,False,1,AZI,AZI|B:305,3,29,2,True,True,True,2,True,True,True,2,1.2926445760532943,True,True,True
+5ohh,5ohh,2,single_chain,True,True,2,ZN,ZN|A:301 ZN|B:301,3,29,1,True,True,True,-1,False,False,False,1,4.047395705882981,True,True,True
+3llm,3llm,0,single_chain,True,False,2,ADP,ADP|A:565 ADP|B:1,2,21,1,True,True,True,1,True,True,True,1,4.758617131058144,True,True,True
+3llm,3llm,1,single_chain,True,True,2,MN,MN|A:1 MN|B:2,2,21,1,True,True,True,1,True,True,True,1,3.3652072744483337,True,True,True
+6fvz,6fvz,0,single_chain,True,False,2,C15,C15|A:603 C15|B:603,3,42,38,False,False,True,-1,False,False,False,38,7.9882914944310865,False,False,True
+6fvz,6fvz,1,single_chain,True,False,2,E8Z,E8Z|A:602 E8Z|B:602,3,42,1,True,True,True,-1,False,False,False,1,10.680313712620993,True,True,True
+6fvz,6fvz,2,single_chain,True,False,2,FAD,FAD|A:601 FAD|B:601,3,42,1,True,True,True,1,True,True,True,1,7.589864359789311,True,True,True
+8q8g,8q8g,0,single_chain,True,False,2,O94,O94|A:502 O94|B:502,2,27,3,False,True,True,3,False,True,True,3,3.734446947005674,False,True,True
+8q8g,8q8g,1,single_chain,True,False,2,SAH,SAH|A:501 SAH|B:501,2,27,2,True,True,True,2,True,True,True,2,4.5144919979993325,True,True,True
+8cyo,8cyo,0,single_chain,True,False,1,OBJ,OBJ|A:601,1,30,1,True,True,True,1,True,True,True,1,6.305491178330202,True,True,True
+2nz2,2nz2,0,single_chain,True,False,4,CIR,CIR|A:502 CIR|B:502 CIR|C:502 CIR|D:502,1,29,3,False,True,True,-1,False,False,False,3,9.472816793330265,False,True,True
+5htk,5htk,0,single_chain,True,False,2,ATP,ATP|A:602 ATP|B:602,3,40,1,True,True,True,1,True,True,True,1,1.5179186407709806,True,True,True
+5htk,5htk,1,single_chain,True,False,2,F6P,F6P|A:604 F6P|B:604,3,40,3,True,True,True,3,True,True,True,3,2.936759268309206,True,True,True
+5htk,5htk,2,single_chain,True,False,2,FLC,FLC|A:601 FLC|B:601,3,40,1,True,True,True,2,True,True,True,2,2.2412108334558822,True,True,True
+5owt,5owt,0,single_chain,True,False,2,F37,F37|A:1203 F37|B:1203,2,16,1,True,True,True,3,False,True,True,3,0.8658140677997855,False,True,True
+5owt,5owt,1,single_chain,True,True,2,ZN,ZN|A:1204 ZN|B:1204,2,16,8,False,False,True,-1,False,False,False,8,6.234077718476084,False,False,True
+6hpq,6hpq,0,single_chain,True,False,2,ANP,ANP|A:801 ANP|B:801,1,28,1,True,True,True,1,True,True,True,1,0.7110485215510962,True,True,True
+8vof,8vof,0,minor_interface,True,False,1,GDP,GDP|B:301,1,37,1,True,True,True,1,True,True,True,1,4.654367841071437,True,True,True
+3dh1,3dh1,0,single_chain,True,True,2,ZN,ZN|A:201 ZN|D:201,1,17,1,True,True,True,-1,False,False,False,1,6.367359421298596,True,True,True
+4cur,4cur,0,single_chain,True,False,2,LA7,LA7|A:2972 LA7|B:2972,1,8,1,True,True,True,1,True,True,True,1,2.0174126994742534,True,True,True
+8oxc,8oxc,0,single_chain,True,True,1,MG,MG|A:1202,3,101,8,False,False,True,-1,False,False,False,39,9.355926677780232,False,False,True
+8oxc,8oxc,1,single_chain,True,False,1,PIE,PIE|A:1203,3,101,23,False,False,True,23,False,False,True,23,7.990449674455108,False,False,True
+8oxc,8oxc,2,single_chain,True,False,1,VN4,VN4|A:1201,3,101,4,False,True,True,-1,False,False,False,4,11.528629623680342,False,True,True
+6yb8,6yb8,0,minor_interface,True,False,8,C2R,C2R|A:501 C2R|B:802 C2R|C:501 C2R|D:802 C2R|E:501 C2R|F:802 C2R|G:501 C2R|H:802,3,44,6,False,False,True,6,False,False,True,6,0.49082074120803376,False,False,True
+6yb8,6yb8,1,single_chain,True,False,8,C2R&OK8,C2R|B:803 C2R|D:803 C2R|F:803 C2R|H:803 OK8|A:502 OK8|C:502 OK8|E:502 OK8|G:502,3,44,2,True,True,True,3,True,True,True,5,2.877409598927479,False,True,True
+6yb8,6yb8,2,single_chain,True,False,4,IMD,IMD|A:503 IMD|C:503 IMD|E:503 IMD|G:503,3,44,2,True,True,True,5,False,True,True,5,4.555026673906523,False,True,True
+3ee6,3ee6,0,single_chain,True,True,2,CA,CA|A:581 CA|B:581,5,50,2,True,True,True,-1,False,False,False,15,6.515791126179542,False,False,True
+3ee6,3ee6,1,minor_interface,True,True,2,ZN,ZN|A:576 ZN|B:577,5,50,1,True,True,True,-1,False,False,False,14,5.4218791945228695,False,False,True
+3ee6,3ee6,2,single_chain,True,True,2,ZN,ZN|A:577 ZN|B:576,5,50,23,False,False,True,-1,False,False,False,23,9.42142611285574,False,False,True
+3ee6,3ee6,3,single_chain,True,True,2,ZN,ZN|A:578 ZN|B:578,5,50,25,False,False,True,-1,False,False,False,25,6.548081245678005,False,False,True
+3ee6,3ee6,4,single_chain,True,True,2,ZN,ZN|A:579 ZN|B:579,5,50,2,True,True,True,-1,False,False,False,2,9.92022202372507,True,True,True
+5cvm,5cvm,0,single_chain,True,True,1,ZN,ZN|A:1000,1,31,2,False,True,True,-1,False,False,False,22,7.4537548255895825,False,False,True
+9bgl,9bgl,0,single_chain,True,True,1,ZN,ZN|A:501,5,27,1,True,True,True,-1,False,False,False,4,5.988274375811449,True,True,True
+9bgl,9bgl,1,single_chain,True,True,1,ZN,ZN|A:502,5,27,1,True,True,True,-1,False,False,False,1,8.038533821537358,True,True,True
+9bgl,9bgl,2,single_chain,True,True,1,ZN,ZN|A:503,5,27,5,True,True,True,-1,False,False,False,5,7.204991950030201,True,True,True
+9bgl,9bgl,3,single_chain,True,True,1,ZN,ZN|A:504,5,27,6,False,True,True,-1,False,False,False,6,5.773055690013738,False,True,True
+9bgl,9bgl,4,minor_interface,True,True,1,ZN,ZN|A:505,5,27,3,True,True,True,-1,False,False,False,15,6.548185550211601,False,False,True
+4a3n,4a3n,0,single_chain,True,True,2,ZN,ZN|A:1135 ZN|B:1135,2,4,2,True,True,True,-1,False,False,False,3,5.709722935484699,False,True,True
+4a3n,4a3n,1,single_chain,True,True,2,ZN,ZN|A:1137 ZN|B:1137,2,4,2,True,True,True,-1,False,False,False,2,11.46011121237486,True,True,True
+4hi8,4hi8,0,single_chain,True,True,1,ZN,ZN|B:101,2,14,2,True,True,True,-1,False,False,False,2,5.719822025203231,True,True,True
+4hi8,4hi8,1,single_chain,True,True,1,ZN,ZN|B:102,2,14,1,True,True,True,-1,False,False,False,11,7.9800246240221595,False,False,True
+2rak,2rak,0,single_chain,True,False,2,PIB,PIB|A:1163 PIB|B:1163,1,42,5,False,False,True,10,False,False,True,17,1.5846340271494854,False,False,True
+4ora,4ora,0,single_chain,True,True,1,CA,CA|B:201,5,40,-1,False,False,False,-1,False,False,False,-1,13.484508259480577,False,False,False
+4ora,4ora,1,single_chain,True,True,1,CA,CA|B:202,5,40,15,False,False,True,-1,False,False,False,15,10.516216287239436,False,False,True
+4ora,4ora,2,single_chain,True,True,1,CA,CA|B:203,5,40,2,True,True,True,-1,False,False,False,2,5.5596208503818,True,True,True
+4ora,4ora,3,single_chain,True,True,1,CA,CA|B:204,5,40,2,True,True,True,-1,False,False,False,3,7.820396984808384,True,True,True
+4ora,4ora,4,single_chain,True,True,1,FE,FE|A:602,5,40,7,False,True,True,-1,False,False,False,7,11.242877078399463,False,True,True
+6tp5,6tp5,0,single_chain,True,True,2,CA,CA|A:721 CA|B:719,4,39,15,False,False,True,-1,False,False,False,30,8.10419730756847,False,False,True
+6tp5,6tp5,1,single_chain,True,True,2,CA,CA|A:722 CA|B:720,4,39,15,False,False,True,-1,False,False,False,15,4.329778978192771,False,False,True
+6tp5,6tp5,2,single_chain,True,True,2,FE2,FE2|A:702 FE2|B:702,4,39,3,True,True,True,3,True,True,True,3,2.156136823116753,True,True,True
+6tp5,6tp5,3,single_chain,True,False,2,OGA,OGA|A:701 OGA|B:701,4,39,3,True,True,True,3,True,True,True,3,3.0832108263951072,True,True,True
+4pte,4pte,0,single_chain,True,False,2,2WF,2WF|A:501 2WF|B:501,1,31,1,True,True,True,1,True,True,True,1,0.6194586346157418,True,True,True
+2nut,2nut,0,single_chain,True,True,1,ZN,ZN|A:800,2,129,20,False,False,True,-1,False,False,False,20,8.651968908866932,False,False,True
+2nut,2nut,1,single_chain,True,True,1,ZN,ZN|B:1100,2,129,65,False,False,True,-1,False,False,False,65,8.685382087162312,False,False,True
+6omn,6omn,0,single_chain,True,False,1,MAN,MAN|A:4,1,7,-1,False,False,False,-1,False,False,False,-1,18.362020477060796,False,False,False
+8qm9,8qm9,0,single_chain,True,False,2,W4K,W4K|A:304 W4K|B:307,1,21,1,True,True,True,1,True,True,True,1,0.8487973845388547,True,True,True
+3qnu,3qnu,0,single_chain,True,False,2,GDP,GDP|A:593 GDP|B:593,1,33,2,False,True,True,-1,False,False,False,12,10.541598123624329,False,False,True
+4iy0,4iy0,0,single_chain,True,False,2,ADP,ADP|A:601 ADP|B:601,1,13,4,False,False,True,4,False,False,True,5,0.6859766759883308,False,False,True
+2v40,2v40,0,single_chain,True,False,2,GDP,GDP|A:1457 GDP|B:1457,1,33,1,True,True,True,2,False,True,True,8,4.107183584891232,False,False,True
+2fcw,2fcw,0,single_chain,True,True,1,CA,CA|B:3001,2,12,1,True,True,True,-1,False,False,False,3,7.250771131403885,False,True,True
+2fcw,2fcw,1,single_chain,True,True,1,CA,CA|B:3002,2,12,4,False,True,True,-1,False,False,False,4,7.638226299344632,False,True,True
+1au1,1au1,0,single_chain,True,False,1,BGC,BGC|C:1,2,17,-1,False,False,False,-1,False,False,False,-1,17.47570942765987,False,False,False
+1au1,1au1,1,minor_interface,True,True,1,ZN,ZN|B:169,2,17,1,True,True,True,-1,False,False,False,2,5.571025399331795,True,True,True
+3q3g,3q3g,0,minor_interface,True,True,1,CA,CA|G:500,1,37,4,False,False,True,-1,False,False,False,4,4.035676275421506,False,False,True
+4ic2,4ic2,0,single_chain,True,True,2,ZN,ZN|A:1001 ZN|B:1001,2,5,4,False,True,True,-1,False,False,False,4,11.237111016627004,False,True,True
+4ic2,4ic2,1,single_chain,True,True,2,ZN,ZN|A:1002 ZN|B:1002,2,5,2,True,True,True,-1,False,False,False,2,10.411568709853478,True,True,True
+6ei1,6ei1,0,minor_interface,True,False,1,AYE,AYE|A:601,1,28,1,True,True,True,-1,False,False,False,1,6.548755148881351,True,True,True
+1itq,1itq,0,single_chain,True,True,2,ZN,ZN|A:401 ZN|B:411,2,14,1,True,True,True,-1,False,False,False,1,4.066919473016401,True,True,True
+1itq,1itq,1,single_chain,True,True,2,ZN,ZN|A:402 ZN|B:412,2,14,1,True,True,True,-1,False,False,False,1,4.236654694449387,True,True,True
+4m3p,4m3p,0,single_chain,True,True,4,K,K|A:702 K|B:503 K|C:502 K|D:503,2,49,2,True,True,True,-1,False,False,False,3,4.7942335153807445,False,True,True
+4m3p,4m3p,1,single_chain,True,True,4,ZN,ZN|A:701 ZN|B:502 ZN|C:501 ZN|D:502,2,49,1,True,True,True,-1,False,False,False,2,4.984163921862922,True,True,True
+8rd7,8rd7,0,single_chain,True,False,1,AR6,AR6|D:1801,1,14,7,False,False,True,-1,False,False,False,9,9.394707605881093,False,False,True
+8egw,8egw,0,single_chain,True,True,1,CA,CA|A:402,16,49,2,True,True,True,-1,False,False,False,2,11.337337518130084,True,True,True
+8egw,8egw,1,single_chain,True,True,1,CA,CA|A:403,16,49,2,True,True,True,-1,False,False,False,2,10.117915842701992,True,True,True
+8egw,8egw,2,single_chain,True,True,1,CA,CA|A:404,16,49,2,True,True,True,-1,False,False,False,2,9.849570650541068,True,True,True
+8egw,8egw,3,single_chain,True,True,1,CA,CA|A:405,16,49,13,True,True,True,-1,False,False,False,24,7.379098657695261,False,False,True
+8egw,8egw,4,single_chain,True,True,1,CA,CA|A:406,16,49,24,False,False,True,-1,False,False,False,24,9.498664379795718,False,False,True
+8egw,8egw,5,single_chain,True,True,1,CA,CA|A:407,16,49,38,False,False,True,-1,False,False,False,38,9.20685624955663,False,False,True
+8egw,8egw,6,single_chain,True,True,1,CA,CA|B:501,16,49,-1,False,False,False,-1,False,False,False,-1,12.768243222933998,False,False,False
+8egw,8egw,7,single_chain,True,True,1,CA,CA|B:502,16,49,-1,False,False,False,-1,False,False,False,-1,12.193637398249967,False,False,False
+8egw,8egw,8,single_chain,True,True,1,CA,CA|B:503,16,49,20,False,False,True,-1,False,False,False,20,9.442382591274306,False,False,True
+8egw,8egw,9,single_chain,True,True,1,CA,CA|B:504,16,49,2,True,True,True,-1,False,False,False,2,10.535398758471368,True,True,True
+8egw,8egw,10,single_chain,True,True,1,CA,CA|B:505,16,49,2,True,True,True,-1,False,False,False,2,8.708644785499065,True,True,True
+8egw,8egw,11,single_chain,True,True,1,CA,CA|B:506,16,49,36,False,False,True,-1,False,False,False,36,6.779897491850449,False,False,True
+8egw,8egw,12,single_chain,True,True,1,CA,CA|B:507,16,49,36,False,False,True,-1,False,False,False,36,8.337852961044588,False,False,True
+8egw,8egw,13,single_chain,True,True,1,CA,CA|B:508,16,49,15,True,True,True,-1,False,False,False,15,8.626248547311864,True,True,True
+8egw,8egw,14,single_chain,True,True,1,CA,CA|B:509,16,49,2,True,True,True,-1,False,False,False,33,10.452607234561142,False,False,True
+8egw,8egw,15,single_chain,True,True,1,CA,CA|B:510,16,49,16,True,True,True,43,False,False,True,43,0.8185016799005347,False,False,True
+6x28,6x28,0,single_chain,True,False,1,ULG,ULG|A:401,1,10,1,True,True,True,1,True,True,True,1,0.31234596203568926,True,True,True
+2psn,2psn,0,single_chain,True,True,2,MG,MG|A:701 MG|B:703,1,28,3,False,True,True,-1,False,False,False,3,4.329833022184573,False,True,True
+6cfu,6cfu,0,single_chain,True,True,2,MG,MG|A:301 MG|B:301,2,15,1,True,True,True,-1,False,False,False,1,7.995066291157315,True,True,True
+6cfu,6cfu,1,single_chain,True,True,2,MG,MG|A:302 MG|B:302,2,15,12,False,False,True,-1,False,False,False,12,8.773061552274667,False,False,True
+3w6n,3w6n,0,minor_interface,True,False,2,GNH,GNH|A:801 GNH|B:801,2,37,1,True,True,True,2,True,True,True,2,3.4974788062259927,True,True,True
+3w6n,3w6n,1,single_chain,True,True,2,MG,MG|A:803 MG|B:803,2,37,2,True,True,True,-1,False,False,False,6,7.073186764111351,False,False,True
+1hh4,1hh4,0,single_chain,True,False,1,GDP,GDP|A:1190,3,28,1,True,True,True,1,True,True,True,1,1.2304690162698138,True,True,True
+1hh4,1hh4,1,minor_interface,True,False,1,GER,GER|D:1502,3,28,2,True,True,True,3,True,True,True,3,7.10070123297692,True,True,True
+1hh4,1hh4,2,single_chain,True,True,1,MG,MG|A:1191,3,28,1,True,True,True,-1,False,False,False,1,8.303763122825698,True,True,True
+5a6n,5a6n,0,single_chain,True,False,1,U7E,U7E|A:300,1,36,4,False,False,True,-1,False,False,False,4,7.588679331741463,False,False,True
+4msv,4msv,0,single_chain,True,True,3,MG,MG|B:301 MG|C:301 MG|E:301,1,23,-1,False,False,False,-1,False,False,False,-1,18.44395375183965,False,False,False
+4hhv,4hhv,0,single_chain,True,False,2,SO4,SO4|A:201 SO4|B:201,1,11,4,False,False,True,4,False,False,True,4,4.971405133360184,False,False,True
+1uou,1uou,0,single_chain,True,False,2,CMU,CMU|A:1481 CMU|B:1481,1,26,1,True,True,True,1,True,True,True,1,2.5709290149671578,True,True,True
+4wxv,4wxv,0,single_chain,True,True,1,CA,CA|A:301,1,11,9,False,False,True,-1,False,False,False,9,7.7294052811325695,False,False,True
+4mhx,4mhx,0,single_chain,True,True,2,CA,CA|A:601 CA|B:601,2,33,1,True,True,True,-1,False,False,False,1,9.372869944686098,True,True,True
+4mhx,4mhx,1,single_chain,True,True,1,MG,MG|B:608,2,33,-1,False,False,False,-1,False,False,False,-1,13.775412516509261,False,False,False
+7pfs,7pfs,0,single_chain,True,False,2,7OO,7OO|A:1006 7OO|B:2301,2,106,1,True,True,True,1,True,True,True,2,5.40558128234143,True,True,True
+7pfs,7pfs,1,single_chain,True,True,2,ZN,ZN|A:1011 ZN|B:2305,2,106,1,True,True,True,-1,False,False,False,2,5.81368497598554,True,True,True
+3n1g,3n1g,0,single_chain,True,True,1,CA,CA|B:190,3,10,1,True,True,True,-1,False,False,False,1,9.879768114687714,True,True,True
+3n1g,3n1g,1,single_chain,True,True,1,CA,CA|B:191,3,10,1,True,True,True,-1,False,False,False,1,8.798565792218639,True,True,True
+3n1g,3n1g,2,single_chain,True,True,1,ZN,ZN|B:192,3,10,1,True,True,True,-1,False,False,False,2,4.90020346516346,True,True,True
+8qf1,8qf1,0,single_chain,True,False,1,GNP,GNP|A:401,2,40,1,True,True,True,1,True,True,True,1,1.4056813294626889,True,True,True
+8qf1,8qf1,1,single_chain,True,True,2,MG,MG|A:403 MG|B:401,2,40,1,True,True,True,1,True,True,True,1,3.504971326558889,True,True,True
+4a6d,4a6d,0,single_chain,True,False,2,SAM,SAM|A:1350 SAM|B:1350,2,21,1,True,True,True,1,True,True,True,1,2.2384534839929104,True,True,True
+4a6d,4a6d,1,single_chain,True,True,2,ZN,ZN|A:1348 ZN|B:1348,2,21,18,False,False,True,-1,False,False,False,18,10.533477678335867,False,False,True
+2i0g,2i0g,0,single_chain,True,False,2,I0G,I0G|A:1 I0G|B:1,1,17,1,True,True,True,1,True,True,True,1,0.48495463705381536,True,True,True
+5fwt,5fwt,0,single_chain,True,True,2,CA,CA|A:1326 CA|B:1326,1,15,11,False,False,True,-1,False,False,False,11,8.788280377866878,False,False,True
+6wrw,6wrw,0,single_chain,True,True,2,CA,CA|A:801 CA|B:810,1,72,8,False,False,True,-1,False,False,False,8,6.142490455833034,False,False,True
+2etk,2etk,0,single_chain,True,False,2,HFS,HFS|A:416 HFS|B:416,1,39,2,False,True,True,2,False,True,True,2,1.007541066160581,False,True,True
+4nef,4nef,0,single_chain,True,True,1,ZN,ZN|A:302,1,30,3,False,True,True,3,False,True,True,3,2.825784669786426,False,True,True
+8oud,8oud,0,minor_interface,True,False,2,Y01,Y01|A:605 Y01|C:605,1,48,5,False,False,True,-1,False,False,False,5,7.8376236194397775,False,False,True
+2j0t,2j0t,0,single_chain,True,True,1,CA,CA|A:1268,5,21,4,True,True,True,-1,False,False,False,4,8.752721405368735,True,True,True
+2j0t,2j0t,1,single_chain,True,True,1,CA,CA|A:1269,5,21,1,True,True,True,-1,False,False,False,1,7.864555041450213,True,True,True
+2j0t,2j0t,2,single_chain,True,True,1,CA,CA|A:1270,5,21,14,False,False,True,-1,False,False,False,14,10.117041168246773,False,False,True
+2j0t,2j0t,3,single_chain,True,True,1,ZN,ZN|A:1266,5,21,3,True,True,True,-1,False,False,False,3,9.05109076299647,True,True,True
+2j0t,2j0t,4,minor_interface,True,True,1,ZN,ZN|A:1267,5,21,7,False,True,True,-1,False,False,False,7,9.030740445832778,False,True,True
+5ak4,5ak4,0,single_chain,True,False,2,GVG,GVG|A:1550 GVG|B:1550,3,38,1,True,True,True,2,True,True,True,2,1.3993609255656667,True,True,True
+5ak4,5ak4,1,single_chain,True,False,2,GVG,GVG|A:1551 GVG|B:1551,3,38,1,True,True,True,1,True,True,True,1,1.4528355034208094,True,True,True
+5ak4,5ak4,2,single_chain,True,False,2,GVG,GVG|A:1552 GVG|B:1552,3,38,1,True,True,True,4,False,True,True,4,1.8056694049576194,False,True,True
+1s1q,1s1q,0,single_chain,True,True,1,CU,CU|A:9002,1,14,7,False,False,True,-1,False,False,False,11,6.830137333904787,False,False,True
+5vxz,5vxz,0,single_chain,True,True,1,CA,CA|A:703,1,27,2,False,True,True,-1,False,False,False,24,4.407271491523979,False,False,True
+1u7t,1u7t,0,single_chain,True,False,4,NAD&TDT,NAD|B:502 TDT|A:501 TDT|C:503 TDT|D:504,1,17,1,True,True,True,1,True,True,True,1,0.40050343319377274,True,True,True
+1hso,1hso,0,minor_interface,False,False,2,NAD,NAD|A:1377 NAD|B:2377,4,19,1,True,True,True,1,True,True,True,1,7.323641034348966,True,True,True
+1hso,1hso,1,minor_interface,True,False,2,PYZ,PYZ|A:1378 PYZ|B:2378,4,19,1,True,True,True,2,True,True,True,2,4.00656473802683,True,True,True
+1hso,1hso,2,single_chain,True,True,2,ZN,ZN|A:1375 ZN|B:2375,4,19,11,False,False,True,-1,False,False,False,12,5.492685044675327,False,False,True
+1hso,1hso,3,single_chain,True,True,2,ZN,ZN|A:1376 ZN|B:2376,4,19,1,True,True,True,1,True,True,True,1,3.9695176029336334,True,True,True
+6c09,6c09,0,single_chain,True,False,1,EKG,EKG|A:302,1,52,1,True,True,True,-1,False,False,False,1,7.6673107410616925,True,True,True
+5sxh,5sxh,0,single_chain,True,True,2,ZN,ZN|A:401 ZN|B:401,1,22,1,True,True,True,-1,False,False,False,2,4.209310038474242,False,True,True
+1gxr,1gxr,0,single_chain,True,True,1,CA,CA|A:1003,1,23,6,False,False,True,-1,False,False,False,6,11.664307780575749,False,False,True

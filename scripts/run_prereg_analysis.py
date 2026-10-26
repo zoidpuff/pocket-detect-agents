@@ -124,6 +124,18 @@ def gated_evaluate(version: str, bench: str, variant: str, pred_dir: Path, model
     return out
 
 
+def pockets_per_structure(eval_dir: Path) -> float | None:
+    """Mean number of predicted pockets per input structure (structures without a prediction file count 0)."""
+    d = Path(eval_dir)
+    if (d / "pockets_eval.csv").exists():
+        return len(pd.read_csv(d / "pockets_eval.csv", usecols=["rank"])) / len(pd.read_csv(d / "structures_eval.csv", usecols=["structure_id"]))
+    if (d / "pockets.csv").exists():
+        return len(pd.read_csv(d / "pockets.csv", usecols=["rank"])) / len(pd.read_csv(d / "proteins.csv", usecols=["structure_id"]))
+    if (d / "units.csv").exists():
+        return float(pd.read_csv(d / "units.csv").n_pred_raw.mean())
+    return None
+
+
 def summary_values(eval_dir: Path) -> pd.Series:
     s = pd.read_csv(eval_dir / "summary.csv")
     if "average" in s.columns:
@@ -231,6 +243,9 @@ def main(argv=None):
     ap.add_argument("--seeds", default="0,1,2")
     ap.add_argument("--n-boot", type=int, default=1000)
     ap.add_argument("--skip-controls", action="store_true")
+    ap.add_argument("--compare-version", default=None, help="add an output-length trade-off table vs another scored version")
+    ap.add_argument("--extra", type=Path, default=None,
+                    help="JSON list of descriptive extra methods [{name, bench, pred_dir, models}] (ablations, P2Rank-ours); scored via the gate")
     a = ap.parse_args(argv)
     t0 = time.time()
     if a.dry_run:
@@ -380,12 +395,39 @@ def main(argv=None):
                 entries.append((cv, comparator_eval(b, cv)))
         for name, d in entries:
             sv = summary_values(d)
+            pps = pockets_per_structure(d)
+            if pps is not None:
+                desc.append({"benchmark": b, "method": name, "metric": "pockets_per_structure", "value": pps, "ci_low": None, "ci_high": None})
             for m in mets:
                 if m in sv.index:
                     desc.append({"benchmark": b, "method": name, "metric": m, "value": float(sv.loc[m, "value"]),
                                  "ci_low": float(sv.loc[m, "ci_low"]) if pd.notna(sv.loc[m, "ci_low"]) else None,
                                  "ci_high": float(sv.loc[m, "ci_high"]) if pd.notna(sv.loc[m, "ci_high"]) else None})
+    if a.extra:
+        for e in json.loads(a.extra.read_text()):
+            b = e["bench"]
+            if a.dry_run:
+                d = evaluate(b, ROOT / e["pred_dir"], OUT / "extra" / b / e["name"], a.n_boot)
+            else:
+                d = gated_evaluate(version, b, e["name"], ROOT / e["pred_dir"], e.get("models", ["none"]), a.n_boot, e.get("code_commit", code_commit))
+            sv = summary_values(d)
+            for m in SECONDARY[kind_of(b)] + ["pockets_per_structure"]:
+                v = pockets_per_structure(d) if m == "pockets_per_structure" else (sv.loc[m, "value"] if m in sv.index else None)
+                if v is not None:
+                    desc.append({"benchmark": b, "method": f"extra:{e['name']}", "metric": m, "value": float(v),
+                                 "ci_low": float(sv.loc[m, "ci_low"]) if m in sv.index and pd.notna(sv.loc[m, "ci_low"]) else None,
+                                 "ci_high": float(sv.loc[m, "ci_high"]) if m in sv.index and pd.notna(sv.loc[m, "ci_high"]) else None})
     result["descriptive"]["secondary"] = desc
+    if a.compare_version:
+        other = json.loads((ROOT / "results/test" / a.compare_version / "summary.json").read_text())["descriptive"]["secondary"]
+        keep = ("recall_topn2", "recall_anyp_topn2", "recall_max", "P1K", "P1K_1to1", "pockets_per_structure", "success_DCA4_topn",
+                "success_DCA4_topn2", "recall_DCC12_topn2@interface", "precision_DCC12_topn2@all")
+        trade = []
+        for tag, rowsx in ((a.compare_version, other), (version, desc)):
+            for r in rowsx:
+                if r["method"].startswith("BURROW[") and r["metric"] in keep:
+                    trade.append({**r, "version": tag})
+        result["descriptive"]["tradeoff"] = trade
 
     # ---- strata (seed 0, default preset, vs best family comparator of that benchmark)
     strata = []
@@ -504,9 +546,14 @@ def render(R: dict) -> str:
         L.append(f"| {r['benchmark']} | {r['method']} | {r['n_reference']} | {r['n_structures_or_units']} | {r['n_pred_missing']} |")
     L += ["", "## Descriptive — secondary metrics", "", "| benchmark | method | metric | value [95% CI] |", "|---|---|---|---|"]
     for r in R["descriptive"]["secondary"]:
-        sc = 100 if not r["metric"].startswith("TP@") else 1
+        sc = 1 if (r["metric"].startswith("TP@") or r["metric"] == "pockets_per_structure") else 100
         ci = f" [{r['ci_low'] * sc:.1f}, {r['ci_high'] * sc:.1f}]" if r["ci_low"] is not None else ""
         L.append(f"| {r['benchmark']} | {r['method']} | {r['metric']} | {r['value'] * sc:.1f}{ci} |")
+    if R["descriptive"].get("tradeoff"):
+        L += ["", "## Output-length trade-off (BURROW seed 0; both versions)", "", "| benchmark | version | variant | metric | value |", "|---|---|---|---|---|"]
+        for r in sorted(R["descriptive"]["tradeoff"], key=lambda r: (r["benchmark"], r["method"], r["metric"], r["version"])):
+            sc = 1 if r["metric"] == "pockets_per_structure" else 100
+            L.append(f"| {r['benchmark']} | {r['version']} | {r['method']} | {r['metric']} | {r['value'] * sc:.2f} |")
     L += ["", "## Descriptive — strata (seed 0, default preset; strata < 100 rows flagged *)", "", "| endpoint | stratum kind | stratum | n | method | comparator | Δ [95% CI] |", "|---|---|---|---|---|---|---|"]
     for r in R["descriptive"]["strata"]:
         L.append(f"| {r['endpoint']} | {r['kind']} | {r['stratum']}{' *' if r['small_stratum'] else ''} | {r['n_rows']} | {f(r['a'])} | {r['comparator']} {f(r['b'])} | {f(r['diff'])} [{f(r['ci_low'])}, {f(r['ci_high'])}] |")

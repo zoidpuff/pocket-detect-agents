@@ -1,0 +1,39 @@
+{
+  "benchmark": {
+    "name": "pocketwatch",
+    "kind": "sites",
+    "path": "data/processed/gt/pocketwatch_test/sites.tsv",
+    "cluster_sources": [
+      "pocketwatch_test"
+    ],
+    "headline": [
+      "recall_topn2",
+      "P1K"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O3",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/gt/pocketwatch_test/sites.tsv",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/v1/preds/pocketwatch/burrow_small_default_s0_af/preds",
+  "n_boot": 1000,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "recall_topn2": {
+      "value": 0.7310870947234583,
+      "ci_low": 0.70120750390396,
+      "ci_high": 0.7597623263660401
+    },
+    "P1K": {
+      "value": 0.722,
+      "ci_low": 0.683,
+      "ci_high": 0.758
+    }
+  }
+}

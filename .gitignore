@@ -31,3 +31,4 @@ results/audit/*.fasta
 results/audit/*.m8
 logs/
 .worktrees/
+results/test/*/preds/

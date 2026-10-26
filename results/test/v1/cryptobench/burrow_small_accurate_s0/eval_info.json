@@ -1,0 +1,39 @@
+{
+  "benchmark": {
+    "name": "cryptobench",
+    "kind": "sites",
+    "path": "data/processed/gt/cryptobench_test/sites.tsv",
+    "cluster_sources": [
+      "cryptobench"
+    ],
+    "headline": [
+      "recall_topn2",
+      "P1K"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O4",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/gt/cryptobench_test/sites.tsv",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/v1/preds/cryptobench/burrow_small_accurate_s0/preds",
+  "n_boot": 1000,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "recall_topn2": {
+      "value": 0.6518518518518519,
+      "ci_low": 0.5875753728974928,
+      "ci_high": 0.7169955350712948
+    },
+    "P1K": {
+      "value": 0.41,
+      "ci_low": 0.376,
+      "ci_high": 0.449025
+    }
+  }
+}
