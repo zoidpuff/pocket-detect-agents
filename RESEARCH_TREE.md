@@ -9,6 +9,11 @@ Project started 2026-10-26 14:54 CET; review due ~2026-10-27 14:30 (24 h budget)
 
 Plan: parallel kick-off of (a) literature review → LITERATURE.md, (b) benchmark dataset acquisition → DATA.md, (c) baseline tool installation (P2Rank, fpocket, others), (d) core I/O + evaluation harness with toy-data verification. Then DESIGN.md → up to 3 review rounds → implementation and experiments.
 
+### 2026-10-27 00:00 — M3 test v1 (pre-registered), T+9 h
+[!] Test v1 (FREEZE v1, commit 5e13267; 3 seeds; scoring code e4133ac): **family 1 passes in full** — C1 LIGYSIS top-N+2 (DCC12, closest-pocket rule) 64.3/64.5/64.9 vs fpocket+PRANK 60.4 published (Δ +3.9…+4.5, CI lo ≥ +1.98) and 59.5 re-run (Δ +4.8…+5.4); C1-strict DCA4 54.1–54.5 vs 31.6/31.8 (Δ ≈ +22.5); C2 P1K 95.7–96.9 vs 81.7. Family 2 (Holm, non-inferiority −2): O2b HOLO4K pass (+1.8), O5 AF set pass and superior (+7.8 [5.3,10.3] vs P2Rank -c alphafold); O2a COACH420 +2.4 inconclusive (wide CI); O3 PocketWatch −2.7 [−4.9,−0.5] vs P2Rank-alphafold inconclusive (significantly worse, not beyond margin); O4 CryptoBench −5.2 [−11.1,+1.0] inconclusive; O6 dimer interface −2.1 [−7.1,+2.8] inconclusive. Controls: oracle 100; LIGYSIS protein-centroid 37.0, random surface 28.9, tiling 18.3.
+
+v1 outputs ~33 pockets/chain (max recall 99.3, any-pocket 80.1). v2 (output floor, adopted pre-test at 23:09, D13) is being scored now. Next: independent recomputation of headline test numbers by a fresh agent, descriptive rows (ablations, P2Rank-ours), REPORT.md.
+
 ### 2026-10-26 20:15 — M2 first dev results (T+5.3 h)
 BURROW (volume-element grid candidates with cascaded multi-scale ray buriedness and first-hit chemistry → LightGBM point scorer → multi-scale pockets → cross-fitted LightGBM pocket ranker → 10 Å NMS) trained on the leakage-audited BioLiP2 LIGYSIS-style set beats P2Rank 2.5.1 on the BioLiP2 dev set by +10 pts top-N+2 (DCC12), +20 pts DCA4 and +24 pts P1K (`all` ranker); the ion-free `small` ranker is ahead but borderline on one seed. On AF dev models it scores 65.2 vs P2Rank-alphafold 56.2. All infrastructure is in place and validated: harness reproduces P2Rank's evaluator (COACH420/HOLO4K) and the published LIGYSIS table (33/33 variants), test sets (LIGYSIS, COACH420/HOLO4K, CryptoBench, PocketWatch, AF, dimer) are built, baselines wrapped; fast backend is bit-identical to the reference and does ~3.3k structures/min/GPU.
 
@@ -94,4 +99,6 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [!] 7.4 Human proteome (AFDB v6; 23,586 models / 20,550 proteins, fragments merged): naive 169 s (8,374/min), --af-mode 129 s (10,996/min) on 3 GPUs × 8 workers, 17.5 GB RAM; incl. tar extraction 6.5–7.9k/min. Top-3 pockets with mean pLDDT<50: 8.0% naive → 0.9% AF mode (34.9% → 3.6% in ≥50%-disordered proteins); P2Rank -c alphafold 1.6% (500-protein subset), 960/min vs ~2,800/min. Known HOTPocket/BioLiP2 sites in top-3: 40% (descriptive; overlaps train/test)
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
-- [ ] 8. Final benchmark + REPORT.md
+- [~] 8. Final benchmark + REPORT.md
+  - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
+  - [~] 8.2 Test v2
