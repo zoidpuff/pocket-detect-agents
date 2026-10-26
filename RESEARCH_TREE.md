@@ -28,7 +28,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 0.3 Eval harness — [!] reproduces P2Rank 2.5.1 evaluator on COACH420/HOLO4K(+mlig) to 0.1% (rules `p2rank_strict` = O2 headline)
   - [!] 0.4a LIGYSIS reproduction gate PASSED: our harness on authors' per-chain predictions reproduces published top-N/top-N+2/max recall for all 28 method variants within ≤0.05 pts (DeepPocket-Seg 0.38); 6,721 NR scored sites, 2,775 chains (results/validation/ligysis_reproduction.md)
   - [x] 0.4 LIGYSIS protocol (33/33 variants reproduce; authors' code agrees), cluster bootstrap (30% MMseqs2 over test union), gated run_test_eval.py + ledger, CryptoBench (222/270 sites) + PocketWatch (1,566/1,573) GT
-  - [~] 0.5 LIGYSIS ligand coords (C1-strict DCA), AF + dimer GT into test runner, pLDDT-filter baseline + hallucination metric (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
+  - [x] 0.5 LIGYSIS ligand coords (6,387/6,721 sites; PREREG A2), AF (2,526 models) + dimer in test runner, AF utils
+  - [-] (was 0.5) LIGYSIS ligand coords (C1-strict DCA), AF + dimer GT into test runner, pLDDT-filter baseline + hallucination metric (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
   - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
@@ -47,5 +48,6 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [~] 5.2 Phase 2: BioLiP2 train/dev, `all`/`small` rankers, NMS tuning with DCA4/P1K guard, fpocket-candidate ablation
 - [ ] 6. AF mode
 - [~] 7. CPU/GPU backends + throughput
-  - [~] 7.1 Geometry primitives (SAS pts, ray-cast buriedness w/ soft occlusion, neighbor feats, clustering) CPU+GPU — started early as design-independent
+  - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
+  - [~] 7.2 BURROW fast backend (burrow/fast/): Numba+torch tree inference, fast pocket formation, fused features, multi-GPU driver; equivalence tests vs reference
 - [ ] 8. Final benchmark + REPORT.md
