@@ -22,3 +22,11 @@ results/dev/biolip/preds/
 results/dev/biolip/inputs/
 results/dev/biolip/preds_cli/
 results/dev/biolip/baselines/*/
+results/dev_af/preds*/
+results/dev_af/inputs/
+results/dev_af/baselines_raw/
+results/dev_af/cache/
+results/dev_af/logs/
+results/audit/*.fasta
+results/audit/*.m8
+logs/

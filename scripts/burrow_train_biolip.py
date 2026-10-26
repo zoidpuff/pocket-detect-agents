@@ -103,7 +103,12 @@ def _pocket_job(args):
             dcc = np.linalg.norm(C - s["center"], axis=1)
             dca = cKDTree(s["atoms"]).query(C, k=1)[0]
             y = np.minimum(y, np.where(dca <= 4, dcc, np.inf))
-    light = [(p.center, p.residues, p.strength, d["points"][p.idx], p.idx) for p in pk] if keep_light else None
+    if keep_light == "min":   # train-side, for cluster-CV of ranker variants (NMS needs centres/residues/idx)
+        light = [(p.center, p.residues, p.idx.astype(np.int32)) for p in pk]
+    elif keep_light:
+        light = [(p.center, p.residues, p.strength, d["points"][p.idx], p.idx) for p in pk]
+    else:
+        light = None
     return sid, Fp, fn, y, light
 
 
@@ -128,6 +133,8 @@ def main(argv=None):
     ap.add_argument("--score-floor", type=float, default=None, help="score only points with b >= floor")
     ap.add_argument("--name", default=None)
     ap.add_argument("--no-assembly", action="store_true")
+    ap.add_argument("--save-pockets", choices=["none", "features", "full"], default="none",
+                    help="cache candidate pockets (features, targets, centres; 'full' adds train point sets)")
     cfg_args(ap)
     a = ap.parse_args(argv)
     from dataclasses import asdict
@@ -173,7 +180,8 @@ def main(argv=None):
     _G["scores"] = oof
     log("final point model + dev scores done")
     with ProcessPoolExecutor(a.jobs, mp_context=ctx) as ex:
-        pk_tr = {r[0]: r[1:] for r in ex.map(_pocket_job, [(s, "train", False) for s in tr_ids], chunksize=4)}
+        tr_light = "min" if a.save_pockets == "full" else False
+        pk_tr = {r[0]: r[1:] for r in ex.map(_pocket_job, [(s, "train", tr_light) for s in tr_ids], chunksize=4)}
         pk_dv = {r[0]: r[1:] for r in ex.map(_pocket_job, [(s, "dev", True) for s in dv], chunksize=2)}
     fn = next(v[1] for v in pk_tr.values() if v[1])
     Xr = np.concatenate([v[0] for v in pk_tr.values() if len(v[2])])
@@ -209,6 +217,16 @@ def main(argv=None):
         .to_csv(OUT / "models" / f"{name}_point_importance.csv", index=False)
     pd.DataFrame({"feature": fn, "gain": R.feature_importance("gain")}).sort_values("gain", ascending=False) \
         .to_csv(OUT / "models" / f"{name}_rank_importance.csv", index=False)
+    if a.save_pockets != "none":
+        pdir = ROOT / "results/dev/cache/pockets" / name
+        pdir.mkdir(parents=True, exist_ok=True)
+        (pdir / "train.pkl").write_bytes(pickle.dumps(
+            {s: (v[0], v[2], v[3]) for s, v in pk_tr.items()}, protocol=pickle.HIGHEST_PROTOCOL))
+        (pdir / "dev.pkl").write_bytes(pickle.dumps(
+            {s: (v[0], v[2], v[3]) for s, v in pk_dv.items()}, protocol=pickle.HIGHEST_PROTOCOL))
+        (pdir / "meta.pkl").write_bytes(pickle.dumps(dict(fn=fn, names=names, fold=fold, group={s: grp_of[s.replace(ASM, '')] for s in tr_ids},
+                                                          args=vars(a))))
+        log(f"pockets saved -> {pdir}")
     log(f"done -> {OUT / 'preds' / name}")
 
 

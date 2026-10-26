@@ -1,0 +1,32 @@
+# Baseline runs (appended by baselines/run_benchmarks.py)
+
+| date (UTC) | benchmark | variant | tool version | inputs | n inputs | wall s | node load before/after | rc | output dir |
+|---|---|---|---|---|---|---|---|---|---|
+| 2026-10-26 16:12 | ligysis | p2rank_2.4.2 | P2Rank 2.4.2 default | baselines/outputs/inputs/ligysis (see baselines/bench_inputs.py) | 2775 | 113 | 25.8/38.3 | 0 | baselines/outputs/ligysis/p2rank_2.4.2 |
+| 2026-10-26 16:18 | ligysis | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/ligysis (see baselines/bench_inputs.py) | 2775 | 326 | 30.5/71.8 | 0 | baselines/outputs/ligysis/fpocket_prank |
+| 2026-10-26 16:21 | ligysis | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/ligysis (see baselines/bench_inputs.py) | 2775 | 77 | 60.1/69.1 | 0 | baselines/outputs/ligysis/p2rank_2.5.1 |
+| 2026-10-26 16:22 | coach420_mlig | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/coach420_mlig (see baselines/bench_inputs.py) | 300 | 13 | 65.9/68.2 | 0 | baselines/outputs/coach420_mlig/p2rank_2.5.1 |
+| 2026-10-26 16:23 | coach420_mlig | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/coach420_mlig (see baselines/bench_inputs.py) | 300 | 28 | 70.0/67.1 | 0 | baselines/outputs/coach420_mlig/fpocket_prank |
+| 2026-10-26 16:24 | holo4k_mlig | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/holo4k_mlig (see baselines/bench_inputs.py) | 3448 | 110 | 66.6/64.4 | 0 | baselines/outputs/holo4k_mlig/p2rank_2.5.1 |
+| 2026-10-26 16:33 | holo4k_mlig | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/holo4k_mlig (see baselines/bench_inputs.py) | 3448 | 464 | 59.1/37.5 | 0 | baselines/outputs/holo4k_mlig/fpocket_prank |
+| 2026-10-26 16:35 | cryptobench | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/cryptobench (see baselines/bench_inputs.py) | 222 | 10 | 44.4/44.3 | 0 | baselines/outputs/cryptobench/p2rank_2.5.1 |
+| 2026-10-26 16:36 | cryptobench | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/cryptobench (see baselines/bench_inputs.py) | 222 | 24 | 42.6/43.5 | 0 | baselines/outputs/cryptobench/fpocket_prank |
+| 2026-10-26 16:37 | pocketwatch | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/pocketwatch (see baselines/bench_inputs.py) | 1566 | 64 | 43.5/41.0 | 0 | baselines/outputs/pocketwatch/p2rank_2.5.1 |
+| 2026-10-26 16:38 | pocketwatch | p2rank_2.5.1_af | P2Rank 2.5.1 -c alphafold | baselines/outputs/inputs/pocketwatch (see baselines/bench_inputs.py) | 1566 | 59 | 37.1/52.7 | 0 | baselines/outputs/pocketwatch/p2rank_2.5.1_af |
+| 2026-10-26 16:43 | pocketwatch | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/pocketwatch (see baselines/bench_inputs.py) | 1566 | 266 | 56.3/47.9 | 0 | baselines/outputs/pocketwatch/fpocket_prank |
+| 2026-10-26 16:45 | af_set | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/af_set (see baselines/bench_inputs.py) | 2526 | 132 | 53.3/53.3 | 0 | baselines/outputs/af_set/p2rank_2.5.1 |
+| 2026-10-26 16:49 | af_set | p2rank_2.5.1_af | P2Rank 2.5.1 -c alphafold | baselines/outputs/inputs/af_set (see baselines/bench_inputs.py) | 2526 | 124 | 49.2/47.7 | 0 | baselines/outputs/af_set/p2rank_2.5.1_af |
+| 2026-10-26 16:59 | af_set | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/af_set (see baselines/bench_inputs.py) | 2526 | 536 | 59.0/82.6 | 0 | baselines/outputs/af_set/fpocket_prank |
+| 2026-10-26 17:03 | dimer_assembly | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 34 | 61.6/72.1 | 0 | baselines/outputs/dimer_assembly/p2rank_2.5.1 |
+| 2026-10-26 17:03 | dimer_assembly | p2rank_2.5.1_af | P2Rank 2.5.1 -c alphafold | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 25 | 69.5/69.0 | 0 | baselines/outputs/dimer_assembly/p2rank_2.5.1_af |
+| 2026-10-26 17:06 | dimer_assembly | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 139 | 69.1/54.2 | 0 | baselines/outputs/dimer_assembly/fpocket_prank |
+| 2026-10-26 17:06 | dimer_chains | p2rank_2.5.1 | P2Rank 2.5.1 default | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 31 | 53.2/57.1 | 0 | baselines/outputs/dimer_chains/p2rank_2.5.1 |
+| 2026-10-26 17:07 | dimer_chains | p2rank_2.5.1_af | P2Rank 2.5.1 -c alphafold | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 31 | 54.4/58.0 | 0 | baselines/outputs/dimer_chains/p2rank_2.5.1_af |
+| 2026-10-26 17:08 | dimer_chains | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 86 | 56.9/52.3 | 0 | baselines/outputs/dimer_chains/fpocket_prank |
+| 2026-10-26 17:15 | ligysis | fpocket_prank | fpocket + P2Rank rescore | baselines/outputs/inputs/ligysis (see baselines/bench_inputs.py) | 2775 | 382 | 48.0/45.2 | 0 | baselines/outputs/ligysis/fpocket_prank |
+| 2026-10-26 18:16 | cryptobench | puresnet | PUResNet v2 | baselines/outputs/inputs/cryptobench (see baselines/bench_inputs.py) | 222 | 142 | 50.9/49.8 | 0 | baselines/outputs/cryptobench/puresnet |
+| 2026-10-26 18:22 | cryptobench | grasp | GrASP train_full (scPDB) | baselines/outputs/inputs/cryptobench (see baselines/bench_inputs.py) | 222 | 358 | 50.3/58.1 | 0 | baselines/outputs/cryptobench/grasp |
+| 2026-10-26 18:24 | dimer_assembly | puresnet | PUResNet v2 | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 169 | 58.2/36.3 | 0 | baselines/outputs/dimer_assembly/puresnet |
+| 2026-10-26 18:47 | dimer_assembly | grasp | GrASP train_full (scPDB) | baselines/outputs/inputs/dimer_assembly (see baselines/bench_inputs.py) | 400 | 1352 | 36.3/39.2 | 0 | baselines/outputs/dimer_assembly/grasp |
+| 2026-10-26 18:53 | dimer_chains | puresnet | PUResNet v2 | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 334 | 39.7/45.2 | 0 | baselines/outputs/dimer_chains/puresnet |
+| 2026-10-26 19:10 | dimer_chains | grasp | GrASP train_full (scPDB) | baselines/outputs/inputs/dimer_chains (see baselines/bench_inputs.py) | 1062 | 1011 | 45.4/35.3 | 0 | baselines/outputs/dimer_chains/grasp |

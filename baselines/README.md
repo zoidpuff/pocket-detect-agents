@@ -240,3 +240,14 @@ Kalasanty r1 x4; IF-SitePred r1 x4; PUResNet r1,r1,r1,miss; VN-EGNN r1,r1,r1,mis
 * Recreate a tool: see the per-tool sections above and `baselines/tools/<tool>/`; versions are pinned in the venvs (`uv pip freeze`).
 * `common.py` is the only shared module; wrappers re-exec into their tool venv (`C.reexec_in_venv`) where the tool needs one.
 * Re-run the format check after changing any wrapper: `.venv/bin/python baselines/check_outputs.py baselines/outputs/<run>`.
+
+## Benchmark runs (all test benchmarks; added 26 Oct 2026)
+
+Driver: `baselines/bench_inputs.py` (builds `baselines/outputs/inputs/<bench>/<structure_id>.*`: LIGYSIS = the authors' ligand-free trans.pdb chains, CryptoBench = `input_chains` only,
+PocketWatch = their ESMFold models, AF set = AFDB v6 models, COACH420(mlig)/HOLO4K(mlig) = the P2Rank `.ds` proteins with ligands stripped by our cleaning)
+and `baselines/run_benchmarks.py --bench B --variant V` (runs a wrapper, builds `preds/<structure_id>.csv`, scores with `pocketdetect.benchmarks.run_benchmark`;
+LIGYSIS predictions are made in the authors' TRANS frame, scored there against the authors' site table for the reproduction gate and mapped back to the wwPDB frame
+(`x = Rᵀx_T + c0`; residues converted label_seq -> author ids) for the main table incl. C1-strict). Outputs `baselines/outputs/<bench>/<variant>/{raw,preds,eval}` (git-ignored);
+committed summaries: `results/baselines/{RUNS.md,HEADLINES.md,summary_long.csv,ligysis_gate.md,SPEED.md}` (`collect_results.py`, `ligysis_gate.py`).
+Findings: (1) the LIGYSIS authors' fpocket is **4.2.x**, not 4.0.x (pocket counts per chain match 4.2.3 exactly, 4.0.3 gives ~15% fewer pockets and 5 points lower max recall); the gate
+uses fpocket 4.2.3. (2) P2Rank 2.4.2 and 2.5.1 (default model) give identical pockets/scores on LIGYSIS. (3) P2Rank is ~0.3 s/structure single-thread in batch mode (one JVM); per-file calls cost 3-7 s of JVM start.
