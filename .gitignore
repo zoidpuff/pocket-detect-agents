@@ -30,3 +30,4 @@ results/dev_af/logs/
 results/audit/*.fasta
 results/audit/*.m8
 logs/
+.worktrees/
