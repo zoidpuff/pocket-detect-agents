@@ -51,7 +51,13 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [~] 5.2 Phase 2: BioLiP2 train/dev, `all`/`small` rankers, NMS tuning with DCA4/P1K guard, fpocket-candidate ablation
 - [~] 6. AF mode
   - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
-  - [~] 6.2 AF-mode developer: dev harness, mechanism ablations + mandatory controls, AF-aware ranker, P2Rank-alphafold on AF dev
+  - [~] 6.2 AF-mode developer (interim, AF dev 278 entries/607 sites + 10× train-OOF set):
+    - [!] BURROW naive on AF dev DCC12 top-N+2 65.2 vs P2Rank -c alphafold 56.2 (DCA4 56.0 vs 36.9; P1K 51.5 vs 31.3)
+    - [-] Geometric mechanisms (prune, soft occlusion) do not raise recall (train-OOF +0.0 [−0.8,+0.8]); do not beat the pLDDT<70 filter on recall (−0.5 [−1.3,+0.2])
+    - [x] They remove hallucinated pockets (6.6% → 0.1%) without discarding 50–70 pLDDT pockets; random pruning costs −2.5 to −3.1 (control OK); no-op byte-identical; 1/607 sites lost to pruning
+    - [x] AF ranker (pLDDT features, AF+PDB rows): P1K +6.9 [+4.5,+9.9], DCA4 +0.7 [+0.1,+1.3]; PDB-dev non-inferior on DCC12
+    - [-] Side-chain tolerance λ on all side chains hurts badly (λ0.25: −16 pts); domain surrogate no help
+    - [~] Stratify by proximity to low-pLDDT regions + disorder bins
 - [~] 7. CPU/GPU backends + throughput
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
