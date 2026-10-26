@@ -15,6 +15,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D5 (17:15): Speed budget — default preset ≤ ~100 ms/core (≥5× faster than P2Rank) within 0.5 pts of best dev setting; optional `--preset accurate` if >1 pt better; pre-registered claims use the default. Feature design freeze ~23:00 (backend port before 01:00 freeze). Fast backend post-feature path already bit-identical (79 vs 252 ms).
 - D4 (16:20): Session restart interrupted 5 agents; all resumed via SendMessage from on-disk state (no work lost). Node is SHARED with other users (foreign processes, GPU 2 partly used) → prefer GPUs 0,1,3; respect 128 GB RAM.
 - D3 (15:55): Start method pipeline before train set exists (dev on P2Rank's CHEN11/JOINED training sets — not test sets) to de-risk G1. Note: timestamps in D1/D2/PREREG header were estimated ~20 min late; git commit times are authoritative.
 - D2 (16:10): DESIGN v3 final; PREREG frozen: fixed-sequence C1→C1-strict→C2, Holm over O2a/O2b/O3–O6, no test run before feature freeze (T+10 h ≈ 01:00), test-union frozen before training build, label-free symmetric collapse in dimer eval for all methods.
