@@ -1,4 +1,4 @@
-# DESIGN — v2 (after review round 1)
+# DESIGN — v3 (after review rounds 1–2; final design, reviews capped at 2 rounds)
 
 Working name: **BURROW** (Buriedness-driven Ultra-fast Ranking Of pOckets, With confidence awareness). Package: `pocketdetect`.
 Grounding: LITERATURE.md (§2.2 LIGYSIS, §4 AF, §7). Reviews: reviews/round1/*.md (6 reviewers); change log in §8.
@@ -84,3 +84,16 @@ Leakage at <30% via shared folds/cofactors (fold strata, fold-disjoint ablation)
 - Biophysics/AF: polymer-only input + invariance test; metal sites; WCN flexibility; soft-occlusion candidate rule; hallucination on unpruned input; AF controls; PAE train+test-or-surrogate; superposition-based AF labels; symmetric-copy rule.
 - Agent failure modes: gated test script; ledger; frozen scoring code checksum; reproduce-first; no silent drops; controls each run; provenance tags (re-run vs published) on every number; fresh-agent recomputation; file ownership (each agent owns listed paths; PI commits explicit paths only).
 - Not adopted: carving a LIGYSIS dev slice (we use a BioLiP2 LIGYSIS-like dev instead, keeping all 2,775 chains for comparability with the published table).
+
+## 9. v3 amendments (review round 2; these override earlier sections where they conflict)
+- **Pre-registration** moved to docs/PREREG.md (frozen; sha256 in RESEARCH_TREE.md): fixed-sequence gatekeeping C1 → C1-strict → C2; Holm across O2a/O2b/O3/O4/O5/O6 with explicit endpoints; C1 tested against both published and re-run fpocket+PRANK; C2 comparator = fpocket+PRANK; PocketWatch run with `--af-mode` ON.
+- **Schedule fix**: no test-set run before feature freeze. Freeze at T+10 h (≈ 01:00), test v1 right after. Before freeze only dev.
+- **Test union frozen before training build**: data/manifests/test_union.tsv (ID, sequence, source) + sha256, covering LIGYSIS, all polymer entities of COACH420/HOLO4K, CryptoBench (all splits), PocketMiner, PocketWatch test, AF set (⊂ LIGYSIS UniProts), dimer set incl. all partner chains. Training artifacts record that checksum. Later-added test sets are overlap-checked and reported, never silently joined.
+- **Leakage rule (complete)**: remove training chain if any MMseqs2 hit to the test union has E < 1e-3 and identity ≥ 30% over (≥ 50% coverage of either chain OR ≥ 80 aligned residues); same rule applied train-vs-dev. Fallback if > 50% of clusters removed: proceed but report; per-benchmark exclusion models are a COULD. Fold-disjoint ablation uses Foldseek max(qTM, tTM) ≥ 0.5 (E < 1e-3); if it keeps < 20% of training, fall back to an ECOD/CATH-free "TM ≥ 0.6" variant and report.
+- **AF no-op check** applies to the geometric mechanisms (pruning, soft occlusion) — with uniform pLDDT ≥ 90 the geometry must be bit-identical to standard mode; the AF ranker on such inputs must be non-inferior (−1 point) to the standard ranker on dev. Oracle-crop control: evaluate on models cropped to residues with pLDDT ≥ 70 (upper bound for pruning).
+- **Dimer benchmark spec**: source = PDB entries of LIGYSIS UniProts; assembly-1 `author_and_software_defined_assembly`; X-ray/EM ≤ 3.0 Å; 2–8 protein chains, partner chains ≥ 50 residues; ligands BioLiP-relevant per entry (not pooled), contact = heavy atom ≤ 4 Å; interface = ≥ 3 residues on each of ≥ 2 chains; isolated-chain input = the chain with the most site contacts (each other chain listed as context-free); symmetric-copy and label-free prediction collapse rules as in PREREG.
+- **Huge inputs** (restored): float32 throughout, voxel-count-based tiling/batching; smoke test on ≥ 1 large assembly (e.g. 1aon, ~58k atoms) for both backends with a memory cap; max supported atoms documented.
+- **Metal candidates** capped (≤ 1 metal candidate per coordinating-atom cluster after 1.5 Å dedup) to avoid flooding.
+- **Pooled-label clashes**: pooled ligand atoms clashing with the representative chain (< 2.2 Å to protein heavy atoms, non-ions) are dropped; sites losing > 50% atoms are dropped; counts reported.
+- **LightGBM seeds**: `seed`, `bagging_seed`, `feature_fraction_seed` all set from `SEEDS[i]`, with bagging/feature subsampling enabled (< 1.0) so seeds actually differ.
+- **Cut order if behind schedule** (first cut first): PocketMiner-38 → PAE → screened Coulomb → own-runs of DL baselines → fold-disjoint ablation → CHEN11-only ablation → hetero-interface class (keep homo). Never cut: C1 pipeline, AF mode, dimers (homo), CPU+GPU backends, runtime.
