@@ -232,10 +232,11 @@ def load_structure(
     remove_water: drop waters.
     remove_hetero: drop everything that is not protein (ligands, waters, nucleic acids).
     remove_hydrogens: drop H/D atoms (default True).
-    altloc: ``"first"`` or ``"occupancy"`` (see module docstring).
+    altloc: ``"first"``, ``"occupancy"`` (see module docstring) or ``"all"`` (keep every
+        conformer; only for special purposes such as P2Rank-exact ligand atom sets).
     """
-    if altloc not in ("first", "occupancy"):
-        raise ValueError("altloc must be 'first' or 'occupancy'")
+    if altloc not in ("first", "occupancy", "all"):
+        raise ValueError("altloc must be 'first', 'occupancy' or 'all'")
     path = str(path)
     st = _read_gemmi(path)
     if len(st) == 0:
@@ -358,7 +359,7 @@ def load_structure(
         },
     )
 
-    mask = _altloc_mask(s, altloc)
+    mask = np.ones(s.n_atoms, dtype=bool) if altloc == "all" else _altloc_mask(s, altloc)
     if chains is not None:
         mask &= np.isin(s.chain, list(chains))
     if remove_hydrogens:

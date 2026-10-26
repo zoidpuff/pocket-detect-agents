@@ -1,0 +1,21 @@
+{
+  "dataset": "data/raw/p2rank_datasets/current/coach420.ds",
+  "rules": "p2rank",
+  "n_structures": 420,
+  "gt_errors": [],
+  "n_count_mismatch": 0,
+  "n_ligands_ours": 510,
+  "n_ligands_p2rank": 510,
+  "n_ligands_only_ours": 4,
+  "n_ligands_only_p2rank": 4,
+  "n_rank_mismatch": 0,
+  "DCA4_topn_ours": 0.7215686274509804,
+  "DCA4_topn_p2rank": 0.7240000000000001,
+  "DCA4_topn2_ours": 0.7725490196078432,
+  "DCA4_topn2_p2rank": 0.775,
+  "DCC4_topn_ours": 0.4392156862745098,
+  "DCC4_topn_p2rank": 0.439,
+  "DCC4_topn2_ours": 0.47058823529411764,
+  "DCC4_topn2_p2rank": 0.47100000000000003,
+  "note": "P2Rank success_rates.csv values are percentages rounded to 0.1"
+}

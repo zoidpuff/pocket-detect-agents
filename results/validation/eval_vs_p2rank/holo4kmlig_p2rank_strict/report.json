@@ -1,0 +1,21 @@
+{
+  "dataset": "data/raw/p2rank_datasets/current/holo4k(mlig).ds",
+  "rules": "p2rank_strict",
+  "n_structures": 3448,
+  "gt_errors": [],
+  "n_count_mismatch": 2,
+  "n_ligands_ours": 6874,
+  "n_ligands_p2rank": 6877,
+  "n_ligands_only_ours": 81,
+  "n_ligands_only_p2rank": 84,
+  "n_rank_mismatch": 9,
+  "DCA4_topn_ours": 0.7657841140529531,
+  "DCA4_topn_p2rank": 0.7659999999999999,
+  "DCA4_topn2_ours": 0.8338667442537097,
+  "DCA4_topn2_p2rank": 0.8340000000000001,
+  "DCC4_topn_ours": 0.49243526331102705,
+  "DCC4_topn_p2rank": 0.49200000000000005,
+  "DCC4_topn2_ours": 0.5402967704393367,
+  "DCC4_topn2_p2rank": 0.54,
+  "note": "P2Rank success_rates.csv values are percentages rounded to 0.1"
+}

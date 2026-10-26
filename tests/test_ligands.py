@@ -133,12 +133,18 @@ def test_modified_residue_not_ligand(tmp_path):
 
 
 def test_center_of_mass_vs_centroid(tmp_path):
+    import dataclasses
+
+    from pocketdetect.ligands import register_rules
+
     coords = C0 + PLUS
     res = ligand_res("A", "LBR", 900, coords, ["BR", "C", "C", "C", "C"])
-    gt = gt_of(tmp_path, [res])
-    l = gt.ligands[0]
+    l = gt_of(tmp_path, [res]).ligands[0]
+    assert np.allclose(l.center, coords.mean(0), atol=1e-4)  # default: geometric centroid
+    register_rules(dataclasses.replace(get_rules("p2rank"), name="test_com", center_method="com"))
+    l = gt_of(tmp_path, [res], rules="test_com").ligands[0]
     w = np.array([79.904, 12.011, 12.011, 12.011, 12.011])
-    assert np.allclose(l.center, (coords * w[:, None]).sum(0) / w.sum(), atol=1e-3)  # P2Rank: mass-weighted
+    assert np.allclose(l.center, (coords * w[:, None]).sum(0) / w.sum(), atol=1e-3)
 
 
 def test_rules_registry():
@@ -174,3 +180,29 @@ def test_standard_residue_names_never_ligands_in_p2rank(tmp_path):
     assert gt.ligands == [] and gt.other_ligands == []
     gt = gt_of(tmp_path, [trp], rules="all_contacting")
     assert [l.ligand_id for l in gt.ligands] == ["TRP|A:900"]
+
+
+def test_p2rank_strict_quirks(tmp_path):
+    from conftest import A as At
+
+    # (a) ligand touching only an atom named NH1 (Arg-like): P2Rank's name-based H filter drops it
+    prot = protein()
+    prot[2].atoms.append(At("NH1", "N", (9.0, 6.0, 3.5)))
+    lig = ligand_res("A", "LIG", 900, np.array([9.0, 9.5, 3.5]) + PLUS)  # 3.5 A from NH1, >4 A from rest
+    p = write(build(prot + [lig]), tmp_path / "q.cif")
+    assert build_ground_truth(p, rules="p2rank").ligands[0].ligand_id == "LIG|A:900"
+    assert build_ground_truth(p, rules="p2rank_strict").other_ligands[0].category == "distant"
+    # (b) C-terminal modified residue (PTR) bonded to the chain: protein in p2rank, ligand in strict
+    prot = protein()
+    prot[9].name, prot[9].het = "PTR", True
+    p = write(build(prot), tmp_path / "ptr.cif")
+    assert build_ground_truth(p, rules="p2rank").ligands == []
+    assert [l.ligand_id for l in build_ground_truth(p, rules="p2rank_strict").ligands] == ["PTR|A:10"]
+    # (c) ligand altlocs: atom present only in conformer B is kept by strict ("by_name")
+    atoms = [At(f"C{i}", "C", tuple(C0 + d)) for i, d in enumerate(PLUS)]
+    atoms[1] = At("C1", "C", tuple(C0 + PLUS[1]), altloc="A", occ=0.5)
+    atoms.append(At("C1", "C", tuple(C0 + [1, 0, 1.0]), altloc="B", occ=0.5))
+    atoms.append(At("C9", "C", tuple(C0 + [0, 0, 3.0]), altloc="B", occ=0.5))
+    p = write(build(protein() + [R("A", "LIG", 900, atoms, het=True)]), tmp_path / "alt.cif")
+    assert build_ground_truth(p, rules="p2rank").ligands[0].n_atoms == 5
+    assert build_ground_truth(p, rules="p2rank_strict").ligands[0].n_atoms == 6

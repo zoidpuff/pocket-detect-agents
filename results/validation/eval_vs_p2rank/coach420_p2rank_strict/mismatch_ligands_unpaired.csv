@@ -1,0 +1,9 @@
+key,rank_DCA4,dca_min,dca4rank,closestPocketDist,_merge
+1f4gA.pdb|TP4|601#0,1.0,0.8159601684653348,,,left_only
+1f4gA.pdb|TP4|601&601#0,,,1.0,0.8159,right_only
+2fhjA.pdb|H4Z|905#0,1.0,1.642588404323944,,,left_only
+2fhjA.pdb|H4Z|905&905#0,,,1.0,1.6425,right_only
+2fhjA.pdb|MFN|900#0,-1.0,23.172963291845058,,,left_only
+2fhjA.pdb|MFN|900&900#0,,,-1.0,23.173,right_only
+2fhjA.pdb|MFN|902#0,1.0,3.365264836230759,,,left_only
+2fhjA.pdb|MFN|902&902#0,,,1.0,3.3652,right_only

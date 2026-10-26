@@ -1,0 +1,3 @@
+structure_id,n_ours,names_ours,n_p2rank,ligandNames
+1p52.pdb,1,ADP,2,ADP(27) DAR(11)
+1vbt.pdb,2,NIT NIT,4,ALT(6) ALT(6) NIT(11) NIT(11)

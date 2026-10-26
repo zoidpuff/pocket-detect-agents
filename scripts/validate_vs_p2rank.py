@@ -87,7 +87,7 @@ def main(argv=None):
         p = a.p2rank_out / "predictions" / f"{g.structure_id}_predictions.csv"
         if p.exists():
             convert_p2rank_predictions(p, pred_dir / f"{g.structure_id}.csv")
-    ev = evaluate(gts, pred_dir, criteria=["DCA4"], n_boot=0)
+    ev = evaluate(gts, pred_dir, criteria=["DCA4", "DCC4"], n_boot=0)
 
     # (1) ligand counts
     pp = pd.read_csv(a.p2rank_out / "cases" / "proteins.csv", skipinitialspace=True)
@@ -119,16 +119,22 @@ def main(argv=None):
     m = L[["key", "rank_DCA4", "dca_min"]].merge(pl[["key", "dca4rank", "closestPocketDist"]], on="key", how="outer", indicator=True)
     lig_only_ours = int((m._merge == "left_only").sum())
     lig_only_p2 = int((m._merge == "right_only").sum())
-    both = m[m._merge == "both"]
-    rank_mism = both[both.rank_DCA4.astype(int) != both.dca4rank.astype(int)]
+    # identical keys (same name+resnum in several chains) are paired by occurrence order, which may
+    # differ between tools -> compare the multiset of ranks per base key instead of row by row
+    both = m[m._merge == "both"].copy()
+    both["base"] = both.key.str.rsplit("#", n=1).str[0]
+    bad_bases = [b for b, g in both.groupby("base") if sorted(g.rank_DCA4.astype(int)) != sorted(g.dca4rank.astype(int))]
+    rank_mism = both[both.base.isin(bad_bases)]
     m[(m._merge != "both")].to_csv(a.out / "mismatch_ligands_unpaired.csv", index=False)
     rank_mism.to_csv(a.out / "mismatch_ligands_rank.csv", index=False)
 
     # (3) success rates
     sr = pd.read_csv(a.p2rank_out / "success_rates.csv", header=None)
     hdr = [str(x).strip() for x in sr.iloc[0]]
-    row = sr[sr[0].astype(str).str.strip() == "DCA(4.0)"].iloc[0]
-    p2_rates = {hdr[i]: float(row[i]) / 100 for i in range(1, len(hdr))}
+    def p2_rates(name):
+        row = sr[sr[0].astype(str).str.strip() == name].iloc[0]
+        return {hdr[i]: float(row[i]) / 100 for i in range(1, len(hdr))}
+
     s = ev.summary.set_index(["metric", "average"])["value"]
     report = {
         "dataset": str(a.ds),
@@ -142,9 +148,14 @@ def main(argv=None):
         "n_ligands_only_p2rank": lig_only_p2,
         "n_rank_mismatch": int(len(rank_mism)),
         "DCA4_topn_ours": float(s[("success_DCA4_topn", "ligand")]),
-        "DCA4_topn_p2rank": p2_rates.get("[0]"),
+        "DCA4_topn_p2rank": p2_rates("DCA(4.0)").get("[0]"),
         "DCA4_topn2_ours": float(s[("success_DCA4_topn2", "ligand")]),
-        "DCA4_topn2_p2rank": p2_rates.get("[2]"),
+        "DCA4_topn2_p2rank": p2_rates("DCA(4.0)").get("[2]"),
+        "DCC4_topn_ours": float(s[("success_DCC4_topn", "ligand")]),
+        "DCC4_topn_p2rank": p2_rates("DCC(4.0)").get("[0]"),
+        "DCC4_topn2_ours": float(s[("success_DCC4_topn2", "ligand")]),
+        "DCC4_topn2_p2rank": p2_rates("DCC(4.0)").get("[2]"),
+        "note": "P2Rank success_rates.csv values are percentages rounded to 0.1",
     }
     (a.out / "report.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))

@@ -6,9 +6,10 @@ against the source at commit b9b54b7e49513b665c913cc90fbfa68ec4133521 (develop, 
 
 1. Candidate groups: every non-water residue that is not a protein residue and is either a HETATM
    record or belongs to a non-polymer entity (P2Rank ``Struct.getLigandGroups``). Modified amino
-   acids inside protein chains (MSE, SEP, ...) are protein, not ligands. Groups named like a
-   *standard* amino acid or nucleotide (ALA..VAL, A/C/G/U/DA/DC/DG/DT/...) are never candidates:
-   P2Rank (BioJava, reduced chemical-component provider) types them AMINOACID/NUCLEOTIDE and
+   acids inside protein chains (MSE, SEP, ...) are protein, not ligands. Groups named like an
+   amino acid or nucleotide known to BioJava's bundled chemical-component set (20 standard amino
+   acids + CSE, DAR, MSE, SEC, TYS; A, C, G, I, U, DA, DC, DG, DI, DT) are never candidates:
+   P2Rank (BioJava without chem-comp download) types them AMINOACID/NUCLEOTIDE and
    ``isLigandCandidateGroup`` requires GroupType HETATM, so free amino acids (e.g. TRP in 1zt9) and
    the standard residues of peptidic ligands are not ligands in P2Rank's ground truth
    (verified empirically on COACH420; option ``standard_residue_ligands``).
@@ -19,17 +20,20 @@ against the source at commit b9b54b7e49513b665c913cc90fbfa68ec4133521 (develop, 
 4. Each merged ligand is categorised, in this order:
    * *small*   if atom count < ``min_ligand_atoms`` = 5,
    * *distant* if min distance ligand atom -> protein heavy atom > ``ligand_protein_contact_distance`` = 4 A,
-   * *distant* if distance ligand centre (mass-weighted) -> nearest protein heavy atom > ``ligc_prot_dist`` = 5.5 A,
+   * *distant* if distance ligand centre -> nearest protein heavy atom > ``ligc_prot_dist`` = 5.5 A
+     (mass-weighted centre, as P2Rank; the DCC evaluation centre is the geometric centroid),
    * otherwise *relevant*. Only relevant ligands are evaluation targets.
 5. If an explicit ligand specification is given (P2Rank dataset ``ligands`` column syntax:
    ``NAME``, ``NAME[C_123A]``, ``NAME[group_id:C_123A]``, ``NAME[atom_id:1234]``, comma separated),
    matching groups are clustered as above and are **all** relevant (no size/distance filter, as in
    P2Rank); all other candidate groups become *ignored*.
 
-Difference to the P2Rank code (documented in docs/EVALUATION.md): P2Rank keeps hydrogen atoms in
-ligand atom sets (atom count, DCA, centre of mass). Rule set ``p2rank`` uses heavy atoms only (as
-the P2Rank documentation "min. heavy atom count" states); ``p2rank_strict`` keeps hydrogens to
-reproduce the code exactly. For X-ray files without H the two are identical.
+Differences to the P2Rank code (details and validation in docs/EVALUATION.md): rule set
+``p2rank`` uses heavy atoms only and first-altloc ligand atoms, and treats modified residues inside
+chains as protein. ``p2rank_strict`` reproduces the P2Rank 2.5.1 binary (hydrogens in ligand atom
+sets, name-based H filter on protein atoms, BioJava modified-residue heuristic, altloc-by-name
+ligand atoms); it matches P2Rank's own DCA/DCC success rates on COACH420 and HOLO4K to the printed
+precision (results/validation/eval_vs_p2rank/).
 """
 
 from __future__ import annotations
@@ -43,7 +47,7 @@ import gemmi
 import numpy as np
 from scipy.spatial import cKDTree
 
-from .structure import LIGAND, PROTEIN, Structure, load_structure, residue_id
+from .structure import LIGAND, PROTEIN, Structure, _altloc_mask, load_structure, residue_id
 
 __all__ = [
     "LigandRules",
@@ -77,7 +81,12 @@ class LigandRules:
     contact_dist: float = 4.0  # max (min ligand atom -> protein heavy atom distance)
     center_dist: float = 5.5  # max (ligand centre -> nearest protein heavy atom)
     cluster_dist: float = 1.7  # single-linkage merge cutoff between candidate groups
-    center_method: str = "com"  # "com" (mass-weighted, P2Rank) or "centroid"
+    # "centroid" (geometric; reproduces P2Rank 2.5.1 DCC exactly on COACH420/HOLO4K) or "com"
+    # (mass-weighted; default of site_eval_center_method in the P2Rank develop branch)
+    center_method: str = "centroid"
+    # centre used for the ``center_dist`` relevance filter: P2Rank computes centerToProteinDist
+    # from atoms.centerOfMass (mass-weighted); reproduces P2Rank's ligand sets on HOLO4K
+    filter_center_method: str = "com"
     binding_residue_dist: float = 4.0  # protein residue within this of a ligand atom = binding residue
     explicit_bypasses_filters: bool = True  # P2Rank: explicitly specified ligands are all relevant
     standard_residue_ligands: bool = False  # False = P2Rank: standard aa/nucleotide names never ligands
@@ -85,6 +94,15 @@ class LigandRules:
     # as 2nd character (Arg NH1/NH2, Tyr OH, Trp CH2) from the protein atom set used for the
     # contact / centre distance filters. True reproduces this quirk (p2rank_strict only).
     p2rank_h_name_quirk: bool = False
+    # P2Rank/BioJava (reduced chem-comp provider) counts a non-standard amino acid in a chain as a
+    # protein residue only if the previous residue is absent or standard and the next residue
+    # exists and is standard (Struct.isAminoAcidResidueHeuristic); otherwise it becomes a ligand
+    # candidate (e.g. C-terminal or consecutive modified residues, PTR pairs). True reproduces this.
+    p2rank_residue_heuristic: bool = False
+    # "first": ligand atoms from the selected altloc only (default). "by_name": per ligand residue
+    # keep the first record of every atom name, i.e. first altloc plus atoms that exist only in
+    # later conformers (BioJava/P2Rank behaviour, verified on 2fhj MFN, 19gs BSP, 1ajk EPE).
+    ligand_altlocs: str = "first"
 
     def as_dict(self) -> dict:
         """Deterministic (hash-seed independent) description, e.g. for cache keys and run logs."""
@@ -93,10 +111,13 @@ class LigandRules:
         return d
 
 
+# Residue names that BioJava 7 (as bundled with P2Rank 2.5, chemcomp/*.cif.gz in
+# biojava-structure-7.2.2-rdk.1.jar; no chem-comp download) types as AMINOACID / NUCLEOTIDE.
 STANDARD_AA = frozenset(
-    "ALA ARG ASN ASP CYS GLN GLU GLY HIS ILE LEU LYS MET PHE PRO SER THR TRP TYR VAL".split()
+    "ALA ARG ASN ASP CYS GLN GLU GLY HIS ILE LEU LYS MET PHE PRO SER THR TRP TYR VAL "
+    "CSE DAR MSE SEC TYS".split()
 )
-STANDARD_NUC = frozenset("A C G U I DA DC DG DT DU DI".split())
+STANDARD_NUC = frozenset("A C G I U DA DC DG DI DT".split())
 
 P2RANK_IGNORED = frozenset(["HOH", "DOD", "WAT", "NAG", "MAN", "UNK", "GLC", "ABA", "MPD", "GOL", "SO4", "PO4"])
 
@@ -121,10 +142,13 @@ register_rules(LigandRules(name="p2rank", source=P2RANK_SOURCE + "; heavy atoms 
 register_rules(
     LigandRules(
         name="p2rank_strict",
-        source=P2RANK_SOURCE + "; hydrogens kept in ligand atom sets exactly as the P2Rank code does",
+        source=P2RANK_SOURCE + "; reproduces the P2Rank 2.5.1 binary incl. quirks: hydrogens in ligand atom sets, "
+        "name-based H filter on protein atoms, BioJava modified-residue heuristic, altloc-by-name ligand atoms",
         ignore_het_groups=P2RANK_IGNORED,
         ligand_hydrogens=True,
         p2rank_h_name_quirk=True,
+        p2rank_residue_heuristic=True,
+        ligand_altlocs="by_name",
     )
 )
 register_rules(
@@ -251,6 +275,19 @@ def _def_str(d: LigandDefinition) -> str:
     return d.name
 
 
+def _p2rank_demoted_residues(s: Structure) -> np.ndarray:
+    """Non-standard protein residues that P2Rank's residue heuristic would *not* count as protein."""
+    out = []
+    n = s.n_residues
+    std = np.isin(s.r_name, list(STANDARD_AA)) & (s.r_kind == PROTEIN)
+    for r in np.flatnonzero((s.r_kind == PROTEIN) & ~np.isin(s.r_name, list(STANDARD_AA))):
+        prev_ok = r == 0 or s.r_chain[r - 1] != s.r_chain[r] or std[r - 1]
+        next_ok = r + 1 < n and s.r_chain[r + 1] == s.r_chain[r] and std[r + 1]
+        if not (prev_ok and next_ok):
+            out.append(r)
+    return np.asarray(out, dtype=np.int64)
+
+
 def _matches(defn: LigandDefinition, s: Structure, r: int) -> bool:
     if s.r_name[r] != defn.name:
         return False
@@ -337,7 +374,10 @@ def extract_ligands(
     rules = get_rules(rules)
     bad: list = []
     defs = parse_ligand_spec(spec, None if strict_spec else bad)
-    prot_idx = np.flatnonzero(s.protein_heavy_mask())
+    prot_res = s.r_kind == PROTEIN
+    demoted = _p2rank_demoted_residues(s) if rules.p2rank_residue_heuristic else np.zeros(0, dtype=np.int64)
+    prot_res[demoted] = False
+    prot_idx = np.flatnonzero(prot_res[s.res_index] & ~s.is_hydrogen)
     prot_tree = cKDTree(s.coords[prot_idx]) if len(prot_idx) else None
     filt_tree = prot_tree  # protein atoms for the contact / centre-distance filters
     if rules.p2rank_h_name_quirk and len(prot_idx):
@@ -346,7 +386,7 @@ def extract_ligands(
         keep = prot_idx[~quirk]
         filt_tree = cKDTree(s.coords[keep]) if len(keep) else None
 
-    cand = np.flatnonzero(s.r_kind == LIGAND)
+    cand = np.union1d(np.flatnonzero(s.r_kind == LIGAND), demoted)
     if not rules.standard_residue_ligands:
         std = STANDARD_AA | STANDARD_NUC
         cand = np.array([r for r in cand if s.r_name[r] not in std], dtype=np.int64)
@@ -392,7 +432,8 @@ def extract_ligands(
         center = ligand_center(coords, elements, rules.center_method)
         if filt_tree is not None:
             contact = float(filt_tree.query(coords, k=1)[0].min())
-            cdist = float(filt_tree.query(center, k=1)[0])
+            fc = center if rules.filter_center_method == rules.center_method else ligand_center(coords, elements, rules.filter_center_method)
+            cdist = float(filt_tree.query(fc, k=1)[0])
         else:
             contact = cdist = math.inf
         if category is None:
@@ -445,7 +486,19 @@ def build_ground_truth(
 ) -> GroundTruth:
     """Load ``path`` and extract the relevant ligands (evaluation targets) under ``rules``."""
     rules = get_rules(rules)
-    s = load_structure(path, structure_id=structure_id, chains=chains, remove_hydrogens=False, altloc=altloc)
+    if rules.ligand_altlocs == "by_name":
+        s = load_structure(path, structure_id=structure_id, chains=chains, remove_hydrogens=False, altloc="all")
+        keep = _altloc_mask(s, altloc)
+        lig = np.flatnonzero(s.kind == LIGAND)
+        if len(lig) and (s.altloc[lig] != "").any():
+            seen: set = set()
+            for i in lig:
+                k = (int(s.res_index[i]), str(s.atom_name[i]))
+                keep[i] = k not in seen
+                seen.add(k)
+        s = s if keep.all() else s.select(keep)
+    else:
+        s = load_structure(path, structure_id=structure_id, chains=chains, remove_hydrogens=False, altloc=altloc)
     report: dict = {}
     ligs = extract_ligands(s, rules, spec, strict_spec=strict_spec, report=report)
     prot_res = np.unique(s.res_index[s.protein_heavy_mask()])
