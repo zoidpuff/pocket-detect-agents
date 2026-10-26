@@ -80,6 +80,8 @@ def p2_args(args, outdir, threads):
         a += ["-vis_renderers", "[]"]
     if args.config != "default":
         a += ["-c", args.config]
+    if getattr(args, "model", None):
+        a += ["-m", args.model]  # path relative to <install>/models/ (e.g. a retrained model; see baselines/p2rank_ours)
     return a
 
 
@@ -124,6 +126,7 @@ def main():
     ap.add_argument("--mode", default="batch", choices=["batch", "per-file"])
     ap.add_argument("--heap", type=int, default=None, help="JVM heap GB (default 2 + 1.5*threads, max 100)")
     ap.add_argument("--tmp", default=None, help="scratch dir (default system tmp)")
+    ap.add_argument("--model", default=None, help="custom model file relative to <p2rank>/models/ (e.g. ../../p2rank_ours/model/FastRandomForest.model)")
     ap.add_argument("--version", default="2.5.1", choices=list(VERSIONS), help="P2Rank release (2.4.2 for LIGYSIS reproduction)")
     args = ap.parse_args()
     global P2

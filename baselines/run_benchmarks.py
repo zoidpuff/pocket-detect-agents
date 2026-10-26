@@ -58,6 +58,10 @@ def run_tool(bench, variant, jobs, log):
     tmp = OUT / "tmp"
     tmp.mkdir(exist_ok=True)
     W = str(C.BASELINES)
+    if variant == "p2rank_ours":  # P2Rank 2.5.1 retrained on our training set (baselines/p2rank_ours; results/baselines/P2RANK_OURS.md)
+        cmd = [PY, f"{W}/run_p2rank.py", str(ind), "-o", str(raw), "-j", str(jobs), "--version", "2.5.1", "--tmp", str(tmp),
+               "--model", "../../../p2rank_ours/model/FastRandomForest.model"]
+        return {variant: sh(cmd, log)}
     if variant.startswith("p2rank"):
         ver = variant.split("_")[1]
         cmd = [PY, f"{W}/run_p2rank.py", str(ind), "-o", str(raw), "-j", str(jobs), "--version", ver, "--tmp", str(tmp)]
@@ -183,7 +187,7 @@ def record_run(bench, variant, ver_desc, n_inputs, wall, load0, load1, rc):
         f.write(f"| {dt.datetime.utcnow():%Y-%m-%d %H:%M} | {bench} | {variant} | {ver_desc} | baselines/outputs/inputs/{bench} (see baselines/bench_inputs.py) | {n_inputs} | {wall:.0f} | {load0:.1f}/{load1:.1f} | {rc} | baselines/outputs/{bench}/{variant} |\n")
 
 
-DESC = {"p2rank_2.4.2": "P2Rank 2.4.2 default", "p2rank_2.5.1": "P2Rank 2.5.1 default", "p2rank_2.5.1_af": "P2Rank 2.5.1 -c alphafold",
+DESC = {"p2rank_2.4.2": "P2Rank 2.4.2 default", "p2rank_2.5.1": "P2Rank 2.5.1 default", "p2rank_2.5.1_af": "P2Rank 2.5.1 -c alphafold", "p2rank_ours": "P2Rank 2.5.1 retrained on our train set",
         "fpocket_4.0.3": "fpocket 4.0.3 (-O0 build)", "fpocket_4.2.3": "fpocket 4.2.3", "fpocket_prank": "fpocket + P2Rank rescore", "grasp": "GrASP train_full (scPDB)", "puresnet": "PUResNet v2"}
 
 
