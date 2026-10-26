@@ -301,3 +301,8 @@ Most common HOLO4K ligands: NAD, FAD, HEM, PLP, ADP, FMN. These numbers are sani
 - **PocketWatch MSAs** (`msas_test.tar`, 2.7 GB): skipped on purpose.
 - **HOTPocket v1** (Zenodo 16891050): superseded by v2, so it was not fetched.
 - The HOTPocket evaluation sets (Astex, PoseBusters) are not packaged as data. PoseBusters (Zenodo) could be added if needed.
+
+## Derived: dimer benchmark (Track D, 2026-10-26)
+- Built by `scripts/data/build_dimer_{common,scan,select}.py` from BioLiP2 (2025-11-12) + local PDB mirror assembly-1 files; spec docs/DIMER_BENCHMARK.md, eval `scripts/eval_dimer.py`.
+- 400 complexes (274 homo, 126 hetero) over 450 LIGYSIS UniProts; 807 unique sites (J≥0.5 grouping; PREREG A1): 494 single-chain, 177 homo-interface, 66 hetero-interface, 70 minor-interface; 301 ions.
+- Local: data/processed/dimer/ (git-ignored; regenerable). Chain manifest copy: data/manifests/dimer_manifest_chains.tsv (sha256 of original 0196c7e3…). License: derived from CC0 PDB + BioLiP2 (freely available).
