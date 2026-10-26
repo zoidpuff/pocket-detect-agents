@@ -1,0 +1,64 @@
+{
+ "params": {
+  "max_sources": 20,
+  "pocket_ca_radius": 10.0,
+  "min_pairs": 6,
+  "max_rmsd": 2.0,
+  "min_align_identity": 0.9,
+  "near_dist": 4.5,
+  "clash_dist": 2.2,
+  "site_max_atom_loss": 0.5,
+  "site_cut": 0.5,
+  "assembly_frac": 0.3,
+  "assembly_contact": 4.0,
+  "interface_min_res": 3,
+  "max_assembly_chains": 60,
+  "max_assembly_atoms": 150000
+ },
+ "max_per_cluster": 3,
+ "test_union_sha256": "27c3d793b50b721dd79add7cb5ba771ffb5d653bf789d0186a4baed120f06a45",
+ "n_tasks": 7247,
+ "n_ok": 7247,
+ "n_failed": 0,
+ "failures": {},
+ "per_split": {
+  "train": {
+   "entries": 6645,
+   "entries_with_sites": 6632,
+   "sites": 14074,
+   "ion_sites": 5309,
+   "ligands": 36582,
+   "assembly_stored": 1959,
+   "has_assembly1": 6645
+  },
+  "dev": {
+   "entries": 602,
+   "entries_with_sites": 602,
+   "sites": 1280,
+   "ion_sites": 450,
+   "ligands": 3117,
+   "assembly_stored": 158,
+   "has_assembly1": 602
+  }
+ },
+ "stats": {
+  "lig_rows": 40683,
+  "src_entries": 12191,
+  "atoms_total": 679349,
+  "atoms_clash_dropped": 12051,
+  "lig_candidates_after_near": 39883,
+  "sites_kept": 15354,
+  "asm_stored": 2117,
+  "lig_rmsd_gt2": 453,
+  "lig_not_found": 211,
+  "sites_dropped_clash": 61,
+  "lig_in_dropped_sites": 170,
+  "src_low_identity": 197,
+  "lig_few_pairs": 121,
+  "asm_lig_map_fail": 73,
+  "asm_sites_dropped_clash": 45,
+  "lig_no_fingerprint": 8,
+  "lig_far": 7
+ },
+ "wall_s": 120.1
+}

@@ -1,13 +1,14 @@
 {
- "test_union_sha256": "758cfe674222e2ab70ccc55793e1effce555e23fb06c7fa707977c6af239ed77",
- "n_rows": 20348,
- "n_unique_sequences": 13058,
+ "test_union_sha256": "27c3d793b50b721dd79add7cb5ba771ffb5d653bf789d0186a4baed120f06a45",
+ "n_rows": 21227,
+ "n_unique_sequences": 13337,
  "per_source_rows": {
   "cryptobench": 6622,
   "holo4k": 4675,
-  "af_set": 3515,
+  "af_set": 3473,
   "ligysis": 2775,
   "pocketwatch_test": 1566,
+  "dimer": 921,
   "ligysis_extra": 673,
   "coach420": 461,
   "pocketminer": 61
@@ -15,6 +16,7 @@
  "per_source_unique_pdb": {
   "coach420": 420,
   "cryptobench": 5005,
+  "dimer": 400,
   "holo4k": 4009,
   "ligysis": 2707,
   "ligysis_extra": 673,
@@ -24,7 +26,7 @@
   {
    "source_set": "af_set",
    "seq_source": "uniprot_canonical",
-   "n": 3515
+   "n": 3473
   },
   {
    "source_set": "coach420",
@@ -45,6 +47,11 @@
    "source_set": "cryptobench",
    "seq_source": "pdb_entity_can",
    "n": 6619
+  },
+  {
+   "source_set": "dimer",
+   "seq_source": "dimer_manifest",
+   "n": 921
   },
   {
    "source_set": "holo4k",
@@ -84,11 +91,12 @@
  ],
  "extra_pdb_ids": {
   "pocketminer": 185,
-  "pocketwatch_test": 8036
+  "pocketwatch_test": 8036,
+  "dimer": 400
  },
- "n_test_pdb_ids": 20224,
- "n_test_uniprots": 7596,
- "n_requests": 19641,
+ "n_test_pdb_ids": 20483,
+ "n_test_uniprots": 7641,
+ "n_requests": 20520,
  "n_fallback_to_file": 11,
  "unresolved": [],
  "entries_missing_in_mirror": [
@@ -105,11 +113,15 @@
  ],
  "n_entries_missing_in_mirror": 10,
  "af_set": {
-  "index": "data/processed/af/extract_index.csv",
-  "n_accs": 3515,
-  "n_with_seq": 3515,
-  "index_sha256": "d88343354c0de6f2980d530086446880548b0a30aea692d30aaadf327d639952"
+  "fasta": "data/processed/af/af_sequences.fasta",
+  "n_seqs": 3473,
+  "sha256": "dc83b5df1527f28e858f119531114fa136cadcb3531c839b062ff4d03fa66e25"
  },
- "dimer_set": null,
+ "dimer_set": {
+  "manifest": "data/processed/dimer/manifest_chains.tsv",
+  "n_rows": 921,
+  "n_entries": 400,
+  "sha256": "0196c7e3ed9db8ab30256a4f64b8489bdbb7552245de9ebdf3fddb99458e01cf"
+ },
  "sifts": "data/processed/af/external/pdb_chain_uniprot.tsv.gz"
 }

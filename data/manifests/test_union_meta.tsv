@@ -16832,6 +16832,7 @@ pocketwatch_test|W7JM86	pocketwatch_test			W7JM86	401	uniprot_canonical
 pocketwatch_test|W7K8C0	pocketwatch_test			W7K8C0	217	uniprot_canonical
 pocketwatch_test|W8JMV4	pocketwatch_test			W8JMV4	474	uniprot_canonical
 pocketwatch_test|W8Q9Y7	pocketwatch_test			W8Q9Y7	1160	uniprot_canonical
+af_set|A0A0B4J272	af_set			A0A0B4J272	114	uniprot_canonical
 af_set|A0AVT1	af_set			A0AVT1	1052	uniprot_canonical
 af_set|A0FGR8	af_set			A0FGR8	921	uniprot_canonical
 af_set|A1L3X0	af_set			A1L3X0	281	uniprot_canonical
@@ -16843,7 +16844,9 @@ af_set|A6NHR9	af_set			A6NHR9	2005	uniprot_canonical
 af_set|A6NIH7	af_set			A6NIH7	251	uniprot_canonical
 af_set|A6NK06	af_set			A6NK06	481	uniprot_canonical
 af_set|A8K7I4	af_set			A8K7I4	914	uniprot_canonical
+af_set|A8K979	af_set			A8K979	691	uniprot_canonical
 af_set|A8MT69	af_set			A8MT69	81	uniprot_canonical
+af_set|A8MUM7	af_set			A8MUM7	142	uniprot_canonical
 af_set|A8MW92	af_set			A8MW92	1017	uniprot_canonical
 af_set|B2RXH2	af_set			B2RXH2	506	uniprot_canonical
 af_set|O00139	af_set			O00139	706	uniprot_canonical
@@ -16897,6 +16900,7 @@ af_set|O00764	af_set			O00764	312	uniprot_canonical
 af_set|O00767	af_set			O00767	359	uniprot_canonical
 af_set|O14497	af_set			O14497	2285	uniprot_canonical
 af_set|O14520	af_set			O14520	342	uniprot_canonical
+af_set|O14545	af_set			O14545	582	uniprot_canonical
 af_set|O14556	af_set			O14556	408	uniprot_canonical
 af_set|O14561	af_set			O14561	156	uniprot_canonical
 af_set|O14595	af_set			O14595	271	uniprot_canonical
@@ -16909,7 +16913,6 @@ af_set|O14656	af_set			O14656	332	uniprot_canonical
 af_set|O14672	af_set			O14672	748	uniprot_canonical
 af_set|O14678	af_set			O14678	606	uniprot_canonical
 af_set|O14684	af_set			O14684	152	uniprot_canonical
-af_set|O14686	af_set			O14686	5537	uniprot_canonical
 af_set|O14717	af_set			O14717	391	uniprot_canonical
 af_set|O14727	af_set			O14727	1248	uniprot_canonical
 af_set|O14732	af_set			O14732	288	uniprot_canonical
@@ -16942,6 +16945,7 @@ af_set|O14966	af_set			O14966	203	uniprot_canonical
 af_set|O14976	af_set			O14976	1311	uniprot_canonical
 af_set|O14980	af_set			O14980	1071	uniprot_canonical
 af_set|O14994	af_set			O14994	580	uniprot_canonical
+af_set|O15016	af_set			O15016	1351	uniprot_canonical
 af_set|O15054	af_set			O15054	1643	uniprot_canonical
 af_set|O15066	af_set			O15066	747	uniprot_canonical
 af_set|O15075	af_set			O15075	740	uniprot_canonical
@@ -16956,7 +16960,6 @@ af_set|O15194	af_set			O15194	276	uniprot_canonical
 af_set|O15198	af_set			O15198	467	uniprot_canonical
 af_set|O15217	af_set			O15217	222	uniprot_canonical
 af_set|O15229	af_set			O15229	486	uniprot_canonical
-af_set|O15230	af_set			O15230	3695	uniprot_canonical
 af_set|O15247	af_set			O15247	247	uniprot_canonical
 af_set|O15263	af_set			O15263	64	uniprot_canonical
 af_set|O15264	af_set			O15264	365	uniprot_canonical
@@ -17004,9 +17007,9 @@ af_set|O43318	af_set			O43318	606	uniprot_canonical
 af_set|O43323	af_set			O43323	396	uniprot_canonical
 af_set|O43324	af_set			O43324	174	uniprot_canonical
 af_set|O43353	af_set			O43353	540	uniprot_canonical
+af_set|O43414	af_set			O43414	337	uniprot_canonical
 af_set|O43424	af_set			O43424	1007	uniprot_canonical
 af_set|O43426	af_set			O43426	1573	uniprot_canonical
-af_set|O43451	af_set			O43451	2753	uniprot_canonical
 af_set|O43474	af_set			O43474	513	uniprot_canonical
 af_set|O43488	af_set			O43488	359	uniprot_canonical
 af_set|O43497	af_set			O43497	2377	uniprot_canonical
@@ -17047,7 +17050,6 @@ af_set|O60232	af_set			O60232	199	uniprot_canonical
 af_set|O60259	af_set			O60259	260	uniprot_canonical
 af_set|O60260	af_set			O60260	465	uniprot_canonical
 af_set|O60264	af_set			O60264	1052	uniprot_canonical
-af_set|O60281	af_set			O60281	2723	uniprot_canonical
 af_set|O60284	af_set			O60284	1047	uniprot_canonical
 af_set|O60306	af_set			O60306	1485	uniprot_canonical
 af_set|O60308	af_set			O60308	925	uniprot_canonical
@@ -17058,7 +17060,6 @@ af_set|O60469	af_set			O60469	2012	uniprot_canonical
 af_set|O60481	af_set			O60481	467	uniprot_canonical
 af_set|O60486	af_set			O60486	1568	uniprot_canonical
 af_set|O60493	af_set			O60493	162	uniprot_canonical
-af_set|O60494	af_set			O60494	3623	uniprot_canonical
 af_set|O60502	af_set			O60502	916	uniprot_canonical
 af_set|O60507	af_set			O60507	370	uniprot_canonical
 af_set|O60547	af_set			O60547	372	uniprot_canonical
@@ -17118,7 +17119,6 @@ af_set|O75530	af_set			O75530	441	uniprot_canonical
 af_set|O75533	af_set			O75533	1304	uniprot_canonical
 af_set|O75581	af_set			O75581	1613	uniprot_canonical
 af_set|O75582	af_set			O75582	802	uniprot_canonical
-af_set|O75592	af_set			O75592	4678	uniprot_canonical
 af_set|O75604	af_set			O75604	605	uniprot_canonical
 af_set|O75608	af_set			O75608	230	uniprot_canonical
 af_set|O75628	af_set			O75628	298	uniprot_canonical
@@ -17355,7 +17355,6 @@ af_set|P04180	af_set			P04180	440	uniprot_canonical
 af_set|P04181	af_set			P04181	439	uniprot_canonical
 af_set|P04183	af_set			P04183	234	uniprot_canonical
 af_set|P04271	af_set			P04271	92	uniprot_canonical
-af_set|P04275	af_set			P04275	2813	uniprot_canonical
 af_set|P04278	af_set			P04278	402	uniprot_canonical
 af_set|P04406	af_set			P04406	335	uniprot_canonical
 af_set|P04439	af_set			P04439	365	uniprot_canonical
@@ -17471,6 +17470,7 @@ af_set|P07949	af_set			P07949	1114	uniprot_canonical
 af_set|P07954	af_set			P07954	510	uniprot_canonical
 af_set|P07996	af_set			P07996	1170	uniprot_canonical
 af_set|P08047	af_set			P08047	785	uniprot_canonical
+af_set|P08048	af_set			P08048	801	uniprot_canonical
 af_set|P08069	af_set			P08069	1367	uniprot_canonical
 af_set|P08133	af_set			P08133	673	uniprot_canonical
 af_set|P08134	af_set			P08134	193	uniprot_canonical
@@ -17479,7 +17479,7 @@ af_set|P08151	af_set			P08151	1106	uniprot_canonical
 af_set|P08172	af_set			P08172	466	uniprot_canonical
 af_set|P08183	af_set			P08183	1280	uniprot_canonical
 af_set|P08185	af_set			P08185	405	uniprot_canonical
-af_set|P08195	af_set			P08195	529	uniprot_canonical
+af_set|P08195	af_set			P08195	630	uniprot_canonical
 af_set|P08235	af_set			P08235	984	uniprot_canonical
 af_set|P08236	af_set			P08236	651	uniprot_canonical
 af_set|P08238	af_set			P08238	724	uniprot_canonical
@@ -17550,6 +17550,7 @@ af_set|P0C1S8	af_set			P0C1S8	567	uniprot_canonical
 af_set|P0C6T2	af_set			P0C6T2	37	uniprot_canonical
 af_set|P0C7P0	af_set			P0C7P0	127	uniprot_canonical
 af_set|P0C870	af_set			P0C870	316	uniprot_canonical
+af_set|P0CE72	af_set			P0CE72	109	uniprot_canonical
 af_set|P0CG30	af_set			P0CG30	244	uniprot_canonical
 af_set|P0CG48	af_set			P0CG48	685	uniprot_canonical
 af_set|P0DJD7	af_set			P0DJD7	388	uniprot_canonical
@@ -17557,6 +17558,7 @@ af_set|P0DMM9	af_set			P0DMM9	295	uniprot_canonical
 af_set|P0DMV8	af_set			P0DMV8	641	uniprot_canonical
 af_set|P0DMV9	af_set			P0DMV9	641	uniprot_canonical
 af_set|P0DOX5	af_set			P0DOX5	449	uniprot_canonical
+af_set|P0DOX7	af_set			P0DOX7	214	uniprot_canonical
 af_set|P0DP23	af_set			P0DP23	149	uniprot_canonical
 af_set|P0DP24	af_set			P0DP24	149	uniprot_canonical
 af_set|P0DP25	af_set			P0DP25	149	uniprot_canonical
@@ -17630,7 +17632,6 @@ af_set|P11926	af_set			P11926	461	uniprot_canonical
 af_set|P11940	af_set			P11940	636	uniprot_canonical
 af_set|P12004	af_set			P12004	261	uniprot_canonical
 af_set|P12104	af_set			P12104	132	uniprot_canonical
-af_set|P12111	af_set			P12111	3177	uniprot_canonical
 af_set|P12259	af_set			P12259	2224	uniprot_canonical
 af_set|P12268	af_set			P12268	514	uniprot_canonical
 af_set|P12271	af_set			P12271	317	uniprot_canonical
@@ -17721,7 +17722,6 @@ af_set|P15559	af_set			P15559	274	uniprot_canonical
 af_set|P15692	af_set			P15692	395	uniprot_canonical
 af_set|P15735	af_set			P15735	406	uniprot_canonical
 af_set|P15813	af_set			P15813	335	uniprot_canonical
-af_set|P15822	af_set			P15822	2718	uniprot_canonical
 af_set|P15848	af_set			P15848	533	uniprot_canonical
 af_set|P15907	af_set			P15907	406	uniprot_canonical
 af_set|P16083	af_set			P16083	231	uniprot_canonical
@@ -17828,12 +17828,10 @@ af_set|P20813	af_set			P20813	491	uniprot_canonical
 af_set|P20815	af_set			P20815	502	uniprot_canonical
 af_set|P20839	af_set			P20839	514	uniprot_canonical
 af_set|P20849	af_set			P20849	921	uniprot_canonical
-af_set|P20930	af_set			P20930	4061	uniprot_canonical
 af_set|P20936	af_set			P20936	1047	uniprot_canonical
 af_set|P21127	af_set			P21127	795	uniprot_canonical
 af_set|P21281	af_set			P21281	511	uniprot_canonical
 af_set|P21333	af_set			P21333	2647	uniprot_canonical
-af_set|P21359	af_set			P21359	2839	uniprot_canonical
 af_set|P21397	af_set			P21397	527	uniprot_canonical
 af_set|P21399	af_set			P21399	889	uniprot_canonical
 af_set|P21439	af_set			P21439	1286	uniprot_canonical
@@ -17923,7 +17921,6 @@ af_set|P24863	af_set			P24863	283	uniprot_canonical
 af_set|P24928	af_set			P24928	1970	uniprot_canonical
 af_set|P24941	af_set			P24941	298	uniprot_canonical
 af_set|P25025	af_set			P25025	360	uniprot_canonical
-af_set|P25054	af_set			P25054	2843	uniprot_canonical
 af_set|P25090	af_set			P25090	351	uniprot_canonical
 af_set|P25098	af_set			P25098	689	uniprot_canonical
 af_set|P25103	af_set			P25103	407	uniprot_canonical
@@ -18000,6 +17997,7 @@ af_set|P29475	af_set			P29475	1434	uniprot_canonical
 af_set|P29508	af_set			P29508	390	uniprot_canonical
 af_set|P29590	af_set			P29590	882	uniprot_canonical
 af_set|P29622	af_set			P29622	427	uniprot_canonical
+af_set|P29762	af_set			P29762	137	uniprot_canonical
 af_set|P29965	af_set			P29965	261	uniprot_canonical
 af_set|P29972	af_set			P29972	269	uniprot_canonical
 af_set|P29973	af_set			P29973	686	uniprot_canonical
@@ -18112,7 +18110,6 @@ af_set|P35475	af_set			P35475	653	uniprot_canonical
 af_set|P35498	af_set			P35498	2009	uniprot_canonical
 af_set|P35520	af_set			P35520	551	uniprot_canonical
 af_set|P35523	af_set			P35523	988	uniprot_canonical
-af_set|P35555	af_set			P35555	2871	uniprot_canonical
 af_set|P35557	af_set			P35557	465	uniprot_canonical
 af_set|P35558	af_set			P35558	622	uniprot_canonical
 af_set|P35579	af_set			P35579	1960	uniprot_canonical
@@ -18204,6 +18201,7 @@ af_set|P42892	af_set			P42892	770	uniprot_canonical
 af_set|P42898	af_set			P42898	656	uniprot_canonical
 af_set|P43004	af_set			P43004	574	uniprot_canonical
 af_set|P43005	af_set			P43005	524	uniprot_canonical
+af_set|P43116	af_set			P43116	358	uniprot_canonical
 af_set|P43155	af_set			P43155	626	uniprot_canonical
 af_set|P43166	af_set			P43166	264	uniprot_canonical
 af_set|P43220	af_set			P43220	463	uniprot_canonical
@@ -18251,6 +18249,7 @@ af_set|P47989	af_set			P47989	1333	uniprot_canonical
 af_set|P48039	af_set			P48039	350	uniprot_canonical
 af_set|P48052	af_set			P48052	419	uniprot_canonical
 af_set|P48059	af_set			P48059	325	uniprot_canonical
+af_set|P48060	af_set			P48060	266	uniprot_canonical
 af_set|P48061	af_set			P48061	93	uniprot_canonical
 af_set|P48067	af_set			P48067	706	uniprot_canonical
 af_set|P48147	af_set			P48147	710	uniprot_canonical
@@ -18308,7 +18307,6 @@ af_set|P49771	af_set			P49771	235	uniprot_canonical
 af_set|P49773	af_set			P49773	126	uniprot_canonical
 af_set|P49789	af_set			P49789	147	uniprot_canonical
 af_set|P49790	af_set			P49790	1475	uniprot_canonical
-af_set|P49792	af_set			P49792	3224	uniprot_canonical
 af_set|P49821	af_set			P49821	464	uniprot_canonical
 af_set|P49841	af_set			P49841	420	uniprot_canonical
 af_set|P49862	af_set			P49862	253	uniprot_canonical
@@ -18387,6 +18385,7 @@ af_set|P52803	af_set			P52803	228	uniprot_canonical
 af_set|P52848	af_set			P52848	882	uniprot_canonical
 af_set|P52888	af_set			P52888	689	uniprot_canonical
 af_set|P52895	af_set			P52895	323	uniprot_canonical
+af_set|P52943	af_set			P52943	208	uniprot_canonical
 af_set|P53004	af_set			P53004	296	uniprot_canonical
 af_set|P53041	af_set			P53041	499	uniprot_canonical
 af_set|P53350	af_set			P53350	603	uniprot_canonical
@@ -18564,7 +18563,6 @@ af_set|P78371	af_set			P78371	535	uniprot_canonical
 af_set|P78380	af_set			P78380	273	uniprot_canonical
 af_set|P78417	af_set			P78417	241	uniprot_canonical
 af_set|P78504	af_set			P78504	1218	uniprot_canonical
-af_set|P78527	af_set			P78527	4128	uniprot_canonical
 af_set|P78536	af_set			P78536	824	uniprot_canonical
 af_set|P78540	af_set			P78540	354	uniprot_canonical
 af_set|P78549	af_set			P78549	304	uniprot_canonical
@@ -18574,6 +18572,7 @@ af_set|P80188	af_set			P80188	198	uniprot_canonical
 af_set|P80192	af_set			P80192	1104	uniprot_canonical
 af_set|P80511	af_set			P80511	92	uniprot_canonical
 af_set|P81605	af_set			P81605	110	uniprot_canonical
+af_set|P82980	af_set			P82980	135	uniprot_canonical
 af_set|P84022	af_set			P84022	425	uniprot_canonical
 af_set|P84074	af_set			P84074	193	uniprot_canonical
 af_set|P84077	af_set			P84077	181	uniprot_canonical
@@ -18583,8 +18582,6 @@ af_set|P98066	af_set			P98066	277	uniprot_canonical
 af_set|P98073	af_set			P98073	1019	uniprot_canonical
 af_set|P98082	af_set			P98082	770	uniprot_canonical
 af_set|P98155	af_set			P98155	873	uniprot_canonical
-af_set|P98160	af_set			P98160	4391	uniprot_canonical
-af_set|P98164	af_set			P98164	4655	uniprot_canonical
 af_set|P98170	af_set			P98170	497	uniprot_canonical
 af_set|P98175	af_set			P98175	930	uniprot_canonical
 af_set|P98177	af_set			P98177	505	uniprot_canonical
@@ -18630,17 +18627,14 @@ af_set|Q02108	af_set			Q02108	690	uniprot_canonical
 af_set|Q02127	af_set			Q02127	395	uniprot_canonical
 af_set|Q02153	af_set			Q02153	619	uniprot_canonical
 af_set|Q02218	af_set			Q02218	1023	uniprot_canonical
-af_set|Q02224	af_set			Q02224	2701	uniprot_canonical
 af_set|Q02487	af_set			Q02487	901	uniprot_canonical
 af_set|Q02643	af_set			Q02643	423	uniprot_canonical
 af_set|Q02750	af_set			Q02750	393	uniprot_canonical
 af_set|Q02763	af_set			Q02763	1124	uniprot_canonical
 af_set|Q02790	af_set			Q02790	459	uniprot_canonical
-af_set|Q02817	af_set			Q02817	5289	uniprot_canonical
 af_set|Q02880	af_set			Q02880	1626	uniprot_canonical
 af_set|Q03111	af_set			Q03111	559	uniprot_canonical
 af_set|Q03154	af_set			Q03154	408	uniprot_canonical
-af_set|Q03164	af_set			Q03164	3969	uniprot_canonical
 af_set|Q03181	af_set			Q03181	441	uniprot_canonical
 af_set|Q03405	af_set			Q03405	335	uniprot_canonical
 af_set|Q03431	af_set			Q03431	593	uniprot_canonical
@@ -18688,7 +18682,6 @@ af_set|Q07864	af_set			Q07864	2286	uniprot_canonical
 af_set|Q07869	af_set			Q07869	468	uniprot_canonical
 af_set|Q07889	af_set			Q07889	1333	uniprot_canonical
 af_set|Q07912	af_set			Q07912	1038	uniprot_canonical
-af_set|Q07954	af_set			Q07954	4544	uniprot_canonical
 af_set|Q07960	af_set			Q07960	439	uniprot_canonical
 af_set|Q08050	af_set			Q08050	763	uniprot_canonical
 af_set|Q08174	af_set			Q08174	1060	uniprot_canonical
@@ -18704,6 +18697,7 @@ af_set|Q08554	af_set			Q08554	894	uniprot_canonical
 af_set|Q08722	af_set			Q08722	323	uniprot_canonical
 af_set|Q08830	af_set			Q08830	312	uniprot_canonical
 af_set|Q08881	af_set			Q08881	620	uniprot_canonical
+af_set|Q08AF3	af_set			Q08AF3	891	uniprot_canonical
 af_set|Q08AH3	af_set			Q08AH3	577	uniprot_canonical
 af_set|Q09013	af_set			Q09013	629	uniprot_canonical
 af_set|Q09028	af_set			Q09028	425	uniprot_canonical
@@ -18721,7 +18715,6 @@ af_set|Q12770	af_set			Q12770	1279	uniprot_canonical
 af_set|Q12778	af_set			Q12778	655	uniprot_canonical
 af_set|Q12791	af_set			Q12791	1236	uniprot_canonical
 af_set|Q12797	af_set			Q12797	758	uniprot_canonical
-af_set|Q12830	af_set			Q12830	3046	uniprot_canonical
 af_set|Q12834	af_set			Q12834	499	uniprot_canonical
 af_set|Q12840	af_set			Q12840	1032	uniprot_canonical
 af_set|Q12849	af_set			Q12849	480	uniprot_canonical
@@ -18766,7 +18759,6 @@ af_set|Q13263	af_set			Q13263	835	uniprot_canonical
 af_set|Q13285	af_set			Q13285	461	uniprot_canonical
 af_set|Q13303	af_set			Q13303	367	uniprot_canonical
 af_set|Q13309	af_set			Q13309	424	uniprot_canonical
-af_set|Q13315	af_set			Q13315	3056	uniprot_canonical
 af_set|Q13324	af_set			Q13324	411	uniprot_canonical
 af_set|Q13330	af_set			Q13330	715	uniprot_canonical
 af_set|Q13336	af_set			Q13336	389	uniprot_canonical
@@ -18826,6 +18818,7 @@ af_set|Q13888	af_set			Q13888	395	uniprot_canonical
 af_set|Q13889	af_set			Q13889	308	uniprot_canonical
 af_set|Q13907	af_set			Q13907	227	uniprot_canonical
 af_set|Q13936	af_set			Q13936	2221	uniprot_canonical
+af_set|Q13938	af_set			Q13938	275	uniprot_canonical
 af_set|Q13946	af_set			Q13946	482	uniprot_canonical
 af_set|Q13950	af_set			Q13950	521	uniprot_canonical
 af_set|Q13952	af_set			Q13952	458	uniprot_canonical
@@ -18870,7 +18863,7 @@ af_set|Q14587	af_set			Q14587	947	uniprot_canonical
 af_set|Q14623	af_set			Q14623	411	uniprot_canonical
 af_set|Q14653	af_set			Q14653	427	uniprot_canonical
 af_set|Q14654	af_set			Q14654	390	uniprot_canonical
-af_set|Q14669	af_set			Q14669	2067	uniprot_canonical
+af_set|Q14669	af_set			Q14669	1992	uniprot_canonical
 af_set|Q14680	af_set			Q14680	651	uniprot_canonical
 af_set|Q14721	af_set			Q14721	858	uniprot_canonical
 af_set|Q14790	af_set			Q14790	479	uniprot_canonical
@@ -18905,7 +18898,6 @@ af_set|Q15118	af_set			Q15118	436	uniprot_canonical
 af_set|Q15119	af_set			Q15119	407	uniprot_canonical
 af_set|Q15120	af_set			Q15120	406	uniprot_canonical
 af_set|Q15125	af_set			Q15125	230	uniprot_canonical
-af_set|Q15149	af_set			Q15149	4684	uniprot_canonical
 af_set|Q15172	af_set			Q15172	486	uniprot_canonical
 af_set|Q15181	af_set			Q15181	289	uniprot_canonical
 af_set|Q15208	af_set			Q15208	465	uniprot_canonical
@@ -18919,7 +18911,6 @@ af_set|Q15375	af_set			Q15375	998	uniprot_canonical
 af_set|Q15382	af_set			Q15382	184	uniprot_canonical
 af_set|Q15389	af_set			Q15389	498	uniprot_canonical
 af_set|Q15399	af_set			Q15399	786	uniprot_canonical
-af_set|Q15413	af_set			Q15413	4870	uniprot_canonical
 af_set|Q15418	af_set			Q15418	735	uniprot_canonical
 af_set|Q15428	af_set			Q15428	464	uniprot_canonical
 af_set|Q15436	af_set			Q15436	765	uniprot_canonical
@@ -18939,7 +18930,6 @@ af_set|Q15691	af_set			Q15691	268	uniprot_canonical
 af_set|Q15722	af_set			Q15722	352	uniprot_canonical
 af_set|Q15738	af_set			Q15738	373	uniprot_canonical
 af_set|Q15750	af_set			Q15750	504	uniprot_canonical
-af_set|Q15751	af_set			Q15751	4861	uniprot_canonical
 af_set|Q15758	af_set			Q15758	541	uniprot_canonical
 af_set|Q15759	af_set			Q15759	364	uniprot_canonical
 af_set|Q15771	af_set			Q15771	203	uniprot_canonical
@@ -19021,6 +19011,7 @@ af_set|Q49A26	af_set			Q49A26	553	uniprot_canonical
 af_set|Q4FZB7	af_set			Q4FZB7	885	uniprot_canonical
 af_set|Q4G0N4	af_set			Q4G0N4	442	uniprot_canonical
 af_set|Q4VC44	af_set			Q4VC44	716	uniprot_canonical
+af_set|Q504Y3	af_set			Q504Y3	356	uniprot_canonical
 af_set|Q53FA7	af_set			Q53FA7	332	uniprot_canonical
 af_set|Q53GL7	af_set			Q53GL7	1025	uniprot_canonical
 af_set|Q53H47	af_set			Q53H47	684	uniprot_canonical
@@ -19031,12 +19022,14 @@ af_set|Q59H18	af_set			Q59H18	835	uniprot_canonical
 af_set|Q5FWF4	af_set			Q5FWF4	1079	uniprot_canonical
 af_set|Q5FWF5	af_set			Q5FWF5	840	uniprot_canonical
 af_set|Q5JRX3	af_set			Q5JRX3	1037	uniprot_canonical
+af_set|Q5JVG2	af_set			Q5JVG2	852	uniprot_canonical
 af_set|Q5KU26	af_set			Q5KU26	742	uniprot_canonical
 af_set|Q5MJ70	af_set			Q5MJ70	313	uniprot_canonical
 af_set|Q5NUL3	af_set			Q5NUL3	361	uniprot_canonical
 af_set|Q5S007	af_set			Q5S007	2527	uniprot_canonical
 af_set|Q5SQI0	af_set			Q5SQI0	421	uniprot_canonical
 af_set|Q5SRE7	af_set			Q5SRE7	291	uniprot_canonical
+af_set|Q5SRI9	af_set			Q5SRI9	462	uniprot_canonical
 af_set|Q5T0T0	af_set			Q5T0T0	291	uniprot_canonical
 af_set|Q5T0W9	af_set			Q5T0W9	1011	uniprot_canonical
 af_set|Q5T1C6	af_set			Q5T1C6	240	uniprot_canonical
@@ -19079,6 +19072,7 @@ af_set|Q66K64	af_set			Q66K64	600	uniprot_canonical
 af_set|Q676U5	af_set			Q676U5	607	uniprot_canonical
 af_set|Q687X5	af_set			Q687X5	459	uniprot_canonical
 af_set|Q68D85	af_set			Q68D85	454	uniprot_canonical
+af_set|Q68DU8	af_set			Q68DU8	428	uniprot_canonical
 af_set|Q68EN5	af_set			Q68EN5	471	uniprot_canonical
 af_set|Q6B0I6	af_set			Q6B0I6	523	uniprot_canonical
 af_set|Q6DD88	af_set			Q6DD88	541	uniprot_canonical
@@ -19091,13 +19085,13 @@ af_set|Q6IBS0	af_set			Q6IBS0	349	uniprot_canonical
 af_set|Q6IEG0	af_set			Q6IEG0	339	uniprot_canonical
 af_set|Q6IMI6	af_set			Q6IMI6	304	uniprot_canonical
 af_set|Q6IQ20	af_set			Q6IQ20	393	uniprot_canonical
-af_set|Q6IQ22	af_set			Q6IQ22	340	uniprot_canonical
+af_set|Q6IQ22	af_set			Q6IQ22	244	uniprot_canonical
 af_set|Q6IQ23	af_set			Q6IQ23	1121	uniprot_canonical
 af_set|Q6IQ55	af_set			Q6IQ55	1244	uniprot_canonical
 af_set|Q6L8Q7	af_set			Q6L8Q7	609	uniprot_canonical
 af_set|Q6MZP7	af_set			Q6MZP7	749	uniprot_canonical
+af_set|Q6MZZ7	af_set			Q6MZZ7	669	uniprot_canonical
 af_set|Q6N021	af_set			Q6N021	2002	uniprot_canonical
-af_set|Q6N022	af_set			Q6N022	2769	uniprot_canonical
 af_set|Q6NS38	af_set			Q6NS38	261	uniprot_canonical
 af_set|Q6NSJ0	af_set			Q6NSJ0	714	uniprot_canonical
 af_set|Q6NTF7	af_set			Q6NTF7	200	uniprot_canonical
@@ -19130,7 +19124,6 @@ af_set|Q6UWP2	af_set			Q6UWP2	260	uniprot_canonical
 af_set|Q6UWV6	af_set			Q6UWV6	458	uniprot_canonical
 af_set|Q6UWY2	af_set			Q6UWY2	283	uniprot_canonical
 af_set|Q6UXN8	af_set			Q6UXN8	241	uniprot_canonical
-af_set|Q6V0I7	af_set			Q6V0I7	4981	uniprot_canonical
 af_set|Q6V1X1	af_set			Q6V1X1	898	uniprot_canonical
 af_set|Q6VAB6	af_set			Q6VAB6	950	uniprot_canonical
 af_set|Q6VVX0	af_set			Q6VVX0	501	uniprot_canonical
@@ -19146,7 +19139,6 @@ af_set|Q6ZTQ4	af_set			Q6ZTQ4	885	uniprot_canonical
 af_set|Q6ZUJ8	af_set			Q6ZUJ8	805	uniprot_canonical
 af_set|Q6ZVK8	af_set			Q6ZVK8	323	uniprot_canonical
 af_set|Q709F0	af_set			Q709F0	780	uniprot_canonical
-af_set|Q70CQ2	af_set			Q70CQ2	3546	uniprot_canonical
 af_set|Q70CQ3	af_set			Q70CQ3	517	uniprot_canonical
 af_set|Q712K3	af_set			Q712K3	238	uniprot_canonical
 af_set|Q71U36	af_set			Q71U36	451	uniprot_canonical
@@ -19172,23 +19164,26 @@ af_set|Q7Z2W4	af_set			Q7Z2W4	902	uniprot_canonical
 af_set|Q7Z3C6	af_set			Q7Z3C6	839	uniprot_canonical
 af_set|Q7Z3K3	af_set			Q7Z3K3	1410	uniprot_canonical
 af_set|Q7Z3T8	af_set			Q7Z3T8	1539	uniprot_canonical
+af_set|Q7Z4H3	af_set			Q7Z4H3	204	uniprot_canonical
 af_set|Q7Z4I7	af_set			Q7Z4I7	341	uniprot_canonical
 af_set|Q7Z4W1	af_set			Q7Z4W1	244	uniprot_canonical
 af_set|Q7Z5W3	af_set			Q7Z5W3	292	uniprot_canonical
 af_set|Q7Z624	af_set			Q7Z624	323	uniprot_canonical
 af_set|Q7Z699	af_set			Q7Z699	444	uniprot_canonical
 af_set|Q7Z6E9	af_set			Q7Z6E9	1792	uniprot_canonical
+af_set|Q7Z6K3	af_set			Q7Z6K3	402	uniprot_canonical
 af_set|Q7Z6V5	af_set			Q7Z6V5	191	uniprot_canonical
-af_set|Q7Z6Z7	af_set			Q7Z6Z7	4374	uniprot_canonical
 af_set|Q7Z7D3	af_set			Q7Z7D3	282	uniprot_canonical
 af_set|Q7Z7L1	af_set			Q7Z7L1	901	uniprot_canonical
 af_set|Q86SE9	af_set			Q86SE9	256	uniprot_canonical
 af_set|Q86SF2	af_set			Q86SF2	657	uniprot_canonical
+af_set|Q86SG5	af_set			Q86SG5	101	uniprot_canonical
 af_set|Q86SQ9	af_set			Q86SQ9	333	uniprot_canonical
 af_set|Q86SR1	af_set			Q86SR1	603	uniprot_canonical
 af_set|Q86SX6	af_set			Q86SX6	157	uniprot_canonical
 af_set|Q86T24	af_set			Q86T24	672	uniprot_canonical
 af_set|Q86TI2	af_set			Q86TI2	863	uniprot_canonical
+af_set|Q86TM3	af_set			Q86TM3	631	uniprot_canonical
 af_set|Q86TM6	af_set			Q86TM6	617	uniprot_canonical
 af_set|Q86TU7	af_set			Q86TU7	594	uniprot_canonical
 af_set|Q86U44	af_set			Q86U44	580	uniprot_canonical
@@ -19198,8 +19193,10 @@ af_set|Q86UW9	af_set			Q86UW9	622	uniprot_canonical
 af_set|Q86UY6	af_set			Q86UY6	237	uniprot_canonical
 af_set|Q86V24	af_set			Q86V24	386	uniprot_canonical
 af_set|Q86V25	af_set			Q86V25	355	uniprot_canonical
+af_set|Q86V35	af_set			Q86V35	215	uniprot_canonical
 af_set|Q86VK4	af_set			Q86VK4	478	uniprot_canonical
 af_set|Q86VP1	af_set			Q86VP1	789	uniprot_canonical
+af_set|Q86VU5	af_set			Q86VU5	262	uniprot_canonical
 af_set|Q86W47	af_set			Q86W47	210	uniprot_canonical
 af_set|Q86W56	af_set			Q86W56	976	uniprot_canonical
 af_set|Q86WA6	af_set			Q86WA6	291	uniprot_canonical
@@ -19220,6 +19217,7 @@ af_set|Q86YI8	af_set			Q86YI8	300	uniprot_canonical
 af_set|Q86YS6	af_set			Q86YS6	212	uniprot_canonical
 af_set|Q86YT5	af_set			Q86YT5	568	uniprot_canonical
 af_set|Q86YT6	af_set			Q86YT6	1006	uniprot_canonical
+af_set|Q86YV6	af_set			Q86YV6	388	uniprot_canonical
 af_set|Q86Z14	af_set			Q86Z14	1044	uniprot_canonical
 af_set|Q8IU60	af_set			Q8IU60	420	uniprot_canonical
 af_set|Q8IU85	af_set			Q8IU85	385	uniprot_canonical
@@ -19238,6 +19236,7 @@ af_set|Q8IVW4	af_set			Q8IVW4	592	uniprot_canonical
 af_set|Q8IW19	af_set			Q8IW19	511	uniprot_canonical
 af_set|Q8IWA4	af_set			Q8IWA4	741	uniprot_canonical
 af_set|Q8IWL3	af_set			Q8IWL3	235	uniprot_canonical
+af_set|Q8IWR0	af_set			Q8IWR0	971	uniprot_canonical
 af_set|Q8IWS0	af_set			Q8IWS0	365	uniprot_canonical
 af_set|Q8IWU4	af_set			Q8IWU4	369	uniprot_canonical
 af_set|Q8IWU9	af_set			Q8IWU9	490	uniprot_canonical
@@ -19251,10 +19250,12 @@ af_set|Q8IXK2	af_set			Q8IXK2	581	uniprot_canonical
 af_set|Q8IXL7	af_set			Q8IXL7	192	uniprot_canonical
 af_set|Q8IXW5	af_set			Q8IXW5	612	uniprot_canonical
 af_set|Q8IY57	af_set			Q8IY57	180	uniprot_canonical
+af_set|Q8IY67	af_set			Q8IY67	606	uniprot_canonical
 af_set|Q8IYB5	af_set			Q8IYB5	467	uniprot_canonical
 af_set|Q8IYB8	af_set			Q8IYB8	786	uniprot_canonical
 af_set|Q8IYD8	af_set			Q8IYD8	2048	uniprot_canonical
 af_set|Q8IYH5	af_set			Q8IYH5	903	uniprot_canonical
+af_set|Q8IYK8	af_set			Q8IYK8	340	uniprot_canonical
 af_set|Q8IYM1	af_set			Q8IYM1	358	uniprot_canonical
 af_set|Q8IYM2	af_set			Q8IYM2	578	uniprot_canonical
 af_set|Q8IYT8	af_set			Q8IYT8	1036	uniprot_canonical
@@ -19263,7 +19264,7 @@ af_set|Q8IYW5	af_set			Q8IYW5	571	uniprot_canonical
 af_set|Q8IZ41	af_set			Q8IZ41	740	uniprot_canonical
 af_set|Q8IZD2	af_set			Q8IZD2	1858	uniprot_canonical
 af_set|Q8IZF0	af_set			Q8IZF0	1738	uniprot_canonical
-af_set|Q8IZQ1	af_set			Q8IZQ1	3526	uniprot_canonical
+af_set|Q8IZP6	af_set			Q8IZP6	322	uniprot_canonical
 af_set|Q8IZT8	af_set			Q8IZT8	346	uniprot_canonical
 af_set|Q8IZX4	af_set			Q8IZX4	1826	uniprot_canonical
 af_set|Q8IZY2	af_set			Q8IZY2	2146	uniprot_canonical
@@ -19283,6 +19284,7 @@ af_set|Q8N4A0	af_set			Q8N4A0	578	uniprot_canonical
 af_set|Q8N4E7	af_set			Q8N4E7	242	uniprot_canonical
 af_set|Q8N4J0	af_set			Q8N4J0	409	uniprot_canonical
 af_set|Q8N4P3	af_set			Q8N4P3	179	uniprot_canonical
+af_set|Q8N4Q0	af_set			Q8N4Q0	377	uniprot_canonical
 af_set|Q8N4T8	af_set			Q8N4T8	237	uniprot_canonical
 af_set|Q8N539	af_set			Q8N539	461	uniprot_canonical
 af_set|Q8N543	af_set			Q8N543	542	uniprot_canonical
@@ -19294,6 +19296,7 @@ af_set|Q8N5Y8	af_set			Q8N5Y8	322	uniprot_canonical
 af_set|Q8N5Z0	af_set			Q8N5Z0	425	uniprot_canonical
 af_set|Q8N695	af_set			Q8N695	610	uniprot_canonical
 af_set|Q8N6H7	af_set			Q8N6H7	521	uniprot_canonical
+af_set|Q8N6N7	af_set			Q8N6N7	88	uniprot_canonical
 af_set|Q8N6P7	af_set			Q8N6P7	574	uniprot_canonical
 af_set|Q8N6R0	af_set			Q8N6R0	699	uniprot_canonical
 af_set|Q8N6T7	af_set			Q8N6T7	355	uniprot_canonical
@@ -19316,35 +19319,39 @@ af_set|Q8NBW4	af_set			Q8NBW4	561	uniprot_canonical
 af_set|Q8NBZ7	af_set			Q8NBZ7	420	uniprot_canonical
 af_set|Q8NC06	af_set			Q8NC06	268	uniprot_canonical
 af_set|Q8NCC3	af_set			Q8NCC3	412	uniprot_canonical
-af_set|Q8NCM8	af_set			Q8NCM8	4307	uniprot_canonical
 af_set|Q8ND25	af_set			Q8ND25	227	uniprot_canonical
 af_set|Q8NE01	af_set			Q8NE01	707	uniprot_canonical
 af_set|Q8NE71	af_set			Q8NE71	845	uniprot_canonical
 af_set|Q8NE86	af_set			Q8NE86	351	uniprot_canonical
 af_set|Q8NEB9	af_set			Q8NEB9	887	uniprot_canonical
+af_set|Q8NEG5	af_set			Q8NEG5	633	uniprot_canonical
 af_set|Q8NET8	af_set			Q8NET8	790	uniprot_canonical
 af_set|Q8NEZ3	af_set			Q8NEZ3	1342	uniprot_canonical
-af_set|Q8NEZ4	af_set			Q8NEZ4	4911	uniprot_canonical
 af_set|Q8NFD5	af_set			Q8NFD5	2319	uniprot_canonical
 af_set|Q8NFH8	af_set			Q8NFH8	660	uniprot_canonical
+af_set|Q8NFK1	af_set			Q8NFK1	279	uniprot_canonical
 af_set|Q8NFQ8	af_set			Q8NFQ8	470	uniprot_canonical
 af_set|Q8NFT2	af_set			Q8NFT2	490	uniprot_canonical
 af_set|Q8NFU1	af_set			Q8NFU1	509	uniprot_canonical
 af_set|Q8NFU5	af_set			Q8NFU5	416	uniprot_canonical
 af_set|Q8NFU7	af_set			Q8NFU7	2136	uniprot_canonical
 af_set|Q8NG27	af_set			Q8NG27	643	uniprot_canonical
+af_set|Q8NG68	af_set			Q8NG68	377	uniprot_canonical
 af_set|Q8NHM5	af_set			Q8NHM5	1336	uniprot_canonical
 af_set|Q8NHP6	af_set			Q8NHP6	518	uniprot_canonical
 af_set|Q8NHV1	af_set			Q8NHV1	300	uniprot_canonical
 af_set|Q8NHX9	af_set			Q8NHX9	752	uniprot_canonical
+af_set|Q8NHY6	af_set			Q8NHY6	868	uniprot_canonical
 af_set|Q8NI22	af_set			Q8NI22	146	uniprot_canonical
 af_set|Q8NI60	af_set			Q8NI60	647	uniprot_canonical
 af_set|Q8NI77	af_set			Q8NI77	898	uniprot_canonical
+af_set|Q8NI99	af_set			Q8NI99	470	uniprot_canonical
 af_set|Q8TAB3	af_set			Q8TAB3	1148	uniprot_canonical
 af_set|Q8TAC2	af_set			Q8TAC2	188	uniprot_canonical
 af_set|Q8TAI7	af_set			Q8TAI7	183	uniprot_canonical
 af_set|Q8TAT5	af_set			Q8TAT5	605	uniprot_canonical
 af_set|Q8TB36	af_set			Q8TB36	358	uniprot_canonical
+af_set|Q8TB52	af_set			Q8TB52	745	uniprot_canonical
 af_set|Q8TBB1	af_set			Q8TBB1	728	uniprot_canonical
 af_set|Q8TBC4	af_set			Q8TBC4	463	uniprot_canonical
 af_set|Q8TBE9	af_set			Q8TBE9	248	uniprot_canonical
@@ -19362,6 +19369,8 @@ af_set|Q8TDI0	af_set			Q8TDI0	1954	uniprot_canonical
 af_set|Q8TDQ0	af_set			Q8TDQ0	301	uniprot_canonical
 af_set|Q8TDS4	af_set			Q8TDS4	363	uniprot_canonical
 af_set|Q8TDU6	af_set			Q8TDU6	330	uniprot_canonical
+af_set|Q8TDU9	af_set			Q8TDU9	374	uniprot_canonical
+af_set|Q8TDV5	af_set			Q8TDV5	335	uniprot_canonical
 af_set|Q8TDX5	af_set			Q8TDX5	336	uniprot_canonical
 af_set|Q8TDX7	af_set			Q8TDX7	302	uniprot_canonical
 af_set|Q8TDY2	af_set			Q8TDY2	1594	uniprot_canonical
@@ -19374,6 +19383,7 @@ af_set|Q8TEA8	af_set			Q8TEA8	209	uniprot_canonical
 af_set|Q8TEK3	af_set			Q8TEK3	1537	uniprot_canonical
 af_set|Q8TEQ6	af_set			Q8TEQ6	1508	uniprot_canonical
 af_set|Q8TEY7	af_set			Q8TEY7	942	uniprot_canonical
+af_set|Q8TF39	af_set			Q8TF39	744	uniprot_canonical
 af_set|Q8TF76	af_set			Q8TF76	798	uniprot_canonical
 af_set|Q8WTQ1	af_set			Q8WTQ1	72	uniprot_canonical
 af_set|Q8WTR7	af_set			Q8WTR7	871	uniprot_canonical
@@ -19385,10 +19395,12 @@ af_set|Q8WU08	af_set			Q8WU08	396	uniprot_canonical
 af_set|Q8WU10	af_set			Q8WU10	500	uniprot_canonical
 af_set|Q8WU79	af_set			Q8WU79	429	uniprot_canonical
 af_set|Q8WUD1	af_set			Q8WUD1	216	uniprot_canonical
+af_set|Q8WUH1	af_set			Q8WUH1	112	uniprot_canonical
 af_set|Q8WUI4	af_set			Q8WUI4	952	uniprot_canonical
 af_set|Q8WV22	af_set			Q8WV22	266	uniprot_canonical
 af_set|Q8WV44	af_set			Q8WV44	630	uniprot_canonical
 af_set|Q8WV99	af_set			Q8WV99	257	uniprot_canonical
+af_set|Q8WVD5	af_set			Q8WVD5	230	uniprot_canonical
 af_set|Q8WVM0	af_set			Q8WVM0	346	uniprot_canonical
 af_set|Q8WVM7	af_set			Q8WVM7	1258	uniprot_canonical
 af_set|Q8WVQ1	af_set			Q8WVQ1	401	uniprot_canonical
@@ -19539,7 +19551,7 @@ af_set|Q96JC1	af_set			Q96JC1	886	uniprot_canonical
 af_set|Q96JM2	af_set			Q96JM2	2506	uniprot_canonical
 af_set|Q96JM7	af_set			Q96JM7	780	uniprot_canonical
 af_set|Q96JP5	af_set			Q96JP5	570	uniprot_canonical
-af_set|Q96JQ0	af_set			Q96JQ0	3298	uniprot_canonical
+af_set|Q96KC2	af_set			Q96KC2	179	uniprot_canonical
 af_set|Q96KM6	af_set			Q96KM6	892	uniprot_canonical
 af_set|Q96KN2	af_set			Q96KN2	507	uniprot_canonical
 af_set|Q96KP4	af_set			Q96KP4	475	uniprot_canonical
@@ -19553,6 +19565,7 @@ af_set|Q96LB2	af_set			Q96LB2	322	uniprot_canonical
 af_set|Q96LB8	af_set			Q96LB8	373	uniprot_canonical
 af_set|Q96LI5	af_set			Q96LI5	555	uniprot_canonical
 af_set|Q96LW4	af_set			Q96LW4	560	uniprot_canonical
+af_set|Q96ME7	af_set			Q96ME7	567	uniprot_canonical
 af_set|Q96MF2	af_set			Q96MF2	364	uniprot_canonical
 af_set|Q96MF7	af_set			Q96MF7	247	uniprot_canonical
 af_set|Q96MK3	af_set			Q96MK3	541	uniprot_canonical
@@ -19573,7 +19586,6 @@ af_set|Q96PP8	af_set			Q96PP8	586	uniprot_canonical
 af_set|Q96PS8	af_set			Q96PS8	301	uniprot_canonical
 af_set|Q96PU4	af_set			Q96PU4	802	uniprot_canonical
 af_set|Q96PY6	af_set			Q96PY6	1258	uniprot_canonical
-af_set|Q96Q15	af_set			Q96Q15	3661	uniprot_canonical
 af_set|Q96Q77	af_set			Q96Q77	187	uniprot_canonical
 af_set|Q96Q83	af_set			Q96Q83	286	uniprot_canonical
 af_set|Q96QP1	af_set			Q96QP1	1244	uniprot_canonical
@@ -19581,6 +19593,7 @@ af_set|Q96QU1	af_set			Q96QU1	1955	uniprot_canonical
 af_set|Q96QV1	af_set			Q96QV1	700	uniprot_canonical
 af_set|Q96QV6	af_set			Q96QV6	131	uniprot_canonical
 af_set|Q96QZ7	af_set			Q96QZ7	1491	uniprot_canonical
+af_set|Q96R05	af_set			Q96R05	134	uniprot_canonical
 af_set|Q96RD7	af_set			Q96RD7	426	uniprot_canonical
 af_set|Q96RG2	af_set			Q96RG2	1323	uniprot_canonical
 af_set|Q96RI1	af_set			Q96RI1	486	uniprot_canonical
@@ -19592,6 +19605,7 @@ af_set|Q96S44	af_set			Q96S44	253	uniprot_canonical
 af_set|Q96S52	af_set			Q96S52	555	uniprot_canonical
 af_set|Q96SB4	af_set			Q96SB4	655	uniprot_canonical
 af_set|Q96SD1	af_set			Q96SD1	692	uniprot_canonical
+af_set|Q96SE7	af_set			Q96SE7	839	uniprot_canonical
 af_set|Q96SW2	af_set			Q96SW2	442	uniprot_canonical
 af_set|Q96SZ5	af_set			Q96SZ5	270	uniprot_canonical
 af_set|Q96T51	af_set			Q96T51	708	uniprot_canonical
@@ -19649,6 +19663,7 @@ af_set|Q99986	af_set			Q99986	396	uniprot_canonical
 af_set|Q9BPU6	af_set			Q9BPU6	564	uniprot_canonical
 af_set|Q9BPX1	af_set			Q9BPX1	270	uniprot_canonical
 af_set|Q9BPX6	af_set			Q9BPX6	476	uniprot_canonical
+af_set|Q9BPZ2	af_set			Q9BPZ2	258	uniprot_canonical
 af_set|Q9BQ65	af_set			Q9BQ65	265	uniprot_canonical
 af_set|Q9BQ69	af_set			Q9BQ69	325	uniprot_canonical
 af_set|Q9BQF6	af_set			Q9BQF6	1050	uniprot_canonical
@@ -19663,6 +19678,7 @@ af_set|Q9BSW2	af_set			Q9BSW2	731	uniprot_canonical
 af_set|Q9BT23	af_set			Q9BT23	127	uniprot_canonical
 af_set|Q9BT30	af_set			Q9BT30	221	uniprot_canonical
 af_set|Q9BTC0	af_set			Q9BTC0	2240	uniprot_canonical
+af_set|Q9BTP6	af_set			Q9BTP6	218	uniprot_canonical
 af_set|Q9BTP7	af_set			Q9BTP7	215	uniprot_canonical
 af_set|Q9BTU6	af_set			Q9BTU6	479	uniprot_canonical
 af_set|Q9BTZ2	af_set			Q9BTZ2	278	uniprot_canonical
@@ -19763,6 +19779,7 @@ af_set|Q9H0R8	af_set			Q9H0R8	117	uniprot_canonical
 af_set|Q9H0S4	af_set			Q9H0S4	455	uniprot_canonical
 af_set|Q9H0U3	af_set			Q9H0U3	335	uniprot_canonical
 af_set|Q9H0U4	af_set			Q9H0U4	201	uniprot_canonical
+af_set|Q9H0W7	af_set			Q9H0W7	228	uniprot_canonical
 af_set|Q9H0W8	af_set			Q9H0W8	520	uniprot_canonical
 af_set|Q9H0W9	af_set			Q9H0W9	315	uniprot_canonical
 af_set|Q9H165	af_set			Q9H165	835	uniprot_canonical
@@ -19777,7 +19794,6 @@ af_set|Q9H222	af_set			Q9H222	651	uniprot_canonical
 af_set|Q9H227	af_set			Q9H227	469	uniprot_canonical
 af_set|Q9H228	af_set			Q9H228	398	uniprot_canonical
 af_set|Q9H237	af_set			Q9H237	461	uniprot_canonical
-af_set|Q9H251	af_set			Q9H251	3354	uniprot_canonical
 af_set|Q9H257	af_set			Q9H257	536	uniprot_canonical
 af_set|Q9H2G2	af_set			Q9H2G2	1235	uniprot_canonical
 af_set|Q9H2H0	af_set			Q9H2H0	198	uniprot_canonical
@@ -19831,6 +19847,7 @@ af_set|Q9H867	af_set			Q9H867	229	uniprot_canonical
 af_set|Q9H8M2	af_set			Q9H8M2	597	uniprot_canonical
 af_set|Q9H8M5	af_set			Q9H8M5	875	uniprot_canonical
 af_set|Q9H8S9	af_set			Q9H8S9	216	uniprot_canonical
+af_set|Q9H8U3	af_set			Q9H8U3	227	uniprot_canonical
 af_set|Q9H903	af_set			Q9H903	347	uniprot_canonical
 af_set|Q9H981	af_set			Q9H981	624	uniprot_canonical
 af_set|Q9H993	af_set			Q9H993	441	uniprot_canonical
@@ -19864,6 +19881,7 @@ af_set|Q9HCB6	af_set			Q9HCB6	807	uniprot_canonical
 af_set|Q9HCE5	af_set			Q9HCE5	456	uniprot_canonical
 af_set|Q9HCI7	af_set			Q9HCI7	577	uniprot_canonical
 af_set|Q9HCK4	af_set			Q9HCK4	1378	uniprot_canonical
+af_set|Q9HCL0	af_set			Q9HCL0	1135	uniprot_canonical
 af_set|Q9HCL2	af_set			Q9HCL2	828	uniprot_canonical
 af_set|Q9HCM9	af_set			Q9HCM9	518	uniprot_canonical
 af_set|Q9HCP0	af_set			Q9HCP0	422	uniprot_canonical
@@ -19905,7 +19923,6 @@ af_set|Q9NQX4	af_set			Q9NQX4	1742	uniprot_canonical
 af_set|Q9NR22	af_set			Q9NR22	394	uniprot_canonical
 af_set|Q9NR30	af_set			Q9NR30	783	uniprot_canonical
 af_set|Q9NR31	af_set			Q9NR31	198	uniprot_canonical
-af_set|Q9NR48	af_set			Q9NR48	2969	uniprot_canonical
 af_set|Q9NR56	af_set			Q9NR56	388	uniprot_canonical
 af_set|Q9NR61	af_set			Q9NR61	685	uniprot_canonical
 af_set|Q9NR71	af_set			Q9NR71	780	uniprot_canonical
@@ -19916,6 +19933,7 @@ af_set|Q9NRD9	af_set			Q9NRD9	1551	uniprot_canonical
 af_set|Q9NRF8	af_set			Q9NRF8	586	uniprot_canonical
 af_set|Q9NRG1	af_set			Q9NRG1	225	uniprot_canonical
 af_set|Q9NRG4	af_set			Q9NRG4	433	uniprot_canonical
+af_set|Q9NRG7	af_set			Q9NRG7	293	uniprot_canonical
 af_set|Q9NRK6	af_set			Q9NRK6	738	uniprot_canonical
 af_set|Q9NRN7	af_set			Q9NRN7	309	uniprot_canonical
 af_set|Q9NRN9	af_set			Q9NRN9	209	uniprot_canonical
@@ -19931,7 +19949,6 @@ af_set|Q9NS86	af_set			Q9NS86	450	uniprot_canonical
 af_set|Q9NS87	af_set			Q9NS87	1388	uniprot_canonical
 af_set|Q9NS91	af_set			Q9NS91	495	uniprot_canonical
 af_set|Q9NSY1	af_set			Q9NSY1	1161	uniprot_canonical
-af_set|Q9NT68	af_set			Q9NT68	2774	uniprot_canonical
 af_set|Q9NTG7	af_set			Q9NTG7	399	uniprot_canonical
 af_set|Q9NTI5	af_set			Q9NTI5	1447	uniprot_canonical
 af_set|Q9NTK5	af_set			Q9NTK5	396	uniprot_canonical
@@ -19940,6 +19957,7 @@ af_set|Q9NTX7	af_set			Q9NTX7	359	uniprot_canonical
 af_set|Q9NUI1	af_set			Q9NUI1	292	uniprot_canonical
 af_set|Q9NUN7	af_set			Q9NUN7	267	uniprot_canonical
 af_set|Q9NUT2	af_set			Q9NUT2	735	uniprot_canonical
+af_set|Q9NUV9	af_set			Q9NUV9	329	uniprot_canonical
 af_set|Q9NUW8	af_set			Q9NUW8	608	uniprot_canonical
 af_set|Q9NUX5	af_set			Q9NUX5	634	uniprot_canonical
 af_set|Q9NV35	af_set			Q9NV35	164	uniprot_canonical
@@ -19959,6 +19977,7 @@ af_set|Q9NWM0	af_set			Q9NWM0	555	uniprot_canonical
 af_set|Q9NWM8	af_set			Q9NWM8	211	uniprot_canonical
 af_set|Q9NWT6	af_set			Q9NWT6	349	uniprot_canonical
 af_set|Q9NWU1	af_set			Q9NWU1	459	uniprot_canonical
+af_set|Q9NWV4	af_set			Q9NWV4	160	uniprot_canonical
 af_set|Q9NWW6	af_set			Q9NWW6	199	uniprot_canonical
 af_set|Q9NWX6	af_set			Q9NWX6	298	uniprot_canonical
 af_set|Q9NWZ3	af_set			Q9NWZ3	460	uniprot_canonical
@@ -19967,6 +19986,7 @@ af_set|Q9NX46	af_set			Q9NX46	363	uniprot_canonical
 af_set|Q9NX74	af_set			Q9NX74	493	uniprot_canonical
 af_set|Q9NXA8	af_set			Q9NXA8	310	uniprot_canonical
 af_set|Q9NXC5	af_set			Q9NXC5	875	uniprot_canonical
+af_set|Q9NXF7	af_set			Q9NXF7	216	uniprot_canonical
 af_set|Q9NXG6	af_set			Q9NXG6	502	uniprot_canonical
 af_set|Q9NXL9	af_set			Q9NXL9	1143	uniprot_canonical
 af_set|Q9NXR8	af_set			Q9NXR8	418	uniprot_canonical
@@ -19979,8 +19999,8 @@ af_set|Q9NYG5	af_set			Q9NYG5	84	uniprot_canonical
 af_set|Q9NYG8	af_set			Q9NYG8	393	uniprot_canonical
 af_set|Q9NYJ8	af_set			Q9NYJ8	693	uniprot_canonical
 af_set|Q9NYL2	af_set			Q9NYL2	800	uniprot_canonical
+af_set|Q9NYN1	af_set			Q9NYN1	266	uniprot_canonical
 af_set|Q9NYP9	af_set			Q9NYP9	233	uniprot_canonical
-af_set|Q9NYQ6	af_set			Q9NYQ6	3014	uniprot_canonical
 af_set|Q9NYV4	af_set			Q9NYV4	1490	uniprot_canonical
 af_set|Q9NYY3	af_set			Q9NYY3	685	uniprot_canonical
 af_set|Q9NYZ4	af_set			Q9NYZ4	499	uniprot_canonical
@@ -20070,6 +20090,7 @@ af_set|Q9UHI6	af_set			Q9UHI6	824	uniprot_canonical
 af_set|Q9UHI8	af_set			Q9UHI8	967	uniprot_canonical
 af_set|Q9UHL0	af_set			Q9UHL0	483	uniprot_canonical
 af_set|Q9UHL4	af_set			Q9UHL4	492	uniprot_canonical
+af_set|Q9UHR6	af_set			Q9UHR6	403	uniprot_canonical
 af_set|Q9UHV8	af_set			Q9UHV8	139	uniprot_canonical
 af_set|Q9UHW9	af_set			Q9UHW9	1150	uniprot_canonical
 af_set|Q9UHX1	af_set			Q9UHX1	559	uniprot_canonical
@@ -20113,6 +20134,7 @@ af_set|Q9UK55	af_set			Q9UK55	444	uniprot_canonical
 af_set|Q9UK80	af_set			Q9UK80	565	uniprot_canonical
 af_set|Q9UKE5	af_set			Q9UKE5	1360	uniprot_canonical
 af_set|Q9UKF6	af_set			Q9UKF6	684	uniprot_canonical
+af_set|Q9UKJ0	af_set			Q9UKJ0	227	uniprot_canonical
 af_set|Q9UKJ1	af_set			Q9UKJ1	303	uniprot_canonical
 af_set|Q9UKK9	af_set			Q9UKK9	219	uniprot_canonical
 af_set|Q9UKL4	af_set			Q9UKL4	321	uniprot_canonical
@@ -20147,7 +20169,6 @@ af_set|Q9ULY5	af_set			Q9ULY5	219	uniprot_canonical
 af_set|Q9UM07	af_set			Q9UM07	663	uniprot_canonical
 af_set|Q9UM47	af_set			Q9UM47	2321	uniprot_canonical
 af_set|Q9UM73	af_set			Q9UM73	1620	uniprot_canonical
-af_set|Q9UMN6	af_set			Q9UMN6	2715	uniprot_canonical
 af_set|Q9UMR2	af_set			Q9UMR2	479	uniprot_canonical
 af_set|Q9UMR7	af_set			Q9UMR7	237	uniprot_canonical
 af_set|Q9UN19	af_set			Q9UN19	280	uniprot_canonical
@@ -20162,10 +20183,10 @@ af_set|Q9UNQ0	af_set			Q9UNQ0	655	uniprot_canonical
 af_set|Q9UNQ2	af_set			Q9UNQ2	313	uniprot_canonical
 af_set|Q9UNU6	af_set			Q9UNU6	501	uniprot_canonical
 af_set|Q9UP95	af_set			Q9UP95	1085	uniprot_canonical
-af_set|Q9UPN3	af_set			Q9UPN3	7388	uniprot_canonical
 af_set|Q9UPN9	af_set			Q9UPN9	1127	uniprot_canonical
 af_set|Q9UPP1	af_set			Q9UPP1	1060	uniprot_canonical
 af_set|Q9UPT8	af_set			Q9UPT8	1303	uniprot_canonical
+af_set|Q9UPV7	af_set			Q9UPV7	400	uniprot_canonical
 af_set|Q9UPX8	af_set			Q9UPX8	1849	uniprot_canonical
 af_set|Q9UPY3	af_set			Q9UPY3	1922	uniprot_canonical
 af_set|Q9UPY5	af_set			Q9UPY5	501	uniprot_canonical
@@ -20176,6 +20197,7 @@ af_set|Q9UQB8	af_set			Q9UQB8	552	uniprot_canonical
 af_set|Q9UQB9	af_set			Q9UQB9	309	uniprot_canonical
 af_set|Q9UQD0	af_set			Q9UQD0	1980	uniprot_canonical
 af_set|Q9UQE7	af_set			Q9UQE7	1217	uniprot_canonical
+af_set|Q9UQG0	af_set			Q9UQG0	969	uniprot_canonical
 af_set|Q9UQK1	af_set			Q9UQK1	317	uniprot_canonical
 af_set|Q9UQM7	af_set			Q9UQM7	478	uniprot_canonical
 af_set|Q9UQQ1	af_set			Q9UQQ1	740	uniprot_canonical
@@ -20228,7 +20250,6 @@ af_set|Q9Y3Z3	af_set			Q9Y3Z3	626	uniprot_canonical
 af_set|Q9Y468	af_set			Q9Y468	840	uniprot_canonical
 af_set|Q9Y478	af_set			Q9Y478	270	uniprot_canonical
 af_set|Q9Y483	af_set			Q9Y483	593	uniprot_canonical
-af_set|Q9Y4A5	af_set			Q9Y4A5	3859	uniprot_canonical
 af_set|Q9Y4B6	af_set			Q9Y4B6	1507	uniprot_canonical
 af_set|Q9Y4E8	af_set			Q9Y4E8	981	uniprot_canonical
 af_set|Q9Y4J8	af_set			Q9Y4J8	743	uniprot_canonical
@@ -20241,6 +20262,7 @@ af_set|Q9Y547	af_set			Q9Y547	144	uniprot_canonical
 af_set|Q9Y566	af_set			Q9Y566	2161	uniprot_canonical
 af_set|Q9Y572	af_set			Q9Y572	518	uniprot_canonical
 af_set|Q9Y5A9	af_set			Q9Y5A9	579	uniprot_canonical
+af_set|Q9Y5G1	af_set			Q9Y5G1	929	uniprot_canonical
 af_set|Q9Y5K2	af_set			Q9Y5K2	254	uniprot_canonical
 af_set|Q9Y5K5	af_set			Q9Y5K5	329	uniprot_canonical
 af_set|Q9Y5L0	af_set			Q9Y5L0	923	uniprot_canonical
@@ -20264,6 +20286,7 @@ af_set|Q9Y618	af_set			Q9Y618	2514	uniprot_canonical
 af_set|Q9Y657	af_set			Q9Y657	262	uniprot_canonical
 af_set|Q9Y663	af_set			Q9Y663	406	uniprot_canonical
 af_set|Q9Y666	af_set			Q9Y666	1083	uniprot_canonical
+af_set|Q9Y689	af_set			Q9Y689	179	uniprot_canonical
 af_set|Q9Y692	af_set			Q9Y692	573	uniprot_canonical
 af_set|Q9Y697	af_set			Q9Y697	457	uniprot_canonical
 af_set|Q9Y6A2	af_set			Q9Y6A2	500	uniprot_canonical
@@ -20282,68 +20305,924 @@ af_set|Q9Y6X2	af_set			Q9Y6X2	628	uniprot_canonical
 af_set|Q9Y6X5	af_set			Q9Y6X5	453	uniprot_canonical
 af_set|Q9Y6X9	af_set			Q9Y6X9	1032	uniprot_canonical
 af_set|Q9Y6Y9	af_set			Q9Y6Y9	160	uniprot_canonical
-af_set|A8K979	af_set			A8K979	691	uniprot_canonical
-af_set|O14545	af_set			O14545	582	uniprot_canonical
-af_set|O15016	af_set			O15016	1351	uniprot_canonical
-af_set|O43414	af_set			O43414	337	uniprot_canonical
-af_set|P08048	af_set			P08048	801	uniprot_canonical
-af_set|P0CE72	af_set			P0CE72	109	uniprot_canonical
-af_set|P29762	af_set			P29762	137	uniprot_canonical
-af_set|P43116	af_set			P43116	358	uniprot_canonical
-af_set|P48060	af_set			P48060	266	uniprot_canonical
-af_set|P82980	af_set			P82980	135	uniprot_canonical
-af_set|Q13938	af_set			Q13938	275	uniprot_canonical
-af_set|Q504Y3	af_set			Q504Y3	356	uniprot_canonical
-af_set|Q5SRI9	af_set			Q5SRI9	462	uniprot_canonical
-af_set|Q68DU8	af_set			Q68DU8	428	uniprot_canonical
-af_set|Q7Z4H3	af_set			Q7Z4H3	204	uniprot_canonical
-af_set|Q7Z6K3	af_set			Q7Z6K3	402	uniprot_canonical
-af_set|Q86SG5	af_set			Q86SG5	101	uniprot_canonical
-af_set|Q86TM3	af_set			Q86TM3	631	uniprot_canonical
-af_set|Q86YV6	af_set			Q86YV6	388	uniprot_canonical
-af_set|Q8IWR0	af_set			Q8IWR0	971	uniprot_canonical
-af_set|Q8IY67	af_set			Q8IY67	606	uniprot_canonical
-af_set|Q8IYK8	af_set			Q8IYK8	340	uniprot_canonical
-af_set|Q8N4Q0	af_set			Q8N4Q0	377	uniprot_canonical
-af_set|Q8NFK1	af_set			Q8NFK1	279	uniprot_canonical
-af_set|Q8NG68	af_set			Q8NG68	377	uniprot_canonical
-af_set|Q8NHY6	af_set			Q8NHY6	868	uniprot_canonical
-af_set|Q8NI99	af_set			Q8NI99	470	uniprot_canonical
-af_set|Q8TB52	af_set			Q8TB52	745	uniprot_canonical
-af_set|Q8TDU9	af_set			Q8TDU9	374	uniprot_canonical
-af_set|Q8TDV5	af_set			Q8TDV5	335	uniprot_canonical
-af_set|Q8TF39	af_set			Q8TF39	744	uniprot_canonical
-af_set|Q8WUH1	af_set			Q8WUH1	112	uniprot_canonical
-af_set|Q8WVD5	af_set			Q8WVD5	230	uniprot_canonical
-af_set|Q96KC2	af_set			Q96KC2	179	uniprot_canonical
-af_set|Q96ME7	af_set			Q96ME7	567	uniprot_canonical
-af_set|Q96SE7	af_set			Q96SE7	839	uniprot_canonical
-af_set|Q9BPZ2	af_set			Q9BPZ2	258	uniprot_canonical
-af_set|Q9BTP6	af_set			Q9BTP6	218	uniprot_canonical
-af_set|Q9HCL0	af_set			Q9HCL0	1135	uniprot_canonical
-af_set|Q9NRG7	af_set			Q9NRG7	293	uniprot_canonical
-af_set|Q9NUV9	af_set			Q9NUV9	329	uniprot_canonical
-af_set|Q9NWV4	af_set			Q9NWV4	160	uniprot_canonical
-af_set|Q9NXF7	af_set			Q9NXF7	216	uniprot_canonical
-af_set|Q9NYN1	af_set			Q9NYN1	266	uniprot_canonical
-af_set|Q9UHR6	af_set			Q9UHR6	403	uniprot_canonical
-af_set|Q9UKJ0	af_set			Q9UKJ0	227	uniprot_canonical
-af_set|Q9UPV7	af_set			Q9UPV7	400	uniprot_canonical
-af_set|Q9UQG0	af_set			Q9UQG0	969	uniprot_canonical
-af_set|Q9Y5G1	af_set			Q9Y5G1	929	uniprot_canonical
-af_set|Q9Y689	af_set			Q9Y689	179	uniprot_canonical
-af_set|A0A0B4J272	af_set			A0A0B4J272	114	uniprot_canonical
-af_set|A8MUM7	af_set			A8MUM7	142	uniprot_canonical
-af_set|P0DOX7	af_set			P0DOX7	214	uniprot_canonical
-af_set|P52943	af_set			P52943	208	uniprot_canonical
-af_set|Q08AF3	af_set			Q08AF3	891	uniprot_canonical
-af_set|Q5JVG2	af_set			Q5JVG2	852	uniprot_canonical
-af_set|Q6MZZ7	af_set			Q6MZZ7	669	uniprot_canonical
-af_set|Q86V35	af_set			Q86V35	215	uniprot_canonical
-af_set|Q86VU5	af_set			Q86VU5	262	uniprot_canonical
-af_set|Q8IZP6	af_set			Q8IZP6	322	uniprot_canonical
-af_set|Q8N6N7	af_set			Q8N6N7	88	uniprot_canonical
-af_set|Q8NEG5	af_set			Q8NEG5	633	uniprot_canonical
-af_set|Q96R05	af_set			Q96R05	134	uniprot_canonical
-af_set|Q9H8U3	af_set			Q9H8U3	227	uniprot_canonical
-af_set|Q9H0W7	af_set			Q9H0W7	228	uniprot_canonical
+dimer|3eue_A	dimer	3eue	A	Q16831	328	dimer_manifest
+dimer|8p96_A	dimer	8p96	A	Q6IQ20	393	dimer_manifest
+dimer|8p96_B	dimer	8p96	B	Q6IQ20	393	dimer_manifest
+dimer|6c9m_A	dimer	6c9m	A	Q9BXJ9	866	dimer_manifest
+dimer|6c9m_B	dimer	6c9m	B	P41227	236	dimer_manifest
+dimer|3u15_A	dimer	3u15	A	O15151	100	dimer_manifest
+dimer|3u15_B	dimer	3u15	B	O15151	100	dimer_manifest
+dimer|8u15_A	dimer	8u15	A	Q96SW2	373	dimer_manifest
+dimer|8u15_B	dimer	8u15	B	,Q16531	836	dimer_manifest
+dimer|8u15_C	dimer	8u15	C	Q9UJQ4	55	dimer_manifest
+dimer|6ofb_A	dimer	6ofb	A	Q6IA69	707	dimer_manifest
+dimer|6ofb_B	dimer	6ofb	B	Q6IA69	707	dimer_manifest
+dimer|3grt_A	dimer	3grt	A	P00390	461	dimer_manifest
+dimer|3ko0_A	dimer	3ko0	A	P26447	101	dimer_manifest
+dimer|3ko0_B	dimer	3ko0	B	P26447	101	dimer_manifest
+dimer|7ny2_A	dimer	7ny2	A	P54687	389	dimer_manifest
+dimer|7ny2_B	dimer	7ny2	B	P54687	389	dimer_manifest
+dimer|4zdl_A	dimer	4zdl	A	Q9HD40	501	dimer_manifest
+dimer|4zdl_B	dimer	4zdl	B	Q9HD40	501	dimer_manifest
+dimer|2r0m_A	dimer	2r0m	A	Q92947	394	dimer_manifest
+dimer|5bwv_A	dimer	5bwv	A	O15382	369	dimer_manifest
+dimer|5bwv_B	dimer	5bwv	B	O15382	369	dimer_manifest
+dimer|8bb3_J	dimer	8bb3	J	Q15370	104	dimer_manifest
+dimer|8bb3_K	dimer	8bb3	K	Q15369	98	dimer_manifest
+dimer|8bb3_L	dimer	8bb3	L	P40337	162	dimer_manifest
+dimer|8bb3_B	dimer	8bb3	B	P61964	321	dimer_manifest
+dimer|2fir_L	dimer	2fir	L	P08709	142	dimer_manifest
+dimer|2fir_H	dimer	2fir	H	P08709	254	dimer_manifest
+dimer|2fir_T	dimer	2fir	T	P13726	205	dimer_manifest
+dimer|6upr_A	dimer	6upr	A	Q15019	274	dimer_manifest
+dimer|6upr_B	dimer	6upr	B	Q92599	292	dimer_manifest
+dimer|4kxu_A	dimer	4kxu	A	P29401	637	dimer_manifest
+dimer|3iwx_A	dimer	3iwx	A	O00244	68	dimer_manifest
+dimer|3iwx_B	dimer	3iwx	B	O00244	68	dimer_manifest
+dimer|1u3w_A	dimer	1u3w	A	P00326	374	dimer_manifest
+dimer|1u3w_B	dimer	1u3w	B	P00326	374	dimer_manifest
+dimer|2ydx_B	dimer	2ydx	B	Q9NZL9	315	dimer_manifest
+dimer|7mr6_A	dimer	7mr6	A	O60885	127	dimer_manifest
+dimer|7mr6_B	dimer	7mr6	B	O60885	127	dimer_manifest
+dimer|4d2w_A	dimer	4d2w	A	Q14680	356	dimer_manifest
+dimer|4d2w_D	dimer	4d2w	D	Q14680	356	dimer_manifest
+dimer|7myj_A	dimer	7myj	A	P54646	565	dimer_manifest
+dimer|7myj_B	dimer	7myj	B	Q9Y478	270	dimer_manifest
+dimer|7myj_E	dimer	7myj	E	P54619	336	dimer_manifest
+dimer|4l59_A	dimer	4l59	A	Q96JM7	317	dimer_manifest
+dimer|4az0_A	dimer	4az0	A	P10619	300	dimer_manifest
+dimer|4az0_B	dimer	4az0	B	P10619	155	dimer_manifest
+dimer|6upq_A	dimer	6upq	A	Q15019	274	dimer_manifest
+dimer|6upq_B	dimer	6upq	B	Q9NVA2	293	dimer_manifest
+dimer|6xq1_A	dimer	6xq1	A	Q15109	212	dimer_manifest
+dimer|6xq1_B	dimer	6xq1	B	Q15109	212	dimer_manifest
+dimer|5lvx_A	dimer	5lvx	A	P04062	497	dimer_manifest
+dimer|5lvx_B	dimer	5lvx	B	P04062	497	dimer_manifest
+dimer|5lvx_C	dimer	5lvx	C	P04062	497	dimer_manifest
+dimer|5lvx_D	dimer	5lvx	D	P04062	497	dimer_manifest
+dimer|1rwv_A	dimer	1rwv	A	P29466	178	dimer_manifest
+dimer|1rwv_B	dimer	1rwv	B	P29466	88	dimer_manifest
+dimer|6fof_C	dimer	6fof	C	P17931	196	dimer_manifest
+dimer|6fof_D	dimer	6fof	D	P17931	196	dimer_manifest
+dimer|6fof_E	dimer	6fof	E	P17931	196	dimer_manifest
+dimer|6fof_G	dimer	6fof	G	P17931	196	dimer_manifest
+dimer|2wbi_A	dimer	2wbi	A	Q709F0	428	dimer_manifest
+dimer|2wbi_B	dimer	2wbi	B	Q709F0	428	dimer_manifest
+dimer|5hwl_A	dimer	5hwl	A	P28161	217	dimer_manifest
+dimer|5hwl_B	dimer	5hwl	B	P28161	217	dimer_manifest
+dimer|6tx0_A	dimer	6tx0	A	Q9Y3Z3	520	dimer_manifest
+dimer|6tx0_B	dimer	6tx0	B	Q9Y3Z3	520	dimer_manifest
+dimer|2a1u_A	dimer	2a1u	A	P13804	333	dimer_manifest
+dimer|2a1u_B	dimer	2a1u	B	P38117	255	dimer_manifest
+dimer|3w3m_A	dimer	3w3m	A	Q9NR97	811	dimer_manifest
+dimer|2j2p_A	dimer	2j2p	A	Q15485	218	dimer_manifest
+dimer|2j2p_B	dimer	2j2p	B	Q15485	218	dimer_manifest
+dimer|2j2p_C	dimer	2j2p	C	Q15485	218	dimer_manifest
+dimer|6mxy_A	dimer	6mxy	A	Q12888	123	dimer_manifest
+dimer|6mxy_B	dimer	6mxy	B	Q12888	123	dimer_manifest
+dimer|7b0i_A	dimer	7b0i	A	Q15393	899	dimer_manifest
+dimer|7b0i_B	dimer	7b0i	B	Q9BWJ5	86	dimer_manifest
+dimer|7b0i_C	dimer	7b0i	C	O75533	852	dimer_manifest
+dimer|7b0i_D	dimer	7b0i	D	Q7RTV0	108	dimer_manifest
+dimer|6qvg_A	dimer	6qvg	A	P34897	504	dimer_manifest
+dimer|6qvg_B	dimer	6qvg	B	P34897	504	dimer_manifest
+dimer|4twk_A	dimer	4twk	A	O95069	283	dimer_manifest
+dimer|4twk_B	dimer	4twk	B	O95069	283	dimer_manifest
+dimer|4gr9_A	dimer	4gr9	A	P16083	230	dimer_manifest
+dimer|4gr9_B	dimer	4gr9	B	P16083	230	dimer_manifest
+dimer|1a8j_L	dimer	1a8j	L	P01709	216	dimer_manifest
+dimer|1a8j_H	dimer	1a8j	H	P01709	216	dimer_manifest
+dimer|4w9n_A	dimer	4w9n	A	P49327	339	dimer_manifest
+dimer|4w9n_B	dimer	4w9n	B	P49327	339	dimer_manifest
+dimer|9axh_A	dimer	9axh	A	Q02750	310	dimer_manifest
+dimer|9axh_B	dimer	9axh	B	Q02750	310	dimer_manifest
+dimer|9axh_C	dimer	9axh	C	Q8IVT5	283	dimer_manifest
+dimer|9axh_D	dimer	9axh	D	Q8IVT5	283	dimer_manifest
+dimer|5svk_A	dimer	5svk	A	P56373	363	dimer_manifest
+dimer|4z54_A	dimer	4z54	A	Q9UH03	287	dimer_manifest
+dimer|4z54_B	dimer	4z54	B	Q9UH03	287	dimer_manifest
+dimer|9eqg_A	dimer	9eqg	A	P14867	464	dimer_manifest
+dimer|9eqg_B	dimer	9eqg	B	P28472	473	dimer_manifest
+dimer|9eqg_C	dimer	9eqg	C	P18507	495	dimer_manifest
+dimer|9eqg_D	dimer	9eqg	D	P14867	464	dimer_manifest
+dimer|9eqg_E	dimer	9eqg	E	P28472	473	dimer_manifest
+dimer|5qqv_B	dimer	5qqv	B	P22557	469	dimer_manifest
+dimer|5qqv_A	dimer	5qqv	A	P22557	469	dimer_manifest
+dimer|2i7n_A	dimer	2i7n	A	Q8TE04	360	dimer_manifest
+dimer|2i7n_B	dimer	2i7n	B	Q8TE04	360	dimer_manifest
+dimer|4h82_A	dimer	4h82	A	P14780	160	dimer_manifest
+dimer|4h82_B	dimer	4h82	B	P14780	160	dimer_manifest
+dimer|1m6w_A	dimer	1m6w	A	P11766	373	dimer_manifest
+dimer|1m6w_B	dimer	1m6w	B	P11766	373	dimer_manifest
+dimer|5kcj_A	dimer	5kcj	A	Q12879	285	dimer_manifest
+dimer|5kcj_B	dimer	5kcj	B	Q05586	293	dimer_manifest
+dimer|4a69_A	dimer	4a69	A	O15379	376	dimer_manifest
+dimer|4a69_C	dimer	4a69	C	Q9Y618	94	dimer_manifest
+dimer|4clz_A	dimer	4clz	A	Q96PN6	475	dimer_manifest
+dimer|7pr7_A	dimer	7pr7	A	Q9Y251	385	dimer_manifest
+dimer|7pr7_B	dimer	7pr7	B	Q9Y251	74	dimer_manifest
+dimer|6tol_A	dimer	6tol	A	P41182	144	dimer_manifest
+dimer|6vgi_A	dimer	6vgi	A	P20292	171	dimer_manifest
+dimer|6vgi_E	dimer	6vgi	E	P20292	171	dimer_manifest
+dimer|6vgi_F	dimer	6vgi	F	P20292	171	dimer_manifest
+dimer|1ne7_A	dimer	1ne7	A	P46926	289	dimer_manifest
+dimer|1ne7_B	dimer	1ne7	B	P46926	289	dimer_manifest
+dimer|1ne7_C	dimer	1ne7	C	P46926	289	dimer_manifest
+dimer|1ne7_D	dimer	1ne7	D	P46926	289	dimer_manifest
+dimer|1ne7_E	dimer	1ne7	E	P46926	289	dimer_manifest
+dimer|1ne7_F	dimer	1ne7	F	P46926	289	dimer_manifest
+dimer|4mf0_A	dimer	4mf0	A	Q08881	266	dimer_manifest
+dimer|4mf0_B	dimer	4mf0	B	Q08881	266	dimer_manifest
+dimer|6u66_A	dimer	6u66	A	Q15848	142	dimer_manifest
+dimer|6u66_B	dimer	6u66	B	Q15848	142	dimer_manifest
+dimer|6u66_C	dimer	6u66	C	Q15848	142	dimer_manifest
+dimer|4zht_A	dimer	4zht	A	Q9Y223	411	dimer_manifest
+dimer|4zht_B	dimer	4zht	B	Q9Y223	411	dimer_manifest
+dimer|2nwg_A	dimer	2nwg	A	P48061	68	dimer_manifest
+dimer|2nwg_B	dimer	2nwg	B	P48061	68	dimer_manifest
+dimer|1rx0_A	dimer	1rx0	A	Q9UKU7	393	dimer_manifest
+dimer|1rx0_B	dimer	1rx0	B	Q9UKU7	393	dimer_manifest
+dimer|1rx0_C	dimer	1rx0	C	Q9UKU7	393	dimer_manifest
+dimer|1rx0_D	dimer	1rx0	D	Q9UKU7	393	dimer_manifest
+dimer|1z8d_A	dimer	1z8d	A	P11217	842	dimer_manifest
+dimer|3ajm_A	dimer	3ajm	A	Q9BUL8	213	dimer_manifest
+dimer|3ajm_B	dimer	3ajm	B	Q9BUL8	213	dimer_manifest
+dimer|6lzz_A	dimer	6lzz	A	O76083	322	dimer_manifest
+dimer|6lzz_B	dimer	6lzz	B	O76083	322	dimer_manifest
+dimer|6v8d_A	dimer	6v8d	A	P04181	404	dimer_manifest
+dimer|6v8d_B	dimer	6v8d	B	P04181	404	dimer_manifest
+dimer|5yvt_A	dimer	5yvt	A	P50213	339	dimer_manifest
+dimer|5yvt_B	dimer	5yvt	B	P51553	354	dimer_manifest
+dimer|6qcb_A	dimer	6qcb	A	P07339	97	dimer_manifest
+dimer|6qcb_B	dimer	6qcb	B	P07339	241	dimer_manifest
+dimer|1dd1_A	dimer	1dd1	A	Q13485	268	dimer_manifest
+dimer|1dd1_B	dimer	1dd1	B	Q13485	268	dimer_manifest
+dimer|1dd1_C	dimer	1dd1	C	Q13485	268	dimer_manifest
+dimer|5w4v_A	dimer	5w4v	A	P51449	210	dimer_manifest
+dimer|5w4v_B	dimer	5w4v	B	P51449	210	dimer_manifest
+dimer|8g9p_A	dimer	8g9p	A	P01116	170	dimer_manifest
+dimer|8g9p_D	dimer	8g9p	D	P62937	166	dimer_manifest
+dimer|2jif_A	dimer	2jif	A	P45954	404	dimer_manifest
+dimer|2jif_B	dimer	2jif	B	P45954	404	dimer_manifest
+dimer|2jif_C	dimer	2jif	C	P45954	404	dimer_manifest
+dimer|2jif_D	dimer	2jif	D	P45954	404	dimer_manifest
+dimer|1djs_A	dimer	1djs	A	P21802	216	dimer_manifest
+dimer|1djs_B	dimer	1djs	B	P05230	135	dimer_manifest
+dimer|1re1_A	dimer	1re1	A	P42574	147	dimer_manifest
+dimer|1re1_B	dimer	1re1	B	P42574	102	dimer_manifest
+dimer|2wul_A	dimer	2wul	A	Q86SX6	118	dimer_manifest
+dimer|2wul_B	dimer	2wul	B	Q86SX6	118	dimer_manifest
+dimer|2wul_C	dimer	2wul	C	Q86SX6	118	dimer_manifest
+dimer|2wul_D	dimer	2wul	D	Q86SX6	118	dimer_manifest
+dimer|4g8a_A	dimer	4g8a	A	O00206	635	dimer_manifest
+dimer|4g8a_B	dimer	4g8a	B	O00206	635	dimer_manifest
+dimer|4g8a_C	dimer	4g8a	C	Q9Y6Y9	144	dimer_manifest
+dimer|4g8a_D	dimer	4g8a	D	Q9Y6Y9	144	dimer_manifest
+dimer|5j1s_A	dimer	5j1s	A	O14656	284	dimer_manifest
+dimer|5j1s_B	dimer	5j1s	B	Q8NFQ8	239	dimer_manifest
+dimer|5j1s_C	dimer	5j1s	C		123	dimer_manifest
+dimer|6ssu_A	dimer	6ssu	A	Q99735	153	dimer_manifest
+dimer|6ssu_B	dimer	6ssu	B	Q99735	153	dimer_manifest
+dimer|6ssu_C	dimer	6ssu	C	Q99735	153	dimer_manifest
+dimer|6sy1_A	dimer	6sy1	A	Q96HY7	898	dimer_manifest
+dimer|6sy1_B	dimer	6sy1	B	Q96HY7	898	dimer_manifest
+dimer|5ij8_A	dimer	5ij8	A	G1KPH4,G1KPH4;Q15910	643	dimer_manifest
+dimer|5ij8_F	dimer	5ij8	F	O75530	362	dimer_manifest
+dimer|5ij8_T	dimer	5ij8	T	Q15022	191	dimer_manifest
+dimer|6i3y_C	dimer	6i3y	C	Q9Y255	185	dimer_manifest
+dimer|6i3y_H	dimer	6i3y	H	O43715	90	dimer_manifest
+dimer|6i3y_F	dimer	6i3y	F	Q9Y255	185	dimer_manifest
+dimer|6i3y_A	dimer	6i3y	A	O43715	90	dimer_manifest
+dimer|3o8x_A	dimer	3o8x	A	P11609	285	dimer_manifest
+dimer|3o8x_B	dimer	3o8x	B	P01887	99	dimer_manifest
+dimer|3o8x_C	dimer	3o8x	C	P01848	209	dimer_manifest
+dimer|3o8x_D	dimer	3o8x	D	A0A5B9	241	dimer_manifest
+dimer|6k2z_A	dimer	6k2z	A	Q8TCE9	142	dimer_manifest
+dimer|6k2z_B	dimer	6k2z	B	Q8TCE9	142	dimer_manifest
+dimer|1yjx_A	dimer	1yjx	A	P18669	262	dimer_manifest
+dimer|1yjx_B	dimer	1yjx	B	P18669	262	dimer_manifest
+dimer|6z1n_A	dimer	6z1n	A	Q86SQ9	340	dimer_manifest
+dimer|6z1n_B	dimer	6z1n	B	Q96E22	219	dimer_manifest
+dimer|3qmk_A	dimer	3qmk	A	P51693	214	dimer_manifest
+dimer|3qmk_B	dimer	3qmk	B	P51693	214	dimer_manifest
+dimer|3lkj_A	dimer	3lkj	A	P29965	141	dimer_manifest
+dimer|3lkj_B	dimer	3lkj	B	P29965	141	dimer_manifest
+dimer|3lkj_C	dimer	3lkj	C	P29965	141	dimer_manifest
+dimer|6cfo_A	dimer	6cfo	A	P08559	365	dimer_manifest
+dimer|6cfo_B	dimer	6cfo	B	P11177	341	dimer_manifest
+dimer|6cfo_C	dimer	6cfo	C	P08559	365	dimer_manifest
+dimer|6cfo_D	dimer	6cfo	D	P11177	341	dimer_manifest
+dimer|8ouo_A	dimer	8ouo	A	Q8NHX9	752	dimer_manifest
+dimer|8ouo_B	dimer	8ouo	B	Q8NHX9	752	dimer_manifest
+dimer|1jcq_A	dimer	1jcq	A	P49354	382	dimer_manifest
+dimer|1jcq_B	dimer	1jcq	B	P49356	437	dimer_manifest
+dimer|6vfz_A	dimer	6vfz	A	P48735	458	dimer_manifest
+dimer|6vfz_B	dimer	6vfz	B	P48735	458	dimer_manifest
+dimer|2xjf_A	dimer	2xjf	A	P49902	555	dimer_manifest
+dimer|6y32_A	dimer	6y32	A	P61011	304	dimer_manifest
+dimer|6y32_B	dimer	6y32	B	P08240	315	dimer_manifest
+dimer|2d60_A	dimer	2d60	A	P69905	141	dimer_manifest
+dimer|2d60_B	dimer	2d60	B	P68871	146	dimer_manifest
+dimer|2d60_C	dimer	2d60	C	P69905	141	dimer_manifest
+dimer|2d60_D	dimer	2d60	D	P68871	146	dimer_manifest
+dimer|6n3y_A	dimer	6n3y	A	P49773	129	dimer_manifest
+dimer|6n3y_B	dimer	6n3y	B	P49773	129	dimer_manifest
+dimer|1fro_A	dimer	1fro	A	Q04760	183	dimer_manifest
+dimer|1fro_B	dimer	1fro	B	Q04760	183	dimer_manifest
+dimer|6j7x_A	dimer	6j7x	A	Q7Z6K3	327	dimer_manifest
+dimer|6j7x_B	dimer	6j7x	B	P53611	336	dimer_manifest
+dimer|6j7x_C	dimer	6j7x	C	O15498	198	dimer_manifest
+dimer|1yah_A	dimer	1yah	A	P23141	532	dimer_manifest
+dimer|1yah_B	dimer	1yah	B	P23141	532	dimer_manifest
+dimer|1yah_C	dimer	1yah	C	P23141	532	dimer_manifest
+dimer|3ddw_A	dimer	3ddw	A	P06737	848	dimer_manifest
+dimer|3ddw_B	dimer	3ddw	B	P06737	848	dimer_manifest
+dimer|4ruh_A	dimer	4ruh	A	Q96KP4	475	dimer_manifest
+dimer|4ruh_B	dimer	4ruh	B	Q96KP4	475	dimer_manifest
+dimer|3n7s_A	dimer	3n7s	A	Q16602	115	dimer_manifest
+dimer|3n7s_D	dimer	3n7s	D	O60894	96	dimer_manifest
+dimer|5vdh_A	dimer	5vdh	A	O75311	362	dimer_manifest
+dimer|5vdh_B	dimer	5vdh	B	O75311	362	dimer_manifest
+dimer|5vdh_C	dimer	5vdh	C	O75311	362	dimer_manifest
+dimer|5vdh_D	dimer	5vdh	D	O75311	362	dimer_manifest
+dimer|5vdh_E	dimer	5vdh	E	O75311	362	dimer_manifest
+dimer|2uxw_A	dimer	2uxw	A	P49748	607	dimer_manifest
+dimer|4h30_A	dimer	4h30	A	P39900	159	dimer_manifest
+dimer|4h30_B	dimer	4h30	B	P39900	159	dimer_manifest
+dimer|4nos_A	dimer	4nos	A	P35228	427	dimer_manifest
+dimer|4nos_B	dimer	4nos	B	P35228	427	dimer_manifest
+dimer|6upa_B	dimer	6upa	B	Q14141	280	dimer_manifest
+dimer|6upa_A	dimer	6upa	A	Q15019	299	dimer_manifest
+dimer|7ah8_A	dimer	7ah8	A	P25208	89	dimer_manifest
+dimer|7ah8_B	dimer	7ah8	B	Q13952	80	dimer_manifest
+dimer|7ah8_C	dimer	7ah8	C	P25208	89	dimer_manifest
+dimer|7ah8_D	dimer	7ah8	D	Q13952	80	dimer_manifest
+dimer|6wcv_A	dimer	6wcv	A	P53597	315	dimer_manifest
+dimer|6wcv_B	dimer	6wcv	B	Q96I99	395	dimer_manifest
+dimer|4drj_A	dimer	4drj	A	Q02790	144	dimer_manifest
+dimer|4drj_B	dimer	4drj	B	P42345	98	dimer_manifest
+dimer|3bl7_A	dimer	3bl7	A	Q96C86	301	dimer_manifest
+dimer|3bl7_B	dimer	3bl7	B	Q96C86	301	dimer_manifest
+dimer|4q6r_A	dimer	4q6r	A	O95470	511	dimer_manifest
+dimer|4q6r_B	dimer	4q6r	B	O95470	511	dimer_manifest
+dimer|4mpv_A	dimer	4mpv	A	Q15661	245	dimer_manifest
+dimer|4mpv_B	dimer	4mpv	B	Q15661	245	dimer_manifest
+dimer|1r8q_A	dimer	1r8q	A	P84080	181	dimer_manifest
+dimer|1r8q_E	dimer	1r8q	E	Q99418	203	dimer_manifest
+dimer|5v84_A	dimer	5v84	A	Q9BXF3	140	dimer_manifest
+dimer|5v84_B	dimer	5v84	B	Q9BXF3	140	dimer_manifest
+dimer|5v84_C	dimer	5v84	C	Q9BXF3	140	dimer_manifest
+dimer|5v84_D	dimer	5v84	D	Q9BXF3	140	dimer_manifest
+dimer|4ury_R	dimer	4ury	R	P01112	185	dimer_manifest
+dimer|4ury_S	dimer	4ury	S	Q07889	487	dimer_manifest
+dimer|4is0_A	dimer	4is0	A	P78417	241	dimer_manifest
+dimer|1dtw_A	dimer	1dtw	A	P12694	400	dimer_manifest
+dimer|1dtw_B	dimer	1dtw	B	P21953	342	dimer_manifest
+dimer|3g3d_A	dimer	3g3d	A	P11172	312	dimer_manifest
+dimer|3g3d_B	dimer	3g3d	B	P11172	312	dimer_manifest
+dimer|5zm8_A	dimer	5zm8	A	Q9H1P3	455	dimer_manifest
+dimer|9bc6_A	dimer	9bc6	A	O60741	660	dimer_manifest
+dimer|9bc6_B	dimer	9bc6	B	O60741	660	dimer_manifest
+dimer|9bc6_C	dimer	9bc6	C	O60741	660	dimer_manifest
+dimer|9bc6_D	dimer	9bc6	D	O60741	660	dimer_manifest
+dimer|8quc_A	dimer	8quc	A	P48547	518	dimer_manifest
+dimer|8quc_B	dimer	8quc	B	P48547	518	dimer_manifest
+dimer|8quc_D	dimer	8quc	D	P48547	518	dimer_manifest
+dimer|8quc_C	dimer	8quc	C	P48547	518	dimer_manifest
+dimer|6poz_A	dimer	6poz	A	P29474	440	dimer_manifest
+dimer|6poz_B	dimer	6poz	B	P29474	440	dimer_manifest
+dimer|1g4u_S	dimer	1g4u	S	P74873	383	dimer_manifest
+dimer|1g4u_R	dimer	1g4u	R	P63000	184	dimer_manifest
+dimer|7sql_A	dimer	7sql	A	Q9BZX2	250	dimer_manifest
+dimer|7sql_B	dimer	7sql	B	Q9BZX2	250	dimer_manifest
+dimer|7sql_C	dimer	7sql	C	Q9BZX2	250	dimer_manifest
+dimer|7sql_D	dimer	7sql	D	Q9BZX2	250	dimer_manifest
+dimer|4mzv_A	dimer	4mzv	A	P16422	248	dimer_manifest
+dimer|3cxq_A	dimer	3cxq	A	Q96EK6	184	dimer_manifest
+dimer|1dnu_A	dimer	1dnu	A	P05164	104	dimer_manifest
+dimer|1dnu_C	dimer	1dnu	C	P05164	466	dimer_manifest
+dimer|1dnu_B	dimer	1dnu	B	P05164	104	dimer_manifest
+dimer|1dnu_D	dimer	1dnu	D	P05164	466	dimer_manifest
+dimer|3bh7_A	dimer	3bh7	A	Q9WUL7	164	dimer_manifest
+dimer|3bh7_B	dimer	3bh7	B	O75695	352	dimer_manifest
+dimer|8aeu_A	dimer	8aeu	A	Q00987	97	dimer_manifest
+dimer|8qz3_A	dimer	8qz3	A	P57789	274	dimer_manifest
+dimer|8qz3_B	dimer	8qz3	B	P57789	274	dimer_manifest
+dimer|8qz3_C	dimer	8qz3	C		137	dimer_manifest
+dimer|8qz3_D	dimer	8qz3	D		137	dimer_manifest
+dimer|8qz3_E	dimer	8qz3	E		137	dimer_manifest
+dimer|3vp6_A	dimer	3vp6	A	Q99259	511	dimer_manifest
+dimer|3vp6_B	dimer	3vp6	B	Q99259	511	dimer_manifest
+dimer|1qzu_A	dimer	1qzu	A	Q96CD2	206	dimer_manifest
+dimer|6dxx_A	dimer	6dxx	A	Q02083	107	dimer_manifest
+dimer|6dxx_B	dimer	6dxx	B	Q02083	234	dimer_manifest
+dimer|8i0b_A	dimer	8i0b	A	P23819;P42262,P42262	301	dimer_manifest
+dimer|8i0b_B	dimer	8i0b	B	P23819;P42262,P42262	301	dimer_manifest
+dimer|7vwe_A	dimer	7vwe	A	Q03181	276	dimer_manifest
+dimer|7vwe_B	dimer	7vwe	B	Q03181	276	dimer_manifest
+dimer|6jjp_A	dimer	6jjp	A		220	dimer_manifest
+dimer|6jjp_B	dimer	6jjp	B		214	dimer_manifest
+dimer|6jjp_C	dimer	6jjp	C	Q15116	147	dimer_manifest
+dimer|3nj4_A	dimer	3nj4	A	P23526	435	dimer_manifest
+dimer|3nj4_B	dimer	3nj4	B	P23526	435	dimer_manifest
+dimer|3nj4_C	dimer	3nj4	C	P23526	435	dimer_manifest
+dimer|3nj4_D	dimer	3nj4	D	P23526	435	dimer_manifest
+dimer|6bky_D	dimer	6bky	D	O75874	425	dimer_manifest
+dimer|6bky_C	dimer	6bky	C	O75874	425	dimer_manifest
+dimer|3ep7_B	dimer	3ep7	B	P17707	67	dimer_manifest
+dimer|3ep7_A	dimer	3ep7	A	P17707	260	dimer_manifest
+dimer|3w1w_A	dimer	3w1w	A	P22830	371	dimer_manifest
+dimer|3w1w_B	dimer	3w1w	B	P22830	371	dimer_manifest
+dimer|5cjp_A	dimer	5cjp	A	A0A024RAE4,P60953	179	dimer_manifest
+dimer|5cjp_B	dimer	5cjp	B	A0A024RAE4,P60953	179	dimer_manifest
+dimer|5cjp_C	dimer	5cjp	C	A0A024RAE4,P60953	179	dimer_manifest
+dimer|5cjp_D	dimer	5cjp	D	A0A024RAE4,P60953	179	dimer_manifest
+dimer|5cjp_E	dimer	5cjp	E	Q13576	387	dimer_manifest
+dimer|5cjp_F	dimer	5cjp	F	Q13576	387	dimer_manifest
+dimer|4b3w_A	dimer	4b3w	A	Q8WWM9	190	dimer_manifest
+dimer|4b3w_B	dimer	4b3w	B	Q8WWM9	190	dimer_manifest
+dimer|2f1o_A	dimer	2f1o	A	P15559	273	dimer_manifest
+dimer|2f1o_C	dimer	2f1o	C	P15559	273	dimer_manifest
+dimer|5hl1_A	dimer	5hl1	A	O94925	539	dimer_manifest
+dimer|5hl1_B	dimer	5hl1	B	O94925	539	dimer_manifest
+dimer|5hl1_C	dimer	5hl1	C	O94925	539	dimer_manifest
+dimer|5hl1_D	dimer	5hl1	D	O94925	539	dimer_manifest
+dimer|6sbu_A	dimer	6sbu	A	P00338	332	dimer_manifest
+dimer|6sbu_B	dimer	6sbu	B	P00338	332	dimer_manifest
+dimer|6sbu_C	dimer	6sbu	C	P00338	332	dimer_manifest
+dimer|6sbu_D	dimer	6sbu	D	P00338	332	dimer_manifest
+dimer|6x83_A	dimer	6x83	A	P01375	158	dimer_manifest
+dimer|6x83_B	dimer	6x83	B	P01375	158	dimer_manifest
+dimer|6x83_C	dimer	6x83	C	P01375	158	dimer_manifest
+dimer|2nyr_A	dimer	2nyr	A	Q9NXA8	271	dimer_manifest
+dimer|2nyr_B	dimer	2nyr	B	Q9NXA8	271	dimer_manifest
+dimer|6x7u_A	dimer	6x7u	A	Q96DE0	184	dimer_manifest
+dimer|6x7u_C	dimer	6x7u	C	Q96DE0	184	dimer_manifest
+dimer|3d9s_A	dimer	3d9s	A	P55064	266	dimer_manifest
+dimer|3d9s_B	dimer	3d9s	B	P55064	266	dimer_manifest
+dimer|3d9s_C	dimer	3d9s	C	P55064	266	dimer_manifest
+dimer|3d9s_D	dimer	3d9s	D	P55064	266	dimer_manifest
+dimer|6ue5_A	dimer	6ue5	A	Q66K64	601	dimer_manifest
+dimer|6ue5_B	dimer	6ue5	B	Q16531	836	dimer_manifest
+dimer|6ue5_C	dimer	6ue5	C	Q14498,Q7Z3L0	81	dimer_manifest
+dimer|6ue5_D	dimer	6ue5	D	Q9BW61	101	dimer_manifest
+dimer|6sge_A	dimer	6sge	A	P62745	183	dimer_manifest
+dimer|6sge_B	dimer	6sge	B	A0A4E0W6L3	134	dimer_manifest
+dimer|6dz0_A	dimer	6dz0	A	Q13126	297	dimer_manifest
+dimer|6rv3_A	dimer	6rv3	A	O14649	264	dimer_manifest
+dimer|6rv3_B	dimer	6rv3	B	O14649	264	dimer_manifest
+dimer|7mdn_A	dimer	7mdn	A	O96028	140	dimer_manifest
+dimer|7mdn_B	dimer	7mdn	B	O96028	140	dimer_manifest
+dimer|7mdn_C	dimer	7mdn	C	O96028	140	dimer_manifest
+dimer|7mdn_D	dimer	7mdn	D	O96028	140	dimer_manifest
+dimer|7mdn_E	dimer	7mdn	E	O96028	140	dimer_manifest
+dimer|7mdn_F	dimer	7mdn	F	O96028	140	dimer_manifest
+dimer|7mdn_G	dimer	7mdn	G	O96028	140	dimer_manifest
+dimer|7mdn_H	dimer	7mdn	H	O96028	140	dimer_manifest
+dimer|3mtg_A	dimer	3mtg	A	O43865	444	dimer_manifest
+dimer|3mtg_B	dimer	3mtg	B	O43865	444	dimer_manifest
+dimer|3fd6_A	dimer	3fd6	A	P49903	394	dimer_manifest
+dimer|3fd6_B	dimer	3fd6	B	P49903	394	dimer_manifest
+dimer|5qjy_A	dimer	5qjy	A	Q9UKK9	209	dimer_manifest
+dimer|5qjy_B	dimer	5qjy	B	Q9UKK9	209	dimer_manifest
+dimer|9cuj_A	dimer	9cuj	A	Q9H1D0	765	dimer_manifest
+dimer|9cuj_B	dimer	9cuj	B	Q9H1D0	765	dimer_manifest
+dimer|9cuj_C	dimer	9cuj	C	Q9H1D0	765	dimer_manifest
+dimer|9cuj_D	dimer	9cuj	D	Q9H1D0	765	dimer_manifest
+dimer|2ass_A	dimer	2ass	A	P63208	159	dimer_manifest
+dimer|2ass_B	dimer	2ass	B	Q13309	336	dimer_manifest
+dimer|2ass_C	dimer	2ass	C	P61024	69	dimer_manifest
+dimer|7aps_A	dimer	7aps	A	Q13451	128	dimer_manifest
+dimer|7aps_B	dimer	7aps	B	Q13451	128	dimer_manifest
+dimer|6qd5_A	dimer	6qd5	A	Q13336	367	dimer_manifest
+dimer|5hlo_A	dimer	5hlo	A	P05109	94	dimer_manifest
+dimer|5hlo_C	dimer	5hlo	C	P05109	94	dimer_manifest
+dimer|6bw6_A	dimer	6bw6	A	Q9H3H5	417	dimer_manifest
+dimer|6bw6_B	dimer	6bw6	B	Q9H3H5	417	dimer_manifest
+dimer|3f5o_A	dimer	3f5o	A	Q9NPJ3	148	dimer_manifest
+dimer|3f5o_B	dimer	3f5o	B	Q9NPJ3	148	dimer_manifest
+dimer|3f5o_C	dimer	3f5o	C	Q9NPJ3	148	dimer_manifest
+dimer|3f5o_D	dimer	3f5o	D	Q9NPJ3	148	dimer_manifest
+dimer|5og0_A	dimer	5og0	A	P21549	392	dimer_manifest
+dimer|7fs3_A	dimer	7fs3	A	P30613	447	dimer_manifest
+dimer|7fs3_B	dimer	7fs3	B	P30613	447	dimer_manifest
+dimer|7fs3_C	dimer	7fs3	C	P30613	447	dimer_manifest
+dimer|7fs3_D	dimer	7fs3	D	P30613	447	dimer_manifest
+dimer|2hcr_A	dimer	2hcr	A	P60891	326	dimer_manifest
+dimer|2hcr_B	dimer	2hcr	B	P60891	326	dimer_manifest
+dimer|2vig_A	dimer	2vig	A	P16219	391	dimer_manifest
+dimer|2vig_B	dimer	2vig	B	P16219	391	dimer_manifest
+dimer|2vig_C	dimer	2vig	C	P16219	391	dimer_manifest
+dimer|2vig_D	dimer	2vig	D	P16219	391	dimer_manifest
+dimer|9dtq_A	dimer	9dtq	A	Q92769	487	dimer_manifest
+dimer|9dtq_B	dimer	9dtq	B	Q9NVX7	520	dimer_manifest
+dimer|9dtq_D	dimer	9dtq	D	Q9UKL0	401	dimer_manifest
+dimer|9dtq_E	dimer	9dtq	E	Q9NVX7	520	dimer_manifest
+dimer|8qcm_A	dimer	8qcm	A	Q9UNQ0	665	dimer_manifest
+dimer|8qcm_C	dimer	8qcm	C		214	dimer_manifest
+dimer|8qcm_D	dimer	8qcm	D		221	dimer_manifest
+dimer|8qcm_E	dimer	8qcm	E		214	dimer_manifest
+dimer|8qcm_F	dimer	8qcm	F		221	dimer_manifest
+dimer|8qcm_B	dimer	8qcm	B	Q9UNQ0	665	dimer_manifest
+dimer|4ttb_A	dimer	4ttb	A	Q6PHW0	265	dimer_manifest
+dimer|4ttb_B	dimer	4ttb	B	Q6PHW0	265	dimer_manifest
+dimer|8ros_AAA	dimer	8ros	AAA	Q9NVS9	264	dimer_manifest
+dimer|4jc7_A	dimer	4jc7	A	Q16873	156	dimer_manifest
+dimer|3p0e_A	dimer	3p0e	A	O95045	297	dimer_manifest
+dimer|3p0e_B	dimer	3p0e	B	O95045	297	dimer_manifest
+dimer|1vkg_A	dimer	1vkg	A	Q9BY41	377	dimer_manifest
+dimer|1vkg_B	dimer	1vkg	B	Q9BY41	377	dimer_manifest
+dimer|7mfz_A	dimer	7mfz	A	P50120	133	dimer_manifest
+dimer|7mfz_B	dimer	7mfz	B	P50120	133	dimer_manifest
+dimer|7mfz_C	dimer	7mfz	C	P50120	133	dimer_manifest
+dimer|1ege_A	dimer	1ege	A	P11310	396	dimer_manifest
+dimer|1ege_B	dimer	1ege	B	P11310	396	dimer_manifest
+dimer|1ege_C	dimer	1ege	C	P11310	396	dimer_manifest
+dimer|1ege_D	dimer	1ege	D	P11310	396	dimer_manifest
+dimer|2obv_A	dimer	2obv	A	Q00266	384	dimer_manifest
+dimer|3d8b_A	dimer	3d8b	A	Q6PIW4	357	dimer_manifest
+dimer|3d8b_B	dimer	3d8b	B	Q6PIW4	357	dimer_manifest
+dimer|6q94_B	dimer	6q94	B	O60547	352	dimer_manifest
+dimer|6q94_A	dimer	6q94	A	O60547	352	dimer_manifest
+dimer|8ucd_A	dimer	8ucd	A	Q9UHE8	352	dimer_manifest
+dimer|8ucd_B	dimer	8ucd	B	Q9UHE8	352	dimer_manifest
+dimer|8ucd_C	dimer	8ucd	C	Q9UHE8	352	dimer_manifest
+dimer|8ucd_H	dimer	8ucd	H		188	dimer_manifest
+dimer|8ucd_L	dimer	8ucd	L		213	dimer_manifest
+dimer|7lub_A	dimer	7lub	A	P07954	466	dimer_manifest
+dimer|7lub_B	dimer	7lub	B	P07954	466	dimer_manifest
+dimer|4g1n_A	dimer	4g1n	A	P14618	518	dimer_manifest
+dimer|4g1n_B	dimer	4g1n	B	P14618	518	dimer_manifest
+dimer|4g1n_C	dimer	4g1n	C	P14618	518	dimer_manifest
+dimer|4g1n_D	dimer	4g1n	D	P14618	518	dimer_manifest
+dimer|4yl1_A	dimer	4yl1	A	O14684	148	dimer_manifest
+dimer|6t9n_A	dimer	6t9n	A	Q13563	547	dimer_manifest
+dimer|6t9n_B	dimer	6t9n	B	Q13563	547	dimer_manifest
+dimer|6t9n_C	dimer	6t9n	C	Q13563	547	dimer_manifest
+dimer|6t9n_D	dimer	6t9n	D	Q13563	547	dimer_manifest
+dimer|4en3_C	dimer	4en3	C	P15813	284	dimer_manifest
+dimer|4en3_A	dimer	4en3	A	,K7N5M3	220	dimer_manifest
+dimer|4en3_B	dimer	4en3	B	,K7N5M4	259	dimer_manifest
+dimer|4en3_D	dimer	4en3	D	P61769	100	dimer_manifest
+dimer|5jcw_A	dimer	5jcw	A	P09211	210	dimer_manifest
+dimer|5jcw_B	dimer	5jcw	B	P09211	210	dimer_manifest
+dimer|6c98_A	dimer	6c98	A	P55899	274	dimer_manifest
+dimer|6c98_B	dimer	6c98	B	P61769	99	dimer_manifest
+dimer|5qhl_A	dimer	5qhl	A	Q5T0W9	180	dimer_manifest
+dimer|5qhl_B	dimer	5qhl	B	Q5T0W9	180	dimer_manifest
+dimer|6boz_A	dimer	6boz	A	Q9NQR1	189	dimer_manifest
+dimer|6boz_B	dimer	6boz	B	Q9NQR1	189	dimer_manifest
+dimer|7dbj_A	dimer	7dbj	A	P07195	333	dimer_manifest
+dimer|7dbj_B	dimer	7dbj	B	P07195	333	dimer_manifest
+dimer|7dbj_C	dimer	7dbj	C	P07195	333	dimer_manifest
+dimer|7dbj_D	dimer	7dbj	D	P07195	333	dimer_manifest
+dimer|4cud_A	dimer	4cud	A	P46531	135	dimer_manifest
+dimer|7e4c_A	dimer	7e4c	A	P14174	114	dimer_manifest
+dimer|7e4c_B	dimer	7e4c	B	P14174	114	dimer_manifest
+dimer|7e4c_C	dimer	7e4c	C	P14174	114	dimer_manifest
+dimer|6nyo_A	dimer	6nyo	A	Q712K3	204	dimer_manifest
+dimer|6nyo_E	dimer	6nyo	E	,P0CH08	96	dimer_manifest
+dimer|6lig_A	dimer	6lig	A	P17174	411	dimer_manifest
+dimer|6lig_B	dimer	6lig	B	P17174	411	dimer_manifest
+dimer|1p4r_A	dimer	1p4r	A	P31939	592	dimer_manifest
+dimer|1p4r_B	dimer	1p4r	B	P31939	592	dimer_manifest
+dimer|6rni_A	dimer	6rni	A	P53634	119	dimer_manifest
+dimer|6rni_B	dimer	6rni	B	P53634	166	dimer_manifest
+dimer|6rni_C	dimer	6rni	C	P53634	69	dimer_manifest
+dimer|5e26_A	dimer	5e26	A	Q9BZ23	365	dimer_manifest
+dimer|5e26_B	dimer	5e26	B	Q9BZ23	365	dimer_manifest
+dimer|6dl7_A	dimer	6dl7	A	Q16740	221	dimer_manifest
+dimer|6dl7_B	dimer	6dl7	B	Q16740	221	dimer_manifest
+dimer|6dl7_C	dimer	6dl7	C	Q16740	221	dimer_manifest
+dimer|6dl7_D	dimer	6dl7	D	Q16740	221	dimer_manifest
+dimer|6dl7_E	dimer	6dl7	E	Q16740	221	dimer_manifest
+dimer|6dl7_F	dimer	6dl7	F	Q16740	221	dimer_manifest
+dimer|6dl7_G	dimer	6dl7	G	Q16740	221	dimer_manifest
+dimer|1fkd_A	dimer	1fkd	A	P62942	107	dimer_manifest
+dimer|3o9l_A	dimer	3o9l	A	P00797	166	dimer_manifest
+dimer|3o9l_B	dimer	3o9l	B	P00797	176	dimer_manifest
+dimer|7p1n_aa	dimer	7p1n	aa	P22303	257	dimer_manifest
+dimer|7p1n_A	dimer	7p1n	A	P22303	282	dimer_manifest
+dimer|7p1n_bb	dimer	7p1n	bb	P22303	257	dimer_manifest
+dimer|7p1n_B	dimer	7p1n	B	P22303	282	dimer_manifest
+dimer|7zbg_A	dimer	7zbg	A	Q02880	400	dimer_manifest
+dimer|4azr_A	dimer	4azr	A	Q01469	138	dimer_manifest
+dimer|4azr_B	dimer	4azr	B	Q01469	138	dimer_manifest
+dimer|3kjn_A	dimer	3kjn	A	Q14790	164	dimer_manifest
+dimer|3kjn_B	dimer	3kjn	B	Q14790	95	dimer_manifest
+dimer|1yci_A	dimer	1yci	A	Q9NWT6	349	dimer_manifest
+dimer|5tde_A	dimer	5tde	A	P53396	431	dimer_manifest
+dimer|5tde_B	dimer	5tde	B	P53396	324	dimer_manifest
+dimer|7ere_A	dimer	7ere	A	P30043	207	dimer_manifest
+dimer|7ere_B	dimer	7ere	B	P30043	207	dimer_manifest
+dimer|7cfo_A	dimer	7cfo	A	P19793	243	dimer_manifest
+dimer|7cfo_B	dimer	7cfo	B	P19793	243	dimer_manifest
+dimer|7cfo_C	dimer	7cfo	C	P19793	243	dimer_manifest
+dimer|7cfo_D	dimer	7cfo	D	P19793	243	dimer_manifest
+dimer|2bm2_A	dimer	2bm2	A	P20231	245	dimer_manifest
+dimer|2bm2_B	dimer	2bm2	B	P20231	245	dimer_manifest
+dimer|2bm2_C	dimer	2bm2	C	P20231	245	dimer_manifest
+dimer|2bm2_D	dimer	2bm2	D	P20231	245	dimer_manifest
+dimer|8gm5_A	dimer	8gm5	A	O00418	531	dimer_manifest
+dimer|8gm5_B	dimer	8gm5	B	P0DP23	148	dimer_manifest
+dimer|4euu_A	dimer	4euu	A	Q9UHD2	319	dimer_manifest
+dimer|4euu_B	dimer	4euu	B	Q9UHD2	319	dimer_manifest
+dimer|1mq0_A	dimer	1mq0	A	P32320	140	dimer_manifest
+dimer|1mq0_B	dimer	1mq0	B	P32320	140	dimer_manifest
+dimer|1ivh_A	dimer	1ivh	A	P26440	394	dimer_manifest
+dimer|1ivh_B	dimer	1ivh	B	P26440	394	dimer_manifest
+dimer|1ivh_C	dimer	1ivh	C	P26440	394	dimer_manifest
+dimer|1ivh_D	dimer	1ivh	D	P26440	394	dimer_manifest
+dimer|7t91_A	dimer	7t91	A	P08151	71	dimer_manifest
+dimer|7t91_B	dimer	7t91	B	P08151	71	dimer_manifest
+dimer|4yzu_A	dimer	4yzu	A	P00740	235	dimer_manifest
+dimer|4yzu_B	dimer	4yzu	B	P00740	62	dimer_manifest
+dimer|6asy_A	dimer	6asy	A	P11021	606	dimer_manifest
+dimer|6asy_B	dimer	6asy	B	P11021	606	dimer_manifest
+dimer|3ctz_A	dimer	3ctz	A	Q9NQW7	623	dimer_manifest
+dimer|6zqr_A	dimer	6zqr	A	Q8N539	226	dimer_manifest
+dimer|3hkv_A	dimer	3hkv	A	Q53GL7	217	dimer_manifest
+dimer|3hkv_B	dimer	3hkv	B	Q53GL7	217	dimer_manifest
+dimer|5jw7_A	dimer	5jw7	A	Q8ZNR3	282	dimer_manifest
+dimer|5jw7_B	dimer	5jw7	B	Q9BRZ2	93	dimer_manifest
+dimer|1q7l_A	dimer	1q7l	A	Q03154	198	dimer_manifest
+dimer|1q7l_B	dimer	1q7l	B	Q03154	88	dimer_manifest
+dimer|2ha8_A	dimer	2ha8	A	Q13395	184	dimer_manifest
+dimer|2ha8_B	dimer	2ha8	B	Q13395	184	dimer_manifest
+dimer|6v65_B	dimer	6v65	B	P21359	329	dimer_manifest
+dimer|6v65_C	dimer	6v65	C	P01116	170	dimer_manifest
+dimer|6v65_A	dimer	6v65	A	Q7Z699	113	dimer_manifest
+dimer|4u8d_A	dimer	4u8d	A	P30626	198	dimer_manifest
+dimer|4u8d_B	dimer	4u8d	B	P30626	198	dimer_manifest
+dimer|2vq3_A	dimer	2vq3	A	Q658P3	215	dimer_manifest
+dimer|2vq3_B	dimer	2vq3	B	Q658P3	215	dimer_manifest
+dimer|4cvh_A	dimer	4cvh	A	A4D126	411	dimer_manifest
+dimer|8cd0_A	dimer	8cd0	A	P52848	882	dimer_manifest
+dimer|8cd0_C	dimer	8cd0	C		162	dimer_manifest
+dimer|2rib_A	dimer	2rib	A	P35247	160	dimer_manifest
+dimer|2rib_B	dimer	2rib	B	P35247	160	dimer_manifest
+dimer|2rib_C	dimer	2rib	C	P35247	160	dimer_manifest
+dimer|5wy5_B	dimer	5wy5	B	Q96MG7	217	dimer_manifest
+dimer|5wy5_A	dimer	5wy5	A	Q8WV22	238	dimer_manifest
+dimer|1y4j_A	dimer	1y4j	A	Q8NBJ7	284	dimer_manifest
+dimer|1y4j_B	dimer	1y4j	B	Q8NBJ7	284	dimer_manifest
+dimer|4q9z_A	dimer	4q9z	A	Q04759	334	dimer_manifest
+dimer|4q9z_B	dimer	4q9z	B	Q04759	334	dimer_manifest
+dimer|6i4u_A	dimer	6i4u	A	P09622	496	dimer_manifest
+dimer|6i4u_B	dimer	6i4u	B	P09622	496	dimer_manifest
+dimer|3ojy_A	dimer	3ojy	A	P07357	554	dimer_manifest
+dimer|3ojy_B	dimer	3ojy	B	P07358	537	dimer_manifest
+dimer|3ojy_C	dimer	3ojy	C	P07360	182	dimer_manifest
+dimer|5neg_A	dimer	5neg	A	Q8N8S7	113	dimer_manifest
+dimer|5neg_B	dimer	5neg	B	Q8N8S7	113	dimer_manifest
+dimer|4fzv_A	dimer	4fzv	A	Q96CB9	359	dimer_manifest
+dimer|4fzv_B	dimer	4fzv	B	Q7Z6M4	239	dimer_manifest
+dimer|3ueh_A	dimer	3ueh	A	O15392	146	dimer_manifest
+dimer|3ueh_B	dimer	3ueh	B	O15392	146	dimer_manifest
+dimer|6fzw_A	dimer	6fzw	A	P02461	293	dimer_manifest
+dimer|6fzw_B	dimer	6fzw	B	P02461	293	dimer_manifest
+dimer|6fzw_C	dimer	6fzw	C	P02461	293	dimer_manifest
+dimer|6fzw_D	dimer	6fzw	D	Q15113	265	dimer_manifest
+dimer|7v6p_A	dimer	7v6p	A	P49321	283	dimer_manifest
+dimer|4ueg_A	dimer	4ueg	A	O15488	288	dimer_manifest
+dimer|4ueg_B	dimer	4ueg	B	O15488	288	dimer_manifest
+dimer|5vbn_A	dimer	5vbn	A	P56282	527	dimer_manifest
+dimer|5vbn_B	dimer	5vbn	B	Q07864	145	dimer_manifest
+dimer|3doe_A	dimer	3doe	A	P36404	192	dimer_manifest
+dimer|3doe_B	dimer	3doe	B	Q9Y2Y0	165	dimer_manifest
+dimer|4uxu_A	dimer	4uxu	A	Q9UGM1	218	dimer_manifest
+dimer|4uxu_B	dimer	4uxu	B	Q9UGM1	218	dimer_manifest
+dimer|4chl_A	dimer	4chl	A	O95571	238	dimer_manifest
+dimer|4chl_B	dimer	4chl	B	O95571	238	dimer_manifest
+dimer|6f7h_A	dimer	6f7h	A	Q96PS8	301	dimer_manifest
+dimer|6f7h_B	dimer	6f7h	B	Q96PS8	301	dimer_manifest
+dimer|6f7h_C	dimer	6f7h	C	Q96PS8	301	dimer_manifest
+dimer|6f7h_D	dimer	6f7h	D	Q96PS8	301	dimer_manifest
+dimer|5ahr_A	dimer	5ahr	A	Q6PJP8	343	dimer_manifest
+dimer|5l6w_L	dimer	5l6w	L	P53667	310	dimer_manifest
+dimer|5l6w_C	dimer	5l6w	C	P23528	167	dimer_manifest
+dimer|8k7j_A	dimer	8k7j	A	P06280	398	dimer_manifest
+dimer|8k7j_B	dimer	8k7j	B	P06280	398	dimer_manifest
+dimer|5mq4_A	dimer	5mq4	A	Q9ULU4	127	dimer_manifest
+dimer|5mq4_D	dimer	5mq4	D	Q9ULU4	127	dimer_manifest
+dimer|6dup_A	dimer	6dup	A	O75469	344	dimer_manifest
+dimer|6dup_B	dimer	6dup	B	O75469	344	dimer_manifest
+dimer|4nqd_A	dimer	4nqd	A	Q95460	271	dimer_manifest
+dimer|4nqd_B	dimer	4nqd	B	P61769	99	dimer_manifest
+dimer|7p0p_A	dimer	7p0p	A	Q8N5K1	79	dimer_manifest
+dimer|7p0p_B	dimer	7p0p	B	Q8N5K1	79	dimer_manifest
+dimer|7b51_B	dimer	7b51	B	P62826	182	dimer_manifest
+dimer|7b51_A	dimer	7b51	A	O14980	1060	dimer_manifest
+dimer|6wu7_A	dimer	6wu7	A	Q96Q77	191	dimer_manifest
+dimer|6wu7_B	dimer	6wu7	B	Q96Q77	191	dimer_manifest
+dimer|3ms5_A	dimer	3ms5	A	O75936	388	dimer_manifest
+dimer|2ag5_A	dimer	2ag5	A	Q9BUT1	246	dimer_manifest
+dimer|2ag5_B	dimer	2ag5	B	Q9BUT1	246	dimer_manifest
+dimer|2ag5_C	dimer	2ag5	C	Q9BUT1	246	dimer_manifest
+dimer|2ag5_D	dimer	2ag5	D	Q9BUT1	246	dimer_manifest
+dimer|6yuz_A	dimer	6yuz	A	Q07837	685	dimer_manifest
+dimer|6yuz_C	dimer	6yuz	C	Q07837	685	dimer_manifest
+dimer|7pgm_A	dimer	7pgm	A	Q96QV1	470	dimer_manifest
+dimer|7pgm_B	dimer	7pgm	B	Q96QV1	470	dimer_manifest
+dimer|7pgm_C	dimer	7pgm	C	Q96QV1	470	dimer_manifest
+dimer|2i9p_A	dimer	2i9p	A	P31937	319	dimer_manifest
+dimer|2i9p_B	dimer	2i9p	B	P31937	319	dimer_manifest
+dimer|2i9p_C	dimer	2i9p	C	P31937	319	dimer_manifest
+dimer|2i9p_D	dimer	2i9p	D	P31937	319	dimer_manifest
+dimer|4do4_A	dimer	4do4	A	P17050	400	dimer_manifest
+dimer|4do4_B	dimer	4do4	B	P17050	400	dimer_manifest
+dimer|1yj6_A	dimer	1yj6	A	P09488	218	dimer_manifest
+dimer|1yj6_B	dimer	1yj6	B	P09488	218	dimer_manifest
+dimer|2ax4_A	dimer	2ax4	A	O95340	198	dimer_manifest
+dimer|2ax4_B	dimer	2ax4	B	O95340	198	dimer_manifest
+dimer|4l0d_A	dimer	4l0d	A	P35520	549	dimer_manifest
+dimer|4l0d_B	dimer	4l0d	B	P35520	549	dimer_manifest
+dimer|5olm_A	dimer	5olm	A	P19474	132	dimer_manifest
+dimer|5olm_B	dimer	5olm	B	P19474	132	dimer_manifest
+dimer|4pod_A	dimer	4pod	A	P60174	254	dimer_manifest
+dimer|4pod_B	dimer	4pod	B	P60174	254	dimer_manifest
+dimer|4nzl_A	dimer	4nzl	A	P08246	218	dimer_manifest
+dimer|4nzl_B	dimer	4nzl	B	A0A0H3K0M1,Q99S64	114	dimer_manifest
+dimer|6hpr_A	dimer	6hpr	A	Q13490	65	dimer_manifest
+dimer|6hpr_B	dimer	6hpr	B	P0CG47	81	dimer_manifest
+dimer|6hpr_C	dimer	6hpr	C	P62837	147	dimer_manifest
+dimer|6hpr_D	dimer	6hpr	D	P0CG47	81	dimer_manifest
+dimer|6agi_A	dimer	6agi	A	Q86XE3	382	dimer_manifest
+dimer|6agi_B	dimer	6agi	B	Q86XE3	382	dimer_manifest
+dimer|4bd9_A	dimer	4bd9	A	Q9UI42	310	dimer_manifest
+dimer|4bd9_B	dimer	4bd9	B	P84875	165	dimer_manifest
+dimer|1ey2_A	dimer	1ey2	A	Q93099	471	dimer_manifest
+dimer|2iby_A	dimer	2iby	A	P24752	395	dimer_manifest
+dimer|2iby_B	dimer	2iby	B	P24752	395	dimer_manifest
+dimer|2iby_C	dimer	2iby	C	P24752	395	dimer_manifest
+dimer|2iby_D	dimer	2iby	D	P24752	395	dimer_manifest
+dimer|3oxq_A	dimer	3oxq	A	P0DP23,P62158	149	dimer_manifest
+dimer|3oxq_D	dimer	3oxq	D	P0DP23,P62158	149	dimer_manifest
+dimer|3oxq_E	dimer	3oxq	E	Q13936	78	dimer_manifest
+dimer|7jus_B	dimer	7jus	B	Q6VAB6	342	dimer_manifest
+dimer|7jus_C	dimer	7jus	C	P29678	384	dimer_manifest
+dimer|6ks0_A	dimer	6ks0	A	Q96A54	305	dimer_manifest
+dimer|6ks0_H	dimer	6ks0	H		119	dimer_manifest
+dimer|6ks0_L	dimer	6ks0	L		107	dimer_manifest
+dimer|4bkx_A	dimer	4bkx	A	Q13330	176	dimer_manifest
+dimer|4bkx_B	dimer	4bkx	B	Q13547	482	dimer_manifest
+dimer|6ii6_A	dimer	6ii6	A	,F1CLG9	371	dimer_manifest
+dimer|6ii6_C	dimer	6ii6	C	P61204	172	dimer_manifest
+dimer|2vr2_A	dimer	2vr2	A	Q14117	541	dimer_manifest
+dimer|2y43_A	dimer	2y43	A	Q9NS91	99	dimer_manifest
+dimer|2y43_B	dimer	2y43	B	Q9NS91	99	dimer_manifest
+dimer|6gr8_A	dimer	6gr8	A	Q9UQB9	274	dimer_manifest
+dimer|6gr8_B	dimer	6gr8	B	Q9NQS7	70	dimer_manifest
+dimer|4yhj_A	dimer	4yhj	A	P32298	584	dimer_manifest
+dimer|4yhj_B	dimer	4yhj	B	P32298	584	dimer_manifest
+dimer|2xsx_A	dimer	2xsx	A	P13929	435	dimer_manifest
+dimer|2xsx_B	dimer	2xsx	B	P13929	435	dimer_manifest
+dimer|3hy2_A	dimer	3hy2	A	Q06830	206	dimer_manifest
+dimer|3hy2_B	dimer	3hy2	B	Q06830	206	dimer_manifest
+dimer|3hy2_X	dimer	3hy2	X	Q9BYN0	110	dimer_manifest
+dimer|3hy2_Y	dimer	3hy2	Y	Q9BYN0	110	dimer_manifest
+dimer|7wdb_A	dimer	7wdb	A	Q9UL62	764	dimer_manifest
+dimer|7wdb_B	dimer	7wdb	B	Q9UL62	764	dimer_manifest
+dimer|7wdb_C	dimer	7wdb	C	Q9UL62	764	dimer_manifest
+dimer|7wdb_D	dimer	7wdb	D	Q9UL62	764	dimer_manifest
+dimer|1ete_A	dimer	1ete	A	P49771	134	dimer_manifest
+dimer|1ete_B	dimer	1ete	B	P49771	134	dimer_manifest
+dimer|2ns2_A	dimer	2ns2	A	Q9Y657	242	dimer_manifest
+dimer|2ns2_B	dimer	2ns2	B	Q9Y657	242	dimer_manifest
+dimer|4jps_A	dimer	4jps	A	P42336	1074	dimer_manifest
+dimer|4jps_B	dimer	4jps	B	P27986	293	dimer_manifest
+dimer|6ds6_A	dimer	6ds6	A	Q09472	57	dimer_manifest
+dimer|1orf_A	dimer	1orf	A	P12544	234	dimer_manifest
+dimer|6hcz_A	dimer	6hcz	A	O60232	199	dimer_manifest
+dimer|6hcz_B	dimer	6hcz	B	O60232	199	dimer_manifest
+dimer|8uvb_A	dimer	8uvb	A	Q86YT5	568	dimer_manifest
+dimer|8uvb_B	dimer	8uvb	B	Q86YT5	568	dimer_manifest
+dimer|4zlp_A	dimer	4zlp	A	Q9UM47	271	dimer_manifest
+dimer|4zlp_B	dimer	4zlp	B	Q9UM47	271	dimer_manifest
+dimer|2j8z_A	dimer	2j8z	A	Q53FA7	354	dimer_manifest
+dimer|1yb1_A	dimer	1yb1	A	Q8NBQ5	272	dimer_manifest
+dimer|1yb1_B	dimer	1yb1	B	Q8NBQ5	272	dimer_manifest
+dimer|5j5t_A	dimer	5j5t	A	Q8IVH8	370	dimer_manifest
+dimer|7jof_A	dimer	7jof	A	O75923	137	dimer_manifest
+dimer|7jof_B	dimer	7jof	B	O75923	137	dimer_manifest
+dimer|6pol_A	dimer	6pol	A	Q96MS0	114	dimer_manifest
+dimer|6pol_B	dimer	6pol	B	Q92832	139	dimer_manifest
+dimer|6usc_A	dimer	6usc	A	Q8WWA0	279	dimer_manifest
+dimer|7ah6_A	dimer	7ah6	A	P14902	423	dimer_manifest
+dimer|7ah6_B	dimer	7ah6	B	P14902	423	dimer_manifest
+dimer|1yb5_A	dimer	1yb5	A	Q08257	351	dimer_manifest
+dimer|1yb5_B	dimer	1yb5	B	Q08257	351	dimer_manifest
+dimer|3kuc_A	dimer	3kuc	A	P62834	167	dimer_manifest
+dimer|3kuc_B	dimer	3kuc	B	P04049	81	dimer_manifest
+dimer|7zh4_C	dimer	7zh4	C	P62987	80	dimer_manifest
+dimer|7zh4_D	dimer	7zh4	D	O94782	786	dimer_manifest
+dimer|7qie_A	dimer	7qie	A	Q8TBX8	363	dimer_manifest
+dimer|7qie_B	dimer	7qie	B	Q8TBX8	363	dimer_manifest
+dimer|6fe5_A	dimer	6fe5	A	Q04609	707	dimer_manifest
+dimer|4umo_A	dimer	4umo	A	P51787	112	dimer_manifest
+dimer|4umo_B	dimer	4umo	B	P51787	112	dimer_manifest
+dimer|4umo_C	dimer	4umo	C	P0DP23,P62158	149	dimer_manifest
+dimer|4umo_D	dimer	4umo	D	P0DP23,P62158	149	dimer_manifest
+dimer|7env_A	dimer	7env	A	P25440	122	dimer_manifest
+dimer|7env_B	dimer	7env	B	P25440	122	dimer_manifest
+dimer|5txk_A	dimer	5txk	A	Q9P2H5	372	dimer_manifest
+dimer|5txk_B	dimer	5txk	B	J3QS39,P0CG47	76	dimer_manifest
+dimer|3l33_A	dimer	3l33	A	P35030	224	dimer_manifest
+dimer|3l33_E	dimer	3l33	E	P05067	52	dimer_manifest
+dimer|6ndh_A	dimer	6ndh	A	D2YW39	135	dimer_manifest
+dimer|6ndh_B	dimer	6ndh	B	D2YW40	124	dimer_manifest
+dimer|6ndh_C	dimer	6ndh	C	P17301	217	dimer_manifest
+dimer|5w21_A	dimer	5w21	A	Q9UEF7	981	dimer_manifest
+dimer|5w21_B	dimer	5w21	B	Q9GZV9	226	dimer_manifest
+dimer|5w21_C	dimer	5w21	C	P11362	226	dimer_manifest
+dimer|7mon_A	dimer	7mon	A	Q8NB16	287	dimer_manifest
+dimer|7mon_B	dimer	7mon	B	Q9Y572	316	dimer_manifest
+dimer|3qfa_A	dimer	3qfa	A	Q16881	519	dimer_manifest
+dimer|3qfa_B	dimer	3qfa	B	Q16881	519	dimer_manifest
+dimer|3qfa_C	dimer	3qfa	C	P10599	116	dimer_manifest
+dimer|3qfa_D	dimer	3qfa	D	P10599	116	dimer_manifest
+dimer|5tjh_A	dimer	5tjh	A	O60701	494	dimer_manifest
+dimer|5tjh_B	dimer	5tjh	B	O60701	494	dimer_manifest
+dimer|5tjh_C	dimer	5tjh	C	O60701	494	dimer_manifest
+dimer|5tjh_D	dimer	5tjh	D	O60701	494	dimer_manifest
+dimer|5tjh_E	dimer	5tjh	E	O60701	494	dimer_manifest
+dimer|5tjh_F	dimer	5tjh	F	O60701	494	dimer_manifest
+dimer|4pcw_A	dimer	4pcw	A	P20930	94	dimer_manifest
+dimer|4pcw_B	dimer	4pcw	B	P20930	94	dimer_manifest
+dimer|6f2u_A	dimer	6f2u	A	P42330	314	dimer_manifest
+dimer|6f2u_B	dimer	6f2u	B	P42330	314	dimer_manifest
+dimer|8fn8_A	dimer	8fn8	A	P24821	231	dimer_manifest
+dimer|8fn8_B	dimer	8fn8	B	P23471	106	dimer_manifest
+dimer|7jg0_A	dimer	7jg0	A	P22102	210	dimer_manifest
+dimer|3qbt_A	dimer	3qbt	A	P61006	174	dimer_manifest
+dimer|3qbt_B	dimer	3qbt	B	Q01968	140	dimer_manifest
+dimer|4zzi_A	dimer	4zzi	A	Q96EB6	356	dimer_manifest
+dimer|1wuu_A	dimer	1wuu	A	P51570	399	dimer_manifest
+dimer|1wuu_B	dimer	1wuu	B	P51570	399	dimer_manifest
+dimer|2vxo_A	dimer	2vxo	A	P49915	697	dimer_manifest
+dimer|2vxo_B	dimer	2vxo	B	P49915	697	dimer_manifest
+dimer|4d6q_A	dimer	4d6q	A	Q6B0I6	343	dimer_manifest
+dimer|8q6l_AAA	dimer	8q6l	AAA	P00915	261	dimer_manifest
+dimer|8q6l_BBB	dimer	8q6l	BBB	P00915	261	dimer_manifest
+dimer|6pnx_A	dimer	6pnx	A	P22607	324	dimer_manifest
+dimer|6pnx_B	dimer	6pnx	B	P22607	324	dimer_manifest
+dimer|7eqv_A	dimer	7eqv	A	O75164	348	dimer_manifest
+dimer|5l0d_A	dimer	5l0d	A	P18206	172	dimer_manifest
+dimer|5l0d_B	dimer	5l0d	B	P18206	172	dimer_manifest
+dimer|4m6r_A	dimer	4m6r	A	Q96GX9	224	dimer_manifest
+dimer|4m6r_B	dimer	4m6r	B	Q96GX9	224	dimer_manifest
+dimer|4m6r_C	dimer	4m6r	C	Q96GX9	224	dimer_manifest
+dimer|4m6r_D	dimer	4m6r	D	Q96GX9	224	dimer_manifest
+dimer|2bov_A	dimer	2bov	A	P11233	206	dimer_manifest
+dimer|2bov_B	dimer	2bov	B	P15879	251	dimer_manifest
+dimer|4kik_A	dimer	4kik	A	O14920	677	dimer_manifest
+dimer|4kik_B	dimer	4kik	B	O14920	677	dimer_manifest
+dimer|1tdi_A	dimer	1tdi	A	Q16772	222	dimer_manifest
+dimer|1tdi_B	dimer	1tdi	B	Q16772	222	dimer_manifest
+dimer|8rok_A	dimer	8rok	A	Q9UQE7	462	dimer_manifest
+dimer|8rok_B	dimer	8rok	B	O60216	110	dimer_manifest
+dimer|2psr_A	dimer	2psr	A	P31151	100	dimer_manifest
+dimer|4onm_A	dimer	4onm	A	Q15819	153	dimer_manifest
+dimer|4onm_B	dimer	4onm	B	P61088	160	dimer_manifest
+dimer|5ohh_B	dimer	5ohh	B	Q8N1Q1	263	dimer_manifest
+dimer|5ohh_A	dimer	5ohh	A	Q8N1Q1	263	dimer_manifest
+dimer|3llm_A	dimer	3llm	A	Q08211	235	dimer_manifest
+dimer|3llm_B	dimer	3llm	B	Q08211	235	dimer_manifest
+dimer|6fvz_A	dimer	6fvz	A	P27338	520	dimer_manifest
+dimer|6fvz_B	dimer	6fvz	B	P27338	520	dimer_manifest
+dimer|8q8g_A	dimer	8q8g	A	O43148	276	dimer_manifest
+dimer|8q8g_B	dimer	8q8g	B	O43148	276	dimer_manifest
+dimer|8cyo_B	dimer	8cyo	B	P43354	249	dimer_manifest
+dimer|8cyo_A	dimer	8cyo	A	P43354	249	dimer_manifest
+dimer|2nz2_A	dimer	2nz2	A	P00966	413	dimer_manifest
+dimer|5htk_A	dimer	5htk	A	O60825	505	dimer_manifest
+dimer|5htk_B	dimer	5htk	B	O60825	505	dimer_manifest
+dimer|5owt_A	dimer	5owt	A	Q9H2K2	240	dimer_manifest
+dimer|5owt_B	dimer	5owt	B	Q9H2K2	240	dimer_manifest
+dimer|6hpq_A	dimer	6hpq	A	Q9H611	418	dimer_manifest
+dimer|6hpq_B	dimer	6hpq	B	Q9H611	418	dimer_manifest
+dimer|8vof_A	dimer	8vof	A	Q9UBF8	529	dimer_manifest
+dimer|8vof_B	dimer	8vof	B	P62491	216	dimer_manifest
+dimer|3dh1_A	dimer	3dh1	A	Q7Z6V5	189	dimer_manifest
+dimer|3dh1_D	dimer	3dh1	D	Q7Z6V5	189	dimer_manifest
+dimer|4cur_A	dimer	4cur	A	Q9UIF8	117	dimer_manifest
+dimer|8oxc_A	dimer	8oxc	A	O43520	1185	dimer_manifest
+dimer|8oxc_B	dimer	8oxc	B	Q9NV96	365	dimer_manifest
+dimer|6yb8_A	dimer	6yb8	A	P22234	425	dimer_manifest
+dimer|6yb8_B	dimer	6yb8	B	P22234	425	dimer_manifest
+dimer|3ee6_A	dimer	3ee6	A	O14773	571	dimer_manifest
+dimer|3ee6_B	dimer	3ee6	B	O14773	571	dimer_manifest
+dimer|5cvm_A	dimer	5cvm	A	P62068	358	dimer_manifest
+dimer|5cvm_B	dimer	5cvm	B	P0CG47	96	dimer_manifest
+dimer|9bgl_A	dimer	9bgl	A	Q7Z2W4	229	dimer_manifest
+dimer|9bgl_B	dimer	9bgl	B	O15037	55	dimer_manifest
+dimer|4a3n_A	dimer	4a3n	A	Q9H6I2	71	dimer_manifest
+dimer|4hi8_A	dimer	4hi8	A	Q13418	179	dimer_manifest
+dimer|4hi8_B	dimer	4hi8	B	P48059	72	dimer_manifest
+dimer|2rak_A	dimer	2rak	A	Q9Y5X1	392	dimer_manifest
+dimer|4ora_A	dimer	4ora	A	P16298	544	dimer_manifest
+dimer|4ora_B	dimer	4ora	B	P63098	170	dimer_manifest
+dimer|6tp5_A	dimer	6tp5	A	Q9NXG6	421	dimer_manifest
+dimer|6tp5_B	dimer	6tp5	B	Q9NXG6	421	dimer_manifest
+dimer|4pte_A	dimer	4pte	A	P49841	441	dimer_manifest
+dimer|4pte_B	dimer	4pte	B	P49841	441	dimer_manifest
+dimer|2nut_A	dimer	2nut	A	Q15436	769	dimer_manifest
+dimer|2nut_B	dimer	2nut	B	O95486	753	dimer_manifest
+dimer|2nut_C	dimer	2nut	C	O75396	196	dimer_manifest
+dimer|6omn_E	dimer	6omn	E	P12643	108	dimer_manifest
+dimer|6omn_F	dimer	6omn	F	P12643	108	dimer_manifest
+dimer|8qm9_A	dimer	8qm9	A	P06730	215	dimer_manifest
+dimer|8qm9_B	dimer	8qm9	B	P06730	215	dimer_manifest
+dimer|3qnu_A	dimer	3qnu	A	Q8WXF7	459	dimer_manifest
+dimer|4iy0_A	dimer	4iy0	A	Q9H8M5	156	dimer_manifest
+dimer|2v40_A	dimer	2v40	A	P30520	459	dimer_manifest
+dimer|2fcw_A	dimer	2fcw	A	P30533	109	dimer_manifest
+dimer|2fcw_B	dimer	2fcw	B	P01130	80	dimer_manifest
+dimer|1au1_A	dimer	1au1	A	P01574	166	dimer_manifest
+dimer|1au1_B	dimer	1au1	B	P01574	166	dimer_manifest
+dimer|3q3g_C	dimer	3q3g	C		220	dimer_manifest
+dimer|3q3g_D	dimer	3q3g	D		224	dimer_manifest
+dimer|3q3g_G	dimer	3q3g	G	P11215	190	dimer_manifest
+dimer|4ic2_A	dimer	4ic2	A	P98170	74	dimer_manifest
+dimer|4ic2_B	dimer	4ic2	B	P98170	74	dimer_manifest
+dimer|6ei1_A	dimer	6ei1	A	Q96AP4	347	dimer_manifest
+dimer|6ei1_B	dimer	6ei1	B	P0CG47	75	dimer_manifest
+dimer|1itq_A	dimer	1itq	A	P16444	369	dimer_manifest
+dimer|1itq_B	dimer	1itq	B	P16444	369	dimer_manifest
+dimer|4m3p_A	dimer	4m3p	A	Q93088	406	dimer_manifest
+dimer|4m3p_B	dimer	4m3p	B	Q93088	406	dimer_manifest
+dimer|4m3p_C	dimer	4m3p	C	Q93088	406	dimer_manifest
+dimer|4m3p_D	dimer	4m3p	D	Q93088	406	dimer_manifest
+dimer|8rd7_A	dimer	8rd7	A	Q7Z6Z7	91	dimer_manifest
+dimer|8rd7_B	dimer	8rd7	B	Q7Z6Z7	91	dimer_manifest
+dimer|8rd7_C	dimer	8rd7	C	Q7Z6Z7	91	dimer_manifest
+dimer|8rd7_D	dimer	8rd7	D	Q7Z6Z7	91	dimer_manifest
+dimer|8egw_A	dimer	8egw	A	Q96JQ0	317	dimer_manifest
+dimer|8egw_B	dimer	8egw	B	Q6V0I7	467	dimer_manifest
+dimer|6x28_A	dimer	6x28	A	Q99814	115	dimer_manifest
+dimer|6x28_B	dimer	6x28	B	P27540	118	dimer_manifest
+dimer|2psn_A	dimer	2psn	A	P06733	434	dimer_manifest
+dimer|2psn_B	dimer	2psn	B	P06733	434	dimer_manifest
+dimer|6cfu_A	dimer	6cfu	A	Q92871	262	dimer_manifest
+dimer|3w6n_A	dimer	3w6n	A	O00429	364	dimer_manifest
+dimer|3w6n_B	dimer	3w6n	B	O00429	364	dimer_manifest
+dimer|1hh4_A	dimer	1hh4	A	P15154,P63000	192	dimer_manifest
+dimer|1hh4_D	dimer	1hh4	D	P52565	204	dimer_manifest
+dimer|5a6n_A	dimer	5a6n	A	O43293	283	dimer_manifest
+dimer|5a6n_B	dimer	5a6n	B	O43293	283	dimer_manifest
+dimer|4msv_B	dimer	4msv	B	O95407	174	dimer_manifest
+dimer|4msv_A	dimer	4msv	A	P48023	152	dimer_manifest
+dimer|4hhv_A	dimer	4hhv	A	Q9Y5P4	105	dimer_manifest
+dimer|4hhv_B	dimer	4hhv	B	Q9Y5P4	105	dimer_manifest
+dimer|1uou_A	dimer	1uou	A	P19971	474	dimer_manifest
+dimer|4wxv_A	dimer	4wxv	A	P07477	224	dimer_manifest
+dimer|4wxv_C	dimer	4wxv	C	P00974	55	dimer_manifest
+dimer|4mhx_A	dimer	4mhx	A	P51688	510	dimer_manifest
+dimer|4mhx_B	dimer	4mhx	B	P51688	510	dimer_manifest
+dimer|7pfs_A	dimer	7pfs	A	Q6P179	963	dimer_manifest
+dimer|7pfs_B	dimer	7pfs	B	Q6P179	963	dimer_manifest
+dimer|3n1g_B	dimer	3n1g	B	O43323	170	dimer_manifest
+dimer|3n1g_C	dimer	3n1g	C	Q9BWV1	111	dimer_manifest
+dimer|8qf1_A	dimer	8qf1	A	P19784	364	dimer_manifest
+dimer|8qf1_B	dimer	8qf1	B	P19784	364	dimer_manifest
+dimer|4a6d_A	dimer	4a6d	A	P46597	353	dimer_manifest
+dimer|2i0g_A	dimer	2i0g	A	Q92731	257	dimer_manifest
+dimer|2i0g_B	dimer	2i0g	B	Q92731	257	dimer_manifest
+dimer|5fwt_A	dimer	5fwt	A	Q96MU8	406	dimer_manifest
+dimer|6wrw_A	dimer	6wrw	A	P02786	640	dimer_manifest
+dimer|6wrw_B	dimer	6wrw	B	P02786	640	dimer_manifest
+dimer|6wrw_C	dimer	6wrw	C		88	dimer_manifest
+dimer|6wrw_D	dimer	6wrw	D		88	dimer_manifest
+dimer|2etk_A	dimer	2etk	A	Q13464	415	dimer_manifest
+dimer|2etk_B	dimer	2etk	B	Q13464	415	dimer_manifest
+dimer|4nef_A	dimer	4nef	A	P41181	242	dimer_manifest
+dimer|4nef_B	dimer	4nef	B	P41181	242	dimer_manifest
+dimer|4nef_C	dimer	4nef	C	P41181	242	dimer_manifest
+dimer|4nef_D	dimer	4nef	D	P41181	242	dimer_manifest
+dimer|8oud_A	dimer	8oud	A	Q15758	541	dimer_manifest
+dimer|8oud_B	dimer	8oud	B	Q15758	541	dimer_manifest
+dimer|8oud_C	dimer	8oud	C	Q15758	541	dimer_manifest
+dimer|8oud_D	dimer	8oud	D		126	dimer_manifest
+dimer|8oud_E	dimer	8oud	E		126	dimer_manifest
+dimer|8oud_F	dimer	8oud	F		126	dimer_manifest
+dimer|2j0t_A	dimer	2j0t	A	P03956	170	dimer_manifest
+dimer|2j0t_D	dimer	2j0t	D	P01033	126	dimer_manifest
+dimer|5ak4_A	dimer	5ak4	A	P34913	549	dimer_manifest
+dimer|1s1q_A	dimer	1s1q	A	Q99816	145	dimer_manifest
+dimer|1s1q_B	dimer	1s1q	B	P0CG48,P62988	76	dimer_manifest
+dimer|5vxz_A	dimer	5vxz	A	Q14393	395	dimer_manifest
+dimer|5vxz_C	dimer	5vxz	C	P30530	102	dimer_manifest
+dimer|1u7t_A	dimer	1u7t	A	Q99714	261	dimer_manifest
+dimer|1u7t_B	dimer	1u7t	B	Q99714	261	dimer_manifest
+dimer|1u7t_C	dimer	1u7t	C	Q99714	261	dimer_manifest
+dimer|1u7t_D	dimer	1u7t	D	Q99714	261	dimer_manifest
+dimer|1hso_A	dimer	1hso	A	P07327	374	dimer_manifest
+dimer|1hso_B	dimer	1hso	B	P07327	374	dimer_manifest
+dimer|6c09_A	dimer	6c09	A	P29017	287	dimer_manifest
+dimer|6c09_B	dimer	6c09	B	P61769	108	dimer_manifest
+dimer|6c09_C	dimer	6c09	C		205	dimer_manifest
+dimer|6c09_D	dimer	6c09	D		247	dimer_manifest
+dimer|5sxh_A	dimer	5sxh	A	Q9UH17	185	dimer_manifest
+dimer|5sxh_B	dimer	5sxh	B	Q9UH17	185	dimer_manifest
+dimer|1gxr_A	dimer	1gxr	A	Q04724	337	dimer_manifest
+dimer|1gxr_B	dimer	1gxr	B	Q04724	337	dimer_manifest

@@ -1,0 +1,11 @@
+{
+ "n_checked": 24737,
+ "train_source_chains": 17496,
+ "source_chains_hitting_test": [],
+ "dropped_test": 0,
+ "dropped_dev_vs_train": 1,
+ "remaining": {
+  "train": 6644,
+  "dev": 596
+ }
+}

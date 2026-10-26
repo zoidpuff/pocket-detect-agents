@@ -1,0 +1,202 @@
+{
+ "n_test_structures": 21211,
+ "n_train_dev_structures": 7240,
+ "write_errors": 40,
+ "write_error_examples": [
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/coach420__148l_S.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/coach420__1p4n_B.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/coach420__1sgc_B.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/coach420__1ytj_I.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/coach420__2hob_B.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/holo4k__1apv_I.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/holo4k__1apw_I.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/holo4k__1bc5_T.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/holo4k__1c5z_A.pdb'), 'too_small')",
+  "(PosixPath('/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/train/work/foldseek/test/holo4k__1g37_B.pdb'), 'too_small')"
+ ],
+ "test_strata": [
+  {
+   "source_set": "af_set",
+   "stratum": "0.5-0.7",
+   "n": 892
+  },
+  {
+   "source_set": "af_set",
+   "stratum": "<0.5",
+   "n": 401
+  },
+  {
+   "source_set": "af_set",
+   "stratum": "<0.5 (no_hit)",
+   "n": 771
+  },
+  {
+   "source_set": "af_set",
+   "stratum": ">0.7",
+   "n": 1409
+  },
+  {
+   "source_set": "coach420",
+   "stratum": "0.5-0.7",
+   "n": 88
+  },
+  {
+   "source_set": "coach420",
+   "stratum": "<0.5",
+   "n": 20
+  },
+  {
+   "source_set": "coach420",
+   "stratum": "<0.5 (no_hit)",
+   "n": 166
+  },
+  {
+   "source_set": "coach420",
+   "stratum": ">0.7",
+   "n": 185
+  },
+  {
+   "source_set": "cryptobench",
+   "stratum": "0.5-0.7",
+   "n": 1173
+  },
+  {
+   "source_set": "cryptobench",
+   "stratum": "<0.5",
+   "n": 165
+  },
+  {
+   "source_set": "cryptobench",
+   "stratum": "<0.5 (no_hit)",
+   "n": 3039
+  },
+  {
+   "source_set": "cryptobench",
+   "stratum": ">0.7",
+   "n": 2242
+  },
+  {
+   "source_set": "dimer",
+   "stratum": "0.5-0.7",
+   "n": 119
+  },
+  {
+   "source_set": "dimer",
+   "stratum": "<0.5",
+   "n": 32
+  },
+  {
+   "source_set": "dimer",
+   "stratum": "<0.5 (no_hit)",
+   "n": 585
+  },
+  {
+   "source_set": "dimer",
+   "stratum": ">0.7",
+   "n": 185
+  },
+  {
+   "source_set": "holo4k",
+   "stratum": "0.5-0.7",
+   "n": 907
+  },
+  {
+   "source_set": "holo4k",
+   "stratum": "<0.5",
+   "n": 139
+  },
+  {
+   "source_set": "holo4k",
+   "stratum": "<0.5 (no_hit)",
+   "n": 1402
+  },
+  {
+   "source_set": "holo4k",
+   "stratum": ">0.7",
+   "n": 2217
+  },
+  {
+   "source_set": "ligysis",
+   "stratum": "0.5-0.7",
+   "n": 394
+  },
+  {
+   "source_set": "ligysis",
+   "stratum": "<0.5",
+   "n": 126
+  },
+  {
+   "source_set": "ligysis",
+   "stratum": "<0.5 (no_hit)",
+   "n": 1713
+  },
+  {
+   "source_set": "ligysis",
+   "stratum": ">0.7",
+   "n": 542
+  },
+  {
+   "source_set": "ligysis_extra",
+   "stratum": "0.5-0.7",
+   "n": 67
+  },
+  {
+   "source_set": "ligysis_extra",
+   "stratum": "<0.5",
+   "n": 21
+  },
+  {
+   "source_set": "ligysis_extra",
+   "stratum": "<0.5 (no_hit)",
+   "n": 461
+  },
+  {
+   "source_set": "ligysis_extra",
+   "stratum": ">0.7",
+   "n": 123
+  },
+  {
+   "source_set": "pocketminer",
+   "stratum": "0.5-0.7",
+   "n": 19
+  },
+  {
+   "source_set": "pocketminer",
+   "stratum": "<0.5",
+   "n": 2
+  },
+  {
+   "source_set": "pocketminer",
+   "stratum": "<0.5 (no_hit)",
+   "n": 17
+  },
+  {
+   "source_set": "pocketminer",
+   "stratum": ">0.7",
+   "n": 23
+  },
+  {
+   "source_set": "pocketwatch_test",
+   "stratum": "0.5-0.7",
+   "n": 446
+  },
+  {
+   "source_set": "pocketwatch_test",
+   "stratum": "<0.5",
+   "n": 124
+  },
+  {
+   "source_set": "pocketwatch_test",
+   "stratum": "<0.5 (no_hit)",
+   "n": 148
+  },
+  {
+   "source_set": "pocketwatch_test",
+   "stratum": ">0.7",
+   "n": 848
+  }
+ ],
+ "fold_disjoint_train_fraction": 0.6044551475015051,
+ "fold_disjoint_train_entries": 4016,
+ "train_tm_ge_0p6_fraction": 0.3430162552679109
+}
