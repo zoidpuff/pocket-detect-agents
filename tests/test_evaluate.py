@@ -220,8 +220,14 @@ def test_compare_methods():
     assert out["diff_ligand_ci"][0] > 0 and out["p_bootstrap_ligand"] < 0.01
     same = compare_methods(a, a, "success_DCA4_topn", n_boot=200)
     assert same["diff_ligand"] == 0 and same["p_mcnemar_exact"] == 1.0 and same["p_bootstrap_ligand"] == 1.0
-    with pytest.raises(ValueError):
-        compare_methods(a, b.iloc[:-1], "success_DCA4_topn")
+    # a ligand missing from B's table counts as a miss for B (failures = misses), not dropped
+    out2 = compare_methods(a, b.iloc[:-1], "success_DCA4_topn", n_boot=200)
+    assert out2["n_ligands"] == 20 and out2["n_filled_as_miss"] == 1
+    assert out2["b_ligand"] == pytest.approx(9 / 20)  # p19 (a hit for B) became a miss
+    # grouped resampling: all structures in one unit -> degenerate CI
+    g = {f"p{i}": "u0" for i in range(20)}
+    out3 = compare_methods(a, b, "success_DCA4_topn", n_boot=200, groups=g)
+    assert out3["n_units"] == 1 and out3["diff_ligand_ci"][0] == out3["diff_ligand_ci"][1] == pytest.approx(0.5)
 
 
 def test_write_read_roundtrip(tmp_path):

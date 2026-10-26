@@ -1,0 +1,33 @@
+{
+  "n_sites_all": 6882,
+  "n_sites_scored": 6721,
+  "n_chains": 2775,
+  "scored_set_equals_authors_NR_refs": true,
+  "N_matches_authors": true,
+  "frame_check_fpocket+PRANK": {
+    "orig_frame_counts": [
+      3283,
+      4061,
+      6136
+    ],
+    "trans_frame_counts_no_residues": [
+      3283,
+      4061,
+      6136
+    ],
+    "max_abs_dcc_diff": 0.8400000000000007
+  },
+  "frame_check_P2Rank": {
+    "orig_frame_counts": [
+      3141,
+      3491,
+      3831
+    ],
+    "trans_frame_counts_no_residues": [
+      3141,
+      3491,
+      3831
+    ],
+    "max_abs_dcc_diff": 1.2599999999999998
+  }
+}

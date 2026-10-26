@@ -365,6 +365,7 @@ def evaluate(
     n_boot: int = 1000,
     seed: int = BOOTSTRAP_SEED,
     topk: Sequence[int] = TOPK,
+    groups: Mapping[str, str] | None = None,
 ) -> EvalResult:
     """Evaluate predictions for a dataset. Structures without prediction file count as
     zero predictions (``pred_missing``). Structures with no relevant ligand are kept in the
@@ -384,7 +385,7 @@ def evaluate(
     ligands = pd.DataFrame(lig_rows)
     proteins = pd.DataFrame(prot_rows)
     pockets_df = pd.concat(pockets, ignore_index=True) if pockets else pd.DataFrame()
-    summary = summarize(ligands, proteins, pockets_df, n_boot=n_boot, seed=seed)
+    summary = summarize(ligands, proteins, pockets_df, n_boot=n_boot, seed=seed, groups=groups)
     info = {
         "n_structures": len(gts),
         "n_structures_no_ligands": int((proteins["n_ligands"] == 0).sum()) if len(proteins) else 0,
@@ -449,14 +450,24 @@ def summarize(
     pockets: pd.DataFrame,
     n_boot: int = 1000,
     seed: int = BOOTSTRAP_SEED,
+    groups: Mapping[str, str] | None = None,
 ) -> pd.DataFrame:
     """Summary table: one row per (metric, average) with value and percentile bootstrap 95% CI
-    from resampling proteins (structures with >=1 relevant ligand) with replacement."""
+    from resampling proteins (structures with >=1 relevant ligand) with replacement — or, if
+    ``groups`` (structure_id -> unit, e.g. 30 % sequence cluster) is given, resampling units, each
+    structure inheriting its unit's multiplicity (PREREG cluster bootstrap)."""
     prots = proteins[proteins["n_ligands"] > 0].reset_index(drop=True)
     sids = prots["structure_id"].to_numpy()
     n_p = len(sids)
     pos = {s: i for i, s in enumerate(sids)}
-    W = _bootstrap_weights(n_p, n_boot, seed) if (n_boot and n_p) else None
+    W = None
+    if n_boot and n_p:
+        if groups:
+            units = np.array([groups.get(s, s) for s in sids])
+            unames, uidx = np.unique(units, return_inverse=True)
+            W = _bootstrap_weights(len(unames), n_boot, seed)[:, uidx]
+        else:
+            W = _bootstrap_weights(n_p, n_boot, seed)
     rows = []
 
     def add(metric, average, num, den, n_units):
@@ -566,21 +577,30 @@ def compare_methods(
     metric: str = "success_DCA4_topn2",
     n_boot: int = 10000,
     seed: int = BOOTSTRAP_SEED,
+    groups: Mapping[str, str] | None = None,
 ) -> dict:
     """Paired comparison of two methods on the same ligands (same ground truth required).
 
-    Returns rates (ligand- and protein-averaged), difference A-B with paired cluster-bootstrap
-    95% CI and two-sided bootstrap p-value (resampling proteins, keeping pairs), and an exact
-    McNemar test on per-ligand discordant pairs (assumes ligand independence; prefer the
-    bootstrap when proteins have several ligands)."""
+    Failures count as misses: for ``success_*`` metrics a ligand row missing in one table (or a NaN
+    value) is a miss (0) for that method (``n_filled_as_miss`` reports how many); other metrics drop
+    NaN pairs (``n_dropped``). Resampling unit: ``groups[structure_id]`` (e.g. 30 % sequence
+    cluster) or the structure itself. Returns rates (ligand- and protein-averaged), difference A-B
+    with paired cluster-bootstrap 95% CI and two-sided bootstrap p-value, and an exact McNemar test
+    on per-ligand discordant pairs (assumes ligand independence; prefer the bootstrap)."""
     key = ["structure_id", "ligand_id"]
     a = lig_a[key + [metric]].rename(columns={metric: "a"})
     b = lig_b[key + [metric]].rename(columns={metric: "b"})
     m = a.merge(b, on=key, how="outer", indicator=True)
-    if (m["_merge"] != "both").any():
-        bad = m[m["_merge"] != "both"]
-        raise ValueError(f"ligand sets differ between methods ({len(bad)} unmatched rows); evaluate both with the same ground truth")
-    m = m.dropna(subset=["a", "b"])
+    n_unmatched = int((m["_merge"] != "both").sum())
+    if metric.startswith("success_"):
+        n_filled = int(m[["a", "b"]].isna().any(axis=1).sum())
+        m[["a", "b"]] = m[["a", "b"]].astype(float).fillna(0.0)
+        n_dropped = 0
+    else:
+        n_filled = 0
+        before = len(m)
+        m = m.dropna(subset=["a", "b"])
+        n_dropped = before - len(m)
     xa = m["a"].to_numpy(dtype=float)
     xb = m["b"].to_numpy(dtype=float)
     sids, pidx = np.unique(m["structure_id"].to_numpy(), return_inverse=True)
@@ -588,7 +608,10 @@ def compare_methods(
     na = np.bincount(pidx, weights=xa, minlength=n_p)
     nb = np.bincount(pidx, weights=xb, minlength=n_p)
     den = np.bincount(pidx, minlength=n_p).astype(float)
-    W = _bootstrap_weights(n_p, n_boot, seed)
+    units = np.array([(groups or {}).get(s, s) for s in sids])
+    unames, uidx = np.unique(units, return_inverse=True)
+    Wu = _bootstrap_weights(len(unames), n_boot, seed)
+    W = Wu[:, uidx]  # structures inherit the multiplicity of their unit
     d_lig = (W @ (na - nb)) / (W @ den)
     d_prot = (W @ ((na - nb) / den)) / W.sum(axis=1)
     diff_lig = (na - nb).sum() / den.sum()
@@ -601,6 +624,10 @@ def compare_methods(
         "metric": metric,
         "n_ligands": int(len(m)),
         "n_proteins": int(n_p),
+        "n_units": int(len(unames)),
+        "n_unmatched_rows": n_unmatched,
+        "n_filled_as_miss": n_filled,
+        "n_dropped": n_dropped,
         "a_ligand": float(xa.mean()),
         "b_ligand": float(xb.mean()),
         "diff_ligand": float(diff_lig),

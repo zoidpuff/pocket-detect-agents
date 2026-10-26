@@ -1,0 +1,30 @@
+{
+  "redundancy_filter_identical": true,
+  "n_nr_theirs": 6721,
+  "P2Rank": {
+    "their_code_counts": {
+      "0": 3141,
+      "2": 3491,
+      "1000": 3831
+    },
+    "our_counts_from_same_raw_preds": {
+      "0": 3141,
+      "2": 3491,
+      "1000": 3831
+    },
+    "seconds": 17.4
+  },
+  "GrASP": {
+    "their_code_counts": {
+      "0": 3224,
+      "2": 3352,
+      "1000": 3358
+    },
+    "our_counts_from_same_raw_preds": {
+      "0": 3224,
+      "2": 3352,
+      "1000": 3358
+    },
+    "seconds": 12.9
+  }
+}

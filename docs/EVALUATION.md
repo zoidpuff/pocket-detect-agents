@@ -79,14 +79,9 @@ ligand residue (first conformer + atoms present only in later conformers).
 Every non-water HETATM/non-polymer group (any size, standard names included) with min distance ≤ 4 Å
 to the protein. For "any ligand" sanity analyses only.
 
-### 2.4 Other conventions (not yet implemented)
+### 2.4 Site-defined benchmarks (LIGYSIS, CryptoBench, PocketWatch, AF, dimers)
 
-* **LIGYSIS** (Utgés et al. 2024; code in `data/raw/ligysis/lbs_comparison_code`): reference sites
-  are clusters of ligands across all biological assemblies of a protein (UniProt), defined by
-  residue fingerprints; each site has a residue set and a centre. To plug in: load their site
-  tables into `GroundTruth` objects whose `Ligand`s carry the site residues (`binding_residues`),
-  the site centre, and the coordinates used for DCA. Their headline metric is the `LDCC12`
-  criterion (below) at top-(n+2), plus residue-overlap `IRel`.
+Ground truth is a *site table* (`pocketdetect.sites`, Section 10), not ligands extracted by rules.
 
 ## 3. Prediction format
 
@@ -234,10 +229,74 @@ Paired comparison: `python scripts/compare_methods.py --a <eval_dir_A> --b <eval
 
 ## 9. Open questions
 
-* LIGYSIS site ground truth: import their site tables (residue sets, centres) and confirm how
-  their reference centre is defined before using `LDCC12`.
-* AlphaFold / apo evaluation: ligands come from a holo structure while predictions are on the
-  apo/AF model — needs a residue-mapped (SIFTS/alignment) transfer of binding residues and
-  superposition of ligand coordinates; not implemented here.
-* Whether to make `p2rank_strict` the headline rule set for COACH420/HOLO4K (exact literature
-  comparability) and keep `p2rank` as a sensitivity analysis — PI decision.
+* AF set / dimer ground truth must be delivered as site tables (`data/processed/gt/{af_set,dimer}/sites.tsv`)
+  to run through `scripts/run_test_eval.py`; until then Tracks C/D use their own evaluators.
+* C1-strict needs `ligand_atoms` in the LIGYSIS site table (ligands mapped onto the representative
+  chain; `src/pocketdetect/importers/ligysis_ligands.py`, in progress elsewhere). Note: the authors'
+  `aas` residue ids are **label_seq_ids** of the representative chain (verified, Section 10).
+
+## 10. Site-table protocol (LIGYSIS LBS-comparison) — `pocketdetect.site_eval`
+
+**Site table** (`pocketdetect.sites`, TSV): `structure_id, site_id, center_x/y/z, residues, n_sites, scored`
+(+ optional `structure_path, input_chains, ligand_atoms, n_residues_structure, group`, metadata). `n_sites` = N of
+top-N for the structure; `scored` = site is an evaluation target. Predictions: the common CSV (`<structure_id>.csv`).
+
+**Definitions** (port of bartongroup/LBS-comparison v2.0.0 `benchmark_lib.py` + notebook 12; Utgés et al. 2024):
+* DCC = distance pocket centre → site centre, **rounded to 0.01 Å** before thresholding (their code rounds).
+* Closest-pocket matching: for each scored site the pocket with minimal DCC (ties → larger IRel → better rank);
+  `recall_topn`/`recall_topn2` = that pocket has DCC ≤ 12 Å and rank ≤ N (+2); `recall_max` = no rank cap.
+  IRel = |pocket ∩ site residues| / |site residues|.
+* Stricter variants: `recall_anyp_*` (any pocket within rank ≤ N+k with DCC ≤ 12), `recall_1to1_*` (maximum
+  one-to-one Hungarian matching of sites to top-(N+k) pockets), `recall_ldca_*` (pocket minimising DCA = min
+  distance to the site's ligand heavy atoms; DCA ≤ 4 Å and rank ≤ N+k; needs `ligand_atoms`), `recall_anyp_dca_*`.
+* Precision (pooled over the dataset, all pockets ranked by score desc; ties → structure_id, rank): a pocket is TP
+  if DCC ≤ 12 Å to any scored site of its structure. `P1K` = precision of the first 1,000; `TP@100FP` = TPs before
+  the 101st FP; `P1K_1to1` / `TP@100FP_1to1`: a pocket is TP only if it hits a site not yet claimed by a
+  higher-ranked pocket (claims the closest unclaimed site).
+* RRO = mean IRel of closest pockets with DCC ≤ 12 Å (any rank) and IRel > 0. RVO (volumetric) not implemented
+  (needs pocket grids; their 3.3 GB shape dict is for their methods only).
+* Residue level per structure: true = ∪ residues of all sites (scored or not), predicted = ∪ residues of all
+  pockets; F1, MCC (sklearn conventions: 0 when undefined); NaN if the method reports no residues; MCC needs
+  `n_residues_structure`. Mean over structures.
+* Missing prediction file = zero pockets: all its sites are misses (denominators never shrink).
+
+**LIGYSIS specifics** (`pocketdetect.ligysis`, restricted unpickler for their pickles): 2,775 representative chains,
+6,882 sites (N counts all of them), 6,721 scored = their `filter_redundant_pockets2(LIGYSIS, Jaccard 0.75, 5 Å)`
+(port verified identical to their function). Site centre = CA centroid of the site residues, stored by the authors
+in a transformed frame x_T = R(x − c0); `data/processed/gt/ligysis_lbs/sites.tsv` (built by
+`scripts/build_gt_ligysis.py`) maps centres back to the wwPDB asymmetric-unit frame (median deviation from a
+re-computed CA centroid 0.0005 Å; 4 sites > 1 Å use the recomputed centroid) and converts the authors' residue ids
+(`aas` = label_seq_id) to author ids `chain:num[icode]`. Input = mirror mmCIF restricted to `input_chains`.
+
+**Reproduction gate** (`scripts/reproduce_ligysis.py`, report `results/validation/ligysis_reproduction.md`):
+the authors' published per-chain predictions of all 33 method variants scored by our harness reproduce their
+published top-N / top-N+2 / max-recall **exactly (identical counts) for 31/33 and within 0.4 points for all 33**
+(differences only from tie-breaking among duplicate predictions); P1K and TP@100FP identical except for the 4
+methods whose score ties they shuffled (PUResNet, PocketFinder, Ligsite, Surfnet); RRO identical. Their own
+functions (`filter_redundant_pockets2`, `compare_ALL_predictions`, `success_rate_COMB`, executed via ast without
+running the module) on raw P2Rank / GrASP predictions give the same counts as our harness. The same predictions
+mapped to the original frame and scored against the new-method site table give identical counts.
+
+**Other site tables:** CryptoBench test (`data/processed/gt/cryptobench_test`, 222 apo structures, 270 sites, centre =
+CA centroid of site residues on apo, `input_chains` must be respected), PocketWatch test
+(`data/processed/gt/pocketwatch_test`, 1,566 ESMFold structures, 1,573 scored / 728 masked sites, N = scored sites,
+centre = their ligand-centroid transfer recipe). Builders: `scripts/build_gt_{cryptobench,pocketwatch,ligysis}.py`;
+each output dir has a README with sources, sha256s and rules.
+
+## 11. Cluster bootstrap and test gating
+
+* Resampling units (`pocketdetect.clusters`, `scripts/build_test_clusters.py`): MMseqs2 easy-cluster
+  `--min-seq-id 0.3 -c 0.5 --cov-mode 0` over all test-union sequences (`data/processed/clusters/test_clusters.tsv`;
+  4,846 clusters; LIGYSIS 1,687, CryptoBench 203 of 222 structures, PocketWatch 1,088). Multi-chain structures map
+  to all their chains' clusters, merged by union–find. Sensitivity: UniProt accession units. 1,000 resamples,
+  seed `BOOTSTRAP_SEED`; percentile CIs; P1K recomputed in every resample with unit multiplicities.
+* `evaluate.summarize`/`compare_methods` and `site_eval.summarize_sites`/`compare_site_methods` accept the unit
+  mapping; paired comparisons treat failures/missing predictions as misses (never dropped) and report counts.
+* `scripts/run_test_eval.py` is the only test entry point: refuses modified tracked files, records commit, model
+  sha256, scoring-code / PREREG / GT / prediction-dir sha256s, caps non-final versions at 3 per benchmark × method,
+  never overwrites, writes `results/test/<version>/<benchmark>/<method>/` (summary.csv = cluster bootstrap,
+  summary_uniprot.csv = sensitivity) and appends `results/TEST_LEDGER.md`. Benchmarks: `pocketdetect.benchmarks.REGISTRY`
+  (ligysis, coach420_mlig, holo4k_mlig [rules p2rank_strict; prediction files `<name>.pdb.csv`], pocketwatch,
+  cryptobench, af_set, dimer). `scripts/run_dev_eval.py` = same evaluation for dev sets, no ledger, refuses test GT.
+  Self-test with published baselines: LIGYSIS fpocket+PRANK 60.42 % top-N+2 [58.36, 62.32], P1K 81.7 % [77.7, 85.2];
+  COACH420(mlig) P2Rank 2.5.1 DCA4 top-n 69.39 % [63.80, 75.26].

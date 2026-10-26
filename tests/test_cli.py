@@ -1,6 +1,7 @@
 """End-to-end test of scripts/evaluate.py and scripts/compare_methods.py on synthetic files."""
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -16,7 +17,8 @@ C0 = np.array([10.0, 0.0, 3.5])
 
 
 def run(script, *args):
-    r = subprocess.run([sys.executable, str(ROOT / "scripts" / script), *map(str, args)], capture_output=True, text=True)
+    env = {**os.environ, "OPENBLAS_NUM_THREADS": "1", "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / script), *map(str, args)], capture_output=True, text=True, env=env)
     assert r.returncode == 0, r.stderr + r.stdout
     return r
 
