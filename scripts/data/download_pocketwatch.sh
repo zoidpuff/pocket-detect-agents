@@ -18,7 +18,7 @@ ln -sfn "$REV" "$RAW/pocketwatch/current"
 cd "$OUT"
 [[ -d structures_train ]] || unzip -q structures_train.zip
 # upstream md5 list (skip entries for the MSA tarball contents we did not fetch)
-grep -v -E '  (\./)?msas_test/' CHECKSUMS.txt | md5sum --quiet -c - && echo "upstream CHECKSUMS.txt: OK (excluding msas_test/)"
+grep -v -E '  ((\./)?msas_test/|README.md$)' CHECKSUMS.txt | md5sum --quiet -c - && echo "upstream CHECKSUMS.txt: OK (excluding msas_test/ and README.md, which was edited after CHECKSUMS.txt was generated)"
 # our sha256 manifest of everything except per-fold cifs (covered by CHECKSUMS.txt md5s)
 find . -type f ! -path './.cache/*' ! -path './structures/*.cif.gz' ! -path './structures_train/*' ! -name MANIFEST.tsv | sort | \
   while read -r f; do printf '%s\t%s\t%s\t%s\thf://datasets/genesisml/PocketWatch@%s\n' "${f#./}" "$(sha256sum "$f" | cut -d' ' -f1)" "$(stat -c %s "$f")" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$REV"; done > MANIFEST.tsv

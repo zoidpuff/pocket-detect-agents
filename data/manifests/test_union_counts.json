@@ -1,0 +1,115 @@
+{
+ "test_union_sha256": "758cfe674222e2ab70ccc55793e1effce555e23fb06c7fa707977c6af239ed77",
+ "n_rows": 20348,
+ "n_unique_sequences": 13058,
+ "per_source_rows": {
+  "cryptobench": 6622,
+  "holo4k": 4675,
+  "af_set": 3515,
+  "ligysis": 2775,
+  "pocketwatch_test": 1566,
+  "ligysis_extra": 673,
+  "coach420": 461,
+  "pocketminer": 61
+ },
+ "per_source_unique_pdb": {
+  "coach420": 420,
+  "cryptobench": 5005,
+  "holo4k": 4009,
+  "ligysis": 2707,
+  "ligysis_extra": 673,
+  "pocketminer": 61
+ },
+ "per_source_seq_source": [
+  {
+   "source_set": "af_set",
+   "seq_source": "uniprot_canonical",
+   "n": 3515
+  },
+  {
+   "source_set": "coach420",
+   "seq_source": "dataset_file_observed",
+   "n": 2
+  },
+  {
+   "source_set": "coach420",
+   "seq_source": "pdb_entity_can",
+   "n": 459
+  },
+  {
+   "source_set": "cryptobench",
+   "seq_source": "dataset_file_observed",
+   "n": 3
+  },
+  {
+   "source_set": "cryptobench",
+   "seq_source": "pdb_entity_can",
+   "n": 6619
+  },
+  {
+   "source_set": "holo4k",
+   "seq_source": "dataset_file_observed",
+   "n": 10
+  },
+  {
+   "source_set": "holo4k",
+   "seq_source": "pdb_entity_can",
+   "n": 4665
+  },
+  {
+   "source_set": "ligysis",
+   "seq_source": "pdb_entity_can",
+   "n": 2775
+  },
+  {
+   "source_set": "ligysis_extra",
+   "seq_source": "dataset_file_observed",
+   "n": 1
+  },
+  {
+   "source_set": "ligysis_extra",
+   "seq_source": "pdb_entity_can",
+   "n": 672
+  },
+  {
+   "source_set": "pocketminer",
+   "seq_source": "pdb_entity_can",
+   "n": 61
+  },
+  {
+   "source_set": "pocketwatch_test",
+   "seq_source": "uniprot_canonical",
+   "n": 1566
+  }
+ ],
+ "extra_pdb_ids": {
+  "pocketminer": 185,
+  "pocketwatch_test": 8036
+ },
+ "n_test_pdb_ids": 20224,
+ "n_test_uniprots": 7596,
+ "n_requests": 19641,
+ "n_fallback_to_file": 11,
+ "unresolved": [],
+ "entries_missing_in_mirror": [
+  "1a2k",
+  "1fpx",
+  "1jt1",
+  "1m98",
+  "1pmq",
+  "2zcp",
+  "6ueu",
+  "7uw7",
+  "8rbn",
+  "9cis"
+ ],
+ "n_entries_missing_in_mirror": 10,
+ "af_set": {
+  "index": "data/processed/af/extract_index.csv",
+  "n_accs": 3515,
+  "n_with_seq": 3515,
+  "index_sha256": "d88343354c0de6f2980d530086446880548b0a30aea692d30aaadf327d639952"
+ },
+ "dimer_set": null,
+ "sifts": "data/processed/af/external/pdb_chain_uniprot.tsv.gz"
+}

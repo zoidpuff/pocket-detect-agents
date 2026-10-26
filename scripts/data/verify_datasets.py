@@ -3,7 +3,7 @@
 
     .venv/bin/python -I scripts/data/verify_datasets.py [dataset ...]
 
-datasets: p2rank ligysis cryptobench pocketminer hotpocket af2bind biolip2 scpdb tools
+datasets: p2rank ligysis cryptobench pocketminer hotpocket af2bind biolip2 scpdb pocketwatch tools
 Prints a summary per dataset and writes data/raw/VERIFY_REPORT.json. Exit code 1 if any hard
 check fails. Third-party pickles are read via a restricted unpickler (scripts/data/safe_pickle.py).
 """
@@ -292,7 +292,7 @@ def verify_hotpocket():
     import pandas as pd
     base = RAW / "hotpocket" / "extracted"
     rep = {}
-    for p in sorted(base.rglob("*.csv")):
+    for p in sorted(x for x in base.rglob("*.csv") if x.is_file()):
         n = sum(1 for _ in open(p)) - 1
         cols = pd.read_csv(p, nrows=2).columns.tolist()
         rep[p.name] = dict(rows=n, columns=cols)
@@ -420,9 +420,49 @@ def verify_tools():
     return rep
 
 
+def verify_pocketwatch():
+    import pandas as pd
+    base = RAW / "pocketwatch" / "current"
+    sites = pd.read_parquet(base / "data" / "pocket_label_sites.parquet")
+    pol = pd.read_parquet(base / "data" / "site_policy.parquet")
+    lab = pd.read_parquet(base / "data" / "pocket_labels.parquet")
+    cen = pd.read_parquet(base / "data" / "site_centroids.parquet")
+    man = json.load(open(base / "labels_manifest.json"))
+    rep = dict(proteins_by_split=lab["split"].value_counts().to_dict(),
+               sites_by_split=sites["split"].value_counts().to_dict(),
+               scored_sites_by_split=pol[pol["decision"] != "masked"]["split"].value_counts().to_dict(),
+               policy_reasons=pol["reason"].value_counts().to_dict(),
+               n_site_centroids=len(cen),
+               n_structures_valtest=len(list((base / "structures").glob("*.cif.gz"))),
+               n_structures_train=len(list((base / "structures_train").glob("*.cif.gz"))),
+               test_cutoff=man["test_cutoff"], validation_cutoff=man["validation_cutoff"])
+    for split in ("train", "validation", "test"):
+        check("pocketwatch", man["splits"][split]["proteins"] == rep["proteins_by_split"].get(split),
+              f"{split}: protein count disagrees with labels_manifest.json")
+    # temporal sanity: every *scored* test site first observed on/after the cutoff (pre-cutoff ones are masked)
+    t = sites[sites["split"] == "test"]
+    scored = set(pol.loc[pol["decision"] != "masked", "pocket_site_id"])
+    ts = t[t["pocket_site_id"].isin(scored)]
+    rep["test_scored_min_site_first_observed"] = str(ts["site_first_observed"].min())
+    rep["max_site_first_observed"] = str(sites["site_first_observed"].max())
+    check("pocketwatch", str(ts["site_first_observed"].min()) >= man["test_cutoff"], "scored test site before cutoff")
+    # are test-site PDB entries present in our local PDB mirror?
+    mirror = Path("/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF")
+    ids = sorted({i for l in t["pdb_ids"] for i in l})
+    have = sum((mirror / i[1:3] / f"{i}.cif.gz").exists() for i in ids)
+    rep["test_pdb_ids"] = len(ids)
+    rep["test_pdb_ids_in_local_mirror"] = have
+    # label vectors match sequence lengths
+    bad = int(sum(len(l) != n for l, n in zip(lab["label"], lab["sequence_length"])))
+    rep["label_length_mismatches"] = bad
+    check("pocketwatch", bad == 0, f"{bad} label vectors != sequence length")
+    print(f"  {rep}")
+    return rep
+
+
 ALL = dict(p2rank=verify_p2rank, ligysis=verify_ligysis, cryptobench=verify_cryptobench,
            pocketminer=verify_pocketminer, hotpocket=verify_hotpocket, af2bind=verify_af2bind,
-           biolip2=verify_biolip2, scpdb=verify_scpdb, tools=verify_tools)
+           biolip2=verify_biolip2, scpdb=verify_scpdb, pocketwatch=verify_pocketwatch, tools=verify_tools)
 
 
 def main():
