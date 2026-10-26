@@ -15,3 +15,6 @@ __pycache__/
 !tests/fixtures/**
 tools/bin/
 tools/downloads/
+results/dev/cache/
+results/dev/structures_sanitized/
+results/dev/preds/
