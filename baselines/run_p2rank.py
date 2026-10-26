@@ -20,7 +20,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common as C
 
-P2 = C.TOOLS / "p2rank"
+P2 = C.TOOLS / "p2rank"   # reassigned in main() by --version
+VERSIONS = {"2.5.1": "p2rank", "2.4.2": "p2rank_2.4.2"}
 JAVA_HOME = C.TOOLS / "jdk"
 
 
@@ -74,7 +75,9 @@ def convert(raw_dir: Path, fname: str, out: Path, stem: str, chain_map=None):
 def p2_args(args, outdir, threads):
     a = ["predict", "-o", str(outdir), "-threads", str(threads),
          "-visualizations", "true", "-vis_copy_proteins", "false", "-vis_generate_proteins", "false",
-         "-vis_renderers", "[]", "-log_to_file", "false"]
+         "-log_to_file", "false"]
+    if P2.name != "p2rank_2.4.2":  # `vis_renderers` only exists since 2.5
+        a += ["-vis_renderers", "[]"]
     if args.config != "default":
         a += ["-c", args.config]
     return a
@@ -121,7 +124,10 @@ def main():
     ap.add_argument("--mode", default="batch", choices=["batch", "per-file"])
     ap.add_argument("--heap", type=int, default=None, help="JVM heap GB (default 2 + 1.5*threads, max 100)")
     ap.add_argument("--tmp", default=None, help="scratch dir (default system tmp)")
+    ap.add_argument("--version", default="2.5.1", choices=list(VERSIONS), help="P2Rank release (2.4.2 for LIGYSIS reproduction)")
     args = ap.parse_args()
+    global P2
+    P2 = C.TOOLS / VERSIONS[args.version]
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     inputs = C.todo(C.expand_inputs(args.inputs), out, args.overwrite)

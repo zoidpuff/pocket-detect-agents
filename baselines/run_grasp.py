@@ -25,6 +25,14 @@ ENVPY = C.TOOLS / "grasp" / "env" / "bin" / "python"
 WORKER = C.BASELINES / "grasp_worker.py"
 
 
+MODELS = {
+    "train_full": "train_full/trained_model_s_train_full_ag_multi_1680643832.8660116/cv_0/epoch_49",
+    "coach420_mlig": "coach420_mlig/trained_model_s_coach420_mlig_ag_multi_1672951806.257937/cv_0/epoch_49",
+    "holo4k_mlig": "holo4k_mlig/trained_model_s_holo4k_mlig_ag_multi_1672951807.304454/cv_0/epoch_49",
+    "cv": "cv/trained_model_ag_multi_1672951703.4392676/cv_0/epoch_49",
+}
+
+
 def prep_job(job):
     path, args, td = job
     stem = C.stem_of(path)
@@ -41,6 +49,9 @@ def main():
     ap = C.base_parser(__doc__)
     ap.add_argument("--device", default="0", help="GPU index / cuda:N / cpu (sets CUDA_VISIBLE_DEVICES for the worker)")
     ap.add_argument("--chunk", type=int, default=64, help="structures per worker invocation")
+    ap.add_argument("--model", default="train_full", choices=list(MODELS),
+                    help="train_full: all of scPDB (default; NOT similarity-filtered vs COACH420/HOLO4K); coach420_mlig / holo4k_mlig: "
+                         "scPDB filtered by UniProt vs that test set (leakage-controlled for it); cv: scPDB CV fold 0")
     ap.add_argument("--tmp", default=None)
     ap.add_argument("--threshold", type=float, default=0.3, help="atom probability threshold (GrASP default 0.3)")
     ap.add_argument("--eps", type=float, default=15.0, help="average-linkage distance threshold in A (GrASP default 15)")
@@ -75,7 +86,7 @@ def main():
             cmd = [str(ENVPY), str(WORKER), "--list", str(td / "files.txt"), "--work", str(td / "work"),
                    "--out", str(td / "res.json"), "--procs", str(args.procs),
                    "--device", "cpu" if dev == "cpu" else "cuda:0",
-                   "--threshold", str(args.threshold), "--eps", str(args.eps)]
+                   "--threshold", str(args.threshold), "--eps", str(args.eps), "--model", MODELS[args.model]]
             try:
                 C.run_cmd(cmd, env=env)
             except Exception as e:  # noqa

@@ -18,7 +18,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common as C
 
-FPOCKET = C.TOOLS / "fpocket_src" / "bin" / "fpocket"
+FPOCKET = C.TOOLS / "fpocket_src" / "bin" / "fpocket"   # reassigned in main() by --version
+VERSIONS = {"4.2.3": "fpocket_src", "4.0.3": "fpocket_4.0.3"}
 
 
 def parse_info(path):
@@ -97,7 +98,10 @@ def main():
     ap.add_argument("--fpocket-args", default="", help="extra fpocket CLI args, e.g. '-i 10 -m 3.0'")
     ap.add_argument("--timeout", type=int, default=3600, help="per-structure timeout in s")
     ap.add_argument("--tmp", default=None)
+    ap.add_argument("--version", default="4.2.3", choices=list(VERSIONS))
     args = ap.parse_args()
+    global FPOCKET
+    FPOCKET = C.TOOLS / VERSIONS[args.version] / "bin" / "fpocket"
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     inputs = C.todo(C.expand_inputs(args.inputs), out, args.overwrite)
