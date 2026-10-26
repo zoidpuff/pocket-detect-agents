@@ -17,10 +17,12 @@ Plan: parallel kick-off of (a) literature review → LITERATURE.md, (b) benchmar
   - [x] 0.1 Hardware/data inspection
   - [x] 0.2 Python env (.venv: numpy 2.5/scipy/numba 0.68/gemmi 0.7.5/torch 2.6-cu124 4 GPUs OK/lightgbm/xgboost)
   - [~] 0.3 Eval harness (DCA/DCC/top-n, top-n+2, LIGYSIS-style metrics) + toy tests
-- [~] 1. Literature & benchmarks (LITERATURE.md)
+- [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [~] 2. Data acquisition (DATA.md)
 - [~] 3. Baselines (P2Rank, fpocket, …)
-- [ ] 4. DESIGN.md + review rounds
+- [~] 4. DESIGN.md + review rounds
+  - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
+  - [~] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF
 - [ ] 5. Method development
 - [ ] 6. AF mode
 - [~] 7. CPU/GPU backends + throughput

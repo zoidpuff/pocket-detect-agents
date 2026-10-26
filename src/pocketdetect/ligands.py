@@ -81,6 +81,10 @@ class LigandRules:
     binding_residue_dist: float = 4.0  # protein residue within this of a ligand atom = binding residue
     explicit_bypasses_filters: bool = True  # P2Rank: explicitly specified ligands are all relevant
     standard_residue_ligands: bool = False  # False = P2Rank: standard aa/nucleotide names never ligands
+    # P2Rank Struct.isHydrogenAtom() also drops protein atoms whose *name* starts with 'H' or has 'H'
+    # as 2nd character (Arg NH1/NH2, Tyr OH, Trp CH2) from the protein atom set used for the
+    # contact / centre distance filters. True reproduces this quirk (p2rank_strict only).
+    p2rank_h_name_quirk: bool = False
 
     def as_dict(self) -> dict:
         """Deterministic (hash-seed independent) description, e.g. for cache keys and run logs."""
@@ -92,7 +96,7 @@ class LigandRules:
 STANDARD_AA = frozenset(
     "ALA ARG ASN ASP CYS GLN GLU GLY HIS ILE LEU LYS MET PHE PRO SER THR TRP TYR VAL".split()
 )
-STANDARD_NUC = frozenset("A C G U I N DA DC DG DT DU DI DN".split())
+STANDARD_NUC = frozenset("A C G U I DA DC DG DT DU DI".split())
 
 P2RANK_IGNORED = frozenset(["HOH", "DOD", "WAT", "NAG", "MAN", "UNK", "GLC", "ABA", "MPD", "GOL", "SO4", "PO4"])
 
@@ -120,6 +124,7 @@ register_rules(
         source=P2RANK_SOURCE + "; hydrogens kept in ligand atom sets exactly as the P2Rank code does",
         ignore_het_groups=P2RANK_IGNORED,
         ligand_hydrogens=True,
+        p2rank_h_name_quirk=True,
     )
 )
 register_rules(
@@ -334,6 +339,12 @@ def extract_ligands(
     defs = parse_ligand_spec(spec, None if strict_spec else bad)
     prot_idx = np.flatnonzero(s.protein_heavy_mask())
     prot_tree = cKDTree(s.coords[prot_idx]) if len(prot_idx) else None
+    filt_tree = prot_tree  # protein atoms for the contact / centre-distance filters
+    if rules.p2rank_h_name_quirk and len(prot_idx):
+        names = s.atom_name[prot_idx]
+        quirk = np.char.startswith(names, "H") | (np.char.str_len(names) > 1) & (np.array([n[1:2] for n in names]) == "H")
+        keep = prot_idx[~quirk]
+        filt_tree = cKDTree(s.coords[keep]) if len(keep) else None
 
     cand = np.flatnonzero(s.r_kind == LIGAND)
     if not rules.standard_residue_ligands:
@@ -379,9 +390,9 @@ def extract_ligands(
         coords = s.coords[atom_idx].astype(np.float64)
         elements = s.element[atom_idx]
         center = ligand_center(coords, elements, rules.center_method)
-        if prot_tree is not None:
-            contact = float(prot_tree.query(coords, k=1)[0].min())
-            cdist = float(prot_tree.query(center, k=1)[0])
+        if filt_tree is not None:
+            contact = float(filt_tree.query(coords, k=1)[0].min())
+            cdist = float(filt_tree.query(center, k=1)[0])
         else:
             contact = cdist = math.inf
         if category is None:
