@@ -53,7 +53,7 @@ for v in pdb_std afpdb_pl; do
 done
 # 5. evaluations
 P=results/dev_af/preds
-A=""; for c in naive naive_plddt70 $CFGS; do A="$A $c=$P/${c}_$TAG"; done
+A="naive_plddt70=$P/naive_plddt70_$TAG"; for c in $CFGS; do A="$A $c=$P/${c}_$TAG"; done
 A="$A p2rank_default=$P/p2rank_default_full p2rank_alphafold=$P/p2rank_alphafold_full p2rank_alphafold_plddt70=$P/p2rank_alphafold_full_plddt70 p2rank_alphafold_pruned=$P/p2rank_alphafold_pruned"
 $PY scripts/af_dev_eval.py --methods $A --ref naive --out results/dev_af/eval_ablation_$TAG.csv > results/dev_af/logs/eval_ablation_$TAG.log 2>&1
 R="naive_plddt70=$P/naive_plddt70_$TAG prune_soft=$P/prune_soft_$TAG"

@@ -32,10 +32,34 @@ def table(f, title, ref):
     return "\n".join(out) + "\n"
 
 
+def strata_table(f, title, ref):
+    p = D / f
+    if not p.exists():
+        return f"_{f} missing_\n"
+    d = pd.read_csv(p).set_index("method").T
+    keep = [i for i in d.index if not i.startswith("n_")]
+    ns = pd.read_csv(p).iloc[0]
+    hdr = ", ".join(f"{k[2:]} = {int(ns[k])}" for k in ns.index if k.startswith("n_"))
+    out = [f"**{title}** (`{f}`; Δ vs `{ref}`; counts: {hdr})\n",
+           "| metric | " + " | ".join(d.columns) + " |", "|" + "---|" * (len(d.columns) + 1)]
+    for i in keep:
+        out.append(f"| {i} | " + " | ".join("" if pd.isna(v) else str(v) for v in d.loc[i]) + " |")
+    return "\n".join(out) + "\n"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="")
-    t = ap.parse_args().tag
+    ap.add_argument("--strata", action="store_true")
+    a = ap.parse_args()
+    t = a.tag
+    if a.strata:
+        print(strata_table("strata_trainoof_v1b.csv", "AF train OOF (2,844 models) — strata (REF model)", "naive_plddt70"))
+        print(strata_table("strata_trainoof_rankers_v1.csv", "AF train OOF — rankers, strata", "cv_pdb_std"))
+        print(strata_table("strata_dev_v1b.csv", "AF dev (278 models) — strata (REF model)", "naive_plddt70"))
+        for f in sorted(D.glob("strata_*_final*.csv")):
+            print(strata_table(f.name, f"{f.stem} (frozen model)", "see file"))
+        return
     s = f"_{t}" if t else ""
     print(table(f"eval_ablation{s}.csv", "AF dev — geometric mechanisms, controls, baselines (standard ranker)", "naive"))
     if not t:
