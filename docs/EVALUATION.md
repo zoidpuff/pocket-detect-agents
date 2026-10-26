@@ -229,11 +229,10 @@ Paired comparison: `python scripts/compare_methods.py --a <eval_dir_A> --b <eval
 
 ## 9. Open questions
 
-* AF set / dimer ground truth must be delivered as site tables (`data/processed/gt/{af_set,dimer}/sites.tsv`)
-  to run through `scripts/run_test_eval.py`; until then Tracks C/D use their own evaluators.
-* C1-strict needs `ligand_atoms` in the LIGYSIS site table (ligands mapped onto the representative
-  chain; `src/pocketdetect/importers/ligysis_ligands.py`, in progress elsewhere). Note: the authors'
-  `aas` residue ids are **label_seq_ids** of the representative chain (verified, Section 10).
+* DCA ground truth is missing for 5 % of scored LIGYSIS sites (no ligand copy could be placed without
+  clashes / off-site); those sites are excluded from the DCA (C1-strict) denominator for every method.
+* The dimer benchmark is evaluated through Track D's `scripts/eval_dimer.py` (copies, J ≥ 0.5 grouping,
+  label-free collapse), not through the site table; only its CIs are recomputed here with cluster units.
 
 ## 10. Site-table protocol (LIGYSIS LBS-comparison) — `pocketdetect.site_eval`
 
@@ -300,3 +299,37 @@ each output dir has a README with sources, sha256s and rules.
   cryptobench, af_set, dimer). `scripts/run_dev_eval.py` = same evaluation for dev sets, no ledger, refuses test GT.
   Self-test with published baselines: LIGYSIS fpocket+PRANK 60.42 % top-N+2 [58.36, 62.32], P1K 81.7 % [77.7, 85.2];
   COACH420(mlig) P2Rank 2.5.1 DCA4 top-n 69.39 % [63.80, 75.26].
+
+### 11b. LIGYSIS C1-strict ligand atoms
+
+(`scripts/build_ligysis_ligands.py`, `pocketdetect.importers.ligysis_ligands`): every
+ligand instance listed for a site (`LIGYSIS_human_chains_per_lig_MAY_2024.pkl`, 58,152 instances from 20,300
+entries) is located in the asymmetric-unit mmCIF (crystal-symmetry image if it touches the chain only through
+symmetry), the contacted chain is superposed onto the representative chain on UniProt-paired CA of the site core
+(SIFTS; rigid-core Kabsch, core RMSD ≤ 2 Å), the ligand heavy atoms are transformed, copies without a heavy atom
+≤ 4.5 Å from a rep-chain site-residue heavy atom are dropped (1,280 off-site copies), duplicate copies and non-ion
+atoms < 2.2 Å from rep-chain protein atoms are removed (site dropped if > 50 % clash). Result: 6,387 / 6,721 scored
+sites with ligand atoms (`ligand_atoms` in `data/processed/gt/ligysis_lbs/sites.tsv`). Checks: ligands of the rep
+entry itself are reproduced exactly for 129/140 sampled cases (7 differ by one bond length = clash-removed atoms,
+4 instances not placed on that chain); oracles: a ligand atom → DCA4 top-N+2 = 100 %, ligand-atom centroid → 95.2 %
+(union centroids of spread multi-ligand sites can be > 4 Å from every atom), site CA centroid → 76.8 %.
+Primary C1-strict metric `recall_ldca_topn2` (pocket with minimal DCA must have DCA ≤ 4 Å and rank ≤ N+2);
+`recall_anyp_dca_topn2` reported alongside.
+
+## 12. AF set (O5) and dimers (O6)
+
+* **AF set** (`scripts/build_gt_af.py` from Track C `data/processed/af/gt/*.json.gz`): `data/processed/gt/af_set/sites.tsv`
+  = the 2,526 full-length AFDB v6 models with included LBS-benchmark sites (6,731 sites); N = all of them,
+  scored = non-redundant (LIGYSIS filter on the model: 6,502); centre = CA centroid on the model; ligand atoms =
+  Track C transfers with local RMSD ≤ 2 Å (6,040 scored sites). Sensitivity table `af_set_allsites` (all LIGYSIS
+  sites of those UniProts). Oracle (site centres): top-N+2 = 1.0, DCA4 = 0.77, hallucination 0.
+* **AF utilities** (`pocketdetect.af_eval`): pocket pLDDT (mean residue CA pLDDT over pocket residues, or residues
+  ≤ 6 Å of the centre); `drop_low_plddt` = the "naive + drop pockets with mean pLDDT < 70" baseline
+  (`scripts/af_plddt_filter_baseline.py` turns any prediction dir into that baseline); hallucination =
+  pocket with mean pLDDT < 50 matching no site (DCC ≤ 12 Å to any site), reported over all pockets and the top-(N+2),
+  always using the pLDDT of the unpruned model; `run_benchmark` adds `hallucination_rate`, `hallucination_rate_topn2`,
+  `low_plddt_pocket_rate` (cluster-bootstrap CIs) for `af_set*`.
+* **Dimers** (`--benchmark dimer`): assembly-mode inputs, J ≥ 0.5 site grouping (PREREG A1), label-free prediction
+  collapse, success if any copy is hit — computed by Track D's evaluator; headline `recall_DCC12_topn2@interface`
+  (O6), `recall_DCA4_topn2@interface`, `precision_DCC12_topn2@all`, with 30 % cluster (and UniProt) bootstrap
+  over complexes. Oracle (GT copies) = 1.0.

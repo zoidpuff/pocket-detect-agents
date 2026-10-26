@@ -29,8 +29,10 @@ def structure_units(source: str, structure_id: str, ids: pd.Index) -> list[str]:
     """Test-union ids belonging to a benchmark structure id (naming conventions of our GT tables)."""
     sid = structure_id.removesuffix(".pdb").removesuffix(".cif").removesuffix(".gz")
     cands: list[str] = []
-    if f"{source}|{sid}" in ids:  # exact (ligysis 1a52_A, pocketwatch/af uniprot)
+    if f"{source}|{sid}" in ids:  # exact (ligysis 1a52_A, pocketwatch uniprot)
         return [f"{source}|{sid}"]
+    if sid.startswith("AF-") and f"{source}|{sid.split('-')[1]}" in ids:  # AF-<ACC>-F1
+        return [f"{source}|{sid.split('-')[1]}"]
     if "_" in sid:  # 1fd4_G-H  (CryptoBench multi-chain)
         pdb, chains = sid.split("_", 1)
         cands = [f"{source}|{pdb.lower()}_{c}" for c in chains.replace("-", ",").split(",")]

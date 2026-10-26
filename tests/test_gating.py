@@ -63,3 +63,30 @@ def test_dev_eval_runs(tmp_path):
     assert r.returncode == 0, r.stderr
     s = pd.read_csv(tmp_path / "o/summary.csv").set_index("metric")["value"]
     assert s["recall_topn2"] == pytest.approx(1 / 3) and s["n_pred_missing"] == 1
+
+
+def test_registry_ground_truths_present():
+    from pocketdetect.benchmarks import REGISTRY
+
+    for name in ("ligysis", "cryptobench", "pocketwatch", "af_set", "af_set_allsites", "dimer", "coach420_mlig", "holo4k_mlig"):
+        b = REGISTRY[name]
+        if not b.abspath.exists():
+            pytest.skip(f"{b.abspath} not built")
+    assert REGISTRY["af_set"].extras == ("hallucination",) and REGISTRY["dimer"].kind == "dimer"
+
+
+def test_cluster_units_af_and_multichain():
+    from pocketdetect.clusters import CLUSTER_TABLE, groups_for_structures, load_clusters
+
+    if not CLUSTER_TABLE.exists():
+        pytest.skip("cluster table not built")
+    t = load_clusters()
+    acc = t[t.source_set == "af_set"].id.iloc[0].split("|")[1]
+    g = groups_for_structures([f"AF-{acc}-F1", "nonexistent"], "af_set", table=t)
+    assert not g[f"AF-{acc}-F1"].startswith("self:") and g["nonexistent"] == "self:nonexistent"
+    # a multi-chain structure maps to one unit
+    import pandas as pd
+
+    toy = pd.DataFrame({"id": ["x|1abc_A", "x|1abc_B", "x|2xyz_A"], "source_set": ["x"] * 3, "cluster30": ["c1", "c2", "c2"], "uniprot": ["P"] * 3})
+    g = groups_for_structures(["1abc_A-B", "2xyz_A"], "x", table=toy)
+    assert g["1abc_A-B"] == g["2xyz_A"]  # c1 and c2 merged through the two-chain structure

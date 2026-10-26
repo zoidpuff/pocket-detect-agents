@@ -135,7 +135,8 @@ def main(argv=None):
         "commit": git("rev-parse", "HEAD"), "dirty": bool(dirty), "host": socket.gethostname(),
         "version": a.version, "final": a.final, "benchmark": a.benchmark, "method": a.method,
         "models": models, "code_sha256": {f: sha256(ROOT / f) for f in CODE_FILES}, "code_sha256_combined": code_sha,
-        "prereg_sha256": sha256(ROOT / "docs/PREREG.md"), "gt_sha256": sha256(bench.abspath) if bench.abspath.exists() else None,
+        "prereg_sha256": sha256(ROOT / "docs/PREREG.md"),
+        "gt_sha256": (dir_sha256(bench.abspath)[0] if bench.abspath.is_dir() else sha256(bench.abspath)) if bench.abspath.exists() else None,
         "seed": BOOTSTRAP_SEED, "n_boot": a.n_boot, "argv": sys.argv,
     }
     rec["preds_sha256"], rec["n_pred_files"] = dir_sha256(a.pred_dir)

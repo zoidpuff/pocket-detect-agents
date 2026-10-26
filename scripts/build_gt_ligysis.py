@@ -107,6 +107,13 @@ def main(argv=None):
             "center_trans_x": r.center_x, "center_trans_y": r.center_y, "center_trans_z": r.center_z,
         })
     df = pd.DataFrame(rows)
+    lig_file = OUT / "ligand_atoms.tsv"  # from scripts/build_ligysis_ligands.py (C1-strict DCA)
+    if lig_file.exists():
+        L = pd.read_csv(lig_file, sep="\t", dtype={"structure_id": str, "site_id": str, "ligand_atoms": str}, keep_default_na=False)
+        L = L.rename(columns={"status": "ligand_status", "n_atoms": "n_ligand_atoms"})[
+            ["structure_id", "site_id", "ligand_atoms", "ligand_status", "n_ligand_instances", "n_ligand_atoms"]]
+        df = df.merge(L, on=["structure_id", "site_id"], how="left")
+        df["ligand_atoms"] = df["ligand_atoms"].fillna("")
     write_sites(df, OUT / "sites.tsv")
     dev = df.center_check_dev
     summary = {
@@ -114,6 +121,7 @@ def main(argv=None):
         "center_dev_median": float(dev.median()), "center_dev_p99": float(dev.quantile(0.99)), "n_dev_gt_1A": int((dev > 1).sum()),
         "n_dev_nan": int(dev.isna().sum()), "n_sites_with_unmapped_residues": int((df.n_residues_unmapped > 0).sum()),
         "n_load_errors": int(sum(1 for v in nres.values() if v is None)),
+        "n_scored_with_ligand_atoms": int(((df.get("ligand_atoms", pd.Series("", index=df.index)) != "") & df.scored).sum()),
     }
     print(summary)
     (OUT / "README.md").write_text(
