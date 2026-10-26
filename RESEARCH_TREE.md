@@ -15,6 +15,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D3 (15:55): Start method pipeline before train set exists (dev on P2Rank's CHEN11/JOINED training sets — not test sets) to de-risk G1. Note: timestamps in D1/D2/PREREG header were estimated ~20 min late; git commit times are authoritative.
 - D2 (16:10): DESIGN v3 final; PREREG frozen: fixed-sequence C1→C1-strict→C2, Holm over O2a/O2b/O3–O6, no test run before feature freeze (T+10 h ≈ 01:00), test-union frozen before training build, label-free symmetric collapse in dimer eval for all methods.
 - D1 (15:45): DESIGN v2 — see DESIGN §8 for reviewer→change map. Not adopted: LIGYSIS dev slice (use BioLiP2 LIGYSIS-like dev instead to keep all 2,775 chains comparable to published table).
 - D0 (14:55): Single uv venv at `.venv` shared by all agents; restricted/large data kept out of git under `data/raw`, `data/processed`; manifests + checksums committed. Git identity set locally to gmagnusson <gmagnusson@ethz.ch> (no preset identity found in container).
@@ -35,7 +36,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
   - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
   - [x] 4.3 Review round 2 (external PI+stats; data+agent risks) → DESIGN v3 + docs/PREREG.md frozen (sha256 582b8b56349cb2ab762d0f59a495738a938ee1d592c01e2517dbf581e049f8d6). Reviews capped at 2 rounds (time; round-2 changes were refinements, no structural objections).
-- [ ] 5. Method development
+- [~] 5. Method development
+  - [~] 5.1 BURROW pipeline v0 (CPU end-to-end), G1 candidate-recall gate, geometry-only ranking, first LightGBM point+pocket model (dev: CHEN11/JOINED until Track A dev arrives)
 - [ ] 6. AF mode
 - [~] 7. CPU/GPU backends + throughput
   - [~] 7.1 Geometry primitives (SAS pts, ray-cast buriedness w/ soft occlusion, neighbor feats, clustering) CPU+GPU — started early as design-independent
