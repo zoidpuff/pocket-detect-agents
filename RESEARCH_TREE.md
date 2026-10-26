@@ -101,4 +101,5 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
 - [~] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
+  - [x] 8.0 Ablations (dev, seed 0; results/ablations/ABLATIONS.md): A3 shuffled labels −28/−36 (control OK); A2 CHEN11-only −3.2 (small) / −10.8 (all, no ion labels); [!] A1 fold-disjoint training −0.6/−0.3 (CIs include 0) → no evidence of fold memorisation; A4 feature-group drops each ≤ 2.5 pts (metal −2.5 on all, atom densities −1.7) → redundant feature set; retraining v1 is bit-identical
   - [~] 8.2 Test v2
