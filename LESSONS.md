@@ -14,3 +14,4 @@ One-line rules with evidence. Pruned at M2 (2026-10-26 ~20:20) after a fresh-age
 10. Select on train cluster-CV, touch dev rarely, never tune a metric's leniency (evidence: NMS 14 Å would inflate LIGYSIS top-N+2 to 72.6 by spreading pockets — rejected via one-to-one P1K).
 11. Commit at each agent hand-off and at least hourly; use git/`date` timestamps, not memory (evidence: ~40 uncommitted paths at 20:11; D1/D2 times written ~20 min off).
 12. Cap exploratory branches with a kill criterion; optimise feature-*dependent* code only after the freeze (evidence: AF side-chain tolerance −16 pts; backend's feature stage must be re-ported after freeze, while feature-independent parts — trees, NMS — were safe to port early).
+13. Run frozen-version test predictions from an isolated git worktree at the freeze commit; development continues on main (evidence: v2 edits to burrow/pipeline.py started minutes after FREEZE v1).
