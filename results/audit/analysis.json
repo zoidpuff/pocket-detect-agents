@@ -1,0 +1,282 @@
+{
+ "n_rule_violating_inputs": 233,
+ "near_miss_hits_e1e-3_ident25-30_or_cov_fail": 10191,
+ "violating_inputs_per_test_set_broad": {
+  "ligysis": 31,
+  "coach420": 6,
+  "holo4k": 21,
+  "cryptobench": 157,
+  "pocketminer": 14,
+  "pocketwatch": 2,
+  "af": 1,
+  "dimer": 13
+ },
+ "violating_inputs_per_test_set_primary": {
+  "ligysis": 31,
+  "coach420": 6,
+  "holo4k": 21,
+  "cryptobench": 29,
+  "pocketminer": 0,
+  "pocketwatch": 2,
+  "af": 1,
+  "dimer": 13
+ },
+ "n_violating_inputs_primary": 92,
+ "violating_by_kind_primary": {
+  "dev|asm": 2,
+  "dev|rep": 9,
+  "train|asm": 36,
+  "train|rep": 45
+ },
+ "n_primary_test_ids": {
+  "pocketminer": 61,
+  "cryptobench": 5958
+ },
+ "dev_vs_train_rule_hits": 0,
+ "dev_inputs_violating_vs_train": 0,
+ "dev_vs_train_raw_hits": 611,
+ "overlap": {
+  "train|ligysis": {
+   "n_test_pdb": 3376,
+   "n_test_uniprot": 4609,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 46,
+   "uniprot_overlap_entrywide": 159,
+   "examples": [
+    "A8K0B5__8odp_B",
+    "L0R8F8__8qu5_v",
+    "O15460__6evl_A",
+    "O95391__6icz_Z",
+    "P02730__7v0k_P"
+   ]
+  },
+  "train|coach420": {
+   "n_test_pdb": 420,
+   "n_test_uniprot": 397,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 2,
+   "examples": [
+    "P02916__3rlf_F",
+    "Q9XZJ5__3gyt_A"
+   ]
+  },
+  "train|holo4k": {
+   "n_test_pdb": 4009,
+   "n_test_uniprot": 1474,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 62,
+   "examples": [
+    "A0A1Q9N7W7__5zza_P",
+    "A0A1Q9NVH4__7whf_G",
+    "A0A8H4BXZ5__7zw0_sh",
+    "A0A9P1NJI6__8br1_B",
+    "O13516__4u4r_S9"
+   ]
+  },
+  "train|cryptobench": {
+   "n_test_pdb": 5005,
+   "n_test_uniprot": 1381,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 27,
+   "uniprot_overlap_entrywide": 111,
+   "examples": [
+    "A0A6B9WE90__7f8l_A",
+    "B7I4T0__7uw1_W",
+    "P00129__1pp9_F",
+    "P00423__7coh_D",
+    "P00426__2dyr_E"
+   ]
+  },
+  "train|pocketminer": {
+   "n_test_pdb": 185,
+   "n_test_uniprot": 111,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 4,
+   "uniprot_overlap_entrywide": 15,
+   "examples": [
+    "E1VBK1__2vpo_A",
+    "E8MF12__4wh3_A",
+    "P32171__2cgj_A",
+    "Q29495__1cjw_A",
+    "E1VBK1__2vpo_A"
+   ]
+  },
+  "train|pocketwatch": {
+   "n_test_pdb": 8036,
+   "n_test_uniprot": 1602,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 29,
+   "examples": [
+    "A0A287BMW6__7v2h_e",
+    "A0A480JRW3__8ugi_1d",
+    "A0A8D2CGH8__7v31_n",
+    "A5F5Y5__9ud2_E",
+    "A5F5Y6__9ud2_D"
+   ]
+  },
+  "train|af": {
+   "n_test_pdb": 0,
+   "n_test_uniprot": 3518,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 1,
+   "uniprot_overlap_entrywide": 71,
+   "examples": [
+    "Q96Q15__6z3r_A",
+    "A0A0H3JDV8__8st9_C",
+    "A0A2S3R7M0__8ka0_A",
+    "A8K0B5__8odp_B",
+    "C7BCT3__7zjm_A"
+   ]
+  },
+  "train|dimer": {
+   "n_test_pdb": 400,
+   "n_test_uniprot": 522,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 82,
+   "examples": [
+    "A0A0H3JDV8__8st9_C",
+    "A0A3A6VNK6__9emk_A",
+    "A0A5C0B1L0__9g7g_U",
+    "A0A8H4BXZ5__7zw0_sh",
+    "B0B9A0__6gzs_A"
+   ]
+  },
+  "dev|ligysis": {
+   "n_test_pdb": 3376,
+   "n_test_uniprot": 4609,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 7,
+   "uniprot_overlap_entrywide": 18,
+   "examples": [
+    "O15014_Q96SY0__8pk5_B",
+    "P19137__5mc9_A",
+    "P20042__8ppl_Is",
+    "P62799__4j8u_F",
+    "P82932__7pnx_E"
+   ]
+  },
+  "dev|coach420": {
+   "n_test_pdb": 420,
+   "n_test_uniprot": 397,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 3,
+   "examples": [
+    "P03126__4xr8_H",
+    "Q80UW2__2e33_A",
+    "Q936H5__5ayr_B"
+   ]
+  },
+  "dev|holo4k": {
+   "n_test_pdb": 4009,
+   "n_test_uniprot": 1474,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 8,
+   "examples": [
+    "P03126__4xr8_H",
+    "P0CX29__7zw0_sc",
+    "P0CX35__8evp_BE",
+    "P10664__8pfr_LH",
+    "P14647__3mmp_G"
+   ]
+  },
+  "dev|cryptobench": {
+   "n_test_pdb": 5005,
+   "n_test_uniprot": 1381,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 3,
+   "uniprot_overlap_entrywide": 9,
+   "examples": [
+    "P03126__4xr8_H",
+    "P13271__1pp9_G",
+    "Q966X9__3e1z_A",
+    "P03126__4xr8_H",
+    "P0CX29__7zw0_sc"
+   ]
+  },
+  "dev|pocketminer": {
+   "n_test_pdb": 185,
+   "n_test_uniprot": 111,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 1,
+   "examples": [
+    "Q80UW2__2e33_A"
+   ]
+  },
+  "dev|pocketwatch": {
+   "n_test_pdb": 8036,
+   "n_test_uniprot": 1602,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 3,
+   "examples": [
+    "A5F5Y4__9ud2_F",
+    "A9WEV6__8k9f_E",
+    "P03126__4xr8_H"
+   ]
+  },
+  "dev|af": {
+   "n_test_pdb": 0,
+   "n_test_uniprot": 3518,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 8,
+   "examples": [
+    "P03126__4xr8_H",
+    "P20042__8ppl_Is",
+    "Q91TW9__7mic_A",
+    "Q936H5__5ayr_B",
+    "Q99807__7sss_E"
+   ]
+  },
+  "dev|dimer": {
+   "n_test_pdb": 400,
+   "n_test_uniprot": 522,
+   "pdb_overlap": 0,
+   "uniprot_overlap_strict": 0,
+   "uniprot_overlap_entrywide": 5,
+   "examples": [
+    "P0CX29__7zw0_sc",
+    "P0CX35__8evp_BE",
+    "P10664__8pfr_LH",
+    "P36105__4v88_DM",
+    "Q91TW9__7mic_A"
+   ]
+  }
+ },
+ "train_dev_pdb_overlap": [
+  "A0A1I7NFG5__8u7b_B",
+  "A0A1N6PSP5__8s02_B",
+  "A0A2D0TC98__5odq_J",
+  "A5F5Y4__9ud2_F",
+  "A8B7H8__7pwg_C",
+  "A9WEV6__8k9f_E",
+  "E7FI44__9e15_H",
+  "G0S2B3__7zmg_J",
+  "H6LBB1__7qh2_A",
+  "I7MIJ7__8b6f_A5",
+  "P0CX29__7zw0_sc",
+  "P10664__8pfr_LH",
+  "P13271__1pp9_G",
+  "P16009__4ku0_A",
+  "P16013__9es7_C",
+  "P19636__5ysn_B",
+  "P36105__4v88_DM",
+  "P60490__9no7_T",
+  "P68246__1ytz_I",
+  "P80185__8q3v_C"
+ ],
+ "train_dev_uniprot_overlap": [],
+ "train_dev_pdb_overlap_n": 42,
+ "train_dev_uniprot_overlap_n": 0,
+ "uniprot_primary_overlap": {
+  "train|af": 1,
+  "train|ligysis": 1
+ }
+}
