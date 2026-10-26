@@ -193,6 +193,9 @@ def main(argv=None):
     ap.add_argument("--seeds", default="0,1,2", help="indices into SEEDS (model files _s<i>)")
     ap.add_argument("--benchmarks", default="all")
     ap.add_argument("--device", default="cuda:0,1,3")
+    ap.add_argument("--af-workers", type=int, default=32, help="CPU workers for --af-mode runs on cpu")
+    ap.add_argument("--af-device", default="cpu", help="device for --af-mode runs (v1: the GPU AF path is not exact -> cpu)")
+    ap.add_argument("--redo", default="", help="regex over '<bench>/<variant>': discard and regenerate matching runs")
     ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--backend", choices=["auto", "fast", "reference"], default="auto",
                     help="auto: fast backend unless AF-mode needs an AF ranker the fast CLI cannot take")
@@ -243,7 +246,12 @@ def main(argv=None):
     for j in jobs:
         vdir = out_root / j["bench"] / j["variant"]
         key = f"{j['bench']}/{j['variant']}"
-        if key in index["runs"] and index["runs"][key].get("rc") == 0:
+        if a.redo and re.search(a.redo, key) and key in index["runs"]:
+            print(f"redo {key}: discarding previous run", flush=True)
+            index["runs"].pop(key)
+            shutil.rmtree(vdir, ignore_errors=True)
+        done = index["runs"].get(key)
+        if done and done.get("rc") == 0 and done.get("n_pred_files") == done.get("n_inputs"):
             print(f"skip {key} (done)", flush=True)
             continue
         if (vdir / "raw").exists():
@@ -251,14 +259,16 @@ def main(argv=None):
         with open(out_root / "predict.log", "a") as log:
             log.write(f"\n==== {key} {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
             log.flush()
+            dev = a.af_device if j["af_mode"] else a.device
+            nw = a.af_workers if (j["af_mode"] and dev == "cpu") else a.workers
             wall, rc = run_burrow(Path(j["inputs"]), vdir / "raw", Path(j["model"]), j["ranker"], j["af_mode"], j["af_ranker"],
-                                  a.device, a.workers, j["backend"], log)
+                                  dev, nw, j["backend"], log)
         scored = finalize(j["bench"], vdir, j["suffix"])
         n_in = sum(1 for p in Path(j["inputs"]).iterdir() if not p.name.startswith("."))
         n_out = len(list(scored.glob("*.csv")))
         rec = {**j, "wall_s": round(wall, 1), "rc": rc, "n_inputs": n_in, "n_pred_files": n_out, "pred_dir": str(scored.relative_to(ROOT)),
                "commit": commit, "model_sha256": sha256(Path(j["model"])), "af_ranker_sha256": sha256(Path(j["af_ranker"])) if j["af_ranker"] else None,
-               "device": a.device if j["backend"] == "fast" else f"cpu x{a.workers}", "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+               "device": (dev if j["backend"] == "fast" else "cpu") + f" (workers {nw})", "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
         (vdir / "run.json").write_text(json.dumps(rec, indent=2))
         index["runs"][key] = rec
         idx_path.write_text(json.dumps(index, indent=2))

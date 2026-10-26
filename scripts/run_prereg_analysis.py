@@ -108,7 +108,7 @@ def evaluate(bench: str, pred_dir: Path, out: Path, n_boot: int) -> Path:
     return out
 
 
-def gated_evaluate(version: str, bench: str, variant: str, pred_dir: Path, models: list, n_boot: int) -> Path:
+def gated_evaluate(version: str, bench: str, variant: str, pred_dir: Path, models: list, n_boot: int, code_commit: str | None = None) -> Path:
     out = ROOT / "results/test" / version / bench / variant
     if (out / "eval_info.json").exists():
         return out
@@ -116,6 +116,8 @@ def gated_evaluate(version: str, bench: str, variant: str, pred_dir: Path, model
            "--version", version, "--n-boot", str(n_boot)]
     for m in models:
         cmd += ["--model", m]
+    if code_commit:
+        cmd += ["--code-commit", code_commit]
     r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     if r.returncode != 0:
         raise SystemExit(f"run_test_eval failed for {bench}/{variant}:\n{r.stderr}{r.stdout}")
@@ -248,6 +250,7 @@ def main(argv=None):
     from predict_benchmarks import PLAN  # noqa: E402
 
     method: dict = {}
+    code_commit = None
     if a.dry_run:
         for b, (inp, ranker, af, _sfx) in PLAN.items():
             stand = a.stand_in
@@ -266,13 +269,14 @@ def main(argv=None):
             models = [r["model"]] + ([r["af_ranker"]] if r.get("af_ranker") else [])
             method.setdefault(r["bench"], {})[r["variant"]] = (ROOT / r["pred_dir"], models)
         provenance_models = idx["sha256"]
+        code_commit = idx.get("code_commit")
 
     def method_eval(bench, variant):
         pdir, models = method[bench][variant]
         if a.dry_run:
             # all seeds/presets share one stand-in directory: evaluate once
             return evaluate(bench, pdir, OUT / "eval" / bench / f"standin_{pdir.parent.name}", a.n_boot)
-        return gated_evaluate(version, bench, variant, pdir, models, a.n_boot)
+        return gated_evaluate(version, bench, variant, pdir, models, a.n_boot, code_commit)
 
     comp_cache: dict = {}
 
@@ -440,8 +444,31 @@ def main(argv=None):
                 result["sanity"].append({"check": f"oracle vs {cv} (C1 metric)", "diff": round(c["diff"], 2), "ci_low": round(c["ci_low"], 2),
                                          "ci_high": round(c["ci_high"], 2), "ok": c["diff"] >= 2.0 and c["ci_low"] > 0 and abs(c["a"] - 100) < 1e-9})
 
+    # ---- denominators of every evaluation used (reference rows, structures, missing prediction files)
+    den = []
+    seen = set()
+    all_dirs = [(b, f"BURROW[{v}]", Path(method_eval(b, v))) for b in method for v in method[b]
+                if any(f"_{p}_s{s}" in v for p in ("default",) for s in seeds) or f"_s{seeds[0]}" in v]
+    all_dirs += [(b, cv, Path(d)) for (b, cv), d in comp_cache.items()]
+    for b, name, d in all_dirs:
+        if (b, name) in seen:
+            continue
+        seen.add((b, name))
+        info = json.loads((d / "eval_info.json").read_text())
+        sv = summary_values(d)
+        k = kind_of(b)
+        if k == "sites":
+            n_ref, n_struct = sv.loc["n_scored_sites", "value"], sv.loc["n_structures", "value"]
+        elif k == "ligands":
+            n_ref, n_struct = sv.loc["n_ligands", "value"], sv.loc["n_proteins", "value"]
+        else:
+            n_ref, n_struct = sv.loc["recall_DCC12_topn2@all", "n"], sv.loc["n_groups", "value"]
+        den.append({"benchmark": b, "method": name, "n_reference": int(n_ref), "n_structures_or_units": int(n_struct),
+                    "n_pred_missing": int(info["n_pred_missing"]), "eval_dir": str(d.relative_to(ROOT))})
+    result["denominators"] = den
+
     # ---- provenance + outputs
-    result["provenance"] = {"commit": commit, "dirty_tree": dirty, "prereg_sha256": sha256(ROOT / "docs/PREREG.md"), "models": provenance_models,
+    result["provenance"] = {"commit": commit, "dirty_tree": dirty, "prediction_code_commit": code_commit, "prereg_sha256": sha256(ROOT / "docs/PREREG.md"), "models": provenance_models,
                             "scoring_code_sha256": {f: sha256(ROOT / f) for f in ("src/pocketdetect/evaluate.py", "src/pocketdetect/ligands.py",
                                                                                    "src/pocketdetect/site_eval.py", "src/pocketdetect/prereg.py",
                                                                                    "src/pocketdetect/benchmarks.py")},
@@ -460,17 +487,21 @@ def render(R: dict) -> str:
          "95 % paired cluster-bootstrap CIs (30 % sequence clusters, 1,000 resamples).", "",
          "## Family 1 — fixed sequence (C1 → C1-strict → C2)", "",
          "| endpoint | status |", "|---|---|"] + [f"| {k} | {v} |" for k, v in R["family1_sequence"].items()] + [
-        "", "| endpoint | seed | comparator | method | comparator | Δ [95% CI] | n units | pass | common-subset Δ [CI] |", "|---|---|---|---|---|---|---|---|---|"]
+        "", "| endpoint | seed | comparator | method | comparator | Δ [95% CI] | n rows | n units | pass | common-subset Δ [CI] (n) |", "|---|---|---|---|---|---|---|---|---|---|"]
     for r in R["family1"]:
         cs = r.get("common_subset")
         L.append(f"| {r['endpoint']} | {r['seed']} | {r['comparator']} | {f(r['a'])} | {f(r['b'])} | {f(r['diff'])} [{f(r['ci_low'])}, {f(r['ci_high'])}] | "
-                 f"{r['n_units']} | {'yes' if r['pass'] else 'no'} | {(f(cs['diff']) + ' [' + f(cs['ci_low']) + ', ' + f(cs['ci_high']) + ']') if cs else ''} |")
+                 f"{r['n_rows']} | {r['n_units']} | {'yes' if r['pass'] else 'no'} | {(f(cs['diff']) + ' [' + f(cs['ci_low']) + ', ' + f(cs['ci_high']) + '] (' + str(cs['n_rows']) + ')') if cs else ''} |")
     L += ["", "## Family 2 — Holm over O2a/O2b/O3/O4/O5/O6 (non-inferiority margin −2 pts vs best baseline)", "",
           "| endpoint | verdict (all seeds) |", "|---|---|"] + [f"| {k} | {v} |" for k, v in R["family2_verdict"].items()] + [
-        "", "| endpoint | seed | metric | method | best comparator | Δ [95% CI] | p (H0 Δ ≤ −2) | Holm thr | decision | superior |", "|---|---|---|---|---|---|---|---|---|---|"]
+        "", "| endpoint | seed | metric | n rows | n units | method | best comparator | Δ [95% CI] | p (H0 Δ ≤ −2) | Holm thr | decision | superior |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in R["family2"]:
-        L.append(f"| {r['endpoint']} | {r['seed']} | {r['metric']} | {f(r['a'])} | {r['best_comparator']} {f(r['b'])} | {f(r['diff'])} [{f(r['ci_low'])}, {f(r['ci_high'])}] | "
+        L.append(f"| {r['endpoint']} | {r['seed']} | {r['metric']} | {r['n_rows']} | {r['n_units']} | {f(r['a'])} | {r['best_comparator']} {f(r['b'])} | {f(r['diff'])} [{f(r['ci_low'])}, {f(r['ci_high'])}] | "
                  f"{r['p_noninferiority']:.4f} | {r['holm_threshold']:.4f} | {r['decision']} | {'yes' if r['superior'] else 'no'} |")
+    L += ["", "## Denominators (scored reference sites / ligands; structures or units; missing prediction files = misses)", "",
+          "| benchmark | method | n reference | n structures/units | missing pred files |", "|---|---|---|---|---|"]
+    for r in R.get("denominators", []):
+        L.append(f"| {r['benchmark']} | {r['method']} | {r['n_reference']} | {r['n_structures_or_units']} | {r['n_pred_missing']} |")
     L += ["", "## Descriptive — secondary metrics", "", "| benchmark | method | metric | value [95% CI] |", "|---|---|---|---|"]
     for r in R["descriptive"]["secondary"]:
         sc = 100 if not r["metric"].startswith("TP@") else 1
@@ -487,7 +518,7 @@ def render(R: dict) -> str:
         L += ["", "## Dry-run sanity checks", "", "| check | Δ | CI | ok |", "|---|---|---|---|"] + [
             f"| {r['check']} | {r['diff']} | [{r['ci_low']}, {r['ci_high']}] | {r['ok']} |" for r in R["sanity"]]
     p = R["provenance"]
-    L += ["", "## Provenance", "", f"- commit `{p['commit']}`{' (dirty tree)' if p['dirty_tree'] else ''}; PREREG sha256 `{p['prereg_sha256']}`",
+    L += ["", "## Provenance", "", f"- scoring commit `{p['commit']}`{' (dirty tree)' if p['dirty_tree'] else ''}; prediction code commit `{p.get('prediction_code_commit')}`; PREREG sha256 `{p['prereg_sha256']}`",
           f"- models: `{json.dumps(p['models'])}`", f"- bootstrap: {p['bootstrap']}", f"- generated {p['utc']} in {p['seconds']} s"]
     return "\n".join(L) + "\n"
 
