@@ -54,3 +54,17 @@ def load_pdb(pid: str):
                 nm.append(a.name)
                 rn.append(res.name)
     return np.array(xyz, np.float32), np.array(el), np.array(nm), np.array(rn)
+
+
+def rod_protein(length: float = 120.0, radius: float = 8.0, spacing: float = 1.9, seed: int = 0):
+    """Elongated jittered lattice (forces spatial bricking with small voxel budgets)."""
+    rng = np.random.default_rng(seed)
+    gx = np.arange(-length / 2, length / 2 + 1e-6, spacing)
+    gy = np.arange(-radius, radius + 1e-6, spacing)
+    xyz = np.stack(np.meshgrid(gx, gy, gy, indexing="ij"), -1).reshape(-1, 3)
+    xyz = xyz[np.hypot(xyz[:, 1], xyz[:, 2]) <= radius]
+    # a few grooves so that buriedness varies along the rod
+    groove = (np.abs(np.sin(xyz[:, 0] / 6.0)) > 0.8) & (xyz[:, 1] > radius - 4)
+    xyz = xyz[~groove] + rng.normal(0, 0.2, (int((~groove).sum()), 3))
+    radii = rng.choice([1.52, 1.55, 1.7, 1.8], len(xyz)).astype(np.float32)
+    return xyz.astype(np.float32), radii

@@ -186,3 +186,38 @@ def neighbor_features_torch(points, coords, props=None, point_batch=None, atom_b
 
 def protrusion_torch(points, coords, radius: float = 10.0, point_batch=None, atom_batch=None):
     return neighbor_features_torch(points, coords, None, point_batch, atom_batch, (radius,))["sums"][:, 0, 0]
+
+
+def smooth_point_values(points, values, radius: float = 2.0, batch=None) -> np.ndarray:
+    """Mean of ``values`` (P,) or (P,F) over all points within ``radius`` (self included).
+
+    Cheap denoiser for per-point features such as ray buriedness (whose
+    angular-sampling noise is ~ 1/sqrt(n_rays)).  ``batch`` keeps structures apart.
+    """
+    pts = np.ascontiguousarray(points, np.float32)
+    v = np.asarray(values, np.float32)
+    one_d = v.ndim == 1
+    v2 = np.c_[v.reshape(len(pts), -1), np.ones(len(pts), np.float32)]
+    if batch is None:
+        s = neighbor_features(pts, pts, v2, (radius,)).sums[:, 0]
+    else:
+        batch = np.asarray(batch)
+        s = np.empty_like(v2)
+        for b in np.unique(batch):
+            m = np.nonzero(batch == b)[0]
+            s[m] = neighbor_features(pts[m], pts[m], v2[m], (radius,)).sums[:, 0]
+    out = s[:, :-1] / s[:, -1:]
+    return out[:, 0] if one_d else out
+
+
+def smooth_point_values_torch(points, values, radius: float = 2.0, batch=None, n_batch=None):
+    """GPU version of :func:`smooth_point_values`."""
+    import torch
+    from .torch_utils import as_tensor
+    pts = as_tensor(points, torch.float32)
+    v = as_tensor(values, torch.float32, pts.device)
+    one_d = v.ndim == 1
+    v2 = torch.cat([v.reshape(pts.shape[0], -1), torch.ones((pts.shape[0], 1), device=pts.device)], 1)
+    s = neighbor_features_torch(pts, pts, v2, batch, batch, (radius,), None, n_batch)["sums"][:, 0]
+    out = s[:, :-1] / s[:, -1:]
+    return out[:, 0] if one_d else out

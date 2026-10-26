@@ -1,0 +1,2208 @@
+{
+ "date": "2026-10-26 16:30",
+ "json_path": "results/geometry_bench.json",
+ "config": {
+  "points": "sas",
+  "probe": 1.4,
+  "n_sphere": 30,
+  "grid_spacing": 1.0,
+  "grid_max_dist": 5.0,
+  "psp_length": 8.0,
+  "psp_dirs": 7,
+  "min_psp": 2,
+  "subsample": 2,
+  "n_rays": 60,
+  "ray_lengths": [
+   8.0,
+   12.0,
+   20.0
+  ],
+  "occ_spacing": 1.0,
+  "ray_step": 1.0,
+  "ref_length": 2.0,
+  "radius_scale": 1.0,
+  "radius_pad": 0.0,
+  "nb_radii": [
+   4.0,
+   6.0,
+   8.0,
+   10.0,
+   12.0
+  ],
+  "sigmas": [
+   2.0,
+   4.0
+  ],
+  "canonical_frame": true,
+  "max_voxels": 16777216,
+  "max_voxels_gpu": 134217728
+ },
+ "structures": [
+  {
+   "id": "1crn",
+   "n_res": 46,
+   "n_atoms": 327,
+   "load_ms": 29.1,
+   "cpu1": {
+    "sas": 0.9261090308427811,
+    "grid": 1.672488870099187,
+    "occ": 0.13085990212857723,
+    "psp_grid": 1.5662088990211487,
+    "rays_sas": 3.400248009711504,
+    "neighbors_sas": 2.6061180979013443,
+    "cluster_sl": 0.121269840747118,
+    "pipe_sas": 7.88918393664062,
+    "pipe_sas_stages": {
+     "points": 1.01,
+     "prefilter": 0.49,
+     "buriedness": 3.36,
+     "neighbors": 2.75,
+     "total": 7.89
+    },
+    "n_sas": 783,
+    "pipe_cascade": 9.71337198279798,
+    "pipe_cascade_stages": {
+     "points": 1.62,
+     "prefilter": 1.96,
+     "buriedness": 3.46,
+     "neighbors": 2.38,
+     "total": 9.71
+    },
+    "n_cascade": 810,
+    "n_grid": 6425
+   },
+   "cpu16": {
+    "sas": 0.3752799239009619,
+    "grid": 0.8350398857146502,
+    "occ": 0.16508996486663818,
+    "psp_grid": 0.3743299748748541,
+    "rays_sas": 0.5703200586140156,
+    "neighbors_sas": 0.36091008223593235,
+    "cluster_sl": 0.12017018161714077,
+    "pipe_sas": 1.4841991942375898,
+    "pipe_sas_stages": {
+     "points": 0.3,
+     "prefilter": 0.25,
+     "buriedness": 0.31,
+     "neighbors": 0.31,
+     "total": 1.48
+    },
+    "n_sas": 783,
+    "pipe_cascade": 2.0596690010279417,
+    "pipe_cascade_stages": {
+     "points": 0.61,
+     "prefilter": 0.53,
+     "buriedness": 0.31,
+     "neighbors": 0.28,
+     "total": 2.06
+    },
+    "n_cascade": 810,
+    "n_grid": 6425
+   },
+   "cpu64": {
+    "sas": 16.654976876452565,
+    "grid": 21.733543137088418,
+    "occ": 21.681573009118438,
+    "psp_grid": 16.819337150081992,
+    "rays_sas": 32.04951505176723,
+    "neighbors_sas": 32.12501504458487,
+    "cluster_sl": 0.11902907863259315,
+    "pipe_sas": 130.63081912696362,
+    "pipe_sas_stages": {
+     "points": 20.74,
+     "prefilter": 42.76,
+     "buriedness": 31.96,
+     "neighbors": 34.67,
+     "total": 130.63
+    },
+    "n_sas": 783,
+    "pipe_cascade": 128.59589094296098,
+    "pipe_cascade_stages": {
+     "points": 21.21,
+     "prefilter": 42.67,
+     "buriedness": 31.77,
+     "neighbors": 32.41,
+     "total": 128.6
+    },
+    "n_cascade": 810,
+    "n_grid": 6425
+   },
+   "gpu": {
+    "sas": 0.8260600734502077,
+    "grid": 0.9601500350981951,
+    "occ": 0.7104191463440657,
+    "psp_grid": 0.1949199941009283,
+    "rays_sas": 0.2639100421220064,
+    "neighbors_sas": 1.4438990037888288,
+    "cluster_sl": 1.3220789842307568,
+    "pipe_sas": 4.497278016060591,
+    "pipe_cascade": 4.8258870374411345
+   }
+  },
+  {
+   "id": "1ubq",
+   "n_res": 76,
+   "n_atoms": 602,
+   "load_ms": 38.7,
+   "cpu1": {
+    "sas": 1.7944090068340302,
+    "grid": 2.8973380103707314,
+    "occ": 0.22291997447609901,
+    "psp_grid": 2.456067828461528,
+    "rays_sas": 6.228065118193626,
+    "neighbors_sas": 5.019976058974862,
+    "cluster_sl": 0.16339006833732128,
+    "pipe_sas": 14.255268964916468,
+    "pipe_sas_stages": {
+     "points": 1.9,
+     "prefilter": 0.8,
+     "buriedness": 6.11,
+     "neighbors": 5.02,
+     "total": 14.26
+    },
+    "n_sas": 1306,
+    "pipe_cascade": 16.767386812716722,
+    "pipe_cascade_stages": {
+     "points": 2.87,
+     "prefilter": 3.09,
+     "buriedness": 6.1,
+     "neighbors": 4.35,
+     "total": 16.77
+    },
+    "n_cascade": 1322,
+    "n_grid": 10174
+   },
+   "cpu16": {
+    "sas": 0.5983889568597078,
+    "grid": 1.4138391707092524,
+    "occ": 0.47480897046625614,
+    "psp_grid": 0.6415299139916897,
+    "rays_sas": 0.9626990649849176,
+    "neighbors_sas": 0.8530090562999249,
+    "cluster_sl": 0.1566489227116108,
+    "pipe_sas": 2.314188051968813,
+    "pipe_sas_stages": {
+     "points": 0.51,
+     "prefilter": 0.33,
+     "buriedness": 0.57,
+     "neighbors": 0.5,
+     "total": 2.31
+    },
+    "n_sas": 1306,
+    "pipe_cascade": 3.4468970261514187,
+    "pipe_cascade_stages": {
+     "points": 1.17,
+     "prefilter": 0.87,
+     "buriedness": 0.54,
+     "neighbors": 0.46,
+     "total": 3.45
+    },
+    "n_cascade": 1322,
+    "n_grid": 10174
+   },
+   "cpu64": {
+    "sas": 20.31500404700637,
+    "grid": 21.523403003811836,
+    "occ": 20.81312402151525,
+    "psp_grid": 21.39939391054213,
+    "rays_sas": 32.285714987665415,
+    "neighbors_sas": 30.70864616893232,
+    "cluster_sl": 0.16296003013849258,
+    "pipe_sas": 127.5517821777612,
+    "pipe_sas_stages": {
+     "points": 20.87,
+     "prefilter": 42.06,
+     "buriedness": 33.42,
+     "neighbors": 30.55,
+     "total": 127.55
+    },
+    "n_sas": 1306,
+    "pipe_cascade": 129.0395411197096,
+    "pipe_cascade_stages": {
+     "points": 21.52,
+     "prefilter": 42.44,
+     "buriedness": 32.03,
+     "neighbors": 32.36,
+     "total": 129.04
+    },
+    "n_cascade": 1322,
+    "n_grid": 10174
+   },
+   "gpu": {
+    "sas": 0.8762599900364876,
+    "grid": 1.0080398060381413,
+    "occ": 0.7549789734184742,
+    "psp_grid": 0.20130001939833164,
+    "rays_sas": 0.2688600216060877,
+    "neighbors_sas": 1.5748089645057917,
+    "cluster_sl": 1.7608690541237593,
+    "pipe_sas": 4.832826089113951,
+    "pipe_cascade": 5.215376149863005
+   }
+  },
+  {
+   "id": "1stp",
+   "n_res": 121,
+   "n_atoms": 901,
+   "load_ms": 90.9,
+   "cpu1": {
+    "sas": 2.7312380261719227,
+    "grid": 4.247806034982204,
+    "occ": 0.34080888144671917,
+    "psp_grid": 3.420457011088729,
+    "rays_sas": 8.693193085491657,
+    "neighbors_sas": 7.686604047194123,
+    "cluster_sl": 0.17265998758375645,
+    "pipe_sas": 21.162083838135004,
+    "pipe_sas_stages": {
+     "points": 2.87,
+     "prefilter": 1.11,
+     "buriedness": 8.91,
+     "neighbors": 7.77,
+     "total": 21.16
+    },
+    "n_sas": 1854,
+    "pipe_cascade": 25.384071050211787,
+    "pipe_cascade_stages": {
+     "points": 4.2,
+     "prefilter": 4.35,
+     "buriedness": 9.22,
+     "neighbors": 7.12,
+     "total": 25.38
+    },
+    "n_cascade": 1931,
+    "n_grid": 14175
+   },
+   "cpu16": {
+    "sas": 0.8742490317672491,
+    "grid": 2.1906690672039986,
+    "occ": 0.47229998745024204,
+    "psp_grid": 0.49267010763287544,
+    "rays_sas": 0.6726989522576332,
+    "neighbors_sas": 0.7091599982231855,
+    "cluster_sl": 0.16447994858026505,
+    "pipe_sas": 3.1618669163435698,
+    "pipe_sas_stages": {
+     "points": 0.65,
+     "prefilter": 0.41,
+     "buriedness": 0.73,
+     "neighbors": 0.75,
+     "total": 3.16
+    },
+    "n_sas": 1854,
+    "pipe_cascade": 4.418776137754321,
+    "pipe_cascade_stages": {
+     "points": 1.3,
+     "prefilter": 1.08,
+     "buriedness": 0.75,
+     "neighbors": 0.73,
+     "total": 4.42
+    },
+    "n_cascade": 1931,
+    "n_grid": 14175
+   },
+   "cpu64": {
+    "sas": 16.895666951313615,
+    "grid": 21.392983850091696,
+    "occ": 20.296615082770586,
+    "psp_grid": 21.353503922000527,
+    "rays_sas": 30.51663702353835,
+    "neighbors_sas": 32.221774803474545,
+    "cluster_sl": 0.17581903375685215,
+    "pipe_sas": 126.16132292896509,
+    "pipe_sas_stages": {
+     "points": 16.76,
+     "prefilter": 47.89,
+     "buriedness": 33.47,
+     "neighbors": 27.24,
+     "total": 126.16
+    },
+    "n_sas": 1854,
+    "pipe_cascade": 123.35561588406563,
+    "pipe_cascade_stages": {
+     "points": 17.44,
+     "prefilter": 42.52,
+     "buriedness": 32.42,
+     "neighbors": 30.23,
+     "total": 123.36
+    },
+    "n_cascade": 1931,
+    "n_grid": 14175
+   },
+   "gpu": {
+    "sas": 0.8302689529955387,
+    "grid": 0.9531991090625525,
+    "occ": 0.7126301061362028,
+    "psp_grid": 0.19450020045042038,
+    "rays_sas": 0.25920988991856575,
+    "neighbors_sas": 1.4926691073924303,
+    "cluster_sl": 1.9062580540776253,
+    "pipe_sas": 4.683915991336107,
+    "pipe_cascade": 5.06366603076458
+   }
+  },
+  {
+   "id": "3ptb",
+   "n_res": 223,
+   "n_atoms": 1629,
+   "load_ms": 28.5,
+   "cpu1": {
+    "sas": 5.472786026075482,
+    "grid": 6.9396039471030235,
+    "occ": 0.7241899147629738,
+    "psp_grid": 4.594577010720968,
+    "rays_sas": 12.110640993341804,
+    "neighbors_sas": 11.95878116413951,
+    "cluster_sl": 0.2315689343959093,
+    "pipe_sas": 31.6949759144336,
+    "pipe_sas_stages": {
+     "points": 5.56,
+     "prefilter": 1.67,
+     "buriedness": 11.8,
+     "neighbors": 11.93,
+     "total": 31.69
+    },
+    "n_sas": 2456,
+    "pipe_cascade": 35.68287193775177,
+    "pipe_cascade_stages": {
+     "points": 6.89,
+     "prefilter": 5.84,
+     "buriedness": 11.75,
+     "neighbors": 10.54,
+     "total": 35.68
+    },
+    "n_cascade": 2452,
+    "n_grid": 17903
+   },
+   "cpu16": {
+    "sas": 1.5377090312540531,
+    "grid": 2.1119590383023024,
+    "occ": 0.5184398032724857,
+    "psp_grid": 0.49700005911290646,
+    "rays_sas": 0.8591301739215851,
+    "neighbors_sas": 0.9249390568584204,
+    "cluster_sl": 0.23383903317153454,
+    "pipe_sas": 4.440497141331434,
+    "pipe_sas_stages": {
+     "points": 1.21,
+     "prefilter": 0.58,
+     "buriedness": 0.91,
+     "neighbors": 1.09,
+     "total": 4.44
+    },
+    "n_sas": 2456,
+    "pipe_cascade": 6.009774981066585,
+    "pipe_cascade_stages": {
+     "points": 2.0,
+     "prefilter": 1.44,
+     "buriedness": 0.92,
+     "neighbors": 0.93,
+     "total": 6.01
+    },
+    "n_cascade": 2452,
+    "n_grid": 17903
+   },
+   "cpu64": {
+    "sas": 17.569686053320765,
+    "grid": 21.51681389659643,
+    "occ": 20.522533915936947,
+    "psp_grid": 21.39079407788813,
+    "rays_sas": 31.961915083229542,
+    "neighbors_sas": 32.151486026123166,
+    "cluster_sl": 0.2405999694019556,
+    "pipe_sas": 129.95068007148802,
+    "pipe_sas_stages": {
+     "points": 20.7,
+     "prefilter": 42.36,
+     "buriedness": 33.3,
+     "neighbors": 32.47,
+     "total": 129.95
+    },
+    "n_sas": 2456,
+    "pipe_cascade": 130.7532899081707,
+    "pipe_cascade_stages": {
+     "points": 21.79,
+     "prefilter": 43.71,
+     "buriedness": 31.65,
+     "neighbors": 32.52,
+     "total": 130.75
+    },
+    "n_cascade": 2452,
+    "n_grid": 17903
+   },
+   "gpu": {
+    "sas": 0.8766988757997751,
+    "grid": 1.0076689068228006,
+    "occ": 0.7534988690167665,
+    "psp_grid": 0.1980699598789215,
+    "rays_sas": 0.2696891315281391,
+    "neighbors_sas": 1.620498951524496,
+    "cluster_sl": 2.364728134125471,
+    "pipe_sas": 5.258596036583185,
+    "pipe_cascade": 5.603256169706583
+   }
+  },
+  {
+   "id": "1hsg",
+   "n_res": 198,
+   "n_atoms": 1514,
+   "load_ms": 83.9,
+   "cpu1": {
+    "sas": 4.797747125849128,
+    "grid": 6.756214890629053,
+    "occ": 0.6864289753139019,
+    "psp_grid": 4.777015885338187,
+    "rays_sas": 12.941570021212101,
+    "neighbors_sas": 12.249771039932966,
+    "cluster_sl": 0.26198988780379295,
+    "pipe_sas": 31.91973501816392,
+    "pipe_sas_stages": {
+     "points": 4.99,
+     "prefilter": 1.66,
+     "buriedness": 12.33,
+     "neighbors": 12.25,
+     "total": 31.92
+    },
+    "n_sas": 2587,
+    "pipe_cascade": 40.04468908533454,
+    "pipe_cascade_stages": {
+     "points": 6.72,
+     "prefilter": 6.08,
+     "buriedness": 13.66,
+     "neighbors": 12.9,
+     "total": 40.04
+    },
+    "n_cascade": 2889,
+    "n_grid": 19011
+   },
+   "cpu16": {
+    "sas": 1.5649190172553062,
+    "grid": 2.3818579502403736,
+    "occ": 0.4965299740433693,
+    "psp_grid": 0.6176501046866179,
+    "rays_sas": 0.919609097763896,
+    "neighbors_sas": 0.9775888174772263,
+    "cluster_sl": 0.26134983636438847,
+    "pipe_sas": 4.377546953037381,
+    "pipe_sas_stages": {
+     "points": 0.99,
+     "prefilter": 0.54,
+     "buriedness": 0.95,
+     "neighbors": 1.11,
+     "total": 4.38
+    },
+    "n_sas": 2587,
+    "pipe_cascade": 6.518194917589426,
+    "pipe_cascade_stages": {
+     "points": 1.84,
+     "prefilter": 1.52,
+     "buriedness": 1.04,
+     "neighbors": 1.36,
+     "total": 6.52
+    },
+    "n_cascade": 2889,
+    "n_grid": 19011
+   },
+   "cpu64": {
+    "sas": 21.153594134375453,
+    "grid": 23.04466301575303,
+    "occ": 20.31121402978897,
+    "psp_grid": 21.484404103830457,
+    "rays_sas": 32.60583500377834,
+    "neighbors_sas": 32.33531513251364,
+    "cluster_sl": 0.2597400452941656,
+    "pipe_sas": 129.89065004512668,
+    "pipe_sas_stages": {
+     "points": 20.75,
+     "prefilter": 42.67,
+     "buriedness": 32.84,
+     "neighbors": 32.52,
+     "total": 129.89
+    },
+    "n_sas": 2587,
+    "pipe_cascade": 132.1439479943365,
+    "pipe_cascade_stages": {
+     "points": 21.64,
+     "prefilter": 45.05,
+     "buriedness": 31.84,
+     "neighbors": 32.64,
+     "total": 132.14
+    },
+    "n_cascade": 2889,
+    "n_grid": 19011
+   },
+   "gpu": {
+    "sas": 0.8820290677249432,
+    "grid": 1.0192401241511106,
+    "occ": 0.7579491939395666,
+    "psp_grid": 0.19801990129053593,
+    "rays_sas": 0.26378012262284756,
+    "neighbors_sas": 1.611117972061038,
+    "cluster_sl": 2.0672681275755167,
+    "pipe_sas": 5.222586216405034,
+    "pipe_cascade": 5.623155040666461
+   }
+  },
+  {
+   "id": "4dfr",
+   "n_res": 318,
+   "n_atoms": 2508,
+   "load_ms": 40.7,
+   "cpu1": {
+    "sas": 8.105633780360222,
+    "grid": 10.758581105619669,
+    "occ": 1.173828961327672,
+    "psp_grid": 7.948874030262232,
+    "rays_sas": 21.58894413150847,
+    "neighbors_sas": 21.60489303059876,
+    "cluster_sl": 0.4381900653243065,
+    "pipe_sas": 54.771827068179846,
+    "pipe_sas_stages": {
+     "points": 8.31,
+     "prefilter": 2.75,
+     "buriedness": 21.29,
+     "neighbors": 21.4,
+     "total": 54.77
+    },
+    "n_sas": 4247,
+    "pipe_cascade": 75.74999216012657,
+    "pipe_cascade_stages": {
+     "points": 11.37,
+     "prefilter": 10.05,
+     "buriedness": 26.63,
+     "neighbors": 26.56,
+     "total": 75.75
+    },
+    "n_cascade": 5221,
+    "n_grid": 30831
+   },
+   "cpu16": {
+    "sas": 2.335477853193879,
+    "grid": 3.5469268914312124,
+    "occ": 0.5606699269264936,
+    "psp_grid": 0.9013290982693434,
+    "rays_sas": 1.535769086331129,
+    "neighbors_sas": 1.8845491576939821,
+    "cluster_sl": 0.4488190170377493,
+    "pipe_sas": 7.39821488969028,
+    "pipe_sas_stages": {
+     "points": 1.62,
+     "prefilter": 0.83,
+     "buriedness": 1.64,
+     "neighbors": 2.01,
+     "total": 7.4
+    },
+    "n_sas": 4247,
+    "pipe_cascade": 11.188611155375838,
+    "pipe_cascade_stages": {
+     "points": 3.28,
+     "prefilter": 2.22,
+     "buriedness": 1.93,
+     "neighbors": 2.42,
+     "total": 11.19
+    },
+    "n_cascade": 5221,
+    "n_grid": 30831
+   },
+   "cpu64": {
+    "sas": 18.262606114149094,
+    "grid": 19.66723520308733,
+    "occ": 20.044403849169612,
+    "psp_grid": 21.548894001170993,
+    "rays_sas": 32.70825510844588,
+    "neighbors_sas": 31.97911591269076,
+    "cluster_sl": 0.46348897740244865,
+    "pipe_sas": 129.93306992575526,
+    "pipe_sas_stages": {
+     "points": 20.92,
+     "prefilter": 42.16,
+     "buriedness": 32.68,
+     "neighbors": 32.78,
+     "total": 129.93
+    },
+    "n_sas": 4247,
+    "pipe_cascade": 133.71219718828797,
+    "pipe_cascade_stages": {
+     "points": 22.13,
+     "prefilter": 44.16,
+     "buriedness": 32.7,
+     "neighbors": 33.28,
+     "total": 133.71
+    },
+    "n_cascade": 5221,
+    "n_grid": 30831
+   },
+   "gpu": {
+    "sas": 0.9218191262334585,
+    "grid": 1.0318388231098652,
+    "occ": 0.7632491178810596,
+    "psp_grid": 0.2048599999397993,
+    "rays_sas": 0.2750791609287262,
+    "neighbors_sas": 1.725418958812952,
+    "cluster_sl": 2.309847855940461,
+    "pipe_sas": 5.7040362153202295,
+    "pipe_cascade": 6.495875073596835
+   }
+  },
+  {
+   "id": "1ake",
+   "n_res": 428,
+   "n_atoms": 3312,
+   "load_ms": 36.7,
+   "cpu1": {
+    "sas": 10.603731963783503,
+    "grid": 14.663088833913207,
+    "occ": 1.5705691184848547,
+    "psp_grid": 10.22955309599638,
+    "rays_sas": 29.6680370811373,
+    "neighbors_sas": 29.92201689630747,
+    "cluster_sl": 0.6744591519236565,
+    "pipe_sas": 76.09298196621239,
+    "pipe_sas_stages": {
+     "points": 10.84,
+     "prefilter": 3.58,
+     "buriedness": 30.0,
+     "neighbors": 30.45,
+     "total": 76.09
+    },
+    "n_sas": 5732,
+    "pipe_cascade": 97.73883502930403,
+    "pipe_cascade_stages": {
+     "points": 14.39,
+     "prefilter": 12.78,
+     "buriedness": 34.7,
+     "neighbors": 34.56,
+     "total": 97.74
+    },
+    "n_cascade": 6541,
+    "n_grid": 39175
+   },
+   "cpu16": {
+    "sas": 3.3025869634002447,
+    "grid": 4.884135909378529,
+    "occ": 0.7120899390429258,
+    "psp_grid": 1.3022890780121088,
+    "rays_sas": 2.019478939473629,
+    "neighbors_sas": 2.5090379640460014,
+    "cluster_sl": 0.6638690829277039,
+    "pipe_sas": 10.070172837004066,
+    "pipe_sas_stages": {
+     "points": 2.47,
+     "prefilter": 1.03,
+     "buriedness": 2.21,
+     "neighbors": 2.75,
+     "total": 10.07
+    },
+    "n_sas": 5732,
+    "pipe_cascade": 13.908718945458531,
+    "pipe_cascade_stages": {
+     "points": 4.24,
+     "prefilter": 2.79,
+     "buriedness": 2.52,
+     "neighbors": 3.1,
+     "total": 13.91
+    },
+    "n_cascade": 6541,
+    "n_grid": 39175
+   },
+   "cpu64": {
+    "sas": 21.728693041950464,
+    "grid": 21.69941389001906,
+    "occ": 20.060124108567834,
+    "psp_grid": 21.861302899196744,
+    "rays_sas": 32.55180502310395,
+    "neighbors_sas": 33.234925009310246,
+    "cluster_sl": 0.6733599584549665,
+    "pipe_sas": 131.4288389403373,
+    "pipe_sas_stages": {
+     "points": 19.0,
+     "prefilter": 43.04,
+     "buriedness": 34.4,
+     "neighbors": 33.44,
+     "total": 131.43
+    },
+    "n_sas": 5732,
+    "pipe_cascade": 128.69132100604475,
+    "pipe_cascade_stages": {
+     "points": 19.56,
+     "prefilter": 41.78,
+     "buriedness": 32.37,
+     "neighbors": 33.28,
+     "total": 128.69
+    },
+    "n_cascade": 6541,
+    "n_grid": 39175
+   },
+   "gpu": {
+    "sas": 0.8796290494501591,
+    "grid": 0.9695491753518581,
+    "occ": 0.7258590776473284,
+    "psp_grid": 0.1996790524572134,
+    "rays_sas": 0.2641691826283932,
+    "neighbors_sas": 1.665877876803279,
+    "cluster_sl": 2.7143280021846294,
+    "pipe_sas": 5.8006360195577145,
+    "pipe_cascade": 6.152505986392498
+   }
+  },
+  {
+   "id": "1hvr",
+   "n_res": 198,
+   "n_atoms": 1514,
+   "load_ms": 27.3,
+   "cpu1": {
+    "sas": 4.904655972495675,
+    "grid": 6.586174946278334,
+    "occ": 0.6687899585813284,
+    "psp_grid": 4.761206917464733,
+    "rays_sas": 12.549669947475195,
+    "neighbors_sas": 11.852681171149015,
+    "cluster_sl": 0.25709904730319977,
+    "pipe_sas": 31.695846002548933,
+    "pipe_sas_stages": {
+     "points": 5.01,
+     "prefilter": 1.67,
+     "buriedness": 12.32,
+     "neighbors": 12.02,
+     "total": 31.7
+    },
+    "n_sas": 2576,
+    "pipe_cascade": 39.54394883476198,
+    "pipe_cascade_stages": {
+     "points": 6.66,
+     "prefilter": 6.05,
+     "buriedness": 13.49,
+     "neighbors": 12.62,
+     "total": 39.54
+    },
+    "n_cascade": 2810,
+    "n_grid": 18934
+   },
+   "cpu16": {
+    "sas": 1.5627690590918064,
+    "grid": 2.2811691742390394,
+    "occ": 0.5115990061312914,
+    "psp_grid": 0.678919954225421,
+    "rays_sas": 0.9229287970811129,
+    "neighbors_sas": 0.9842589497566223,
+    "cluster_sl": 0.2539500128477812,
+    "pipe_sas": 4.8110769130289555,
+    "pipe_sas_stages": {
+     "points": 1.24,
+     "prefilter": 0.57,
+     "buriedness": 0.96,
+     "neighbors": 1.11,
+     "total": 4.81
+    },
+    "n_sas": 2576,
+    "pipe_cascade": 6.718755001202226,
+    "pipe_cascade_stages": {
+     "points": 2.0,
+     "prefilter": 1.54,
+     "buriedness": 1.02,
+     "neighbors": 1.37,
+     "total": 6.72
+    },
+    "n_cascade": 2810,
+    "n_grid": 18934
+   },
+   "cpu64": {
+    "sas": 21.341733867302537,
+    "grid": 19.317355006933212,
+    "occ": 20.84976388141513,
+    "psp_grid": 21.482793847098947,
+    "rays_sas": 32.50924497842789,
+    "neighbors_sas": 32.38045494072139,
+    "cluster_sl": 0.2557199914008379,
+    "pipe_sas": 131.6038789227605,
+    "pipe_sas_stages": {
+     "points": 20.77,
+     "prefilter": 42.5,
+     "buriedness": 34.94,
+     "neighbors": 32.3,
+     "total": 131.6
+    },
+    "n_sas": 2576,
+    "pipe_cascade": 129.86105005256832,
+    "pipe_cascade_stages": {
+     "points": 21.51,
+     "prefilter": 42.53,
+     "buriedness": 32.23,
+     "neighbors": 32.51,
+     "total": 129.86
+    },
+    "n_cascade": 2810,
+    "n_grid": 18934
+   },
+   "gpu": {
+    "sas": 0.902778934687376,
+    "grid": 1.014129025861621,
+    "occ": 0.7630288600921631,
+    "psp_grid": 0.20350003615021706,
+    "rays_sas": 0.2704600337892771,
+    "neighbors_sas": 1.627397956326604,
+    "cluster_sl": 2.0843581296503544,
+    "pipe_sas": 5.197296151891351,
+    "pipe_cascade": 5.630004918202758
+   }
+  },
+  {
+   "id": "1m17",
+   "n_res": 312,
+   "n_atoms": 2497,
+   "load_ms": 28.1,
+   "cpu1": {
+    "sas": 7.982013048604131,
+    "grid": 11.557131074368954,
+    "occ": 1.1906689032912254,
+    "psp_grid": 8.726582862436771,
+    "rays_sas": 24.991289945319295,
+    "neighbors_sas": 21.7309040017426,
+    "cluster_sl": 0.44936896301805973,
+    "pipe_sas": 57.323026936501265,
+    "pipe_sas_stages": {
+     "points": 8.04,
+     "prefilter": 2.81,
+     "buriedness": 24.1,
+     "neighbors": 21.34,
+     "total": 57.32
+    },
+    "n_sas": 4695,
+    "pipe_cascade": 74.11232287995517,
+    "pipe_cascade_stages": {
+     "points": 11.32,
+     "prefilter": 10.75,
+     "buriedness": 27.82,
+     "neighbors": 23.15,
+     "total": 74.11
+    },
+    "n_cascade": 5358,
+    "n_grid": 34185
+   },
+   "cpu16": {
+    "sas": 2.608848037198186,
+    "grid": 4.583775997161865,
+    "occ": 0.6920790765434504,
+    "psp_grid": 0.8670189417898655,
+    "rays_sas": 1.7005279660224915,
+    "neighbors_sas": 1.8979390151798725,
+    "cluster_sl": 0.47023012302815914,
+    "pipe_sas": 8.039952954277396,
+    "pipe_sas_stages": {
+     "points": 1.93,
+     "prefilter": 1.05,
+     "buriedness": 1.85,
+     "neighbors": 2.06,
+     "total": 8.04
+    },
+    "n_sas": 4695,
+    "pipe_cascade": 11.935700895264745,
+    "pipe_cascade_stages": {
+     "points": 3.91,
+     "prefilter": 2.59,
+     "buriedness": 2.07,
+     "neighbors": 2.38,
+     "total": 11.94
+    },
+    "n_cascade": 5358,
+    "n_grid": 34185
+   },
+   "cpu64": {
+    "sas": 19.649334950372577,
+    "grid": 21.591352997347713,
+    "occ": 19.424055004492402,
+    "psp_grid": 16.92634681239724,
+    "rays_sas": 32.99975488334894,
+    "neighbors_sas": 32.7668939717114,
+    "cluster_sl": 0.45350007712841034,
+    "pipe_sas": 133.09533800929785,
+    "pipe_sas_stages": {
+     "points": 20.66,
+     "prefilter": 42.69,
+     "buriedness": 34.29,
+     "neighbors": 34.03,
+     "total": 133.1
+    },
+    "n_sas": 4695,
+    "pipe_cascade": 128.72747099027038,
+    "pipe_cascade_stages": {
+     "points": 22.46,
+     "prefilter": 41.53,
+     "buriedness": 32.19,
+     "neighbors": 31.14,
+     "total": 128.73
+    },
+    "n_cascade": 5358,
+    "n_grid": 34185
+   },
+   "gpu": {
+    "sas": 0.9162398055195808,
+    "grid": 1.013769069686532,
+    "occ": 0.7681199349462986,
+    "psp_grid": 0.20543020218610764,
+    "rays_sas": 0.275979982689023,
+    "neighbors_sas": 1.7083080019801855,
+    "cluster_sl": 2.689847955480218,
+    "pipe_sas": 5.742474924772978,
+    "pipe_cascade": 6.082845851778984
+   }
+  },
+  {
+   "id": "6lu7",
+   "n_res": 309,
+   "n_atoms": 2387,
+   "load_ms": 29.4,
+   "cpu1": {
+    "sas": 7.971613900735974,
+    "grid": 10.588831966742873,
+    "occ": 1.1322589125484228,
+    "psp_grid": 6.892023840919137,
+    "rays_sas": 19.385185092687607,
+    "neighbors_sas": 18.21130607277155,
+    "cluster_sl": 0.33951899968087673,
+    "pipe_sas": 47.5879330188036,
+    "pipe_sas_stages": {
+     "points": 8.13,
+     "prefilter": 2.47,
+     "buriedness": 18.36,
+     "neighbors": 17.68,
+     "total": 47.59
+    },
+    "n_sas": 3703,
+    "pipe_cascade": 57.07070720382035,
+    "pipe_cascade_stages": {
+     "points": 10.17,
+     "prefilter": 8.86,
+     "buriedness": 19.76,
+     "neighbors": 17.33,
+     "total": 57.07
+    },
+    "n_cascade": 3986,
+    "n_grid": 27177
+   },
+   "cpu16": {
+    "sas": 2.4506179615855217,
+    "grid": 3.272287081927061,
+    "occ": 0.579100102186203,
+    "psp_grid": 0.7078088819980621,
+    "rays_sas": 1.3609589077532291,
+    "neighbors_sas": 1.5293790493160486,
+    "cluster_sl": 0.32242992892861366,
+    "pipe_sas": 6.558004999533296,
+    "pipe_sas_stages": {
+     "points": 1.76,
+     "prefilter": 0.8,
+     "buriedness": 1.33,
+     "neighbors": 1.6,
+     "total": 6.56
+    },
+    "n_sas": 3703,
+    "pipe_cascade": 8.789703948423266,
+    "pipe_cascade_stages": {
+     "points": 2.78,
+     "prefilter": 2.07,
+     "buriedness": 1.44,
+     "neighbors": 1.56,
+     "total": 8.79
+    },
+    "n_cascade": 3986,
+    "n_grid": 27177
+   },
+   "cpu64": {
+    "sas": 21.537072956562042,
+    "grid": 21.589273121207952,
+    "occ": 19.915343960747123,
+    "psp_grid": 21.673033013939857,
+    "rays_sas": 31.3226159196347,
+    "neighbors_sas": 32.633365131914616,
+    "cluster_sl": 0.3544599749147892,
+    "pipe_sas": 129.7299899160862,
+    "pipe_sas_stages": {
+     "points": 20.66,
+     "prefilter": 42.22,
+     "buriedness": 32.68,
+     "neighbors": 32.8,
+     "total": 129.73
+    },
+    "n_sas": 3703,
+    "pipe_cascade": 131.4311590977013,
+    "pipe_cascade_stages": {
+     "points": 22.35,
+     "prefilter": 42.91,
+     "buriedness": 32.09,
+     "neighbors": 32.75,
+     "total": 131.43
+    },
+    "n_cascade": 3986,
+    "n_grid": 27177
+   },
+   "gpu": {
+    "sas": 0.9089198429137468,
+    "grid": 1.0241589043289423,
+    "occ": 0.7616088259965181,
+    "psp_grid": 0.20296010188758373,
+    "rays_sas": 0.2704891376197338,
+    "neighbors_sas": 1.6658490058034658,
+    "cluster_sl": 2.299568150192499,
+    "pipe_sas": 5.587974796071649,
+    "pipe_cascade": 5.946674849838018
+   }
+  },
+  {
+   "id": "1a28",
+   "n_res": 500,
+   "n_atoms": 4036,
+   "load_ms": 46.4,
+   "cpu1": {
+    "sas": 13.496669940650463,
+    "grid": 17.53192604519427,
+    "occ": 1.9339679274708033,
+    "psp_grid": 11.368611129000783,
+    "rays_sas": 33.5228240583092,
+    "neighbors_sas": 33.38373405858874,
+    "cluster_sl": 0.7152589969336987,
+    "pipe_sas": 84.81062506325543,
+    "pipe_sas_stages": {
+     "points": 13.74,
+     "prefilter": 4.05,
+     "buriedness": 32.5,
+     "neighbors": 33.07,
+     "total": 84.81
+    },
+    "n_sas": 6169,
+    "pipe_cascade": 109.48922601528466,
+    "pipe_cascade_stages": {
+     "points": 17.21,
+     "prefilter": 14.29,
+     "buriedness": 38.32,
+     "neighbors": 38.13,
+     "total": 109.49
+    },
+    "n_cascade": 7150,
+    "n_grid": 43049
+   },
+   "cpu16": {
+    "sas": 3.103007795289159,
+    "grid": 6.576424930244684,
+    "occ": 1.1278390884399414,
+    "psp_grid": 1.578659052029252,
+    "rays_sas": 2.2558490745723248,
+    "neighbors_sas": 2.636037999764085,
+    "cluster_sl": 0.7207689341157675,
+    "pipe_sas": 10.468262014910579,
+    "pipe_sas_stages": {
+     "points": 2.52,
+     "prefilter": 1.2,
+     "buriedness": 2.42,
+     "neighbors": 2.73,
+     "total": 10.47
+    },
+    "n_sas": 6169,
+    "pipe_cascade": 16.386508010327816,
+    "pipe_cascade_stages": {
+     "points": 5.96,
+     "prefilter": 3.0,
+     "buriedness": 2.74,
+     "neighbors": 3.2,
+     "total": 16.39
+    },
+    "n_cascade": 7150,
+    "n_grid": 43049
+   },
+   "cpu64": {
+    "sas": 16.49058680050075,
+    "grid": 21.67831314727664,
+    "occ": 19.072864903137088,
+    "psp_grid": 21.927732974290848,
+    "rays_sas": 33.18298398517072,
+    "neighbors_sas": 32.64172491617501,
+    "cluster_sl": 0.7288791239261627,
+    "pipe_sas": 134.02344682253897,
+    "pipe_sas_stages": {
+     "points": 20.99,
+     "prefilter": 42.16,
+     "buriedness": 35.83,
+     "neighbors": 32.95,
+     "total": 134.02
+    },
+    "n_sas": 6169,
+    "pipe_cascade": 133.4733171388507,
+    "pipe_cascade_stages": {
+     "points": 21.35,
+     "prefilter": 41.93,
+     "buriedness": 36.84,
+     "neighbors": 31.24,
+     "total": 133.47
+    },
+    "n_cascade": 7150,
+    "n_grid": 43049
+   },
+   "gpu": {
+    "sas": 0.8939700201153755,
+    "grid": 0.990669010207057,
+    "occ": 0.7444089278578758,
+    "psp_grid": 0.2019801177084446,
+    "rays_sas": 0.26965001598000526,
+    "neighbors_sas": 1.6834188718348742,
+    "cluster_sl": 2.698558149859309,
+    "pipe_sas": 6.051195785403252,
+    "pipe_cascade": 6.42303517088294
+   }
+  },
+  {
+   "id": "2rh1",
+   "n_res": 442,
+   "n_atoms": 3543,
+   "load_ms": 40.5,
+   "cpu1": {
+    "sas": 11.647660983726382,
+    "grid": 15.441467985510826,
+    "occ": 1.7068791203200817,
+    "psp_grid": 11.096711037680507,
+    "rays_sas": 31.378996092826128,
+    "neighbors_sas": 30.52828600630164,
+    "cluster_sl": 0.5516889505088329,
+    "pipe_sas": 78.60371004790068,
+    "pipe_sas_stages": {
+     "points": 11.79,
+     "prefilter": 3.72,
+     "buriedness": 31.05,
+     "neighbors": 30.72,
+     "total": 78.6
+    },
+    "n_sas": 5976,
+    "pipe_cascade": 103.66502101533115,
+    "pipe_cascade_stages": {
+     "points": 15.56,
+     "prefilter": 13.88,
+     "buriedness": 37.19,
+     "neighbors": 35.64,
+     "total": 103.67
+    },
+    "n_cascade": 7074,
+    "n_grid": 42601
+   },
+   "cpu16": {
+    "sas": 3.5395571030676365,
+    "grid": 5.335445981472731,
+    "occ": 0.7955299224704504,
+    "psp_grid": 1.2279688380658627,
+    "rays_sas": 2.117038005962968,
+    "neighbors_sas": 2.598928054794669,
+    "cluster_sl": 0.5387698765844107,
+    "pipe_sas": 10.386012028902769,
+    "pipe_sas_stages": {
+     "points": 2.71,
+     "prefilter": 1.12,
+     "buriedness": 2.32,
+     "neighbors": 2.72,
+     "total": 10.39
+    },
+    "n_sas": 5976,
+    "pipe_cascade": 14.970998046919703,
+    "pipe_cascade_stages": {
+     "points": 4.35,
+     "prefilter": 3.02,
+     "buriedness": 2.64,
+     "neighbors": 3.35,
+     "total": 14.97
+    },
+    "n_cascade": 7074,
+    "n_grid": 42601
+   },
+   "cpu64": {
+    "sas": 19.234505016356707,
+    "grid": 24.517430923879147,
+    "occ": 16.738017089664936,
+    "psp_grid": 21.77489292807877,
+    "rays_sas": 33.481304068118334,
+    "neighbors_sas": 32.94169483706355,
+    "cluster_sl": 0.5446388386189938,
+    "pipe_sas": 125.23890379816294,
+    "pipe_sas_stages": {
+     "points": 18.11,
+     "prefilter": 44.27,
+     "buriedness": 33.19,
+     "neighbors": 28.01,
+     "total": 125.24
+    },
+    "n_sas": 5976,
+    "pipe_cascade": 128.83989117108285,
+    "pipe_cascade_stages": {
+     "points": 20.31,
+     "prefilter": 41.5,
+     "buriedness": 32.19,
+     "neighbors": 33.17,
+     "total": 128.84
+    },
+    "n_cascade": 7074,
+    "n_grid": 42601
+   },
+   "gpu": {
+    "sas": 0.8828791324049234,
+    "grid": 0.960690202191472,
+    "occ": 0.725800171494484,
+    "psp_grid": 0.20005996339023113,
+    "rays_sas": 0.2625398337841034,
+    "neighbors_sas": 1.6592380125075579,
+    "cluster_sl": 2.640537917613983,
+    "pipe_sas": 5.8547561056911945,
+    "pipe_cascade": 6.2248860485851765
+   }
+  },
+  {
+   "id": "3eml",
+   "n_res": 448,
+   "n_atoms": 3521,
+   "load_ms": 46.4,
+   "cpu1": {
+    "sas": 11.358691146597266,
+    "grid": 15.79166785813868,
+    "occ": 1.690379111096263,
+    "psp_grid": 11.314531089738011,
+    "rays_sas": 32.9258251003921,
+    "neighbors_sas": 30.595306074246764,
+    "cluster_sl": 0.5704988725483418,
+    "pipe_sas": 78.79986008629203,
+    "pipe_sas_stages": {
+     "points": 11.55,
+     "prefilter": 3.7,
+     "buriedness": 31.77,
+     "neighbors": 30.43,
+     "total": 78.8
+    },
+    "n_sas": 6037,
+    "pipe_cascade": 100.22015310823917,
+    "pipe_cascade_stages": {
+     "points": 15.81,
+     "prefilter": 13.99,
+     "buriedness": 36.33,
+     "neighbors": 32.7,
+     "total": 100.22
+    },
+    "n_cascade": 6825,
+    "n_grid": 43552
+   },
+   "cpu16": {
+    "sas": 3.6376069765537977,
+    "grid": 6.731064058840275,
+    "occ": 0.9202088695019484,
+    "psp_grid": 1.1377588380128145,
+    "rays_sas": 2.1811979822814465,
+    "neighbors_sas": 2.684646984562278,
+    "cluster_sl": 0.5661698523908854,
+    "pipe_sas": 11.424741009250283,
+    "pipe_sas_stages": {
+     "points": 2.81,
+     "prefilter": 1.34,
+     "buriedness": 2.36,
+     "neighbors": 2.78,
+     "total": 11.42
+    },
+    "n_sas": 6037,
+    "pipe_cascade": 14.864549040794373,
+    "pipe_cascade_stages": {
+     "points": 4.9,
+     "prefilter": 3.02,
+     "buriedness": 2.54,
+     "neighbors": 2.99,
+     "total": 14.86
+    },
+    "n_cascade": 6825,
+    "n_grid": 43552
+   },
+   "cpu64": {
+    "sas": 18.829216016456485,
+    "grid": 20.80918406136334,
+    "occ": 18.62363494001329,
+    "psp_grid": 19.985904917120934,
+    "rays_sas": 29.59246700629592,
+    "neighbors_sas": 27.999148005619645,
+    "cluster_sl": 0.5740888882428408,
+    "pipe_sas": 130.5560499895364,
+    "pipe_sas_stages": {
+     "points": 21.97,
+     "prefilter": 43.13,
+     "buriedness": 28.17,
+     "neighbors": 35.38,
+     "total": 130.56
+    },
+    "n_sas": 6037,
+    "pipe_cascade": 133.54203780181706,
+    "pipe_cascade_stages": {
+     "points": 25.84,
+     "prefilter": 39.64,
+     "buriedness": 32.15,
+     "neighbors": 34.14,
+     "total": 133.54
+    },
+    "n_cascade": 6825,
+    "n_grid": 43552
+   },
+   "gpu": {
+    "sas": 0.8817091584205627,
+    "grid": 0.9686388075351715,
+    "occ": 0.729310093447566,
+    "psp_grid": 0.2003200352191925,
+    "rays_sas": 0.269539887085557,
+    "neighbors_sas": 1.653417944908142,
+    "cluster_sl": 1.94434798322618,
+    "pipe_sas": 5.851025925949216,
+    "pipe_cascade": 6.20946497656405
+   }
+  },
+  {
+   "id": "4hhb",
+   "n_res": 574,
+   "n_atoms": 4384,
+   "load_ms": 51.8,
+   "cpu1": {
+    "sas": 14.710799092426896,
+    "grid": 18.11939594335854,
+    "occ": 2.0697980653494596,
+    "psp_grid": 12.167980894446373,
+    "rays_sas": 35.65531177446246,
+    "neighbors_sas": 38.939130026847124,
+    "cluster_sl": 1.2327791191637516,
+    "pipe_sas": 94.7502669878304,
+    "pipe_sas_stages": {
+     "points": 14.82,
+     "prefilter": 4.56,
+     "buriedness": 34.66,
+     "neighbors": 39.11,
+     "total": 94.75
+    },
+    "n_sas": 6764,
+    "pipe_cascade": 138.12572392635047,
+    "pipe_cascade_stages": {
+     "points": 18.3,
+     "prefilter": 15.16,
+     "buriedness": 48.17,
+     "neighbors": 54.68,
+     "total": 138.13
+    },
+    "n_cascade": 9114,
+    "n_grid": 44401
+   },
+   "cpu16": {
+    "sas": 3.9257169701159,
+    "grid": 4.91184601560235,
+    "occ": 0.8473091293126345,
+    "psp_grid": 1.1432289611548185,
+    "rays_sas": 2.4012080393731594,
+    "neighbors_sas": 3.268267959356308,
+    "cluster_sl": 1.2141589540988207,
+    "pipe_sas": 11.789391050115228,
+    "pipe_sas_stages": {
+     "points": 2.83,
+     "prefilter": 1.21,
+     "buriedness": 2.51,
+     "neighbors": 3.43,
+     "total": 11.79
+    },
+    "n_sas": 6764,
+    "pipe_cascade": 18.013306194916368,
+    "pipe_cascade_stages": {
+     "points": 4.59,
+     "prefilter": 3.39,
+     "buriedness": 3.37,
+     "neighbors": 4.52,
+     "total": 18.01
+    },
+    "n_cascade": 9114,
+    "n_grid": 44401
+   },
+   "cpu64": {
+    "sas": 21.64177387021482,
+    "grid": 21.861732937395573,
+    "occ": 19.514425192028284,
+    "psp_grid": 21.748074097558856,
+    "rays_sas": 33.22557406499982,
+    "neighbors_sas": 33.566814148798585,
+    "cluster_sl": 1.2310589663684368,
+    "pipe_sas": 131.64217909798026,
+    "pipe_sas_stages": {
+     "points": 20.45,
+     "prefilter": 47.44,
+     "buriedness": 28.08,
+     "neighbors": 33.74,
+     "total": 131.64
+    },
+    "n_sas": 6764,
+    "pipe_cascade": 138.06581310927868,
+    "pipe_cascade_stages": {
+     "points": 25.37,
+     "prefilter": 40.0,
+     "buriedness": 33.6,
+     "neighbors": 36.87,
+     "total": 138.07
+    },
+    "n_cascade": 9114,
+    "n_grid": 44401
+   },
+   "gpu": {
+    "sas": 0.9230191353708506,
+    "grid": 0.9674089960753918,
+    "occ": 0.7333089597523212,
+    "psp_grid": 0.20280014723539352,
+    "rays_sas": 0.2650599926710129,
+    "neighbors_sas": 1.7400479409843683,
+    "cluster_sl": 3.873968031257391,
+    "pipe_sas": 6.350385956466198,
+    "pipe_cascade": 6.733204936608672
+   }
+  },
+  {
+   "id": "1fin",
+   "n_res": 1116,
+   "n_atoms": 8998,
+   "load_ms": 95.9,
+   "cpu1": {
+    "sas": 31.540854834020138,
+    "grid": 38.311609998345375,
+    "occ": 4.322546999901533,
+    "psp_grid": 21.81685296818614,
+    "rays_sas": 66.33110879920423,
+    "neighbors_sas": 70.17650594934821,
+    "cluster_sl": 1.7054390627890825,
+    "pipe_sas": 174.70819503068924,
+    "pipe_sas_stages": {
+     "points": 31.31,
+     "prefilter": 8.37,
+     "buriedness": 63.04,
+     "neighbors": 69.12,
+     "total": 174.71
+    },
+    "n_sas": 11736,
+    "pipe_cascade": 234.16292015463114,
+    "pipe_cascade_stages": {
+     "points": 37.24,
+     "prefilter": 27.71,
+     "buriedness": 80.71,
+     "neighbors": 85.5,
+     "total": 234.16
+    },
+    "n_cascade": 14618,
+    "n_grid": 79676
+   },
+   "cpu16": {
+    "sas": 6.091094808652997,
+    "grid": 11.51341199874878,
+    "occ": 1.987607916817069,
+    "psp_grid": 2.01929803006351,
+    "rays_sas": 4.250657046213746,
+    "neighbors_sas": 5.394916050136089,
+    "cluster_sl": 1.7069289460778236,
+    "pipe_sas": 23.649132112041116,
+    "pipe_sas_stages": {
+     "points": 5.77,
+     "prefilter": 2.89,
+     "buriedness": 4.75,
+     "neighbors": 5.61,
+     "total": 23.65
+    },
+    "n_sas": 11736,
+    "pipe_cascade": 32.94918406754732,
+    "pipe_cascade_stages": {
+     "points": 10.22,
+     "prefilter": 6.34,
+     "buriedness": 5.77,
+     "neighbors": 6.84,
+     "total": 32.95
+    },
+    "n_cascade": 14618,
+    "n_grid": 79676
+   },
+   "cpu64": {
+    "sas": 22.551832953467965,
+    "grid": 29.38203699886799,
+    "occ": 18.554226029664278,
+    "psp_grid": 23.73673184774816,
+    "rays_sas": 32.44794509373605,
+    "neighbors_sas": 34.4829629175365,
+    "cluster_sl": 1.7029480077326298,
+    "pipe_sas": 142.8722799755633,
+    "pipe_sas_stages": {
+     "points": 21.73,
+     "prefilter": 47.22,
+     "buriedness": 31.73,
+     "neighbors": 37.94,
+     "total": 142.87
+    },
+    "n_sas": 11736,
+    "pipe_cascade": 139.53243219293654,
+    "pipe_cascade_stages": {
+     "points": 25.83,
+     "prefilter": 43.44,
+     "buriedness": 31.36,
+     "neighbors": 34.86,
+     "total": 139.53
+    },
+    "n_cascade": 14618,
+    "n_grid": 79676
+   },
+   "gpu": {
+    "sas": 1.3764689210802317,
+    "grid": 1.1429789010435343,
+    "occ": 0.8956789970397949,
+    "psp_grid": 0.23839902132749557,
+    "rays_sas": 0.3087401855736971,
+    "neighbors_sas": 2.219127956777811,
+    "cluster_sl": 3.4564270172268152,
+    "pipe_sas": 8.637353079393506,
+    "pipe_cascade": 8.624434005469084
+   }
+  },
+  {
+   "id": "2hyy",
+   "n_res": 1054,
+   "n_atoms": 8354,
+   "load_ms": 75.7,
+   "cpu1": {
+    "sas": 28.281038161367178,
+    "grid": 35.79875291325152,
+    "occ": 4.004776943475008,
+    "psp_grid": 22.80259202234447,
+    "rays_sas": 75.21534198895097,
+    "neighbors_sas": 73.31606280058622,
+    "cluster_sl": 1.906809164211154,
+    "pipe_sas": 189.77675400674343,
+    "pipe_sas_stages": {
+     "points": 29.53,
+     "prefilter": 8.55,
+     "buriedness": 75.96,
+     "neighbors": 72.96,
+     "total": 189.78
+    },
+    "n_sas": 12663,
+    "pipe_cascade": 251.4393860474229,
+    "pipe_cascade_stages": {
+     "points": 35.72,
+     "prefilter": 28.75,
+     "buriedness": 90.6,
+     "neighbors": 93.42,
+     "total": 251.44
+    },
+    "n_cascade": 15905,
+    "n_grid": 84264
+   },
+   "cpu16": {
+    "sas": 5.845105974003673,
+    "grid": 11.163442162796855,
+    "occ": 1.9026689697057009,
+    "psp_grid": 2.0762879867106676,
+    "rays_sas": 4.575676983222365,
+    "neighbors_sas": 5.7640159502625465,
+    "cluster_sl": 1.8797079101204872,
+    "pipe_sas": 23.880002088844776,
+    "pipe_sas_stages": {
+     "points": 5.64,
+     "prefilter": 2.56,
+     "buriedness": 5.03,
+     "neighbors": 6.2,
+     "total": 23.88
+    },
+    "n_sas": 12663,
+    "pipe_cascade": 35.632421961054206,
+    "pipe_cascade_stages": {
+     "points": 11.5,
+     "prefilter": 6.65,
+     "buriedness": 6.26,
+     "neighbors": 7.59,
+     "total": 35.63
+    },
+    "n_cascade": 15905,
+    "n_grid": 84264
+   },
+   "cpu64": {
+    "sas": 24.36660206876695,
+    "grid": 23.20964285172522,
+    "occ": 17.613135976716876,
+    "psp_grid": 18.476366065442562,
+    "rays_sas": 34.4869839027524,
+    "neighbors_sas": 31.01832582615316,
+    "cluster_sl": 1.8787190783768892,
+    "pipe_sas": 134.9768959917128,
+    "pipe_sas_stages": {
+     "points": 21.12,
+     "prefilter": 41.48,
+     "buriedness": 34.51,
+     "neighbors": 34.37,
+     "total": 134.98
+    },
+    "n_sas": 12663,
+    "pipe_cascade": 145.66218806430697,
+    "pipe_cascade_stages": {
+     "points": 30.44,
+     "prefilter": 42.93,
+     "buriedness": 32.86,
+     "neighbors": 35.2,
+     "total": 145.66
+    },
+    "n_cascade": 15905,
+    "n_grid": 84264
+   },
+   "gpu": {
+    "sas": 1.0460889898240566,
+    "grid": 1.159608829766512,
+    "occ": 0.8514788933098316,
+    "psp_grid": 0.2235302235931158,
+    "rays_sas": 0.31707994639873505,
+    "neighbors_sas": 2.1124479826539755,
+    "cluster_sl": 4.647776018828154,
+    "pipe_sas": 8.206733036786318,
+    "pipe_cascade": 8.672443917021155
+   }
+  },
+  {
+   "id": "1sqn",
+   "n_res": 498,
+   "n_atoms": 3967,
+   "load_ms": 16.2,
+   "cpu1": {
+    "sas": 13.245010050013661,
+    "grid": 17.059816047549248,
+    "occ": 1.8878388218581676,
+    "psp_grid": 11.167021933943033,
+    "rays_sas": 32.65948384068906,
+    "neighbors_sas": 32.8444151673466,
+    "cluster_sl": 0.7277189288288355,
+    "pipe_sas": 84.06745595857501,
+    "pipe_sas_stages": {
+     "points": 13.38,
+     "prefilter": 4.0,
+     "buriedness": 32.37,
+     "neighbors": 32.86,
+     "total": 84.07
+    },
+    "n_sas": 6127,
+    "pipe_cascade": 108.86502591893077,
+    "pipe_cascade_stages": {
+     "points": 16.91,
+     "prefilter": 14.13,
+     "buriedness": 38.45,
+     "neighbors": 37.83,
+     "total": 108.87
+    },
+    "n_cascade": 7155,
+    "n_grid": 42497
+   },
+   "cpu16": {
+    "sas": 2.589717973023653,
+    "grid": 5.744474940001965,
+    "occ": 0.9881691075861454,
+    "psp_grid": 1.1697500012814999,
+    "rays_sas": 2.2045979276299477,
+    "neighbors_sas": 2.5515879970043898,
+    "cluster_sl": 0.7466389797627926,
+    "pipe_sas": 10.534531902521849,
+    "pipe_sas_stages": {
+     "points": 2.68,
+     "prefilter": 1.1,
+     "buriedness": 2.36,
+     "neighbors": 2.67,
+     "total": 10.53
+    },
+    "n_sas": 6127,
+    "pipe_cascade": 15.535248210653663,
+    "pipe_cascade_stages": {
+     "points": 5.01,
+     "prefilter": 2.89,
+     "buriedness": 2.73,
+     "neighbors": 3.15,
+     "total": 15.54
+    },
+    "n_cascade": 7155,
+    "n_grid": 42497
+   },
+   "cpu64": {
+    "sas": 19.660355057567358,
+    "grid": 20.753863966092467,
+    "occ": 19.17410478927195,
+    "psp_grid": 21.778874099254608,
+    "rays_sas": 32.97171392478049,
+    "neighbors_sas": 28.062188997864723,
+    "cluster_sl": 0.7287899497896433,
+    "pipe_sas": 129.45669004693627,
+    "pipe_sas_stages": {
+     "points": 18.53,
+     "prefilter": 47.38,
+     "buriedness": 28.32,
+     "neighbors": 33.44,
+     "total": 129.46
+    },
+    "n_sas": 6127,
+    "pipe_cascade": 133.67196801118553,
+    "pipe_cascade_stages": {
+     "points": 26.13,
+     "prefilter": 40.1,
+     "buriedness": 32.3,
+     "neighbors": 33.37,
+     "total": 133.67
+    },
+    "n_cascade": 7155,
+    "n_grid": 42497
+   },
+   "gpu": {
+    "sas": 0.8935888763517141,
+    "grid": 1.0596089996397495,
+    "occ": 0.7854390423744917,
+    "psp_grid": 0.2068299800157547,
+    "rays_sas": 0.2706900704652071,
+    "neighbors_sas": 1.7767089884728193,
+    "cluster_sl": 2.3517680820077658,
+    "pipe_sas": 6.167275831103325,
+    "pipe_cascade": 6.447365041822195
+   }
+  },
+  {
+   "id": "3pbl",
+   "n_res": 855,
+   "n_atoms": 6695,
+   "load_ms": 97.6,
+   "cpu1": {
+    "sas": 22.259253077208996,
+    "grid": 29.648757074028254,
+    "occ": 3.2325570937246084,
+    "psp_grid": 19.99997510574758,
+    "rays_sas": 60.615242924541235,
+    "neighbors_sas": 58.867604937404394,
+    "cluster_sl": 1.3816289138048887,
+    "pipe_sas": 148.2470261398703,
+    "pipe_sas_stages": {
+     "points": 22.21,
+     "prefilter": 6.84,
+     "buriedness": 58.1,
+     "neighbors": 58.81,
+     "total": 148.25
+    },
+    "n_sas": 10858,
+    "pipe_cascade": 205.93880210071802,
+    "pipe_cascade_stages": {
+     "points": 29.21,
+     "prefilter": 24.99,
+     "buriedness": 74.31,
+     "neighbors": 75.01,
+     "total": 205.94
+    },
+    "n_cascade": 13561,
+    "n_grid": 74692
+   },
+   "cpu16": {
+    "sas": 5.273395916447043,
+    "grid": 10.447971988469362,
+    "occ": 1.5640079509466887,
+    "psp_grid": 2.1943480242043734,
+    "rays_sas": 3.8989970926195383,
+    "neighbors_sas": 4.580585984513164,
+    "cluster_sl": 1.380088971927762,
+    "pipe_sas": 19.00296495296061,
+    "pipe_sas_stages": {
+     "points": 4.63,
+     "prefilter": 1.96,
+     "buriedness": 4.18,
+     "neighbors": 4.77,
+     "total": 19.0
+    },
+    "n_sas": 10858,
+    "pipe_cascade": 29.20779795385897,
+    "pipe_cascade_stages": {
+     "points": 8.5,
+     "prefilter": 5.78,
+     "buriedness": 5.29,
+     "neighbors": 6.5,
+     "total": 29.21
+    },
+    "n_cascade": 13561,
+    "n_grid": 74692
+   },
+   "cpu64": {
+    "sas": 20.117025123909116,
+    "grid": 23.73299188911915,
+    "occ": 18.229766050353646,
+    "psp_grid": 19.37984488904476,
+    "rays_sas": 34.03287404216826,
+    "neighbors_sas": 29.35102698393166,
+    "cluster_sl": 1.3734891545027494,
+    "pipe_sas": 134.6386158838868,
+    "pipe_sas_stages": {
+     "points": 25.08,
+     "prefilter": 38.77,
+     "buriedness": 34.17,
+     "neighbors": 33.87,
+     "total": 134.64
+    },
+    "n_sas": 10858,
+    "pipe_cascade": 142.4608298111707,
+    "pipe_cascade_stages": {
+     "points": 30.11,
+     "prefilter": 43.56,
+     "buriedness": 31.06,
+     "neighbors": 34.64,
+     "total": 142.46
+    },
+    "n_cascade": 13561,
+    "n_grid": 74692
+   },
+   "gpu": {
+    "sas": 0.9585299994796515,
+    "grid": 1.042249146848917,
+    "occ": 0.7804587949067354,
+    "psp_grid": 0.2140600699931383,
+    "rays_sas": 0.29172911308705807,
+    "neighbors_sas": 1.8903289455920458,
+    "cluster_sl": 2.9113469645380974,
+    "pipe_sas": 7.322044111788273,
+    "pipe_cascade": 7.721233880147338
+   }
+  },
+  {
+   "id": "1jff",
+   "n_res": 838,
+   "n_atoms": 6578,
+   "load_ms": 54.5,
+   "cpu1": {
+    "sas": 23.397411918267608,
+    "grid": 26.551289949566126,
+    "occ": 3.1074578873813152,
+    "psp_grid": 14.306528959423304,
+    "rays_sas": 44.546076096594334,
+    "neighbors_sas": 48.54967282153666,
+    "cluster_sl": 1.2574901338666677,
+    "pipe_sas": 124.10420412197709,
+    "pipe_sas_stages": {
+     "points": 23.8,
+     "prefilter": 6.11,
+     "buriedness": 44.14,
+     "neighbors": 47.89,
+     "total": 124.1
+    },
+    "n_sas": 8361,
+    "pipe_cascade": 148.68052583187819,
+    "pipe_cascade_stages": {
+     "points": 26.86,
+     "prefilter": 18.76,
+     "buriedness": 49.85,
+     "neighbors": 50.95,
+     "total": 148.68
+    },
+    "n_cascade": 9272,
+    "n_grid": 54266
+   },
+   "cpu16": {
+    "sas": 4.542387090623379,
+    "grid": 6.76714489236474,
+    "occ": 1.2594291474670172,
+    "psp_grid": 1.3827190268784761,
+    "rays_sas": 2.931697992607951,
+    "neighbors_sas": 3.7012069951742887,
+    "cluster_sl": 1.2462087906897068,
+    "pipe_sas": 16.372856916859746,
+    "pipe_sas_stages": {
+     "points": 4.85,
+     "prefilter": 1.65,
+     "buriedness": 3.3,
+     "neighbors": 3.95,
+     "total": 16.37
+    },
+    "n_sas": 8361,
+    "pipe_cascade": 21.525692893192172,
+    "pipe_cascade_stages": {
+     "points": 6.8,
+     "prefilter": 4.25,
+     "buriedness": 3.48,
+     "neighbors": 4.68,
+     "total": 21.53
+    },
+    "n_cascade": 9272,
+    "n_grid": 54266
+   },
+   "cpu64": {
+    "sas": 25.080600986257195,
+    "grid": 26.579389115795493,
+    "occ": 22.33802294358611,
+    "psp_grid": 17.72933709435165,
+    "rays_sas": 33.74883392825723,
+    "neighbors_sas": 29.419357189908624,
+    "cluster_sl": 1.2594088912010193,
+    "pipe_sas": 132.19292811118066,
+    "pipe_sas_stages": {
+     "points": 19.69,
+     "prefilter": 41.94,
+     "buriedness": 33.7,
+     "neighbors": 33.92,
+     "total": 132.19
+    },
+    "n_sas": 8361,
+    "pipe_cascade": 139.643152942881,
+    "pipe_cascade_stages": {
+     "points": 27.18,
+     "prefilter": 47.46,
+     "buriedness": 28.6,
+     "neighbors": 33.77,
+     "total": 139.64
+    },
+    "n_cascade": 9272,
+    "n_grid": 54266
+   },
+   "gpu": {
+    "sas": 1.0643289424479008,
+    "grid": 1.1259990278631449,
+    "occ": 0.8197890128940344,
+    "psp_grid": 0.21296879276633263,
+    "rays_sas": 0.2801900263875723,
+    "neighbors_sas": 1.9644980784505606,
+    "cluster_sl": 3.238426987081766,
+    "pipe_sas": 7.539503974840045,
+    "pipe_cascade": 8.220314048230648
+   }
+  },
+  {
+   "id": "1aon",
+   "n_res": 8015,
+   "n_atoms": 58674,
+   "load_ms": 310.6,
+   "cpu1": {
+    "sas": 203.98669294081628,
+    "grid": 244.91647188551724,
+    "occ": 30.29065695591271,
+    "psp_grid": 169.78294006548822,
+    "rays_sas": 497.7731059771031,
+    "neighbors_sas": 562.4755569733679,
+    "cluster_sl": 17.632565926760435,
+    "pipe_sas": 1317.7306449506432,
+    "pipe_sas_stages": {
+     "points": 200.09,
+     "prefilter": 58.6,
+     "buriedness": 482.75,
+     "neighbors": 557.79,
+     "total": 1317.73
+    },
+    "n_sas": 86648,
+    "pipe_cascade": 1916.8411120772362,
+    "pipe_cascade_stages": {
+     "points": 244.9,
+     "prefilter": 192.23,
+     "buriedness": 682.08,
+     "neighbors": 779.34,
+     "total": 1916.84
+    },
+    "n_cascade": 118446,
+    "n_grid": 534778
+   },
+   "cpu16": {
+    "sas": 46.136053977534175,
+    "grid": 65.26067992672324,
+    "occ": 13.13711004331708,
+    "psp_grid": 18.022146075963974,
+    "rays_sas": 81.51831687428057,
+    "neighbors_sas": 37.75158105418086,
+    "cluster_sl": 17.660635989159346,
+    "pipe_sas": 151.9940730649978,
+    "pipe_sas_stages": {
+     "points": 41.62,
+     "prefilter": 19.7,
+     "buriedness": 32.35,
+     "neighbors": 37.7,
+     "total": 151.99
+    },
+    "n_sas": 86648,
+    "pipe_cascade": 248.39947815053165,
+    "pipe_cascade_stages": {
+     "points": 72.64,
+     "prefilter": 39.85,
+     "buriedness": 51.01,
+     "neighbors": 61.33,
+     "total": 248.4
+    },
+    "n_cascade": 118446,
+    "n_grid": 534778
+   },
+   "cpu64": {
+    "sas": 48.03290287964046,
+    "grid": 66.38394901528955,
+    "occ": 28.003098908811808,
+    "psp_grid": 26.52465901337564,
+    "rays_sas": 79.99253901652992,
+    "neighbors_sas": 47.19138308428228,
+    "cluster_sl": 17.750316997990012,
+    "pipe_sas": 217.72985206916928,
+    "pipe_sas_stages": {
+     "points": 47.33,
+     "prefilter": 52.64,
+     "buriedness": 45.86,
+     "neighbors": 45.23,
+     "total": 217.73
+    },
+    "n_sas": 86648,
+    "pipe_cascade": 258.8638309389353,
+    "pipe_cascade_stages": {
+     "points": 66.66,
+     "prefilter": 65.53,
+     "buriedness": 49.78,
+     "neighbors": 51.63,
+     "total": 258.86
+    },
+    "n_cascade": 118446,
+    "n_grid": 534778
+   },
+   "gpu": {
+    "sas": 2.522348193451762,
+    "grid": 2.445048186928034,
+    "occ": 1.8133488483726978,
+    "psp_grid": 0.37708994932472706,
+    "rays_sas": 0.659590121358633,
+    "neighbors_sas": 5.8792459312826395,
+    "cluster_sl": 6.566185038536787,
+    "pipe_sas": 31.53931489214301,
+    "pipe_cascade": 33.33064401522279
+   }
+  }
+ ],
+ "batched": {
+  "GPU, all 20 structures in one call, sas (ms)": 68.4,
+  "GPU, all 20 structures in one call, cascade (ms)": 72.1,
+  "throughput set": "512 structures (the 19 entries without 1aon, repeated; mean 450 residues); parsing excluded",
+  "GPU throughput sas, batch=16 (structures/s, 1 GPU)": 480.7,
+  "GPU throughput sas, batch=64 (structures/s, 1 GPU)": 546.8,
+  "GPU throughput sas, batch=256 (structures/s, 1 GPU)": 565.6,
+  "CPU throughput sas, 64 processes x 1 thread (structures/s)": 639.9,
+  "GPU throughput cascade, batch=16 (structures/s, 1 GPU)": 479.2,
+  "GPU throughput cascade, batch=64 (structures/s, 1 GPU)": 519.8,
+  "GPU throughput cascade, batch=256 (structures/s, 1 GPU)": 531.6,
+  "CPU throughput cascade, 64 processes x 1 thread (structures/s)": 483.9
+ },
+ "notes": [
+  "GPU pipeline rows include host->device copy of the atoms, PCA framing on the host and device->host copy of all features; per-primitive GPU rows start from device tensors.",
+  "GPU fast path = Triton kernels (SAS burial test, voxel stamping, PSP, ray marching, neighbour accumulation); pure-PyTorch fallbacks (use_triton=False) agree with them (tested) but are 5-150x slower.",
+  "Single-structure GPU calls are launch/sync-latency bound; batching many structures per call is how the GPU reaches its throughput.",
+  "Rays use step = voxel = 1 \u00c5 by default (review round 1); the occlusion radius is the bare vdW radius (`radius_pad=0`), to be tuned on dev data.",
+  "numba kernels are compiled with cache=True: the 'cold' JIT cost is paid once per installation (or after source changes); 'cached' is the per-process start-up cost afterwards.",
+  "CPU multi-thread scaling is limited by the shared node (other jobs on the same cores) and OpenMP barrier spinning at 64 threads; for throughput use one single-threaded process per core."
+ ],
+ "hardware": {
+  "cpu": "x86_64",
+  "cpus_affinity": 64,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "threading_layer": "omp"
+ },
+ "tables": [
+  [
+   "cpu1",
+   "CPU, 1 thread"
+  ],
+  [
+   "cpu16",
+   "CPU, 16 threads"
+  ],
+  [
+   "cpu64",
+   "CPU, 64 threads"
+  ],
+  [
+   "gpu",
+   "GPU, one structure per call (Triton fast path)"
+  ]
+ ],
+ "rotation": {
+  "lab-frame rays, same physical points (mean |\u0394b12|)": 0.0252,
+  "canonical-frame pipeline (mean |\u0394b12|)": 1.5e-06
+ },
+ "huge_threads": 16,
+ "huge": [
+  {
+   "id": "1aon",
+   "n_atoms": 58674,
+   "n_res": 8015,
+   "extent": [
+    142,
+    144,
+    198
+   ],
+   "load_s": 0.2,
+   "cpu16_sas_s": 0.16,
+   "bricks_sas": 1,
+   "n_sas": 86648,
+   "gpu_sas_s": 0.03,
+   "gpu_sas_peak_GB": 0.16,
+   "cpu16_cascade_s": 0.25,
+   "bricks_cascade": 1,
+   "n_cascade": 118446,
+   "gpu_cascade_s": 0.03,
+   "gpu_cascade_peak_GB": 0.21,
+   "cpu_maxrss_GB": 2.07
+  },
+  {
+   "id": "4v6x",
+   "n_atoms": 106846,
+   "n_res": 13338,
+   "extent": [
+    265,
+    273,
+    301
+   ],
+   "load_s": 0.8,
+   "cpu16_sas_s": 0.42,
+   "bricks_sas": 3,
+   "n_sas": 219247,
+   "gpu_sas_s": 0.06,
+   "gpu_sas_peak_GB": 0.45,
+   "cpu16_cascade_s": 0.73,
+   "bricks_cascade": 3,
+   "n_cascade": 256993,
+   "gpu_cascade_s": 0.07,
+   "gpu_cascade_peak_GB": 0.55,
+   "cpu_maxrss_GB": 2.07
+  },
+  {
+   "id": "3j3q",
+   "n_atoms": 2440800,
+   "n_res": 313236,
+   "extent": [
+    767,
+    1077,
+    798
+   ],
+   "load_s": 11.9,
+   "cpu16_sas_s": 17.85,
+   "bricks_sas": 96,
+   "n_sas": 4097458,
+   "gpu_sas_s": 3.1,
+   "gpu_sas_peak_GB": 1.9,
+   "cpu16_cascade_s": 33.44,
+   "bricks_cascade": 117,
+   "n_cascade": 5662877,
+   "gpu_cascade_s": 3.36,
+   "gpu_cascade_peak_GB": 2.32,
+   "cpu_maxrss_GB": 9.18
+  }
+ ],
+ "jit": {
+  "cold": {
+   "import_ms": 871.135912835598,
+   "sas_ms": 6442.002977011725,
+   "grid_ms": 2891.506833024323,
+   "buriedness_ms": 4172.525086905807,
+   "psp_ms": 1100.1547349151224,
+   "neighbors_ms": 4283.858388895169,
+   "cluster_ms": 1153.9914531167597,
+   "pipeline_cascade_ms": 144.15047806687653,
+   "cuda_init_ms": 271.7747080605477,
+   "gpu_pipeline_first_call_ms": 2751.7376102041453,
+   "process_wall_ms": 27034.29360804148
+  },
+  "cached": {
+   "import_ms": 521.1733949836344,
+   "sas_ms": 166.364761069417,
+   "grid_ms": 27.97834691591561,
+   "buriedness_ms": 58.9436748996377,
+   "psp_ms": 51.167540019378066,
+   "neighbors_ms": 39.37359992414713,
+   "cluster_ms": 13.908508000895381,
+   "pipeline_cascade_ms": 132.5016780756414,
+   "cuda_init_ms": 263.64940498024225,
+   "gpu_pipeline_first_call_ms": 619.6157280355692,
+   "process_wall_ms": 4122.30688193813
+  }
+ }
+}

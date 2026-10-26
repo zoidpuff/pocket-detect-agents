@@ -108,7 +108,8 @@ def test_buriedness_cpu_gpu_agree(use_triton, weighted):
     b = ray_buriedness(s.points, c, r, w)
     t = ray_buriedness_torch(s.points, coords=c, radii=r, weights=w, use_triton=use_triton)
     d = np.abs(t["blocked"].cpu().numpy() - b.blocked)
-    assert d.mean() < 1e-5 and d.max() < 0.01
+    # float32 (GPU) vs float64 (CPU) sample positions: a ray may flip on a voxel boundary (1/60 each)
+    assert d.mean() < 1e-4 and d.max() < 0.035
     dd = np.abs(t["depth"].cpu().numpy() - b.depth)
     assert dd.mean() < 1e-3 and np.quantile(dd, 0.999) < 0.5
 

@@ -16,6 +16,8 @@ import math
 
 import torch
 
+from .torch_utils import batch_bounds
+
 
 def _offsets(k: int, cell_size: float, r: float, device) -> torch.Tensor:
     """Integer cell offsets whose cell can contain a point within ``r``."""
@@ -50,15 +52,7 @@ class TorchCellList:
         self.batch = batch
         self.cs = float(cell_size)
         self.n_batch = n_batch
-        big = torch.finfo(coords.dtype).max
-        lo = torch.full((n_batch, 3), big, device=dev, dtype=coords.dtype)
-        hi = torch.full((n_batch, 3), -big, device=dev, dtype=coords.dtype)
-        bi = batch[:, None].expand(-1, 3)
-        lo.scatter_reduce_(0, bi, coords, "amin")
-        hi.scatter_reduce_(0, bi, coords, "amax")
-        empty = lo[:, 0] > hi[:, 0]
-        lo[empty] = 0
-        hi[empty] = 0
+        lo, hi = batch_bounds(coords, batch, n_batch)
         self.origin = lo
         self.dims = (torch.floor((hi - lo) / self.cs).long() + 1)
         ncell = self.dims.prod(1)

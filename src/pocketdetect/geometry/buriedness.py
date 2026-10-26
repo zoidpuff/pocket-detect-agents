@@ -4,7 +4,7 @@ Model
 -----
 Atoms are voxelised into an absorption grid: voxel ``v`` gets the absorption
 coefficient ``mu_v = max_a mu_a`` over atoms whose blocking sphere
-(``radius_scale * r_vdw``) contains the voxel centre, where for an atom of
+(``radius_scale * r_vdw + radius_pad``) contains the voxel centre, where for an atom of
 opacity weight ``w`` in [0, 1]::
 
     mu_a = -ln(1 - w) / ref_length      (w >= 1  ->  opaque, mu = 1e3 / Å)
@@ -23,8 +23,15 @@ All lengths are computed in one march (multi-scale for free).  ``depth`` is
 the mean over rays of the first-hit distance (first sample where the
 transmittance drops below 1/2), capped at ``max(lengths)``.
 
-CPU: Numba, parallel over points.  GPU: PyTorch, all (point, ray, sample)
-positions of a chunk gathered at once from a flat batch of per-structure grids.
+Orientation: the ray set and the voxel grid are fixed in the frame of the
+input coordinates, so results change slightly (mean |Δ| ~ 0.02 for 60 rays,
+mostly angular-sampling noise ~ 1/sqrt(n_rays)) when a structure is rotated.
+:func:`pocketdetect.geometry.canonical_frame` (used by the pipeline by
+default) removes this by computing everything in a PCA frame of the structure.
+
+CPU: Numba, parallel over points.  GPU: Triton ray-march kernel (fallback:
+PyTorch gather of all (point, ray, sample) positions of a chunk) over a flat
+batch of per-structure grids.
 """
 from __future__ import annotations
 
@@ -34,7 +41,7 @@ from dataclasses import dataclass
 import numpy as np
 from numba import njit, prange
 
-from .sas import _grid_frame
+from ._grid import TorchGridFrames, grid_frame, stamp_offsets_torch
 from .sphere import fibonacci_sphere
 
 OPAQUE_MU = 1.0e3
@@ -56,6 +63,7 @@ class OccupancyGrid:
     mu: np.ndarray       # (nx, ny, nz) float32 absorption coefficient (1/Å)
     origin: np.ndarray   # (3,) float64, corner of voxel (0,0,0)
     spacing: float
+    ref_length: float = 2.0
 
 
 @dataclass
@@ -106,20 +114,24 @@ def _occupancy_kernel(cs_sorted, mu_sorted, rb_sorted, origin, dims, h, rmax):
 
 
 def occupancy_grid(coords, radii, weights=None, spacing: float = 1.0, ref_length: float = 2.0,
-                   radius_scale: float = 1.0, pad: float = 0.0) -> OccupancyGrid:
-    """Voxelise atoms into an absorption grid (CPU / Numba)."""
+                   radius_scale: float = 1.0, radius_pad: float = 0.0, pad: float = 0.0) -> OccupancyGrid:
+    """Voxelise atoms into an absorption grid (CPU / Numba).
+
+    Blocking radius = ``radius_scale * radii + radius_pad`` (inflate to close
+    sub-probe gaps); ``pad`` extends the grid box beyond the atoms.
+    """
     coords = np.asarray(coords, np.float32).astype(np.float64)
-    rb = np.asarray(radii, np.float64) * radius_scale
+    rb = np.asarray(radii, np.float64) * radius_scale + radius_pad
     w = np.ones(len(coords)) if weights is None else weights
     mu = absorption_from_weights(w, ref_length).astype(np.float64)
     if len(coords) == 0:
-        return OccupancyGrid(np.zeros((1, 1, 1), np.float32), np.zeros(3), spacing)
+        return OccupancyGrid(np.zeros((1, 1, 1), np.float32), np.zeros(3), spacing, ref_length)
     rmax = float(rb.max())
-    origin, dims = _grid_frame(coords.min(0), coords.max(0), spacing, rmax + pad)
+    origin, dims = grid_frame(coords.min(0), coords.max(0), spacing, rmax + pad)
     o = np.argsort(coords[:, 0], kind="stable")
     grid = _occupancy_kernel(np.ascontiguousarray(coords[o]), mu[o], rb[o], origin, dims,
                              float(spacing), rmax)
-    return OccupancyGrid(grid, origin, float(spacing))
+    return OccupancyGrid(grid, origin, float(spacing), float(ref_length))
 
 
 @njit(parallel=True, fastmath=True, cache=True)
@@ -128,6 +140,7 @@ def _ray_kernel(points, dirs, grid, origin, h, step, n_steps, ck, lmax):
     k_n = dirs.shape[0]
     n_l = ck.shape[0]
     nx, ny, nz = grid.shape
+    flat = grid.reshape(-1)
     out = np.zeros((p_n, n_l), np.float32)
     depth = np.zeros(p_n, np.float32)
     inv_h = 1.0 / h
@@ -157,7 +170,7 @@ def _ray_kernel(points, dirs, grid, origin, h, step, n_steps, ck, lmax):
                     v = 0.0        # not yet entered (query point outside the grid)
                 else:
                     entered = True
-                    v = grid[int(fx), int(fy), int(fz)]
+                    v = flat[(np.int64(fx) * ny + np.int64(fy)) * nz + np.int64(fz)]
                 if v > 0.0:
                     tau += v * step
                     if not hit and tau > 0.6931471805599453:
@@ -189,14 +202,15 @@ def _steps(lengths, step):
 
 def ray_buriedness(points, coords=None, radii=None, weights=None, *, grid: OccupancyGrid | None = None,
                    n_rays: int = 60, lengths=(8.0, 12.0, 20.0), spacing: float = 1.0,
-                   step: float = 0.5, ref_length: float = 2.0, radius_scale: float = 1.0) -> Buriedness:
+                   step: float = 1.0, ref_length: float = 2.0, radius_scale: float = 1.0,
+                   radius_pad: float = 0.0) -> Buriedness:
     """Multi-scale ray-casting buriedness of query ``points`` (CPU / Numba).
 
     Either pass ``coords, radii[, weights]`` (grid is built) or a prebuilt
     ``grid`` from :func:`occupancy_grid` (reuse across query sets).
     """
     if grid is None:
-        grid = occupancy_grid(coords, radii, weights, spacing, ref_length, radius_scale)
+        grid = occupancy_grid(coords, radii, weights, spacing, ref_length, radius_scale, radius_pad)
     lengths, ck = _steps(lengths, step)
     dirs = fibonacci_sphere(n_rays).astype(np.float64)
     pts = np.ascontiguousarray(points, np.float32)
@@ -206,68 +220,60 @@ def ray_buriedness(points, coords=None, radii=None, weights=None, *, grid: Occup
 
 
 # --------------------------------------------------------------------------- GPU
-class TorchOccupancyGrid:
-    """Batch of per-structure absorption grids stored in one flat tensor."""
+class TorchOccupancyGrid(TorchGridFrames):
+    """Batch of per-structure absorption grids stored in one flat float32 tensor ``mu``."""
 
     def __init__(self, coords, radii, weights=None, batch=None, spacing: float = 1.0,
                  ref_length: float = 2.0, radius_scale: float = 1.0, n_batch: int | None = None,
-                 max_elems: int = 1 << 25):
+                 radius_pad: float = 0.0, max_elems: int = 1 << 25, use_triton: bool | None = None):
         import torch
-        from .torch_utils import as_tensor, batch_bounds
+        from ._triton_kernels import stamp_triton, triton_available
+        from .torch_utils import as_tensor
 
         coords = as_tensor(coords, torch.float32)
         dev = coords.device
         n = coords.shape[0]
-        rb = as_tensor(radii, torch.float32, dev).double() * radius_scale
+        rb = as_tensor(radii, torch.float32, dev) * radius_scale + radius_pad
         w = np.ones(n, np.float32) if weights is None else (
             weights.detach().cpu().numpy() if isinstance(weights, torch.Tensor) else weights)
         mu = torch.as_tensor(absorption_from_weights(w, ref_length), device=dev)
         batch = torch.zeros(n, dtype=torch.long, device=dev) if batch is None else as_tensor(batch, torch.long, dev)
         if n_batch is None:
-            n_batch = int(batch.max().item()) + 1
-        rmax = float(rb.max().item())
-        lo, hi = batch_bounds(coords, batch, n_batch)
-        lo64, hi64 = lo.double().cpu().numpy(), hi.double().cpu().numpy()
-        frames = [_grid_frame(lo64[b], hi64[b], spacing, rmax) for b in range(n_batch)]
-        self.origin = torch.tensor(np.stack([f[0] for f in frames]), dtype=torch.float64, device=dev)
-        self.dims = torch.tensor(np.stack([f[1] for f in frames]), dtype=torch.long, device=dev)
-        nvox = self.dims.prod(1)
-        self.base = torch.cumsum(nvox, 0) - nvox
-        self.spacing = float(spacing)
-        grid = torch.zeros(int(nvox.sum().item()), dtype=torch.float32, device=dev)
-        m = int(math.ceil(rmax / spacing)) + 1
-        rng = torch.arange(-m, m + 1, device=dev)
-        off = torch.stack(torch.meshgrid(rng, rng, rng, indexing="ij"), -1).reshape(-1, 3)
-        gap = (off.abs().double() - 0.5).clamp(min=0) * spacing
-        off = off[(gap * gap).sum(1) <= rmax * rmax + 1e-9]
-        c64 = coords.double()
-        off32 = off.to(torch.int32)
-        offc = off.float() + 0.5
-        rb32 = rb.float()
-        chunk = max(1, max_elems // off.shape[0])
-        for s in range(0, n, chunk):
-            b = batch[s:s + chunk]
-            rel = (c64[s:s + chunk] - self.origin[b]) / spacing          # float64: exact frame
-            c0 = torch.floor(rel)
-            frac = (rel - c0).float()
-            dv = (offc[None] - frac[:, None, :]) * spacing                # (A,O,3) float32
-            d2 = (dv * dv).sum(-1)
-            vox = c0.to(torch.int32)[:, None, :] + off32[None]
-            d = self.dims[b].to(torch.int32)[:, None, :]
-            r2 = (rb32[s:s + chunk] ** 2)[:, None]
-            ok = ((vox >= 0) & (vox < d)).all(-1) & (d2 <= r2) & (mu[s:s + chunk] > 0)[:, None]
-            lin = self.base[b][:, None] + ((vox[..., 0] * d[..., 1] + vox[..., 1]) * d[..., 2] + vox[..., 2]).long()
-            vals = mu[s:s + chunk][:, None].expand_as(d2)
-            grid.scatter_reduce_(0, lin[ok], vals[ok], "amax")
+            n_batch = int(batch.max().item()) + 1 if n else 1
+        rmax = float(rb.max().item()) if n else 0.0
+        super().__init__(coords, batch, n_batch, spacing, rmax)
+        self.ref_length = float(ref_length)
+        grid = torch.zeros(self.total, dtype=torch.float32, device=dev)
+        off = stamp_offsets_torch(rmax, spacing, dev)
+        if use_triton is None:
+            use_triton = triton_available(dev)
+        if use_triton and n > 0:
+            frac, c0 = self.atom_voxels(coords, batch)
+            stamp_triton(frac, c0, self.base[batch].contiguous(), self.dims[batch].to(torch.int32).contiguous(),
+                         off, (rb * rb).contiguous(), None, spacing, mu=mu.contiguous(), grid=grid, mode=1)
+        else:
+            offc = off.float() + 0.5
+            chunk = max(1, max_elems // off.shape[0])
+            for s in range(0, n, chunk):
+                b = batch[s:s + chunk]
+                frac, c0 = self.atom_voxels(coords[s:s + chunk], b)
+                dv = (offc[None] - frac[:, None, :]) * spacing                # (A,O,3) float32
+                d2 = (dv * dv).sum(-1)
+                vox = c0[:, None, :] + off[None]
+                d = self.dims[b].to(torch.int32)[:, None, :]
+                r2 = (rb[s:s + chunk] ** 2)[:, None]
+                ok = ((vox >= 0) & (vox < d)).all(-1) & (d2 <= r2) & (mu[s:s + chunk] > 0)[:, None]
+                lin = self.base[b][:, None] + ((vox[..., 0] * d[..., 1] + vox[..., 1]) * d[..., 2] + vox[..., 2]).long()
+                vals = mu[s:s + chunk][:, None].expand_as(d2)
+                grid.scatter_reduce_(0, lin[ok], vals[ok], "amax")
         self.mu = grid
-        self.origin32 = self.origin.float()
 
 
 def ray_buriedness_torch(points, point_batch=None, coords=None, radii=None, weights=None,
                          atom_batch=None, *, grid: TorchOccupancyGrid | None = None,
                          n_rays: int = 60, lengths=(8.0, 12.0, 20.0), spacing: float = 1.0,
-                         step: float = 0.5, ref_length: float = 2.0, radius_scale: float = 1.0,
-                         n_batch: int | None = None, max_elems: int = 1 << 24,
+                         step: float = 1.0, ref_length: float = 2.0, radius_scale: float = 1.0,
+                         radius_pad: float = 0.0, n_batch: int | None = None, max_elems: int = 1 << 24,
                          use_triton: bool | None = None):
     """Batched GPU ray-casting buriedness; returns dict ``blocked (P,nL)``, ``depth (P,)``.
 
@@ -280,7 +286,7 @@ def ray_buriedness_torch(points, point_batch=None, coords=None, radii=None, weig
 
     if grid is None:
         grid = TorchOccupancyGrid(coords, radii, weights, atom_batch, spacing, ref_length,
-                                  radius_scale, n_batch)
+                                  radius_scale, n_batch, radius_pad)
     dev = grid.mu.device
     pts = as_tensor(points, torch.float32, dev)
     p_n = pts.shape[0]

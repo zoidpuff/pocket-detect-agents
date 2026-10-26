@@ -87,8 +87,9 @@ def ray_march_triton(rel, dims, base, dirs_vox, mu, ck, step, lmax, block_points
     rb = 1 << max(0, math.ceil(math.log2(k_n)))
     bp = max(1, block_points * 64 // rb)
     grid = (triton.cdiv(p_n, bp),)
-    _ray_march_kernel[grid](rel, dims, base, dirs_vox, mu, ck, out, depth, p_n, k_n, float(step),
-                            float(lmax), NL=nl, BP=bp, RB=rb, num_warps=4)
+    with torch.cuda.device(rel.device):      # Triton launches on the *current* device
+        _ray_march_kernel[grid](rel, dims, base, dirs_vox, mu, ck, out, depth, p_n, k_n, float(step),
+                                float(lmax), NL=nl, BP=bp, RB=rb, num_warps=4)
     return out, depth
 
 
@@ -264,9 +265,10 @@ def neighbor_sums_triton(points, point_batch, coords, atom_batch, props, thresho
     co[:nj] = torch.as_tensor(coefs, dtype=torch.float32, device=dev)
     out = torch.empty((p_n, nj, FP), dtype=torch.float32, device=dev)
     if blk.shape[0] > 0:
-        _nf_kernel[(blk.shape[0],)](pts_s, atoms_s, props_s, cstart, blk, dims.to(torch.int32).contiguous(),
-                                    base.contiguous(), th, co, out, KR=2, BP=bp, BA=ba, NJ=nj, NR=n_hard,
-                                    FP=FP, num_warps=4, num_stages=1)  # stages>1: wrong a0 (Triton 3.2 pipeliner bug)
+        with torch.cuda.device(dev):
+            _nf_kernel[(blk.shape[0],)](pts_s, atoms_s, props_s, cstart, blk, dims.to(torch.int32).contiguous(),
+                                        base.contiguous(), th, co, out, KR=2, BP=bp, BA=ba, NJ=nj, NR=n_hard,
+                                        FP=FP, num_warps=4, num_stages=1)  # stages>1: wrong a0 (Triton 3.2 pipeliner bug)
     res = torch.empty_like(out)
     res[pord] = out
     return res[:, :nj, :f_n]
@@ -333,8 +335,131 @@ def sas_keep_triton(coords, rp, pts, batch, n_batch, ba: int = 16):
     order = cl.order
     cstart = torch.cat([cl.start, cl.start.new_tensor([coords.shape[0]])]).contiguous()
     bk = max(16, 1 << math.ceil(math.log2(k)))
-    _sas_kernel[(n,)](pts.contiguous(), coords[order].contiguous(), rp[order].contiguous(),
-                      order.to(torch.int32).contiguous(), cell, cstart,
-                      cl.dims.to(torch.int32).contiguous(), cl.base.contiguous(), batch.to(torch.int32).contiguous(),
-                      keep, k, BK=bk, BA=ba, num_warps=2, num_stages=1)
+    with torch.cuda.device(coords.device):
+        _sas_kernel[(n,)](pts.contiguous(), coords[order].contiguous(), rp[order].contiguous(),
+                          order.to(torch.int32).contiguous(), cell, cstart,
+                          cl.dims.to(torch.int32).contiguous(), cl.base.contiguous(),
+                          batch.to(torch.int32).contiguous(), keep, k, BK=bk, BA=ba, num_warps=2, num_stages=1)
     return keep.bool()
+
+
+if HAVE_TRITON:
+
+    @triton.jit
+    def _stamp_kernel(frac_ptr, c0_ptr, lin0_ptr, dims_ptr, off_ptr, n_off, r2_ptr, rc2_ptr, val_ptr,
+                      key_ptr, clash_ptr, mu_ptr, MODE: tl.constexpr, BO: tl.constexpr):
+        """Per-atom voxel stamping.  MODE 0: nearest-atom key (atomic min) + clash flag;
+        MODE 1: absorption grid (atomic max of the atom's mu)."""
+        a = tl.program_id(0)
+        fx = tl.load(frac_ptr + a * 3 + 0)
+        fy = tl.load(frac_ptr + a * 3 + 1)
+        fz = tl.load(frac_ptr + a * 3 + 2)
+        cx = tl.load(c0_ptr + a * 3 + 0)
+        cy = tl.load(c0_ptr + a * 3 + 1)
+        cz = tl.load(c0_ptr + a * 3 + 2)
+        gx = tl.load(dims_ptr + a * 3 + 0)
+        gy = tl.load(dims_ptr + a * 3 + 1)
+        gz = tl.load(dims_ptr + a * 3 + 2)
+        base = tl.load(lin0_ptr + a)
+        r2 = tl.load(r2_ptr + a)
+        for t in range(0, n_off, BO):
+            o = t + tl.arange(0, BO)
+            om = o < n_off
+            ox = tl.load(off_ptr + o * 3 + 0, mask=om, other=0)
+            oy = tl.load(off_ptr + o * 3 + 1, mask=om, other=0)
+            oz = tl.load(off_ptr + o * 3 + 2, mask=om, other=0)
+            dx = (ox.to(tl.float32) + 0.5 - fx)
+            dy = (oy.to(tl.float32) + 0.5 - fy)
+            dz = (oz.to(tl.float32) + 0.5 - fz)
+            vx = cx + ox
+            vy = cy + oy
+            vz = cz + oz
+            ok = om & (vx >= 0) & (vx < gx) & (vy >= 0) & (vy < gy) & (vz >= 0) & (vz < gz)
+            lin = base + ((vx * gy + vy) * gz + vz).to(tl.int64)
+            if MODE == 0:
+                sp = tl.load(val_ptr)                          # spacing
+                d2 = (dx * sp) * (dx * sp) + (dy * sp) * (dy * sp) + (dz * sp) * (dz * sp)
+                ok = ok & (d2 <= r2)
+                key = (tl.floor(d2 * 1048576.0).to(tl.int64) << 31) | a.to(tl.int64)
+                tl.atomic_min(key_ptr + lin, key, mask=ok)
+                rc2 = tl.load(rc2_ptr + a)
+                tl.atomic_max(clash_ptr + lin, 1, mask=ok & (d2 < rc2))
+            else:
+                sp = tl.load(val_ptr)
+                d2 = (dx * sp) * (dx * sp) + (dy * sp) * (dy * sp) + (dz * sp) * (dz * sp)
+                mu = tl.load(mu_ptr + a)
+                tl.atomic_max(key_ptr + lin, mu, mask=ok & (d2 <= r2))
+
+
+def stamp_triton(frac, c0, lin0, dims, off, r2, rc2, spacing, key=None, clash=None, mu=None, grid=None,
+                 mode: int = 0, bo: int = 256):
+    """Launch :func:`_stamp_kernel` (one program per atom; see callers for argument layout)."""
+    import torch
+    n = frac.shape[0]
+    if n == 0:
+        return
+    sp = torch.tensor([spacing], dtype=torch.float32, device=frac.device)
+    with torch.cuda.device(frac.device):
+        if mode == 0:
+            _stamp_kernel[(n,)](frac, c0, lin0, dims, off, off.shape[0], r2, rc2, sp, key, clash, r2,
+                                MODE=0, BO=bo, num_warps=4)
+        else:
+            _stamp_kernel[(n,)](frac, c0, lin0, dims, off, off.shape[0], r2, r2, sp, grid, grid, mu,
+                                MODE=1, BO=bo, num_warps=4)
+
+
+if HAVE_TRITON:
+
+    @triton.jit
+    def _psp_kernel(rel_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, out_ptr, P, ND, n_steps, min_mu,
+                    BP: tl.constexpr, DB: tl.constexpr):
+        pid = tl.program_id(0)
+        p = pid * BP + tl.arange(0, BP)
+        k = tl.arange(0, DB)
+        pm = p < P
+        km = k < ND
+        m2 = pm[:, None] & km[None, :]
+        px = tl.load(rel_ptr + p * 3 + 0, mask=pm, other=0.0)[:, None]
+        py = tl.load(rel_ptr + p * 3 + 1, mask=pm, other=0.0)[:, None]
+        pz = tl.load(rel_ptr + p * 3 + 2, mask=pm, other=0.0)[:, None]
+        nx = tl.load(dims_ptr + p * 3 + 0, mask=pm, other=0)[:, None]
+        ny = tl.load(dims_ptr + p * 3 + 1, mask=pm, other=0)[:, None]
+        nz = tl.load(dims_ptr + p * 3 + 2, mask=pm, other=0)[:, None]
+        base = tl.load(base_ptr + p, mask=pm, other=0)[:, None]
+        dx = tl.load(dirs_ptr + k * 3 + 0, mask=km, other=0.0)[None, :]
+        dy = tl.load(dirs_ptr + k * 3 + 1, mask=km, other=0.0)[None, :]
+        dz = tl.load(dirs_ptr + k * 3 + 2, mask=km, other=0.0)[None, :]
+        hp = tl.zeros([BP, DB], dtype=tl.int32)
+        hm = tl.zeros([BP, DB], dtype=tl.int32)
+        for s in range(1, n_steps + 1):
+            t = s * 1.0
+            fx = px + dx * t
+            fy = py + dy * t
+            fz = pz + dz * t
+            inb = (fx >= 0.0) & (fy >= 0.0) & (fz >= 0.0) & (fx < nx) & (fy < ny) & (fz < nz)
+            lin = base + ((fx.to(tl.int32) * ny + fy.to(tl.int32)) * nz + fz.to(tl.int32)).to(tl.int64)
+            v = tl.load(mu_ptr + lin, mask=m2 & inb & (hp == 0), other=0.0)
+            hp = tl.where(v > min_mu, 1, hp)
+            fx = px - dx * t
+            fy = py - dy * t
+            fz = pz - dz * t
+            inb = (fx >= 0.0) & (fy >= 0.0) & (fz >= 0.0) & (fx < nx) & (fy < ny) & (fz < nz)
+            lin = base + ((fx.to(tl.int32) * ny + fy.to(tl.int32)) * nz + fz.to(tl.int32)).to(tl.int64)
+            v = tl.load(mu_ptr + lin, mask=m2 & inb & (hm == 0), other=0.0)
+            hm = tl.where(v > min_mu, 1, hm)
+        cnt = tl.sum(hp * hm, axis=1)
+        tl.store(out_ptr + p, cnt, mask=pm)
+
+
+def psp_triton(rel, dims, base, dirs_step_vox, mu, n_steps, min_mu, bp: int = 64):
+    """LIGSITE-style buriedness counts (number of directions enclosed on both sides)."""
+    import torch
+    p_n = rel.shape[0]
+    out = torch.zeros(p_n, dtype=torch.int32, device=rel.device)
+    if p_n == 0:
+        return out
+    with torch.cuda.device(rel.device):
+        _psp_kernel[(triton.cdiv(p_n, bp),)](rel, dims, base, dirs_step_vox, mu, out, p_n,
+                                             dirs_step_vox.shape[0], int(n_steps), float(min_mu),
+                                             BP=bp, DB=16, num_warps=4)
+    return out
