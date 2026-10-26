@@ -9,7 +9,7 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 from .features import BurrowConfig, point_features
-from .model import BurrowModel, FormationConfig, candidates, geo_score, geo_value, pocket_features
+from .model import BurrowModel, FormationConfig, candidates, geo_score, geo_value, pocket_features, score_points
 from .pockets import assign_residues, nms
 from .prep import Protein
 
@@ -34,6 +34,11 @@ def predict_protein(P: Protein, model: BurrowModel | None, cfg: BurrowConfig = B
     """``model=None`` or ``ranker='geometry'`` -> geometry-only baseline (buried volume, see geo_score)."""
     tm = {}
     t0 = time.perf_counter()
+    if model is not None and model.meta.get("feature_cfg"):  # the model's own feature design
+        fd = dict(model.meta["feature_cfg"])
+        fd["lengths"] = tuple(fd["lengths"])
+        fd["nb_radii"] = tuple(fd["nb_radii"])
+        cfg = BurrowConfig(**fd)
     ps = point_features(P, cfg, weights)
     tm.update({f"feat_{k}": v for k, v in ps.timings.items()})
     t1 = time.perf_counter()
@@ -43,8 +48,7 @@ def predict_protein(P: Protein, model: BurrowModel | None, cfg: BurrowConfig = B
         score = None
     else:
         pb, rb = model.boosters()
-        idx = [ps.names.index(n) for n in model.point_features]
-        score = pb.predict(ps.feats[:, idx], num_threads=1) if len(ps.feats) else np.zeros(0)
+        score = score_points(pb, ps.feats, ps.names, model.point_features, model.meta.get("score_floor"))
     t2 = time.perf_counter()
     pk = candidates(ps.X, ps.points, ps.vol, ps.feats, ps.names, score, fc)
     tree = cKDTree(P.coords)

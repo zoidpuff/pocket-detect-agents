@@ -31,6 +31,7 @@ def main(argv=None):
     ap.add_argument("--out-name", required=True)
     ap.add_argument("--set", nargs="*", default=[])
     ap.add_argument("--noranker", action="store_true", help="rank by Σ vol·point score instead of the ranker")
+    ap.add_argument("--out-root", type=Path, default=ROOT / "results/dev/preds")
     a = ap.parse_args(argv)
     store = pickle.loads((ROOT / "results/dev/cache/runs" / f"{a.run}.pkl").read_bytes())
     fc = FormationConfig()
@@ -39,7 +40,7 @@ def main(argv=None):
         k, v = s.split("=")
         kv[k] = None if v == "None" else type(getattr(fc, k) if getattr(fc, k) is not None else 0.0)(v)
     fc = replace(fc, **kv)
-    out = ROOT / "results/dev/preds" / a.out_name
+    out = a.out_root / a.out_name
     for sid, (light, rs, ss, y) in store.items():
         emit(out, sid, light, ss if a.noranker else rs, fc)
     print(out, fc)

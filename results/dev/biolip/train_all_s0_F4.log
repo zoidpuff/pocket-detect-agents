@@ -1,0 +1,8 @@
+[     0s] train inputs 0 (assemblies 0), dev 0
+Traceback (most recent call last):
+  File "/cluster/project/beltrao/gmagnus/pocket_detect/scripts/burrow_train_biolip.py", line 216, in <module>
+    main()
+  File "/cluster/project/beltrao/gmagnus/pocket_detect/scripts/burrow_train_biolip.py", line 159, in main
+    names = load_feats(tr_ids[0])["names"]
+                       ~~~~~~^^^
+IndexError: list index out of range

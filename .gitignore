@@ -18,3 +18,7 @@ tools/downloads/
 results/dev/cache/
 results/dev/structures_sanitized/
 results/dev/preds/
+results/dev/biolip/preds/
+results/dev/biolip/inputs/
+results/dev/biolip/preds_cli/
+results/dev/biolip/baselines/*/

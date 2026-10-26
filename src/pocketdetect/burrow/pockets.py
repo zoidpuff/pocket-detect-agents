@@ -12,7 +12,10 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.spatial import cKDTree
 
-from ..geometry.cluster import single_linkage
+from scipy.sparse import coo_matrix
+from scipy.sparse.csgraph import connected_components
+
+from ..geometry.cluster import canonical_labels, single_linkage
 
 
 @dataclass
@@ -53,14 +56,33 @@ def _extent(Xs):
     return float(proj.max() - proj.min())
 
 
-def components(X, sel, link: float, w, max_extent: float = 20.0, split_size: float = 12.0):
+class PointGraph:
+    """All point pairs within ``link`` (computed once, reused for every threshold)."""
+
+    def __init__(self, X, link: float):
+        self.n = len(X)
+        self.link = link
+        self.pairs = (cKDTree(X).query_pairs(link, output_type="ndarray") if self.n
+                      else np.zeros((0, 2), np.int64))
+
+    def labels(self, sel):
+        """Single-linkage labels of the induced subgraph on ``sel`` (canonical, = single_linkage)."""
+        m = np.zeros(self.n, bool)
+        m[sel] = True
+        e = self.pairs[m[self.pairs[:, 0]] & m[self.pairs[:, 1]]]
+        g = coo_matrix((np.ones(len(e), np.int8), (e[:, 0], e[:, 1])), shape=(self.n, self.n))
+        _, lab = connected_components(g, directed=False)
+        return canonical_labels(lab[sel])
+
+
+def components(X, sel, link: float, w, max_extent: float = 20.0, split_size: float = 12.0, graph=None):
     """Single-linkage components of points ``sel`` (indices), with chaining control: components
     longer than ``max_extent`` (principal-axis extent) are split by weighted k-means into
     ceil(extent / split_size) parts.  Returns a list of index arrays."""
     sel = np.asarray(sel)
     if len(sel) == 0:
         return []
-    lab = single_linkage(X[sel], link)
+    lab = graph.labels(sel) if graph is not None else single_linkage(X[sel], link)
     out = []
     order = np.argsort(lab, kind="stable")
     bounds = np.flatnonzero(np.diff(lab[order])) + 1
@@ -89,7 +111,8 @@ def make_pocket(idx, pts, vol, value, level=0):
 
 
 def generate(X, pts, vol, value, thresholds, link=2.05, max_extent=20.0, split_size=12.0,
-             min_vol=10.0, extra_value=None, sub_size: float | None = None, sub_min_extent: float = 10.0):
+             min_vol=10.0, extra_value=None, sub_size: float | None = None, sub_min_extent: float = 10.0,
+             graph: PointGraph | None = None):
     """Multi-threshold candidate pockets (union over thresholds on ``value``).
 
     ``sub_size``: additionally split every component with extent > ``sub_min_extent`` into
@@ -97,7 +120,7 @@ def generate(X, pts, vol, value, thresholds, link=2.05, max_extent=20.0, split_s
     pockets = []
     for lev, th in enumerate(thresholds):
         sel = np.flatnonzero(value >= th)
-        for idx in components(X, sel, link, vol * value, max_extent, split_size):
+        for idx in components(X, sel, link, vol * value, max_extent, split_size, graph):
             if vol[idx].sum() < min_vol and not (extra_value is not None and extra_value[idx].any()):
                 continue
             pockets.append(make_pocket(idx, pts, vol, value, lev))
@@ -114,11 +137,17 @@ def generate(X, pts, vol, value, thresholds, link=2.05, max_extent=20.0, split_s
 
 
 def assign_residues(pockets, pts, atom_tree: cKDTree, atom_res, residue_ids, r: float = 4.0):
-    """Residues with any heavy atom <= r of any pocket point."""
+    """Residues with any heavy atom <= r of any pocket point (point->residue lists computed once)."""
+    if not pockets:
+        return pockets
+    used = np.unique(np.concatenate([p.idx for p in pockets]))
+    lst = atom_tree.query_ball_point(pts[used], r)
+    per_point = {}
+    for i, l in zip(used.tolist(), lst):
+        per_point[i] = np.unique(atom_res[np.asarray(l, np.int64)]) if l else np.zeros(0, np.int64)
     for p in pockets:
-        lst = atom_tree.query_ball_point(pts[p.idx], r)
-        atoms = np.unique(np.concatenate([np.asarray(l, np.int64) for l in lst])) if len(lst) else np.zeros(0, int)
-        p.residues = frozenset(residue_ids[np.unique(atom_res[atoms])].tolist()) if len(atoms) else frozenset()
+        rr = np.unique(np.concatenate([per_point[i] for i in p.idx.tolist()]))
+        p.residues = frozenset(residue_ids[rr].tolist()) if len(rr) else frozenset()
     return pockets
 
 

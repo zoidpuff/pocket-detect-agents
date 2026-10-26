@@ -12,11 +12,16 @@ import sys
 import time
 from pathlib import Path
 
-DEFAULT_MODELS = {
-    # phase 1: only the interim CHEN11-trained (P2Rank ligand rules, no ions) model exists.
-    "small": "results/dev/models/burrow_chen11_s0.json",
-    "all": "results/dev/models/burrow_chen11_s0.json",
+# (ranker, preset) -> model JSON (the JSON also carries its feature design: rays, lengths, sub-lattice,
+# score floor).  Phase 2: BioLiP2-trained dev models; frozen models will move to a release dir.
+DEFAULT_MODELS = {  # trained on the D6-audited BioLiP2 train set, seed SEEDS[0]
+    ("all", "default"): "results/dev/biolip/models/burrow_all_default_s0.json",
+    ("small", "default"): "results/dev/biolip/models/burrow_small_default_s0.json",
+    ("all", "accurate"): "results/dev/biolip/models/burrow_all_accurate_s0.json",
+    ("small", "accurate"): "results/dev/biolip/models/burrow_small_accurate_s0.json",
 }
+# AF-mode ranker (owned by the AF-mode developer, burrow/af_rank.py); retrained after the feature freeze.
+DEFAULT_AF_RANKER = "results/dev_af/models/afr_final_afpdb_pl.json"  # one-line update after the freeze
 _EXT = (".pdb", ".ent", ".cif", ".mmcif", ".pdb.gz", ".ent.gz", ".cif.gz", ".mmcif.gz")
 
 
@@ -46,8 +51,11 @@ def main(argv=None):
     p = sub.add_parser("predict")
     p.add_argument("inputs", nargs="+")
     p.add_argument("--out", required=True, type=Path)
-    p.add_argument("--af-mode", action="store_true", help="pLDDT pruning + soft occlusion (phase 1: no AF ranker yet)")
+    p.add_argument("--af-mode", action="store_true", help="pLDDT pruning + soft occlusion + AF ranker")
+    p.add_argument("--af-ranker", type=Path, default=None,
+                   help=f"AF-mode ranker JSON (default {DEFAULT_AF_RANKER}; missing -> standard ranker + warning)")
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
+    p.add_argument("--preset", choices=["default", "accurate"], default="default")
     p.add_argument("--model", type=Path, default=None, help="override model JSON")
     p.add_argument("--device", default="cpu")
     p.add_argument("--threads", type=int, default=1)
@@ -65,11 +73,18 @@ def main(argv=None):
     model = None
     if a.ranker != "geometry":
         root = Path(__file__).resolve().parents[3]
-        mp = a.model or root / DEFAULT_MODELS[a.ranker]
-        if a.ranker == "all" and a.model is None:
-            print("[burrow] ranker 'all' not trained yet (needs BioLiP2 train set); using the interim no-ion model",
-                  file=sys.stderr)
+        mp = a.model or root / DEFAULT_MODELS[(a.ranker, a.preset)]
         model = BurrowModel.load(mp)
+    af_ranker = None
+    if a.af_mode and model is not None:
+        root = Path(__file__).resolve().parents[3]
+        afp = a.af_ranker or root / DEFAULT_AF_RANKER
+        if Path(afp).exists():
+            from .af_rank import AFRanker
+            af_ranker = AFRanker.load(afp)
+        else:
+            print(f"[burrow] AF ranker {afp} not found: --af-mode uses pruning + soft occlusion with the "
+                  "standard ranker", file=sys.stderr)
     a.out.mkdir(parents=True, exist_ok=True)
     rows = ["stem,status,n_atoms,n_pockets,total_ms,parse_ms,note"]
     for path in _expand(a.inputs):
@@ -83,7 +98,11 @@ def main(argv=None):
             else:
                 P, w, note = protein_from_structure(s), None, ""
             t1 = time.perf_counter()
-            pred = predict_protein(P, model, weights=w, ranker="geometry" if model is None else "learned")
+            if af_ranker is not None:
+                from .af_rank import predict_protein_af
+                pred = predict_protein_af(P, model, af_ranker, weights=w)
+            else:
+                pred = predict_protein(P, model, weights=w, ranker="geometry" if model is None else "learned")
             write_prediction(a.out, pred, points=not a.no_points)
             t2 = time.perf_counter()
             rows.append(f"{stem},ok,{len(P.coords)},{len(pred.scores)},{(t2 - t0) * 1e3:.1f},{(t1 - t0) * 1e3:.1f},{note}")

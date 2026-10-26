@@ -1,0 +1,10 @@
+[     0s] train inputs 8184 (assemblies 1709), dev 579
+[     4s] point samples: 1578781 rows, pos 0.500
+[    28s] fold 0 point model done
+[    52s] fold 1 point model done
+[    76s] fold 2 point model done
+[   100s] fold 3 point model done
+[   124s] fold 4 point model done
+[   142s] final point model + dev scores done
+[   351s] ranker data: 6183783 candidates, hit rate 0.043
+[   525s] done -> /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/biolip/preds/burrow_all_default_s2

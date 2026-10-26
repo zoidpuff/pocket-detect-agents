@@ -1,0 +1,4 @@
+500/726 (12s)
+dev: 726 computed, errors 0 -> /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/cache/feats_biolip/b951418c78 (14s)
+done: 726/726 ok; clean 0.5s, p2rank 22.3s wall
+P2R_DONE

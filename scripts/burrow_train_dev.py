@@ -68,14 +68,29 @@ def sample_points(sids, rng):
 
 
 def hit_label(centers, gt):
-    lab = np.zeros(len(centers), np.int8)
+    """Per pocket: min DCC over ligands whose DCA <= 4 Å (inf if none)."""
+    q = np.full(len(centers), np.inf)
     if len(centers) == 0:
-        return lab
+        return q
     for lig in gt.ligands:
         dcc = np.linalg.norm(centers - lig.center, axis=1)
         dca = cKDTree(lig.coords).query(centers, k=1)[0]
-        lab |= ((dcc <= 12) & (dca <= 4)).astype(np.int8)
-    return lab
+        q = np.minimum(q, np.where(dca <= 4, dcc, np.inf))
+    return q
+
+
+def rank_target(q, kind):
+    """Ranker target from q = min DCC over sites with DCA <= 4: hit (q <= 12), tight (q <= 8),
+    graded (1 - q/12 clipped, cross-entropy objective)."""
+    if kind == "hit":
+        return (q <= 12).astype(np.float32)
+    if kind == "tight":
+        return (q <= 8).astype(np.float32)
+    return np.clip(1.0 - q / 12.0, 0.0, 1.0).astype(np.float32)
+
+
+def rank_params(kind):
+    return dict(RANK_PARAMS, objective="cross_entropy") if kind == "graded" else RANK_PARAMS
 
 
 def _pocket_job(sid):
@@ -157,6 +172,7 @@ def main(argv=None):
     ap.add_argument("--jobs", type=int, default=16)
     ap.add_argument("--out", type=Path, default=ROOT / "results/dev")
     ap.add_argument("--geo", action="store_true", help="also write the geometry-only baseline")
+    ap.add_argument("--rank-label", choices=["hit", "tight", "graded"], default="hit")
     a = ap.parse_args(argv)
     t0 = time.time()
     df = read_manifest(a.manifest)
@@ -167,7 +183,7 @@ def main(argv=None):
     sids = list(df.structure_id)
     names = load_feats(sids[0])["names"]
     rng = np.random.default_rng(SEEDS[a.seed_idx])
-    tag = f"s{a.seed_idx}"
+    tag = f"s{a.seed_idx}" + ("" if a.rank_label == "hit" else f"_{a.rank_label}")
     if a.geo:
         with ProcessPoolExecutor(a.jobs, mp_context=mp.get_context("fork")) as ex:
             for pr in ex.map(_geo_job, sids, chunksize=2):
@@ -189,23 +205,23 @@ def main(argv=None):
         _G["scores"] = oof
         pk = pockets_for(sids, a.jobs)
         fn = next(v[1] for v in pk.values() if v[1])
-        print(f"pockets: {sum(len(v[2]) for v in pk.values())} candidates, "
-              f"{np.mean([v[2].mean() if len(v[2]) else 0 for v in pk.values()]):.3f} pos ({time.time() - t0:.0f}s)")
+        print(f"pockets: {sum(len(v[2]) for v in pk.values())} candidates ({time.time() - t0:.0f}s)")
         for meth in (f"burrow_cv5_{tag}", f"burrow_cv5_noranker_{tag}"):
             (a.out / "preds" / meth).mkdir(parents=True, exist_ok=True)
         store = {}
         for k in range(5):
             tr = [s for s in sids if fold_of[s] != k and len(pk[s][2])]
             te = [s for s in sids if fold_of[s] == k]
-            R = train_lgb(np.concatenate([pk[s][0] for s in tr]), np.concatenate([pk[s][2] for s in tr]),
-                          RANK_PARAMS, N_RANK_ROUNDS, a.seed_idx)
+            R = train_lgb(np.concatenate([pk[s][0] for s in tr]),
+                          rank_target(np.concatenate([pk[s][2] for s in tr]), a.rank_label),
+                          rank_params(a.rank_label), N_RANK_ROUNDS, a.seed_idx)
             for s in te:
                 Fp, _, y, light = pk[s]
                 rs = R.predict(Fp, num_threads=16) if len(light) else np.zeros(0)
                 emit(a.out / "preds" / f"burrow_cv5_{tag}", s, light, rs, fc)
                 ss = Fp[:, fn.index("score_sum")] if len(light) else np.zeros(0)
                 emit(a.out / "preds" / f"burrow_cv5_noranker_{tag}", s, light, ss, fc)
-                store[s] = (light, rs, ss, y)
+                store[s] = (light, rs, ss, (y <= 12).astype(np.int8))
         save_run(f"burrow_cv5_{tag}", store)
         print(f"cv5 done ({time.time() - t0:.0f}s)")
     else:
@@ -227,15 +243,16 @@ def main(argv=None):
         pk = pockets_for(tr_all + te, a.jobs)
         fn = next(v[1] for v in pk.values() if v[1])
         tr = [s for s in tr_all if len(pk[s][2])]
-        R = train_lgb(np.concatenate([pk[s][0] for s in tr]), np.concatenate([pk[s][2] for s in tr]),
-                      RANK_PARAMS, N_RANK_ROUNDS, a.seed_idx)
+        R = train_lgb(np.concatenate([pk[s][0] for s in tr]),
+                      rank_target(np.concatenate([pk[s][2] for s in tr]), a.rank_label),
+                      rank_params(a.rank_label), N_RANK_ROUNDS, a.seed_idx)
         meth = f"burrow_chen11_{tag}"
         store = {}
         for s in te:
             Fp, _, y, light = pk[s]
             rs = R.predict(Fp, num_threads=16) if len(light) else np.zeros(0)
             emit(a.out / "preds" / meth, s, light, rs, fc)
-            store[s] = (light, rs, Fp[:, fn.index("score_sum")] if len(light) else np.zeros(0), y)
+            store[s] = (light, rs, Fp[:, fn.index("score_sum")] if len(light) else np.zeros(0), (y <= 12).astype(np.int8))
         save_run(meth, store)
         (a.out / "models").mkdir(parents=True, exist_ok=True)
         bm = BurrowModel(pm.model_to_string(), names, R.model_to_string(), fn,

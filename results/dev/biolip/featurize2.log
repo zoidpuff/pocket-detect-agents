@@ -1,0 +1,8 @@
+config BurrowConfig(spacing=1.0, probe=1.0, max_dist=6.0, psp_length=8.0, psp_dirs=7, min_psp=2, subsample=2, n_rays=60, lengths=(6.0, 10.0, 16.0, 24.0), radius_pad=0.5, nb_radii=(4.0, 8.0, 10.0, 12.0), metal=True, metal_rmin=1.8, metal_rmax=2.6, metal_clash=2.4, metal_dedup=1.5, canonical=True) /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/cache/feats_biolip/b951418c78
+dev: 28 computed, errors 0 -> /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/cache/feats_biolip/b951418c78 (2s)
+config BurrowConfig(spacing=1.0, probe=1.0, max_dist=6.0, psp_length=8.0, psp_dirs=7, min_psp=2, subsample=2, n_rays=60, lengths=(6.0, 10.0, 16.0, 24.0), radius_pad=0.5, nb_radii=(4.0, 8.0, 10.0, 12.0), metal=True, metal_rmin=1.8, metal_rmax=2.6, metal_clash=2.4, metal_dedup=1.5, canonical=True) /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/cache/feats_biolip/b951418c78
+500/1678 (29s)
+1000/1678 (46s)
+1500/1678 (57s)
+train: 1678 computed, errors 0 -> /cluster/project/beltrao/gmagnus/pocket_detect/results/dev/cache/feats_biolip/b951418c78 (61s)
+FEAT_DONE

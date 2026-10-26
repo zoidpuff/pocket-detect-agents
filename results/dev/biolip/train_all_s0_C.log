@@ -1,0 +1,5 @@
+[     2s] train inputs 9045 (assemblies 1913), dev 726
+[     4s] point samples: 1834687 rows, pos 0.513
+[    21s] fold 0 point model done
+[    38s] fold 1 point model done
+[    55s] fold 2 point model done
