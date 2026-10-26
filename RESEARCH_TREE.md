@@ -30,7 +30,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
   - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
   - [~] 2.C AF test set (LIGYSIS UniProts on AFDB v6)
-  - [~] 2.D Dimer benchmark (assembly-1, symmetric-copy aware)
+  - [x] 2.D Dimer benchmark: 400 complexes (274 homo/126 hetero), 807 unique sites, 243 interface (177 homo, 66 hetero); oracle ceiling 1.0 (J≥0.5)
 - [~] 3. Baselines (P2Rank, fpocket, …)
 - [~] 4. DESIGN.md + review rounds
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
