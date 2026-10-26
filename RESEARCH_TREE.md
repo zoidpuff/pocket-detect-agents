@@ -34,7 +34,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
   - [x] 2.C AF test set: 2,527 proteins/6,731 sites (LBS subset, primary O5); holo-biased (median local RMSD 0.38 Å), only 95 sites pLDDT<70; PAE unavailable (403) → dropped
   - [x] 2.D Dimer benchmark: 400 complexes (274 homo/126 hetero), 807 unique sites, 243 interface (177 homo, 66 hetero); oracle ceiling 1.0 (J≥0.5)
-- [~] 3. Baselines (P2Rank, fpocket, …)
+- [x] 3. Baselines wrapped: P2Rank 2.5.1/2.4.2 (Temurin 17), fpocket 4.2.3/4.0.3 (-O0), fpocket+PRANK; optional: pyKVFinder, DeepPocket, PUResNet v2 (torch port), GrASP, VN-EGNN, IF-SitePred, Kalasanty, PocketMiner
+  - [~] 3.1 Run mandatory baselines on all test sets; LIGYSIS re-run reproduction gate (±2 pts); P2Rank batch-mode timing
 - [~] 4. DESIGN.md + review rounds
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
   - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
