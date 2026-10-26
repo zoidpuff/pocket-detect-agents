@@ -1,0 +1,15 @@
+# large / restricted / generated data (tracked via DATA.md manifests + checksums instead)
+data/raw/
+data/processed/
+data/cache/
+baselines/tools/
+baselines/outputs/
+.venv/
+__pycache__/
+*.pyc
+*.so
+*.egg-info/
+/tmp/
+*.npz
+*.pt
+!tests/fixtures/**
