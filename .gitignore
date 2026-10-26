@@ -32,3 +32,4 @@ results/audit/*.m8
 logs/
 .worktrees/
 results/test/*/preds/
+results/ablations/models/abl_drop-*
