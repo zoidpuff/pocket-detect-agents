@@ -57,6 +57,9 @@ def main(argv=None):
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
     p.add_argument("--preset", choices=["default", "accurate"], default="default")
     p.add_argument("--model", type=Path, default=None, help="override model JSON")
+    p.add_argument("--min-score", default=None,
+                   help="override the model's output score floor (v2 models: 0.03); 'none' = output the full "
+                        "NMS'd pocket list (up to 50; recommended for exhaustive discovery)")
     p.add_argument("--device", default="cpu")
     p.add_argument("--threads", type=int, default=1)
     p.add_argument("--no-points", action="store_true")
@@ -75,6 +78,9 @@ def main(argv=None):
         root = Path(__file__).resolve().parents[3]
         mp = a.model or root / DEFAULT_MODELS[(a.ranker, a.preset)]
         model = BurrowModel.load(mp)
+        if a.min_score is not None:
+            model.formation = dict(model.formation,
+                                   min_score=None if str(a.min_score).lower() == "none" else float(a.min_score))
     af_ranker = None
     afp = a.af_ranker or DEFAULT_AF_RANKER
     if a.af_mode and model is not None and afp is not None:

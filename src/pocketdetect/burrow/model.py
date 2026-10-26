@@ -223,6 +223,31 @@ def context_features(Fp, fn, centers, level: str = "rel+pair", radius: float = 8
     return np.stack(cols, 1).astype(np.float32), names
 
 
+APO_NAMES = ["apo_burbb6_mean", "apo_burbb10_q90", "apo_burbb16_q90", "apo_burbb16_q10", "apo_sc_deficit16",
+             "apo_sc_deficit10", "apo_frac_bb_enclosed", "apo_frac_open_mouth", "apo_escape_q90"]
+
+
+def apo_pocket_features(pockets_idx, vol, F, names):
+    """v2/H3: pocket aggregates less tied to full-atom enclosure (backbone+CB-only buriedness,
+    side-chain enclosure deficit, mouth openness).  Returns (n, len(APO_NAMES)) float32."""
+    n = len(pockets_idx)
+    if n == 0:
+        return np.zeros((0, len(APO_NAMES)), np.float32)
+    col = lambda c: F[:, names.index(c)].astype(np.float64)
+    counts = np.array([len(i) for i in pockets_idx], np.int64)
+    starts = np.concatenate([[0], np.cumsum(counts)[:-1]])
+    I = np.concatenate([np.asarray(i) for i in pockets_idx])
+    pid = np.repeat(np.arange(n), counts)
+    bc = lambda w: np.bincount(pid, weights=w, minlength=n)
+    bb6, bb10, bb16 = col("burbb6")[I], col("burbb10")[I], col("burbb16")[I]
+    b10, b16, esc = col("bur10")[I], col("bur16")[I], col("escape")[I]
+    q = lambda x, qq: _seg_quantile(_seg_sorted(x, pid, starts, counts), starts, counts, qq)
+    out = np.stack([bc(bb6) / counts, q(bb10, 0.9), q(bb16, 0.9), q(bb16, 0.1),
+                    bc(b16 - bb16) / counts, bc(b10 - bb10) / counts, bc((bb16 >= 0.5).astype(float)) / counts,
+                    bc((esc >= 0.3).astype(float)) / counts, q(esc, 0.9)], 1)
+    return out.astype(np.float32)
+
+
 @dataclass
 class BurrowModel:
     point_model: str            # LightGBM model string

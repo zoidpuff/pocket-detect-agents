@@ -36,6 +36,7 @@ from pocketdetect.burrow.devdata import CACHE  # noqa: E402
 from pocketdetect.burrow.features import BurrowConfig, point_features  # noqa: E402
 from pocketdetect.burrow.prep import load_protein  # noqa: E402
 from pocketdetect.datasets.trainset import load_entry  # noqa: E402
+from pocketdetect.seeds import SEEDS  # noqa: E402
 
 DEV_INPUTS = ROOT / "results/dev/biolip/inputs"
 _CFG = [BurrowConfig()]
@@ -52,11 +53,19 @@ def _job(args):
     out = Path(outdir) / f"{sid}.npz"
     try:
         t0 = time.perf_counter()
-        e = load_entry(npz)
-        if split == "dev" and not is_asm:
-            P = load_protein(DEV_INPUTS / f"{e.entry_id}.cif", structure_id=sid)
+        from pocketdetect.burrow.biolip import AF, SCD, load_af, load_protein_af, load_protein_scd
+        if sid.endswith(AF):
+            e = load_af(npz)
+            P = load_protein_af(e)
+        elif sid.endswith(SCD):
+            e = load_entry(npz)
+            P = load_protein_scd(e, SEEDS[0])
         else:
-            P = load_protein_entry(e, assembly=is_asm)
+            e = load_entry(npz)
+            if split == "dev" and not is_asm and "__apo_" not in sid:
+                P = load_protein(DEV_INPUTS / f"{e.entry_id}.cif", structure_id=sid)
+            else:
+                P = load_protein_entry(e, assembly=is_asm)
         t1 = time.perf_counter()
         ps = point_features(P, _CFG[0])
         t2 = time.perf_counter()
@@ -89,6 +98,7 @@ def main(argv=None):
     ap.add_argument("--split", choices=["train", "dev"], required=True)
     ap.add_argument("--assembly", action="store_true")
     ap.add_argument("--jobs", type=int, default=16)
+    ap.add_argument("--extra", default="", help="train only: extra inputs 'af' (AF models) and/or 'scd' (side-chain dropout)")
     cfg_args(ap)
     a = ap.parse_args(argv)
     _CFG[0] = make_cfg(a.n_rays, a.max_len, a.subsample)
@@ -97,10 +107,22 @@ def main(argv=None):
     outdir.mkdir(parents=True, exist_ok=True)
     m = entries(a.split)
     ids = structure_ids(m, a.assembly)
+    from pocketdetect.burrow.biolip import AF, SCD, af_manifest
+    ex = [x for x in a.extra.split(",") if x]
+    if "scd" in ex:
+        ids += [(e + SCD, n, False) for e, n in zip(m.entry_id, m.npz)]
+    if "apo" in ex:
+        from pocketdetect.datasets.apotrain import read_apo_manifest
+        pm = read_apo_manifest(a.split)
+        ids += [(e, n, False) for e, n, par in zip(pm.entry_id, pm.npz, pm.parent_entry_id) if par in set(m.entry_id)]
+    if "af" in ex:
+        am = af_manifest(a.split)
+        ids += [(e + AF, n, False) for e, n in zip(am.entry_id, am.npz) if e in set(m.entry_id)]
     tasks = [(s, n, asm, a.split, str(outdir)) for s, n, asm in ids if not (outdir / f"{s}.npz").exists()]
     # big ones first for load balance
+    from pocketdetect.burrow.biolip import base_id
     size = dict(zip(m.entry_id, m.n_res))
-    tasks.sort(key=lambda t: -(size[t[0].replace(ASM, "")] * (4 if t[2] else 1)))
+    tasks.sort(key=lambda t: -(size.get(base_id(t[0]), 300) * (4 if t[2] else 1)))
     t0 = time.time()
     rows = []
     with ProcessPoolExecutor(a.jobs, mp_context=mp.get_context("fork")) as ex:

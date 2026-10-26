@@ -121,3 +121,89 @@ def write_chain_input(e: TrainEntry, out: Path) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     st.make_mmcif_document().write_file(str(out))
     return out
+
+
+# --------------------------------------------------------------------------- v2: extra training inputs
+AF = "__af"     # AlphaFold model of a training protein (data/processed/af_train), spaghetti-pruned
+SCD = "__scd"   # side-chain-dropout copy of the representative chain (apo-like augmentation)
+SCD_NEAR, SCD_FAR, SCD_NEAR_DIST = 0.5, 0.2, 8.0
+_BB_CB = {"N", "CA", "C", "O", "OXT", "CB"}
+
+
+APO = "__apo_"  # apo PDB chain of a training protein (data/processed/apo_train; id = <parent>__apo_<pdb>_<chain>)
+
+
+def base_id(sid: str) -> str:
+    if APO in sid:
+        return sid.split(APO)[0]
+    for suf in (ASM, AF, SCD):
+        if sid.endswith(suf):
+            return sid[: -len(suf)]
+    return sid
+
+
+def af_manifest(split: str = "train") -> pd.DataFrame:
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts" / "data"))
+    from build_af_train_io import read_af_manifest
+    return read_af_manifest(split)
+
+
+def load_af(npz):
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts" / "data"))
+    from build_af_train_io import load_af_entry
+    return load_af_entry(npz)
+
+
+def load_protein_af(eaf) -> Protein:
+    """AF model, polymer heavy atoms, low-pLDDT spaghetti pruned exactly as --af-mode (af.prune_mask);
+    no soft-occlusion weights and pLDDT never used as a feature."""
+    from .af import prune_mask
+    s = load_structure(eaf.meta["model_path"], structure_id=eaf.entry_id + AF, protein_only=True)
+    s = s.select(s.protein_heavy_mask())
+    keep = prune_mask(s)
+    return protein_from_structure(s.select(keep[s.res_index]))
+
+
+def load_protein_scd(e: TrainEntry, seed: int) -> Protein:
+    """Representative chain with side chains beyond CB deleted for a random subset of residues
+    (prob SCD_NEAR within SCD_NEAR_DIST Å of a pooled ligand atom, SCD_FAR elsewhere)."""
+    from scipy.spatial import cKDTree
+    s = load_structure(e.meta["structure_path"], structure_id=e.entry_id + SCD, chains=[e.chain], protein_only=True)
+    s = s.select(s.protein_heavy_mask())
+    xyz, _, _ = ligand_atoms(e, False)
+    near = np.zeros(s.n_residues, bool)
+    if len(xyz):
+        d, _ = cKDTree(xyz).query(s.coords, k=1)
+        np.logical_or.at(near, s.res_index, d <= SCD_NEAR_DIST)
+    import hashlib
+    h = int(hashlib.sha256(e.entry_id.encode()).hexdigest()[:8], 16)
+    rng = np.random.default_rng([seed, h])
+    drop = rng.random(s.n_residues) < np.where(near, SCD_NEAR, SCD_FAR)
+    keep = ~(drop[s.res_index] & ~np.isin(s.atom_name.astype(str), list(_BB_CB)))
+    return protein_from_structure(s.select(keep))
+
+
+def af_sites(eaf, variant: str = "all"):
+    """Site dicts (as :func:`sites`) for an AF training entry (residues 'A:<uniprot num>')."""
+    a = eaf.arrays
+    n = np.diff(a["lig_ptr"])
+    xyz = a["lig_coords"].astype(np.float64)
+    site = np.repeat(a["lig_site"], n)
+    ion = np.repeat(a["lig_is_ion"], n)
+    res = [r.split(";") if r else [] for r in a["site_residues"]]
+    out = []
+    for i in range(len(res)):
+        is_ion = bool(a["site_is_ion"][i])
+        if variant == "small" and is_ion:
+            continue
+        m = site == i
+        if variant == "small":
+            m &= ~ion
+        if not m.any():
+            continue
+        c = a["site_center"][i].astype(np.float64) if variant == "all" else xyz[m].mean(0)
+        out.append(dict(site_id=f"s{i}", center=c, residues=frozenset(f"A:{r}" for r in res[i]), atoms=xyz[m],
+                        is_ion=is_ion))
+    return out

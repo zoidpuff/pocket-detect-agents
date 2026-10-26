@@ -78,10 +78,16 @@ def _sample_job(sid):
 
 
 def _protein(sid, split):
-    eid = sid.replace(ASM, "")
+    from pocketdetect.burrow.biolip import AF, SCD, base_id, load_af, load_protein_af, load_protein_entry, load_protein_scd
+    eid = base_id(sid)
     if split == "dev":
         return load_protein(DEV_INPUTS / f"{eid}.cif", structure_id=sid)
-    from pocketdetect.burrow.biolip import load_protein_entry
+    if sid in _G["aponpz"]:
+        return load_protein_entry(load_entry(_G["aponpz"][sid]))
+    if sid.endswith(AF):
+        return load_protein_af(load_af(_G["afnpz"][eid]))
+    if sid.endswith(SCD):
+        return load_protein_scd(load_entry(_G["npz"][eid]), SEEDS[0])
     return load_protein_entry(load_entry(_G["npz"][eid]), assembly=sid.endswith(ASM))
 
 
@@ -89,8 +95,12 @@ def _pocket_job(args):
     sid, split, keep_light = args
     d = load_feats(sid)
     score = _G["scores"][sid]
-    eid = sid.replace(ASM, "")
-    e = load_entry(_G["npz"][eid])
+    from pocketdetect.burrow.biolip import AF, af_sites, base_id, load_af
+    eid = base_id(sid)
+    if sid in _G["aponpz"]:
+        e = load_entry(_G["aponpz"][sid])
+    else:
+        e = load_af(_G["afnpz"][eid]) if sid.endswith(AF) else load_entry(_G["npz"][eid])
     P = _protein(sid, split)
     fc = _G["fc"]
     pk = candidates(d["X"], d["points"], d["vol"], d["feats"], d["names"], score, fc)
@@ -98,7 +108,7 @@ def _pocket_job(args):
     Fp, fn = pocket_features(pk, d["X"], d["vol"], d["feats"], d["names"], score, len(P.coords))
     C = np.array([p.center for p in pk]).reshape(-1, 3)
     y = np.full(len(pk), np.inf)  # min DCC over target sites with DCA <= 4 Å
-    for s in sites(e, _G["variant"], sid.endswith(ASM)):
+    for s in (af_sites(e, _G["variant"]) if sid.endswith(AF) else sites(e, _G["variant"], sid.endswith(ASM))):
         if len(C):
             dcc = np.linalg.norm(C - s["center"], axis=1)
             dca = cKDTree(s["atoms"]).query(C, k=1)[0]
@@ -135,6 +145,7 @@ def main(argv=None):
     ap.add_argument("--no-assembly", action="store_true")
     ap.add_argument("--save-pockets", choices=["none", "features", "full"], default="none",
                     help="cache candidate pockets (features, targets, centres; 'full' adds train point sets)")
+    ap.add_argument("--extra", default="", help="extra training inputs: 'af', 'scd' (comma list)")
     cfg_args(ap)
     a = ap.parse_args(argv)
     from dataclasses import asdict
@@ -144,21 +155,36 @@ def main(argv=None):
     log = lambda msg: print(f"[{time.time() - t0:6.0f}s] {msg}", flush=True)
     mt, md = entries("train"), entries("dev")
     fdir = feats_dir(fcfg)
-    tr = [(s, asm) for s, _, asm in structure_ids(mt, not a.no_assembly) if (fdir / f"{s}.npz").exists()]
+    from pocketdetect.burrow.biolip import AF, SCD, af_manifest, base_id
+    ids = structure_ids(mt, not a.no_assembly)
+    extra = [x for x in a.extra.split(",") if x]
+    if "scd" in extra:
+        ids += [(e + SCD, n, False) for e, n in zip(mt.entry_id, mt.npz)]
+    afm = af_manifest("train") if "af" in extra else None
+    if afm is not None:
+        ids += [(e + AF, n, False) for e, n in zip(afm.entry_id, afm.npz) if e in set(mt.entry_id)]
+    aponpz = {}
+    if "apo" in extra:
+        from pocketdetect.datasets.apotrain import read_apo_manifest
+        pm = read_apo_manifest("train")
+        aponpz = {e: n for e, n, par in zip(pm.entry_id, pm.npz, pm.parent_entry_id) if par in set(mt.entry_id)}
+        ids += [(e, n, False) for e, n in aponpz.items()]
+    tr = [(s, asm) for s, _, asm in ids if (fdir / f"{s}.npz").exists()]
     dv = [s for s, _, _ in structure_ids(md, False) if (fdir / f"{s}.npz").exists()]
     grp_of = dict(zip(mt.entry_id, mt.cluster30))
     npz = dict(zip(pd.concat([mt.entry_id, md.entry_id]), pd.concat([mt.npz, md.npz])))
     fc = FormationConfig()
     _G.update(feats=str(fdir), variant=a.variant, seed_idx=a.seed_idx, pos_frac=a.pos_frac, neg_frac=a.neg_frac,
-              npz=npz, fc=fc, score_floor=a.score_floor)
+              npz=npz, fc=fc, score_floor=a.score_floor,
+              afnpz=dict(zip(afm.entry_id, afm.npz)) if afm is not None else {}, aponpz=aponpz)
     point_params = dict(POINT_PARAMS, num_leaves=a.point_leaves)
     tr_ids = [s for s, _ in tr]
     log(f"train inputs {len(tr_ids)} (assemblies {sum(x for _, x in tr)}), dev {len(dv)}")
     # folds by cluster30
-    ug = sorted({grp_of[s.replace(ASM, '')] for s in tr_ids})
+    ug = sorted({grp_of[base_id(s)] for s in tr_ids})
     perm = np.random.default_rng(SEEDS[0]).permutation(len(ug))
     fold_g = {g: int(perm[i] % 5) for i, g in enumerate(ug)}
-    fold = {s: fold_g[grp_of[s.replace(ASM, '')]] for s in tr_ids}
+    fold = {s: fold_g[grp_of[base_id(s)]] for s in tr_ids}
     # point samples
     ctx = mp.get_context("fork")
     with ProcessPoolExecutor(a.jobs, mp_context=ctx) as ex:
@@ -208,7 +234,7 @@ def main(argv=None):
         (rd / f"{nm}.pkl").write_bytes(pickle.dumps(store))
     (OUT / "models").mkdir(parents=True, exist_ok=True)
     BurrowModel(pm.model_to_string(), names, R.model_to_string(), fn,
-                meta=dict(trained_on="BioLiP2 train (Track A, docs/TRAINSET.md)", variant=a.variant, rank_label="graded", score_floor=a.score_floor,
+                meta=dict(trained_on="BioLiP2 train (Track A, docs/TRAINSET.md)", extra_inputs=a.extra, variant=a.variant, rank_label="graded", score_floor=a.score_floor,
                           point_leaves=a.point_leaves, feature_cfg=asdict(fcfg),
                           seed=SEEDS[a.seed_idx], n_train_inputs=len(tr_ids), point_rounds=a.point_rounds,
                           rank_rounds=a.rank_rounds, pos_frac=a.pos_frac, neg_frac=a.neg_frac,
@@ -224,7 +250,7 @@ def main(argv=None):
             {s: (v[0], v[2], v[3]) for s, v in pk_tr.items()}, protocol=pickle.HIGHEST_PROTOCOL))
         (pdir / "dev.pkl").write_bytes(pickle.dumps(
             {s: (v[0], v[2], v[3]) for s, v in pk_dv.items()}, protocol=pickle.HIGHEST_PROTOCOL))
-        (pdir / "meta.pkl").write_bytes(pickle.dumps(dict(fn=fn, names=names, fold=fold, group={s: grp_of[s.replace(ASM, '')] for s in tr_ids},
+        (pdir / "meta.pkl").write_bytes(pickle.dumps(dict(fn=fn, names=names, fold=fold, group={s: grp_of[base_id(s)] for s in tr_ids},
                                                           args=vars(a))))
         log(f"pockets saved -> {pdir}")
     log(f"done -> {OUT / 'preds' / name}")
