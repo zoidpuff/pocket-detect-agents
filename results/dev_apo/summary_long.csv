@@ -1,0 +1,80 @@
+table,method,metric,value,lo,hi
+apo_cryptic,BURROW-small,recall_topn,0.4152153987167736,0.3803725504252672,0.4443515302800087
+apo_cryptic,BURROW-small,recall_topn2,0.6214482126489459,0.5878998717166933,0.6514198371182619
+apo_cryptic,BURROW-small,recall_ldca_topn2,0.5530085959885387,0.5167692920629162,0.586442525595187
+apo_cryptic,BURROW-small,recall_max,0.995417048579285,0.9909253837873835,0.9990817263544536
+apo_cryptic,BURROW-small,P1K,0.581,0.546,0.619
+apo_cryptic,BURROW-small,n_scored_sites,1091.0,,
+apo_cryptic,BURROW-small,n_structures,885.0,,
+apo_cryptic,BURROW-all,recall_topn,0.3923006416131989,0.3611580874096034,0.4243530262459642
+apo_cryptic,BURROW-all,recall_topn2,0.615032080659945,0.5812379787998336,0.6445459986606396
+apo_cryptic,BURROW-all,recall_ldca_topn2,0.5281757402101241,0.49278285890453194,0.5599242486058851
+apo_cryptic,BURROW-all,recall_max,0.997250229147571,0.9936992280309112,1.0
+apo_cryptic,BURROW-all,P1K,0.539,0.498,0.574
+apo_cryptic,BURROW-all,n_scored_sites,1091.0,,
+apo_cryptic,BURROW-all,n_structures,885.0,,
+apo_cryptic,P2Rank 2.5.1,recall_topn,0.5160403299725023,0.4851733826238412,0.5493601462522852
+apo_cryptic,P2Rank 2.5.1,recall_topn2,0.6846929422548121,0.6561027371170485,0.7142954192546583
+apo_cryptic,P2Rank 2.5.1,recall_ldca_topn2,0.5062082139446036,0.47691697761194035,0.538251180050579
+apo_cryptic,P2Rank 2.5.1,recall_max,0.763519706691109,0.736982814624061,0.7905009698755143
+apo_cryptic,P2Rank 2.5.1,P1K,0.511,0.480975,0.541
+apo_cryptic,P2Rank 2.5.1,n_scored_sites,1091.0,,
+apo_cryptic,P2Rank 2.5.1,n_structures,885.0,,
+apo_cryptic,fpocket+PRANK,recall_topn,0.41338221814848763,0.3815067260023536,0.4444495694956949
+apo_cryptic,fpocket+PRANK,recall_topn2,0.6333638863428047,0.6021477946017116,0.6626312089971883
+apo_cryptic,fpocket+PRANK,recall_ldca_topn2,0.4890162368672397,0.4547925519357885,0.5206347882330573
+apo_cryptic,fpocket+PRANK,recall_max,0.9587534372135655,0.9462269763551309,0.9708301992684137
+apo_cryptic,fpocket+PRANK,P1K,0.537,0.505,0.573
+apo_cryptic,fpocket+PRANK,n_scored_sites,1091.0,,
+apo_cryptic,fpocket+PRANK,n_structures,885.0,,
+apo_cryptic,fpocket,recall_topn,0.21264894592117323,0.1849432734796942,0.239170194022564
+apo_cryptic,fpocket,recall_topn2,0.34922089825847846,0.3178828260701207,0.3792151280493977
+apo_cryptic,fpocket,recall_ldca_topn2,0.2492836676217765,0.22092965918994542,0.2784467616716823
+apo_cryptic,fpocket,recall_max,0.9587534372135655,0.9462269763551309,0.9708301992684137
+apo_cryptic,fpocket,P1K,0.285,0.260975,0.315025
+apo_cryptic,fpocket,n_scored_sites,1091.0,,
+apo_cryptic,fpocket,n_structures,885.0,,
+apo_noncryptic,BURROW-small,recall_topn,0.4640698455339154,0.4276814432765337,0.5089546279274298
+apo_noncryptic,BURROW-small,recall_topn2,0.5379449294828744,0.5009037350811091,0.5787245551191863
+apo_noncryptic,BURROW-small,recall_max,0.9825386165211552,0.963498390265197,0.9954105217228698
+apo_noncryptic,BURROW-small,P1K,0.582,0.548,0.623
+apo_noncryptic,BURROW-small,n_scored_sites,1489.0,,
+apo_noncryptic,BURROW-small,n_structures,534.0,,
+apo_noncryptic,BURROW-all,recall_topn,0.4365345869711216,0.3989997891957262,0.4848544034090909
+apo_noncryptic,BURROW-all,recall_topn2,0.529214237743452,0.49355254545005434,0.5727349497708526
+apo_noncryptic,BURROW-all,recall_max,0.9805238415043653,0.9576274368704598,0.995116324604507
+apo_noncryptic,BURROW-all,P1K,0.567,0.527,0.606
+apo_noncryptic,BURROW-all,n_scored_sites,1489.0,,
+apo_noncryptic,BURROW-all,n_structures,534.0,,
+apo_noncryptic,P2Rank 2.5.1,recall_topn,0.48354600402955006,0.44768914494736456,0.5221620819570603
+apo_noncryptic,P2Rank 2.5.1,recall_topn2,0.5460040295500336,0.506855327896475,0.5888968970449904
+apo_noncryptic,P2Rank 2.5.1,recall_max,0.5829415715245131,0.5409727784879566,0.6306860933442073
+apo_noncryptic,P2Rank 2.5.1,P1K,0.479,0.449,0.514025
+apo_noncryptic,P2Rank 2.5.1,n_scored_sites,1489.0,,
+apo_noncryptic,P2Rank 2.5.1,n_structures,534.0,,
+apo_noncryptic,fpocket+PRANK,recall_topn,0.5319006044325051,0.4948649473295333,0.5719410638267913
+apo_noncryptic,fpocket+PRANK,recall_topn2,0.6413700470114171,0.6049042254983389,0.6765154729173863
+apo_noncryptic,fpocket+PRANK,recall_max,0.9093351242444594,0.886466640380446,0.9306179059978472
+apo_noncryptic,fpocket+PRANK,P1K,0.556,0.517,0.595
+apo_noncryptic,fpocket+PRANK,n_scored_sites,1489.0,,
+apo_noncryptic,fpocket+PRANK,n_structures,534.0,,
+apo_noncryptic,fpocket,recall_topn,0.40295500335795836,0.35789328807805687,0.44842582437585893
+apo_noncryptic,fpocket,recall_topn2,0.5030221625251847,0.4606129383689562,0.544503940434649
+apo_noncryptic,fpocket,recall_max,0.9093351242444594,0.886466640380446,0.9306179059978472
+apo_noncryptic,fpocket,P1K,0.348,0.316,0.381025
+apo_noncryptic,fpocket,n_scored_sites,1489.0,,
+apo_noncryptic,fpocket,n_structures,534.0,,
+holo,BURROW-small,recall_topn,0.4936842105263158,0.4602974312753492,0.5241090146750524
+holo,BURROW-small,recall_topn2,0.7210526315789474,0.6932585918541352,0.7486803186695932
+holo,BURROW-small,recall_ldca_topn2,0.6642105263157895,0.6335517506371733,0.6952028253890282
+holo,BURROW-small,recall_max,0.9978947368421053,0.994708432434256,1.0
+holo,BURROW-small,P1K,0.653,0.6189749999999999,0.684
+holo,BURROW-small,n_scored_sites,950.0,,
+holo,BURROW-small,n_structures,885.0,,
+holo,P2Rank 2.5.1,recall_topn,0.5831578947368421,0.5510904736789589,0.6151512128949889
+holo,P2Rank 2.5.1,recall_topn2,0.7610526315789473,0.7351338598618515,0.7871619154715659
+holo,P2Rank 2.5.1,recall_ldca_topn2,0.6378947368421053,0.6080001168326664,0.6666666666666666
+holo,P2Rank 2.5.1,recall_max,0.828421052631579,0.8052208683248837,0.8513117417617884
+holo,P2Rank 2.5.1,P1K,0.563,0.535,0.588
+holo,P2Rank 2.5.1,n_scored_sites,950.0,,
+holo,P2Rank 2.5.1,n_structures,885.0,,

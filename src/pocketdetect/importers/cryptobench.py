@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from collections import OrderedDict
 from pathlib import Path
 
@@ -94,19 +95,22 @@ def merge_pockets(pockets: list[list[str]], threshold: float = MAX_POCKET_SIMILA
 
 
 def parse_selection_residue(token: str) -> str:
-    """``"B_12"`` (auth_asym_id _ auth_seq_id) -> ``"B:12"``. Chain IDs may be multi-letter."""
+    """``"B_12"`` (auth_asym_id _ auth_seq_id) -> ``"B:12"``; ``"B_60A"`` (insertion code, occurs in the train folds) -> ``"B:60A"``.
+    Chain IDs may be multi-letter."""
     chain, _, num = token.rpartition("_")
-    if not chain or not num.lstrip("-").isdigit():
+    m = re.fullmatch(r"(-?\d+)([A-Za-z]?)", num)
+    if not chain or not m:
         raise ValueError(f"unexpected CryptoBench residue token {token!r}")
-    return residue_id(chain, int(num))
+    return residue_id(chain, int(m[1]), m[2])
 
 
 def _res_sort_key(token: str):
     chain, _, num = token.rpartition("_")
-    return (chain, int(num)) if num.lstrip("-").isdigit() else (chain, 0)
+    m = re.fullmatch(r"(-?\d+)([A-Za-z]?)", num)
+    return (chain, int(m[1]), m[2]) if m else (chain, 0, "")
 
 
-def input_chains(holos: list[dict]) -> list[str]:
+def input_chains(holos: list[dict], strict: bool = True) -> list[str]:
     """Chains of the apo input structure: union of ``apo_chain`` over holo entries, in order of
     first appearance (dash-separated). Asserts it matches CryptoBench's ``the_most_chains``."""
     chains: list[str] = []
@@ -117,13 +121,13 @@ def input_chains(holos: list[dict]) -> list[str]:
         for c in h["apo_chain"].split("-"):
             if c not in chains:
                 chains.append(c)
-    if set(most.split("-")) != set(chains):
+    if strict and set(most.split("-")) != set(chains):
         raise ValueError(f"chain union {chains} differs from CryptoBench the_most_chains {most}")
     order = most.split("-")
     return order + [c for c in chains if c not in order]
 
 
-def build_sites(dataset_dir: str | os.PathLike, cif_dir: str | os.PathLike, split: str = "test") -> tuple[pd.DataFrame, dict]:
+def build_sites(dataset_dir: str | os.PathLike, cif_dir: str | os.PathLike, split: str = "test", strict_chains: bool = True) -> tuple[pd.DataFrame, dict]:
     """Build the site table for one CryptoBench split. Returns ``(df, stats)``."""
     data = load_split(dataset_dir, split)
     cif_dir = Path(cif_dir)
@@ -132,7 +136,7 @@ def build_sites(dataset_dir: str | os.PathLike, cif_dir: str | os.PathLike, spli
              "residues_no_ca": 0, "residues_non_protein": 0, "multichain_inputs": 0, "multichain_sites": 0}
     for apo in sorted(data):
         holos = data[apo]
-        chains = input_chains(holos)
+        chains = input_chains(holos, strict=strict_chains)
         sid = f"{apo}_{'-'.join(chains)}"
         path = cif_dir / f"{apo}.cif"
         if not path.exists():
