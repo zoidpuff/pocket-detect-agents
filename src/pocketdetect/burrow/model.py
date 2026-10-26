@@ -185,6 +185,44 @@ def pocket_features(pockets, X, vol, F, names, score, n_atoms, n_chains_of=None)
     return np.stack([f[n] for n in fnames], 1).astype(np.float32), fnames
 
 
+CTX_COLS = ("score_sum", "score_top10", "score_top30", "score_max", "score_mean", "geo_strength", "bur16_mean", "vol")
+
+
+def context_features(Fp, fn, centers, level: str = "rel+pair", radius: float = 8.0):
+    """Within-protein context for the ranker (computed from all candidates of one structure).
+
+    ``rel``:  for each column in CTX_COLS: value / max over the protein's candidates, descending rank
+              (0 = best) and rank / n; plus log(#candidates).
+    ``pair``: pocket-pair context within ``radius`` Å (centre distance): number of neighbouring
+              candidates, max neighbour score_top30, own score_top30 minus that max, local-max flag.
+    Returns (extra matrix, names)."""
+    n = len(Fp)
+    if n == 0:
+        return np.zeros((0, 0), np.float32), []
+    cols, names = [], []
+    idx = {f: i for i, f in enumerate(fn)}
+    if "rel" in level:
+        for c in CTX_COLS:
+            x = Fp[:, idx[c]].astype(np.float64)
+            mx = x.max()
+            rk = np.argsort(np.argsort(-x, kind="stable"), kind="stable").astype(np.float64)
+            cols += [x / mx if mx > 0 else np.zeros(n), rk, rk / n]
+            names += [f"rel_{c}", f"rank_{c}", f"rankf_{c}"]
+        cols.append(np.full(n, np.log(n)))
+        names.append("log_n_cand")
+    if "pair" in level:
+        C = np.asarray(centers, np.float64).reshape(-1, 3)
+        D = np.sqrt(((C[:, None, :] - C[None, :, :]) ** 2).sum(-1))
+        nb = (D < radius) & ~np.eye(n, dtype=bool)
+        s30 = Fp[:, idx["score_top30"]].astype(np.float64)
+        nbmax = np.where(nb, s30[None, :], -np.inf).max(1)
+        has = nb.any(1)
+        nbmax = np.where(has, nbmax, 0.0)
+        cols += [nb.sum(1).astype(np.float64), nbmax, s30 - nbmax, (s30 >= nbmax).astype(np.float64)]
+        names += ["pair_n_nb", "pair_nb_max_top30", "pair_top30_minus_nb", "pair_local_max"]
+    return np.stack(cols, 1).astype(np.float32), names
+
+
 @dataclass
 class BurrowModel:
     point_model: str            # LightGBM model string
@@ -195,6 +233,7 @@ class BurrowModel:
     meta: dict = field(default_factory=dict)
     _pb = None
     _rb = None
+    _ens = None
 
     def boosters(self):
         import lightgbm as lgb
@@ -229,6 +268,19 @@ def score_points(booster, F, names, feature_names, score_floor: float | None = N
     if m.any():
         out[m] = booster.predict(F[m][:, idx], num_threads=num_threads)
     return out
+
+
+def rank_predict(model: "BurrowModel", X):
+    """Ranker score; averages an ensemble if the model JSON holds extra rankers (meta['rank_ensemble'])."""
+    import lightgbm as lgb
+    _, rb = model.boosters()
+    s = rb.predict(X, num_threads=1)
+    extra = model.meta.get("rank_ensemble") or []
+    if extra:
+        if model._ens is None:
+            model._ens = [lgb.Booster(model_str=m) for m in extra]
+        s = (s + sum(b.predict(X, num_threads=1) for b in model._ens)) / (1 + len(extra))
+    return s
 
 
 def train_lgb(X, y, params, n_rounds, seed_idx=0):

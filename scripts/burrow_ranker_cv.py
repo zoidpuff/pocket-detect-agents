@@ -46,6 +46,7 @@ VARIANTS = {
     "V2_rel_pair": dict(ctx="rel+pair", obj="graded", ens=1, weight=None),
     "V3_rel_pair_lambdarank": dict(ctx="rel+pair", obj="lambdarank", ens=1, weight=None),
     "V4_rel_pair_ens3": dict(ctx="rel+pair", obj="graded", ens=3, weight=None),
+    "V5_propensity": dict(ctx=None, obj="graded", ens=1, weight=None, prop=True),
 }
 _G = {}
 
@@ -93,13 +94,15 @@ def evaluate(light, scores, sites_, fc, jobs):
                 P1K=100 * p1k, pockets=np.mean([len(v) for v in scores.values()]))
 
 
-def build_X(data, sids, fn, ctx):
+def build_X(data, sids, fn, ctx, prop=None):
     Xs, extra_names = [], []
     for s in sids:
         Fp, q, light = data[s]
         if ctx and len(Fp):
             Fx, extra_names = context_features(Fp, fn, np.array([l[0] for l in light]), ctx)
             Fp = np.concatenate([Fp, Fx], 1)
+        if prop is not None:
+            Fp = np.concatenate([Fp, prop[s]], 1)
         Xs.append(Fp)
     return Xs, extra_names
 
@@ -111,6 +114,20 @@ def lambdarank_labels(q):
 def train_ranker(X, q, groups_sizes, v, seed_idx):
     if v["obj"] == "lambdarank":
         import lightgbm as lgb
+        lab = lambdarank_labels(q)
+        keep, gs2, off = [], [], 0
+        rng = np.random.default_rng(SEEDS[seed_idx])
+        for g in groups_sizes:  # LightGBM limit: <= 10,000 rows per query -> subsample negatives
+            ii = np.arange(off, off + g)
+            if g > 9000:
+                pos = ii[lab[ii] > 0]
+                neg = ii[lab[ii] == 0]
+                ii = np.sort(np.concatenate([pos, rng.choice(neg, max(0, 9000 - len(pos)), replace=False)]))
+            keep.append(ii)
+            gs2.append(len(ii))
+            off += g
+        keep = np.concatenate(keep)
+        X, q, groups_sizes = X[keep], q[keep], gs2
         p = dict(RANK_PARAMS, objective="lambdarank", lambdarank_truncation_level=20, label_gain=[0, 1, 3, 7, 15])
         p.update(seed=SEEDS[seed_idx], bagging_seed=SEEDS[seed_idx], feature_fraction_seed=SEEDS[seed_idx],
                  deterministic=True)
@@ -147,7 +164,8 @@ def main(argv=None):
     for vname, v in VARIANTS.items():
         if a.only and vname not in a.only.split(","):
             continue
-        Xs, _ = build_X(data, sids, fn, v["ctx"])
+        prop = pickle.loads((pdir / "prop.pkl").read_bytes())["train"] if v.get("prop") else None
+        Xs, _ = build_X(data, sids, fn, v["ctx"], prop)
         for k in [int(x) for x in a.folds.split(",")]:
             tr = [i for i, s in enumerate(sids) if fold[s] != k]
             te = [i for i, s in enumerate(sids) if fold[s] == k and s in sites_]

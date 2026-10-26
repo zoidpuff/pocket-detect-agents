@@ -14,14 +14,14 @@ from pathlib import Path
 
 # (ranker, preset) -> model JSON (the JSON also carries its feature design: rays, lengths, sub-lattice,
 # score floor).  Phase 2: BioLiP2-trained dev models; frozen models will move to a release dir.
-DEFAULT_MODELS = {  # trained on the D6-audited BioLiP2 train set, seed SEEDS[0]
-    ("all", "default"): "results/dev/biolip/models/burrow_all_default_s0.json",
-    ("small", "default"): "results/dev/biolip/models/burrow_small_default_s0.json",
-    ("all", "accurate"): "results/dev/biolip/models/burrow_all_accurate_s0.json",
-    ("small", "accurate"): "results/dev/biolip/models/burrow_small_accurate_s0.json",
+DEFAULT_MODELS = {  # frozen models (results/dev/FREEZE.md), D6-audited BioLiP2 train set, seed SEEDS[0]
+    ("all", "default"): "results/dev/freeze/models/burrow_all_default_s0.json",
+    ("small", "default"): "results/dev/freeze/models/burrow_small_default_s0.json",
+    ("all", "accurate"): "results/dev/freeze/models/burrow_all_accurate_s0.json",
+    ("small", "accurate"): "results/dev/freeze/models/burrow_small_accurate_s0.json",
 }
 # AF-mode ranker (owned by the AF-mode developer, burrow/af_rank.py); retrained after the feature freeze.
-DEFAULT_AF_RANKER = "results/dev_af/models/afr_final_afpdb_pl.json"  # one-line update after the freeze
+DEFAULT_AF_RANKER = None  # decision D8: --af-mode default = standard ranker (pruning + soft occlusion only)
 _EXT = (".pdb", ".ent", ".cif", ".mmcif", ".pdb.gz", ".ent.gz", ".cif.gz", ".mmcif.gz")
 
 
@@ -53,7 +53,7 @@ def main(argv=None):
     p.add_argument("--out", required=True, type=Path)
     p.add_argument("--af-mode", action="store_true", help="pLDDT pruning + soft occlusion + AF ranker")
     p.add_argument("--af-ranker", type=Path, default=None,
-                   help=f"AF-mode ranker JSON (default {DEFAULT_AF_RANKER}; missing -> standard ranker + warning)")
+                   help="optional AF-mode ranker JSON (default: none -> standard ranker; D8)")
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
     p.add_argument("--preset", choices=["default", "accurate"], default="default")
     p.add_argument("--model", type=Path, default=None, help="override model JSON")
@@ -76,9 +76,8 @@ def main(argv=None):
         mp = a.model or root / DEFAULT_MODELS[(a.ranker, a.preset)]
         model = BurrowModel.load(mp)
     af_ranker = None
-    if a.af_mode and model is not None:
-        root = Path(__file__).resolve().parents[3]
-        afp = a.af_ranker or root / DEFAULT_AF_RANKER
+    afp = a.af_ranker or DEFAULT_AF_RANKER
+    if a.af_mode and model is not None and afp is not None:
         if Path(afp).exists():
             from .af_rank import AFRanker
             af_ranker = AFRanker.load(afp)

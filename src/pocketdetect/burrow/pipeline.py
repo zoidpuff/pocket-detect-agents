@@ -9,7 +9,8 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 from .features import BurrowConfig, point_features
-from .model import BurrowModel, FormationConfig, candidates, geo_score, geo_value, pocket_features, score_points
+from .model import (BurrowModel, FormationConfig, candidates, context_features, geo_score, geo_value, pocket_features,
+                    rank_predict, score_points)
 from .pockets import assign_residues, nms
 from .prep import Protein
 
@@ -59,16 +60,42 @@ def predict_protein(P: Protein, model: BurrowModel | None, cfg: BurrowConfig = B
     else:
         Fp, fn = pocket_features(pk, ps.X, ps.vol, ps.feats, ps.names, score, len(P.coords))
         if len(pk):
+            ctx = model.meta.get("context")
+            if ctx:  # within-protein / pocket-pair context features (phase 3)
+                Fx, nx = context_features(Fp, fn, np.array([p.center for p in pk]), ctx)
+                Fp, fn = np.concatenate([Fp, Fx], 1), fn + nx
+            if model.meta.get("propensity"):  # atom-type ligand-contact propensity (phase 3)
+                from .propensity import PROP_NAMES, atom_logodds, pocket_propensity
+                lo = atom_logodds(P, model.meta["propensity"])
+                Fx = pocket_propensity([p.idx for p in pk], ps.points, P, lo, tree)
+                Fp, fn = np.concatenate([Fp, Fx], 1), fn + PROP_NAMES
             j = [fn.index(n) for n in model.rank_features]
-            rs = rb.predict(Fp[:, j], num_threads=1)
+            rs = rank_predict(model, Fp[:, j])
         else:
             rs = np.zeros(0)
     keep = finalize(pk, rs, fc)
+    out_res = [output_residues(pk[i], tree, P) for i in keep]
     t4 = time.perf_counter()
     tm.update(features=(t1 - t0) * 1e3, point_score=(t2 - t1) * 1e3, pockets=(t3 - t2) * 1e3,
               rank=(t4 - t3) * 1e3, total=(t4 - t0) * 1e3)
     return Prediction(P.id, np.array([pk[i].center for i in keep]).reshape(-1, 3), np.asarray(rs)[keep],
-                      [pk[i].residues for i in keep], [ps.points[pk[i].idx] for i in keep], tm)
+                      out_res, [ps.points[pk[i].idx] for i in keep], tm)
+
+
+FALLBACK_RES_RADIUS = 6.0
+
+
+def output_residues(p, tree: cKDTree, P: Protein) -> frozenset:
+    """Reported pocket residues: residues with a heavy atom <= 4 Å of a pocket point (as used for
+    NMS / ranker features); if that set is empty (pockets made only of distant sub-lattice points),
+    fall back to residues with any atom <= 6 Å of the pocket centre (LIGYSIS rule for point-less
+    methods), and if still empty to the residue of the nearest atom."""
+    if p.residues:
+        return p.residues
+    atoms = tree.query_ball_point(p.center, FALLBACK_RES_RADIUS)
+    if not atoms:
+        atoms = [int(tree.query(p.center, k=1)[1])]
+    return frozenset(P.residue_ids[np.unique(P.res_index[np.asarray(atoms, np.int64)])].tolist())
 
 
 def write_prediction(out_dir, pred: Prediction, points: bool = True):

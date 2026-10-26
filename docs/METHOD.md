@@ -64,6 +64,22 @@ just a model file. Limitations: `--device cuda:*` falls back to CPU in this refe
    buried volume Σ vol·clip((b − 0.7)/0.3, 0, 1)², same NMS. (Plain Σ vol·b ranks huge convex
    surface patches first: DCA4 top-n 15.9 % on JOINED vs 35.4 %.)
 
+## Frozen models (feature freeze, written 2026-10-26 21:28)
+`results/dev/FREEZE.md` (paths + sha256): `results/dev/freeze/models/burrow_{all,small}_{default,accurate}_s{0,1,2}.json`,
+each with `meta.provenance` (train/dev manifest sha256 after D6, test_union.tsv and audit-exclusion
+sha256, git commit, seed) and `meta.feature_cfg`. Ranker = phase-2 graded ranker (phase-3 ranker
+variants were not better in train cluster-CV; `results/dev/biolip/PHASE3.md`). The code keeps
+optional hooks for within-protein context features (`model.context_features`), ranker ensembles
+(`meta.rank_ensemble`) and atom-type propensity features (`propensity.py`, `meta.propensity`);
+the frozen models use none of them.
+
+**Reported residues** (never empty): residues with a heavy atom ≤ 4 Å of a pocket point; if empty,
+residues with any atom ≤ 6 Å of the pocket centre; else the nearest atom's residue
+(`pipeline.output_residues`; output-only, does not affect ranking).
+
+**`--af-mode`** (decision D8): spaghetti pruning + soft occlusion with the standard ranker;
+`--af-ranker PATH` optionally applies the AF-mode developer's ranker (`af_rank.py`).
+
 ## Dev results
 Phase 2 (BioLiP2, audited): `results/dev/biolip/PHASE2.md`. Phase 1 (interim CHEN11/JOINED): `results/dev/G1.md`, `results/dev/DEV_RESULTS.md`.
 

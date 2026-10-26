@@ -1,4 +1,4 @@
-"""AF mode, phase-1 subset (DESIGN §2.6 mechanisms 1-2; the AF-trained ranker is not built yet).
+"""AF mode (DESIGN §2.6 mechanisms 1-2; final configuration per docs/AF_MODE.md, PI decision D8).
 
 (1) spaghetti pruning: drop terminal segments with pLDDT < 50 and internal stretches of >= 7
     consecutive residues with pLDDT < 50 (per chain, residue pLDDT = CA B-factor, else atom mean);
@@ -6,6 +6,7 @@
     w < 0.5 do not exclude candidate points (see features.point_features ``weights``).
 No-op guarantee: if every residue has pLDDT >= 80, nothing is pruned and all weights are 1, so the
 geometry is identical to standard mode.
+Ablation/control variants: :mod:`.af_variants`; optional AF-aware ranker (``--af-ranker``): :mod:`.af_rank`.
 """
 from __future__ import annotations
 
