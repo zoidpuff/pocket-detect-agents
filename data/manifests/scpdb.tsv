@@ -1,0 +1,3 @@
+# source manifest: data/raw/scpdb/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+scPDB.tar.gz	a7fd8e142db6868cc65937f88124750365b976d36a8ec264e523289c9a75c079	4079179798	2026-10-26T14:06:16Z	http://bioinfo-pharma.u-strasbg.fr/scPDB/ressources/2016/scPDB.tar.gz

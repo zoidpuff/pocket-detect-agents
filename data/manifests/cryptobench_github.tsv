@@ -1,0 +1,3 @@
+# source manifest: data/raw/cryptobench/github/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+CryptoBench-9a3432f479325ca3c9fdc3b8612715ab5b6edecc.tar.gz	65845db113b53b5de3f90218c0b254280ff4de6dc60f89b5220a6ebe195eb9f0	4912899	2026-10-26T14:02:13Z	https://codeload.github.com/skrhakv/CryptoBench/tar.gz/9a3432f479325ca3c9fdc3b8612715ab5b6edecc

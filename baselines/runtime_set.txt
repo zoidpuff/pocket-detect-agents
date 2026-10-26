@@ -1,0 +1,21 @@
+# 20 diverse structures for runtime benchmarking (PDB mirror paths); one path per line
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/cr/1crn.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/ub/1ubq.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/lz/2lzm.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/hs/1hsg.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/er/3ert.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/at/1atp.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/ti/1tim.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/pq/3pqr.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/hh/4hhb.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/tz/5tzo.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/cv/6cvm.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/ao/1aon.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/vx/6vxx.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/xn/5xnl.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/k0/7k00.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/zj/6zj3.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/mmCIF/ff/1ffk.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/structures/divided/pdb/ak/pdb4ake.ent.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/assemblies/mmCIF/divided/a3/1a34-assembly1.cif.gz
+/cluster/work/beltrao/shared/rsyncPDB/data/assemblies/mmCIF/divided/hh/4hhb-assembly1.cif.gz

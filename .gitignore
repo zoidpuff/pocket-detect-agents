@@ -13,3 +13,5 @@ __pycache__/
 *.npz
 *.pt
 !tests/fixtures/**
+tools/bin/
+tools/downloads/

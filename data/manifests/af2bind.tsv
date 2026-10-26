@@ -1,0 +1,3 @@
+# source manifest: data/raw/af2bind/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+af2bind-6867239a99d40cb67f3d40c837550fb91b575337.tar.gz	92d5acdc30fe76ee8661972da6f19dc24c256cd52e84b3255dce51218c4a58e3	96406249	2026-10-26T14:03:29Z	https://codeload.github.com/sokrypton/af2bind/tar.gz/6867239a99d40cb67f3d40c837550fb91b575337

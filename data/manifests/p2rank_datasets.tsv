@@ -1,0 +1,3 @@
+# source manifest: data/raw/p2rank_datasets/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+p2rank-datasets-0236ecb38cbb60b89849a1ea36fbd9ee93f3e906.tar.gz	b608bc941d12087f60c94095e822edac53a0a8ce5fd6b7cf960254a383949ad2	1930554763	2026-10-26T14:02:01Z	https://codeload.github.com/rdk/p2rank-datasets/tar.gz/0236ecb38cbb60b89849a1ea36fbd9ee93f3e906

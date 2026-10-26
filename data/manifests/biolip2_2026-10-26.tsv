@@ -1,0 +1,9 @@
+# source manifest: data/raw/biolip2/2026-10-26/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+BioLiP.txt.gz	c92229bbc8c55c3bd84a9813c3e278ba62f4cfa44e6315cc98d9bf63ed64b6ec	78570940	2026-10-26T14:04:04Z	https://zhanggroup.org/BioLiP/download/BioLiP.txt.gz
+BioLiP_nr.txt.gz	594830b62f0dc368b6642958edb1a16ac66b702176c81868cedd646c1e4588f4	14455793	2026-10-26T14:04:04Z	https://zhanggroup.org/BioLiP/download/BioLiP_nr.txt.gz
+protein.fasta.gz	f1c1ba7b9838b8b8cde9de3b231440f2cadaca986f85e1c1af9a26e0b9617cd0	31904232	2026-10-26T14:04:12Z	https://zhanggroup.org/BioLiP/data/protein.fasta.gz
+protein_nr.fasta.gz	ececf634a4696d0ec78716b92d4f1570fe989a9c659ef08116660cde744ab876	8021454	2026-10-26T14:04:20Z	https://zhanggroup.org/BioLiP/data/protein_nr.fasta.gz
+ligand.tsv.gz	7d107cfaf0cc873d393e9dcee7bbe16fc7dc024a9748495a92adf6e7658f61ec	8065879	2026-10-26T14:04:29Z	https://zhanggroup.org/BioLiP/data/ligand.tsv.gz
+readme.txt	120b22b3e26cf0d0ce7edfde122925963cdd81e6e5a8f4165d16f3238406c161	2846	2026-10-26T14:04:30Z	https://zhanggroup.org/BioLiP/download/readme.txt
+readme_ligand.txt	5101a44c13501c61fdae42feea8206c3f64bd66e1bacbb7aa63dc57f010c55ef	484	2026-10-26T14:04:31Z	https://zhanggroup.org/BioLiP/download/readme_ligand.txt

@@ -1,0 +1,29 @@
+# source manifest: data/raw/cryptobench/osf/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+cryptobench/README.md	88dd4b0a523333668d779a2c6f87d63afb99f5b09ea95617508d6d2dcc29a051	462	2026-10-26T13:59:37Z	https://osf.io/download/zkcva/
+cryptobench/benchmark/not_fitted/saved_model.pb	4b81a96c684c1cb61f5ba629b2ca709d3b2f55681a8078d07db64b3eb7182cd5	97125	2026-10-26T13:59:39Z	https://osf.io/download/66c32860a846a7ca28c5d615/
+cryptobench/benchmark/not_fitted/fingerprint.pb	3e67d397dc1f51606685cdfbfca3cf9f6f8ffbc8abd3e07a07027436f5ded7d3	56	2026-10-26T13:59:41Z	https://osf.io/download/ty895/
+cryptobench/benchmark/not_fitted/keras_metadata.pb	6ed13a817d1a4cc07225fa038c9a7782d6fae3933d1766e7929bb51091d2cc80	13018	2026-10-26T13:59:43Z	https://osf.io/download/66c328732e5f5203685d9b3b/
+cryptobench/benchmark/not_fitted/variables/variables.data-00000-of-00001	c97bef65e8774313c508c71607e083b014ffbff5aede66d20fe733a255732796	2893161	2026-10-26T13:59:45Z	https://osf.io/download/66c3287ee4bc7d8bbbc5ca6e/
+cryptobench/benchmark/not_fitted/variables/variables.index	cf8268facd72fdba1de95ccc5026ed7ceaf0628c22d5b159b51587861866b638	944	2026-10-26T13:59:47Z	https://osf.io/download/66c3288cbf6e3bc8e40b5572/
+cryptobench/benchmark/best_trained/saved_model.pb	7e21232169b9a66fd17f7fafdf533dc1d7c5d05a022cacba842e91ae2fb15a6e	135608	2026-10-26T13:59:50Z	https://osf.io/download/nya4f/
+cryptobench/benchmark/best_trained/fingerprint.pb	41d4d727160c848d6b57a48b8ddb8433ab36dab26ed3e6b935787adaca05b269	56	2026-10-26T13:59:52Z	https://osf.io/download/7dwgh/
+cryptobench/benchmark/best_trained/keras_metadata.pb	a360f60963dd849308c13335faafc75e39cf1e4ce453a22ad27fe359835cee31	13060	2026-10-26T13:59:54Z	https://osf.io/download/8xqbf/
+cryptobench/benchmark/best_trained/variables/variables.data-00000-of-00001	a004b4f7fd928caaf0efbadd7f0197a077fd51119115d5dd238481713f47ff02	8670706	2026-10-26T13:59:57Z	https://osf.io/download/ebr98/
+cryptobench/benchmark/best_trained/variables/variables.index	f37c8b7d24ff47ad74a37a9cbf0cee218ace5d03ad66450583017624a4f897cb	1905	2026-10-26T13:59:59Z	https://osf.io/download/66c328c168e4552e0b0b5315/
+cryptobench/cryptobench-dataset/dataset.json	79519369a1d32b63efd86b907013cacb5e02a68e4d711cdde20a23cdfe16ba7c	8386019	2026-10-26T14:00:02Z	https://osf.io/download/ta2ju/
+cryptobench/cryptobench-dataset/README.md	a6448854a33bdcfea9326c6ed092951f4c579e2b161638f845189d824e7476de	2971	2026-10-26T14:00:04Z	https://osf.io/download/x9dce/
+cryptobench/cryptobench-dataset/folds.json	ced97a50b55504007216165167a1b3995312434ee50f7f93f8728fca3c6ac67d	17826	2026-10-26T14:00:05Z	https://osf.io/download/5s93p/
+cryptobench/cryptobench-dataset/folds/test.json	28f5630ec0ece51a5bc1c466473bba78d6edb8e3851c25f0e52c2709a7560838	1705224	2026-10-26T14:00:08Z	https://osf.io/download/q2n43/
+cryptobench/cryptobench-dataset/folds/train-fold-0.json	ba41942b3893d420fa7fedaa32a079d7a2528514f971a524a423ce108f0b3f96	1721723	2026-10-26T14:00:12Z	https://osf.io/download/7bvs4/
+cryptobench/cryptobench-dataset/folds/train-fold-1.json	5047a0dbf0de52e316a8b09c0a90c28474f5e702acab14325b803a1340643f34	2130591	2026-10-26T14:00:14Z	https://osf.io/download/akfgn/
+cryptobench/cryptobench-dataset/folds/train-fold-2.json	15d5f32917629dc4727a03acf7997c2e48d590b35be572d41885497486602503	1738396	2026-10-26T14:00:16Z	https://osf.io/download/nmj39/
+cryptobench/cryptobench-dataset/folds/train-fold-3.json	b4358e50984372ff539766b9161750342a86d2f082e5a36af9259db56cfefa1e	1090093	2026-10-26T14:00:17Z	https://osf.io/download/btdqy/
+cryptobench/cryptobench-dataset/auxiliary-data/non-cryptic-pockets/noncryptic-pockets.json	680f9d2d62917f60b753a4b96b4e384ddf9bb1c5d8268e5ac90cbdb8da9e9c72	18879987	2026-10-26T14:00:21Z	https://osf.io/download/37ztm/
+cryptobench/cryptobench-dataset/auxiliary-data/pymol-scripts.zip	9fff4bc6d01c542dce220516a475e48249b82998792d18d7d19efd149c5eeca2	2372160	2026-10-26T14:00:23Z	https://osf.io/download/dwbf6/
+cryptobench/cryptobench-dataset/auxiliary-data/cif-files.zip	8d15f897bfdfdf61c7d97a29f5f6ca2c5e03d73d8fb89be7da5bbc245cf56ae4	1145203712	2026-10-26T14:01:23Z	https://osf.io/download/c5vp8/
+cryptobench/scripts/Protein.py	0e21212f2918cb5a0cc912f0f61d800285138a30db779f79d991b39e56f81b2e	2212	2026-10-26T14:01:25Z	https://osf.io/download/2cx7h/
+cryptobench/scripts/data/annotation.txt	b48f0899bb958cad72c0d0af46c00b6553b074a3a2bcbb02ad0219aa9fb225a6	158	2026-10-26T14:01:28Z	https://osf.io/download/uskcj/
+cryptobench/scripts/data/7w19A.npy	84aafda73c4c382bd1851a767d9957867136ab0412483b0bc777a58ed398bbc6	3000448	2026-10-26T14:01:30Z	https://osf.io/download/wsr7g/
+cryptobench/scripts/README.md	bae2024812c31a24702cb768bf7865248625ce4832856479e663dd85207d05f9	714	2026-10-26T14:01:32Z	https://osf.io/download/mjqxr/
+cryptobench/scripts/benchmark-example.py	655aec6dc0c4bb15c3c4750b4e87f0184cdbbf5ee0dedc853dfd99ed070e0dc2	2695	2026-10-26T14:01:34Z	https://osf.io/download/cktd7/

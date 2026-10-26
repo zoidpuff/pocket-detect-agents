@@ -1,0 +1,10 @@
+# source manifest: data/raw/hotpocket/zenodo_v2/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+README.md	488a3ac3f74a94f8e4fb25fd59ec04a4edb8da153566da5fbd483d29e3b15cf4	3011	2026-10-26T14:03:59Z	https://zenodo.org/api/records/17653326/files/README.md/content
+model_checkpoints.tar.gz	2df50f398cf2165ff46b270868e60ccb8a7bb4f8e859c01d6a08f1a4106b68c2	55518628	2026-10-26T14:04:02Z	https://zenodo.org/api/records/17653326/files/model_checkpoints.tar.gz/content
+all_pocket_preds.tar.gz	cc7c23c6c57b28d67f933ae5b7cb95b726863b1c44b5a8eaa6fe88da3896f3d9	385371929	2026-10-26T14:04:17Z	https://zenodo.org/api/records/17653326/files/all_pocket_preds.tar.gz/content
+proteome_structure_files_canonical.csv.tar.gz	62659992300ce01681721b3117f2bef9dea2844466e8427b1e0e8147c7a400c3	408716	2026-10-26T14:04:17Z	https://zenodo.org/api/records/17653326/files/proteome_structure_files_canonical.csv.tar.gz/content
+uniprot.tar.gz	a6b386e735d4577459df41e09cc5b1a10c57a48119d2d307956d20dfbd956767	26557930	2026-10-26T14:04:18Z	https://zenodo.org/api/records/17653326/files/uniprot.tar.gz/content
+BioLiP.txt	229f7c157cddc05938f6950d53d49941d6a0291ef5503e9a8f9feb0fea9abe25	454506933	2026-10-26T14:04:34Z	https://zenodo.org/api/records/17653326/files/BioLiP.txt/content
+hotpocket_csvs.tar.gz	823d4f1dfad3cc78f2d1eccdf8ecfdc8f40a3df63fae7f94657baf734ee13f48	309455606	2026-10-26T14:04:46Z	https://zenodo.org/api/records/17653326/files/hotpocket_csvs.tar.gz/content
+model_inputs.tar.gz	21a37e0ad38781aa37d31a5c32c4de6e749e63967e2354b3d5114e1a46681817	2161948011	2026-10-26T14:05:46Z	https://zenodo.org/api/records/17653326/files/model_inputs.tar.gz/content

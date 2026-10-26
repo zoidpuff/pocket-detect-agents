@@ -1,0 +1,3 @@
+# source manifest: data/raw/hotpocket/github/MANIFEST.tsv
+# file	sha256	bytes	retrieved_utc	url
+HOTPocket-1ca16ce0c9c902568f1e9a1c83fd6978ec91acd8.tar.gz	0575c1639cee0af6b487727e0ba9ccb41d4015505f429bfa34ed11226ca81c07	1229979	2026-10-26T14:06:39Z	https://codeload.github.com/Helix-Research-Lab/HOTPocket/tar.gz/1ca16ce0c9c902568f1e9a1c83fd6978ec91acd8
