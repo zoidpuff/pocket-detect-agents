@@ -1,0 +1,15 @@
+cpu1 fast
+cpu1 reference
+threads 16
+threads 32
+cold
+gpu in-process
+driver cpu 16
+{'device': 'cpu', 'workers': 16, 'batch': 1, 'n': 200, 'ok': 200, 'wall_s': 7.0, 'structures_per_s': 28.6, 'structures_per_min': 1715, 'stderr_tail': ['[burrow-fast] 200/200 ok in 6.9 s (28.8 structures/s) -> /tmp/burrow_bench_x0i79l8i/cpu_16']}
+driver cpu 32
+{'device': 'cpu', 'workers': 32, 'batch': 1, 'n': 200, 'ok': 200, 'wall_s': 6.8, 'structures_per_s': 29.6, 'structures_per_min': 1776, 'stderr_tail': ['[burrow-fast] 200/200 ok in 6.7 s (29.9 structures/s) -> /tmp/burrow_bench_x0i79l8i/cpu_32']}
+driver cuda:0 8
+{'device': 'cuda:0', 'workers': 8, 'batch': 32, 'n': 200, 'ok': 200, 'wall_s': 9.0, 'structures_per_s': 22.1, 'structures_per_min': 1328, 'stderr_tail': ['[burrow-fast] 200/200 ok in 9.0 s (22.3 structures/s) -> /tmp/burrow_bench_x0i79l8i/cuda_0_8']}
+driver cuda:0,1,3 8
+{'device': 'cuda:0,1,3', 'workers': 8, 'batch': 32, 'n': 200, 'ok': 200, 'wall_s': 9.5, 'structures_per_s': 21.0, 'structures_per_min': 1259, 'stderr_tail': ['[burrow-fast] 200/200 ok in 9.5 s (21.1 structures/s) -> /tmp/burrow_bench_x0i79l8i/cuda_0_1_3_8']}
+done
