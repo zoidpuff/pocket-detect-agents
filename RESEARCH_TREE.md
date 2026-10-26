@@ -20,6 +20,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D11 (22:10): GPU AF-mode fp32 threshold bug (pLDDT=70 boundary) found post-freeze → all v1 --af-mode test predictions generated on CPU fast path (exact); cryptobench v1 preds regenerated after accidental kill; test runs get resource priority over the proteome demo.
 - D10 (21:50): Test v1 predictions generated from an isolated git worktree at 5e13267 because v2 edits to burrow/ are in progress on main.
 - D9 (21:35): Test v1 = FREEZE v1 (5e13267) runs as soon as the gated pipeline is validated; a v2 cycle on apo robustness runs in parallel with a pre-fixed adoption gate; all test versions will be reported (≤3 before final per PREREG).
 - D8 (21:15): AF mode default = prune + soft (40/80) + standard ranker; AF (pLDDT-feature) ranker optional — it trades recall near disorder for cross-protein calibration.

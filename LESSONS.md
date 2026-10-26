@@ -15,3 +15,5 @@ One-line rules with evidence. Pruned at M2 (2026-10-26 ~20:20) after a fresh-age
 11. Commit at each agent hand-off and at least hourly; use git/`date` timestamps, not memory (evidence: ~40 uncommitted paths at 20:11; D1/D2 times written ~20 min off).
 12. Cap exploratory branches with a kill criterion; optimise feature-*dependent* code only after the freeze (evidence: AF side-chain tolerance −16 pts; backend's feature stage must be re-ported after freeze, while feature-independent parts — trees, NMS — were safe to port early).
 13. Run frozen-version test predictions from an isolated git worktree at the freeze commit; development continues on main (evidence: v2 edits to burrow/pipeline.py started minutes after FREEZE v1).
+14. Kill only PIDs you started; never `pkill -f` broad patterns on a shared node, and schedule heavy jobs through the PI (evidence: proteome run OOM + `pkill -f "burrow.fast predict"` killed the test-v1 cryptobench job at 22:05).
+15. Exactness tests must cover boundary values of every parameterised branch (evidence: Triton fp32 float-arg bug only at pLDDT exactly 70 — 60/60 equivalence on non-AF inputs missed it).
