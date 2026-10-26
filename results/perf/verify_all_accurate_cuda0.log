@@ -1,0 +1,1 @@
+{"n": 64, "model": "burrow_all_accurate_s0.json", "device": "cuda:0", "ranker": "learned", "top10_identical": 64, "exact": 64, "date": "2026-10-26 21:34"}

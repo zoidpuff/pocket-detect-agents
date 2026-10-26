@@ -2,7 +2,8 @@
 
     python -m pocketdetect.burrow.fast predict <files|dirs|@list> --out OUT
            [--device cpu | cuda:0 | cuda:0,1,3] [--workers N] [--batch 32]
-           [--af-mode] [--ranker all|small|geometry] [--model M.json] [--no-points]
+           [--af-mode] [--ranker all|small|geometry] [--preset default|accurate] [--model M.json]
+           [--no-points]
 
 Outputs are identical to ``python -m pocketdetect.burrow predict`` (same writer, same files:
 ``OUT/<stem>.csv``, ``OUT/<stem>.points.csv``, ``OUT/timing.csv``), computed by the fast backend.
@@ -73,13 +74,12 @@ def _cpu_task(args):
 
 def _prep_task(args):
     path, stem = args
-    from ..features import BurrowConfig
     from .gpu import prep
     try:
         t0 = time.perf_counter()
         P, w, note = _load(path, stem, _W["af"])
         t1 = time.perf_counter()
-        it = prep(P, BurrowConfig(), w)
+        it = prep(P, _W["fm"].cfg, w)
         return stem, it, note, (t1 - t0) * 1e3, (time.perf_counter() - t1) * 1e3, None
     except Exception as e:
         return stem, None, "", 0.0, 0.0, f"{type(e).__name__}: {str(e)[:200]}"
@@ -104,11 +104,10 @@ def _post_task(args):
 def gpu_runner(device, tasks, out, model_path, ranker, af_mode, points, workers, batch, rows_file):
     os.environ.update(_SINGLE)
     import torch
-    from ..features import BurrowConfig
     from .gpu import featurize_batch
     from .pipeline import FastModel
     fm = FastModel.load(model_path) if model_path else FastModel.from_model(None)
-    cfg = BurrowConfig()
+    cfg = fm.cfg
     dev = torch.device(device)
     ctx = mp.get_context("spawn")
     rows, pend = [], []
@@ -142,7 +141,7 @@ def _model_path(a):
     if a.ranker == "geometry":
         return None
     from ..cli import DEFAULT_MODELS
-    return str(a.model or ROOT / DEFAULT_MODELS[a.ranker])
+    return str(a.model or ROOT / DEFAULT_MODELS[(a.ranker, a.preset)])
 
 
 def main(argv=None):
@@ -157,6 +156,7 @@ def main(argv=None):
     p.add_argument("--batch", type=int, default=32, help="structures per GPU batch")
     p.add_argument("--af-mode", action="store_true")
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
+    p.add_argument("--preset", choices=["default", "accurate"], default="default")
     p.add_argument("--model", type=Path, default=None)
     p.add_argument("--no-points", action="store_true")
     a = ap.parse_args(argv)

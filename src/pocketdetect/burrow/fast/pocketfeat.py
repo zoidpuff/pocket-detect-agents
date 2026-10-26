@@ -14,6 +14,8 @@ import math
 import numpy as np
 from numba import njit
 
+from ..model import longest_bur
+
 MEAN_COLS = ("bur10", "bur16", "bur24", "burbb10", "burbb16", "depth", "psp", "nearest")
 Q_COLS = ("bur16", "bur24")
 FRAC_COLS = ("hit_apolar", "hit_polar", "hit_charged", "hit_aromatic", "escape")
@@ -174,15 +176,17 @@ def pocket_features(c, X, vol, F, names, score, n_atoms, res_chain, n_chain):
     counts = np.diff(ptr).astype(np.int64)
     starts = ptr[:-1]
     ci = {n: i for i, n in enumerate(names)}
+    lb = longest_bur(names)
+    src = lambda n: ci[n] if n in ci else ci[lb]          # reference: bur24 -> longest column if absent
     v64 = vol.astype(np.float64)
     s64 = np.asarray(score, np.float64)
-    gv = ((F[:, ci["bur10"]] + F[:, ci["bur16"]] + F[:, ci["bur24"]]) / 3.0).astype(np.float64)
+    gv = ((F[:, ci["bur10"]] + F[:, ci["bur16"]] + F[:, ci[lb]]) / 3.0).astype(np.float64)
     one = np.ones(len(vol))
     # weighted sums (weight vol): vol, score*vol, gv*vol, mean columns*vol
-    wcols = np.stack([one, s64, gv] + [F[:, ci[n]].astype(np.float64) for n in MEAN_COLS], 1)
+    wcols = np.stack([one, s64, gv] + [F[:, src(n)].astype(np.float64) for n in MEAN_COLS], 1)
     WS = _seg_sums(ptr, I, v64, wcols)
     frac_names = [n for n in names if n.startswith("f8_") or n.startswith("n4_rg") or n in ("n_all8", "n_all12", "prot_frac")]
-    pcols = np.stack([s64] + [F[:, ci[n]].astype(np.float64) for n in MEAN_COLS]
+    pcols = np.stack([s64] + [F[:, src(n)].astype(np.float64) for n in MEAN_COLS]
                      + [F[:, ci[n]].astype(np.float64) for n in FRAC_COLS]
                      + [F[:, ci[n]].astype(np.float64) for n in frac_names]
                      + [F[:, ci["metal_cand"]].astype(np.float64)], 1)
@@ -209,7 +213,7 @@ def pocket_features(c, X, vol, F, names, score, n_atoms, res_chain, n_chain):
     for j, nm in enumerate(MEAN_COLS):
         f[f"{nm}_mean"] = np.where(vs > 0, WS[:, 3 + j] / vs_safe, PS[:, 1 + j] / counts)
     for nm in Q_COLS:
-        sv = _seg_sorted(ptr, I, F[:, ci[nm]].astype(np.float64))
+        sv = _seg_sorted(ptr, I, F[:, src(nm)].astype(np.float64))
         f[f"{nm}_q90"] = _quantile(sv, ptr, 0.9)
         f[f"{nm}_q10"] = _quantile(sv, ptr, 0.1)
     o = 1 + len(MEAN_COLS)

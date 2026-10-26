@@ -1,0 +1,1 @@
+{"n": 64, "model": "burrow_all_default_s0.json", "device": "cpu", "ranker": "learned", "top10_identical": 64, "exact": 64, "date": "2026-10-26 21:34"}

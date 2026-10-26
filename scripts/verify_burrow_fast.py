@@ -40,8 +40,8 @@ def compare(ref, fast, k=10, tol=0.1):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--manifest", type=Path, default=ROOT / "results/dev/manifests/all.csv")
-    ap.add_argument("--model", type=Path, default=ROOT / "results/dev/models/burrow_chen11_s0.json")
+    ap.add_argument("--manifest", type=Path, default=ROOT / "results/dev/biolip/inputs_audited.csv")
+    ap.add_argument("--model", type=Path, default=ROOT / "results/dev/freeze/models/burrow_all_default_s0.json")
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--ranker", default="learned")
     ap.add_argument("--device", default="cpu")
@@ -50,7 +50,8 @@ def main(argv=None):
     df = read_manifest(a.manifest).sample(a.n, random_state=SEEDS[1])
     model = BurrowModel.load(a.model)
     fm = FP.FastModel.from_model(model)
-    Ps = [load_protein(p, structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
+    res = lambda p: str(p if Path(p).is_absolute() else ROOT / p)
+    Ps = [load_protein(res(p), structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
     if a.device == "cpu":
         fast = [FP.predict_protein(P, fm, ranker=a.ranker) for P in Ps]
     else:
@@ -65,7 +66,7 @@ def main(argv=None):
         rows.append(dict(id=P.id, n_ref=len(r.scores), n_fast=len(f.scores), top10_ok=top, exact=ex))
         if not top:
             print("TOP10 MISMATCH", P.id, r.scores[:5], f.scores[:5], flush=True)
-    summ = dict(n=len(Ps), device=a.device, ranker=a.ranker, top10_identical=n_top, exact=n_exact,
+    summ = dict(n=len(Ps), model=a.model.name, device=a.device, ranker=a.ranker, top10_identical=n_top, exact=n_exact,
                 date=time.strftime("%Y-%m-%d %H:%M"))
     print(json.dumps(summ))
     if a.out:

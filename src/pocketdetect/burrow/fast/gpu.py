@@ -419,7 +419,9 @@ def featurize_batch(items, cfg: BurrowConfig, device, fm: FastModel | None = Non
         if floor is None:
             score = tf.predict(feats[:, idx]).float()
         else:
-            gv = (feats[:, names.index("bur10")] + feats[:, names.index("bur16")] + feats[:, names.index("bur24")]) / 3.0
+            from ..model import longest_bur
+            gv = (feats[:, names.index("bur10")] + feats[:, names.index("bur16")]
+                  + feats[:, names.index(longest_bur(names))]) / 3.0
             msk = (gv >= floor) | is_metal
             score = torch.zeros(len(feats), device=dev)
             if bool(msk.any()):
@@ -455,9 +457,11 @@ def _torch_forest(fm: FastModel, which: str, dev):
     return _FORESTS[key]
 
 
-def predict_batch(proteins, fm: FastModel, device="cuda:0", cfg: BurrowConfig = BurrowConfig(), ranker="learned",
+def predict_batch(proteins, fm: FastModel, device="cuda:0", cfg: BurrowConfig | None = None, ranker="learned",
                   weights=None, batch_size: int = 32):
     """Predict many structures: GPU featurization + scoring in batches, CPU formation/ranking."""
+    from .pipeline import model_cfg
+    cfg = model_cfg(fm.model, cfg)
     out = []
     weights = weights or [None] * len(proteins)
     for s in range(0, len(proteins), batch_size):

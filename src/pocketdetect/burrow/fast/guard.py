@@ -22,12 +22,14 @@ STAGES = {
                  "burrow.raycast:march", "burrow.raycast:dual_grid", "geometry.neighbors:neighbor_features",
                  "geometry.neighbors:_nf_kernel"],
     "formation": ["burrow.model:candidates", "burrow.model:geo_value", "burrow.model:geo_score",
+                  "burrow.model:longest_bur",
                   "burrow.pockets:components", "burrow.pockets:generate", "burrow.pockets:make_pocket",
                   "burrow.pockets:_kmeans_split", "burrow.pockets:_extent", "burrow.pockets:PointGraph",
                   "burrow.pockets:assign_residues", "burrow.pockets:nms", "burrow.model:FormationConfig"],
     "pocket_features": ["burrow.model:pocket_features", "burrow.model:_seg_sorted", "burrow.model:_seg_quantile",
                         "burrow.model:_seg_topk_mean"],
-    "scoring": ["burrow.model:score_points", "burrow.pipeline:predict_protein", "burrow.pipeline:finalize"],
+    "scoring": ["burrow.model:score_points", "burrow.pipeline:predict_protein", "burrow.pipeline:finalize",
+                "burrow.pipeline:output_residues", "burrow.model:rank_predict", "burrow.model:BurrowModel"],
 }
 _FILE = Path(__file__).with_name("validated.json")
 

@@ -5,9 +5,10 @@ import numpy as np
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "results/dev/manifests/all.csv"
-MODEL = ROOT / "results/dev/models/burrow_chen11_s0.json"
-pytestmark = pytest.mark.skipif(not (MANIFEST.exists() and MODEL.exists()), reason="dev data / model not available")
+MANIFEST = ROOT / "results/dev/biolip/inputs_audited.csv"
+MODELS = [ROOT / f"results/dev/freeze/models/burrow_all_{p}_s0.json" for p in ("default", "accurate")]
+pytestmark = pytest.mark.skipif(not (MANIFEST.exists() and all(m.exists() for m in MODELS)),
+                                reason="dev data / frozen models not available")
 
 
 def cuda():
@@ -18,15 +19,15 @@ def cuda():
         return False
 
 
-@pytest.fixture(scope="module")
-def dev():
+@pytest.fixture(scope="module", params=MODELS, ids=["default", "accurate"])
+def dev(request):
     from pocketdetect.burrow.devdata import read_manifest
     from pocketdetect.burrow.model import BurrowModel
     from pocketdetect.burrow.prep import load_protein
     from pocketdetect.burrow.fast.pipeline import FastModel
     df = read_manifest(MANIFEST).sample(5, random_state=123)
-    Ps = [load_protein(p, structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
-    m = BurrowModel.load(MODEL)
+    Ps = [load_protein(str(ROOT / p), structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
+    m = BurrowModel.load(request.param)
     return Ps, m, FastModel.from_model(m)
 
 
@@ -46,9 +47,9 @@ def test_guard_validated():
 def test_features_identical(dev):
     from pocketdetect.burrow.features import point_features as ref
     from pocketdetect.burrow.fast.features import point_features as fast
-    Ps, _, _ = dev
+    Ps, _, fm = dev
     for P in Ps[:3]:
-        a, b = ref(P), fast(P)
+        a, b = ref(P, fm.cfg), fast(P, fm.cfg)
         assert a.names == b.names
         assert np.array_equal(a.feats, b.feats) and np.array_equal(a.points, b.points)
         assert np.array_equal(a.vol, b.vol) and np.array_equal(a.is_metal, b.is_metal)
@@ -84,10 +85,10 @@ def test_gpu_batch_identical(dev):
 
 @pytest.mark.skipif(not cuda(), reason="CUDA not available")
 def test_gpu_features_identical(dev):
-    from pocketdetect.burrow.features import BurrowConfig, point_features as ref
+    from pocketdetect.burrow.features import point_features as ref
     from pocketdetect.burrow.fast import gpu
-    Ps, _, _ = dev
-    cfg = BurrowConfig()
+    Ps, _, fm = dev
+    cfg = fm.cfg
     res = gpu.featurize_batch([gpu.prep(P, cfg) for P in Ps], cfg, "cuda:0")
     for P, (ps, _) in zip(Ps, res):
         a = ref(P, cfg)

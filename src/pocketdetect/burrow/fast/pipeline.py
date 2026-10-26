@@ -1,23 +1,35 @@
 """Fast BURROW prediction for one structure (CPU): same outputs as ``burrow.pipeline.predict_protein``.
 
-Stages: point features (``fast.features`` if available for the current reference feature set,
-else the reference featurizer) -> point scores (FlatForest, bit-identical to LightGBM) ->
-candidate pockets + residues (``fast.formation``) -> pocket descriptors (``fast.pocketfeat``) ->
-ranker (FlatForest) -> NMS (``fast.formation.nms``).
+Stages: point features (``fast.features``; the model's own feature design from
+``meta['feature_cfg']``) -> point scores (FlatForest, bit-identical to LightGBM; optional
+``score_floor``) -> candidate pockets + residues (``fast.formation``) -> pocket descriptors
+(``fast.pocketfeat``; optional context / propensity extras via the reference functions) -> ranker
+(FlatForest, optional ensemble) -> NMS (``fast.formation.nms``) -> reported residues (with the
+reference's empty-set fallback).
 """
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import numpy as np
 
 from ..features import BurrowConfig
-from ..model import BurrowModel, FormationConfig
+from ..model import BurrowModel, FormationConfig, longest_bur
 from ..pipeline import Prediction
 from . import formation as FF
 from .pocketfeat import pocket_features, residue_chains
 from .trees import FlatForest
+
+
+def model_cfg(model: BurrowModel | None, cfg: BurrowConfig | None = None) -> BurrowConfig:
+    """The feature design a model was trained with (as ``pipeline.predict_protein`` does)."""
+    if model is not None and model.meta.get("feature_cfg"):
+        fd = dict(model.meta["feature_cfg"])
+        fd["lengths"] = tuple(fd["lengths"])
+        fd["nb_radii"] = tuple(fd["nb_radii"])
+        return BurrowConfig(**fd)
+    return cfg if cfg is not None else BurrowConfig()
 
 
 @dataclass
@@ -27,14 +39,17 @@ class FastModel:
     point: FlatForest | None
     rank: FlatForest | None
     fc: FormationConfig
+    rank_extra: list = field(default_factory=list)
+    cfg: BurrowConfig = field(default_factory=BurrowConfig)
 
     @classmethod
     def from_model(cls, model: BurrowModel | None) -> "FastModel":
         if model is None:
             return cls(None, None, None, FormationConfig())
         pb, rb = model.boosters()
+        extra = [FlatForest.from_model_string(s) for s in (model.meta.get("rank_ensemble") or [])]
         return cls(model, FlatForest.from_booster(pb), FlatForest.from_booster(rb) if rb is not None else None,
-                   FormationConfig(**model.formation))
+                   FormationConfig(**model.formation), extra, model_cfg(model))
 
     @classmethod
     def load(cls, path) -> "FastModel":
@@ -43,8 +58,17 @@ class FastModel:
     def point_index(self, names):
         return [names.index(n) for n in self.model.point_features]
 
-    def rank_index(self, names):
-        return [names.index(n) for n in self.model.rank_features]
+    def rank_predict(self, X):
+        """Same as ``model.rank_predict`` (mean over the ranker ensemble, if any)."""
+        s = self.rank.predict(X)
+        if self.rank_extra:
+            s = (s + sum(f.predict(X) for f in self.rank_extra)) / (1 + len(self.rank_extra))
+        return s
+
+
+def geo_values(F, names):
+    """``model.geo_value``: mean of bur10, bur16 and the longest-range buriedness column."""
+    return (F[:, names.index("bur10")] + F[:, names.index("bur16")] + F[:, names.index(longest_bur(names))]) / 3.0
 
 
 def score_mask(fm: FastModel, F, names):
@@ -52,8 +76,7 @@ def score_mask(fm: FastModel, F, names):
     floor = fm.model.meta.get("score_floor") if fm.model is not None else None
     if floor is None:
         return None
-    gv = (F[:, names.index("bur10")] + F[:, names.index("bur16")] + F[:, names.index("bur24")]) / 3.0
-    return (gv >= floor) | (F[:, names.index("metal_cand")] > 0)
+    return (geo_values(F, names) >= floor) | (F[:, names.index("metal_cand")] > 0)
 
 
 def score_points(fm: FastModel, F, names):
@@ -77,7 +100,7 @@ def geo_scores(c, vol, gv, fc: FormationConfig):
 
 
 def featurize(P, cfg: BurrowConfig = BurrowConfig(), weights=None):
-    """Point features: fast implementation when it matches the reference feature set."""
+    """Point features: fast implementation unless the reference featurizer changed (guard)."""
     from . import features as FFE
     if FFE.supports(cfg):
         return FFE.point_features(P, cfg, weights)
@@ -85,11 +108,11 @@ def featurize(P, cfg: BurrowConfig = BurrowConfig(), weights=None):
     return point_features(P, cfg, weights)
 
 
-def _reference_post(P, ps, fm: FastModel, ranker, tm):
+def _reference_post(P, ps, fm: FastModel, ranker, tm, weights=None):
     """Reference implementation of everything after the features (drift fallback)."""
     from scipy.spatial import cKDTree
-    from ..model import candidates, geo_score, pocket_features as ref_pf, score_points as ref_score
-    from ..pipeline import finalize
+    from ..model import candidates, geo_score, pocket_features as ref_pf, rank_predict, score_points as ref_score
+    from ..pipeline import finalize, output_residues
     from ..pockets import assign_residues
     t1 = time.perf_counter()
     geo = fm.model is None or ranker == "geometry"
@@ -99,18 +122,58 @@ def _reference_post(P, ps, fm: FastModel, ranker, tm):
         score = ref_score(pb, ps.feats, ps.names, fm.model.point_features, fm.model.meta.get("score_floor"))
     t2 = time.perf_counter()
     pk = candidates(ps.X, ps.points, ps.vol, ps.feats, ps.names, score, fm.fc)
-    assign_residues(pk, ps.points, cKDTree(P.coords), P.res_index, P.residue_ids)
+    tree = cKDTree(P.coords)
+    assign_residues(pk, ps.points, tree, P.res_index, P.residue_ids)
     t3 = time.perf_counter()
     if geo:
         rs = geo_score(pk, ps.vol, ps.feats, ps.names, fm.fc)
-    else:
+    elif len(pk):
         Fp, fn = ref_pf(pk, ps.X, ps.vol, ps.feats, ps.names, score, len(P.coords))
-        rs = rb.predict(Fp[:, [fn.index(n) for n in fm.model.rank_features]], num_threads=1) if len(pk) else np.zeros(0)
+        Fp, fn = _extras(P, ps, fm, Fp, fn, [p.idx for p in pk], np.array([p.center for p in pk]), tree)
+        rs = rank_predict(fm.model, Fp[:, [fn.index(n) for n in fm.model.rank_features]])
+    else:
+        rs = np.zeros(0)
     keep = finalize(pk, rs, fm.fc)
+    out_res = [output_residues(pk[i], tree, P) for i in keep]
     t4 = time.perf_counter()
     tm.update(point_score=(t2 - t1) * 1e3, pockets=(t3 - t2) * 1e3, rank=(t4 - t3) * 1e3)
     return Prediction(P.id, np.array([pk[i].center for i in keep]).reshape(-1, 3), np.asarray(rs)[keep],
-                      [pk[i].residues for i in keep], [ps.points[pk[i].idx] for i in keep], tm)
+                      out_res, [ps.points[pk[i].idx] for i in keep], tm)
+
+
+def _extras(P, ps, fm, Fp, fn, idx_list, centers, tree=None):
+    """Phase-3 ranker extras (context / propensity), computed by the reference functions."""
+    meta = fm.model.meta
+    ctx = meta.get("context")
+    if ctx:
+        from ..model import context_features
+        Fx, nx = context_features(Fp, fn, centers, ctx)
+        Fp, fn = np.concatenate([Fp, Fx], 1), fn + nx
+    if meta.get("propensity"):
+        from scipy.spatial import cKDTree
+        from ..propensity import PROP_NAMES, atom_logodds, pocket_propensity
+        lo = atom_logodds(P, meta["propensity"])
+        Fx = pocket_propensity(idx_list, ps.points, P, lo, tree if tree is not None else cKDTree(P.coords))
+        Fp, fn = np.concatenate([Fp, Fx], 1), fn + PROP_NAMES
+    return Fp, fn
+
+
+def _output_residues(P, c, keep):
+    """Reported residue sets with the reference's fallback for empty sets (``output_residues``)."""
+    rid = P.residue_ids
+    out, tree = [], None
+    for i in keep:
+        r = c.residues(i)
+        if len(r):
+            out.append(frozenset(rid[r].tolist()))
+            continue
+        from types import SimpleNamespace
+        from ..pipeline import output_residues
+        if tree is None:
+            from scipy.spatial import cKDTree
+            tree = cKDTree(P.coords)
+        out.append(output_residues(SimpleNamespace(residues=frozenset(), center=c.center[i]), tree, P))
+    return out
 
 
 def predict_from_points(P, ps, fm: FastModel, ranker: str = "learned", score=None, timings=None) -> Prediction:
@@ -126,7 +189,7 @@ def predict_from_points(P, ps, fm: FastModel, ranker: str = "learned", score=Non
         score = score_points(fm, ps.feats, ps.names)
     t2 = time.perf_counter()
     names = ps.names
-    gv = (ps.feats[:, names.index("bur10")] + ps.feats[:, names.index("bur16")] + ps.feats[:, names.index("bur24")]) / 3.0
+    gv = geo_values(ps.feats, names)
     is_metal = ps.feats[:, names.index("metal_cand")] > 0
     c = FF.candidates(ps.X, ps.points, ps.vol, gv, None if geo else score, is_metal, fc)
     FF.assign_residues(c, ps.points, P.coords, P.res_index, len(P.residue_ids))
@@ -136,21 +199,24 @@ def predict_from_points(P, ps, fm: FastModel, ranker: str = "learned", score=Non
     elif len(c):
         rch, nch = residue_chains(P.residue_ids)
         Fp, fn = pocket_features(c, ps.X, ps.vol, ps.feats, names, score, len(P.coords), rch, nch)
-        rs = fm.rank.predict(Fp[:, [fn.index(n) for n in fm.model.rank_features]])
+        if fm.model.meta.get("context") or fm.model.meta.get("propensity"):
+            Fp, fn = _extras(P, ps, fm, Fp, fn, [c.members(i) for i in range(len(c))], c.center)
+        rs = fm.rank_predict(Fp[:, [fn.index(n) for n in fm.model.rank_features]])
     else:
         rs = np.zeros(0)
     keep = FF.nms(c, rs, fc.nms_dist, fc.nms_jacc, fc.max_out, fc.nms_overlap, fc.min_score, fc.min_keep)
+    res = _output_residues(P, c, keep)
     t4 = time.perf_counter()
     tm.update(point_score=(t2 - t1) * 1e3, pockets=(t3 - t2) * 1e3, rank=(t4 - t3) * 1e3)
-    rid = P.residue_ids
-    return Prediction(P.id, c.center[keep].reshape(-1, 3), np.asarray(rs)[keep],
-                      [frozenset(rid[c.residues(i)].tolist()) for i in keep],
+    return Prediction(P.id, c.center[keep].reshape(-1, 3), np.asarray(rs)[keep], res,
                       [ps.points[c.members(i)] for i in keep], tm)
 
 
-def predict_protein(P, fm: FastModel, cfg: BurrowConfig = BurrowConfig(), weights=None,
+def predict_protein(P, fm: FastModel, cfg: BurrowConfig | None = None, weights=None,
                     ranker: str = "learned") -> Prediction:
-    """Drop-in fast replacement for ``burrow.pipeline.predict_protein`` (takes a :class:`FastModel`)."""
+    """Drop-in fast replacement for ``burrow.pipeline.predict_protein`` (takes a :class:`FastModel`).
+    Like the reference, a model carrying ``meta['feature_cfg']`` uses its own feature design."""
+    cfg = model_cfg(fm.model, cfg)
     t0 = time.perf_counter()
     ps = featurize(P, cfg, weights)
     t1 = time.perf_counter()
