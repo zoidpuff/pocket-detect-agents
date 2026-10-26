@@ -146,3 +146,46 @@ def predictions_from_comparisons(comp: pd.DataFrame, method: str) -> dict[str, P
     g = comp[comp.origin_pred == method].drop_duplicates(["rep_chain_pred", "ID_pred"])
     g = g.rename(columns={"rep_chain_pred": "rep_chain", "centre_pred": "centre", "RANK_pred": "RANK", "SCORE_pred": "SCORE", "up_aas_pred": "up_aas"})
     return predictions_from_frame(g)
+
+
+# --------------------------------------------------------------------------- frame conversion
+def trans_preds_to_original(pred_dir: str | Path, out_dir: str | Path, site_table: str | Path | None = None) -> int:
+    """Convert predictions made on the authors' TRANS-frame representative chains (the LIGYSIS
+    benchmark inputs, ``trans_rep_chains/<chain>.trans.pdb``) to the wwPDB asymmetric-unit frame of
+    ``data/processed/gt/ligysis_lbs/sites.tsv``: centres x = Rᵀ x_T + c0; residue ids of the trans
+    files are label_seq_ids → author ids of the mirror chain (unmappable residues dropped).
+    Same conversion as baselines/run_benchmarks.make_preds (baselines and BURROW identical)."""
+    import gemmi
+
+    from .evaluate import read_predictions, write_predictions
+    from .sites import read_sites
+    from .structure import residue_id
+
+    root = Path(__file__).resolve().parents[2]
+    st = read_sites(site_table or root / "data/processed/gt/ligysis_lbs/sites.tsv").drop_duplicates("structure_id")
+    paths = dict(zip(st.structure_id, zip(st.structure_path, st.input_chains)))
+    T = load_transforms()
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for f in sorted(Path(pred_dir).glob("*.csv")):
+        sid = f.stem
+        if sid not in paths:
+            continue
+        p = read_predictions(f, sid)
+        path, chain = paths[sid]
+        lab2auth = {r.label_seq: residue_id(chain, r.seqid.num, r.seqid.icode.strip())
+                    for r in gemmi.read_structure(path)[0][chain] if r.label_seq is not None}
+        res = []
+        for rs in p.residues:
+            toks = []
+            for t in sorted(rs):
+                num = t.rpartition(":")[2]
+                if num.lstrip("-").isdigit() and int(num) in lab2auth:
+                    toks.append(lab2auth[int(num)])
+            res.append(" ".join(toks))
+        R, c0 = T[sid]
+        xyz = to_original_frame(p.centers, R, c0) if p.n else p.centers
+        write_predictions(out / f.name, xyz, p.scores, res)
+        n += 1
+    return n

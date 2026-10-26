@@ -46,6 +46,8 @@ REGISTRY: dict[str, Benchmark] = {b.name: b for b in [
     Benchmark("ligysis", "sites", "data/processed/gt/ligysis_lbs/sites.tsv", ("ligysis", "ligysis_extra"),
               ("recall_topn2", "recall_ldca_topn2", "P1K", "recall_topn", "recall_max", "recall_1to1_topn2", "P1K_1to1"),
               note="PREREG C1 / C1-strict / C2"),
+    Benchmark("ligysis_ni", "sites", "data/processed/gt/ligysis_ni/sites.tsv", ("ligysis", "ligysis_extra"),
+              ("recall_topn2", "recall_ldca_topn2", "P1K"), note="LIGYSIS_NI (descriptive): ion_prop != 1"),
     Benchmark("coach420_mlig", "ligands", "data/raw/p2rank_datasets/current/coach420(mlig).ds", ("coach420",),
               ("success_DCA4_topn", "success_DCA4_topn2"), note="PREREG O2a"),
     Benchmark("holo4k_mlig", "ligands", "data/raw/p2rank_datasets/current/holo4k(mlig).ds", ("holo4k",),

@@ -37,11 +37,16 @@ RESULTS = ROOT / "results"
 LEDGER = RESULTS / "TEST_LEDGER.md"
 CODE_FILES = ["src/pocketdetect/evaluate.py", "src/pocketdetect/ligands.py", "src/pocketdetect/site_eval.py",
               "src/pocketdetect/sites.py", "src/pocketdetect/benchmarks.py", "src/pocketdetect/clusters.py"]
+# every file that influences scoring must be tracked and unmodified (the rest of the tree may be dirty:
+# method development continues in parallel; the prediction code is pinned by --code-commit instead)
+SCORING_FILES = CODE_FILES + ["src/pocketdetect/structure.py", "src/pocketdetect/ligysis.py", "src/pocketdetect/af_eval.py",
+                              "src/pocketdetect/prereg.py", "src/pocketdetect/controls.py", "src/pocketdetect/seeds.py",
+                              "scripts/eval_dimer.py", "scripts/run_test_eval.py", "scripts/run_prereg_analysis.py", "docs/PREREG.md"]
 LEDGER_HEADER = (
     "# TEST LEDGER — every test-set evaluation (appended automatically by scripts/run_test_eval.py; never edit rows)\n\n"
-    "| utc time | version | final | benchmark | method | commit | model sha256 (12) | scoring code sha256 (12) | PREREG sha256 (12) | "
+    "| utc time | version | final | benchmark | method | scoring commit | prediction code commit | model sha256 (12) | scoring code sha256 (12) | PREREG sha256 (12) | "
     "GT sha256 (12) | preds sha256 (12) | missing preds | headline (value [95% CI]) | results dir |\n"
-    "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+    "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
 )
 
 
@@ -64,6 +69,17 @@ def dir_sha256(d: Path) -> tuple[str, int]:
 
 def git(*args) -> str:
     return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+
+
+def gate_check(allow_dirty: bool = False) -> str:
+    """Refuse unless every scoring file is tracked and unmodified. Returns the dirty listing."""
+    dirty = git("status", "--porcelain", "--untracked-files=no", "--", *SCORING_FILES)
+    if dirty and not allow_dirty:
+        raise SystemExit("refused: scoring files modified — commit first:\n" + dirty)
+    for f in SCORING_FILES:
+        if subprocess.run(["git", "ls-files", "--error-unmatch", f], cwd=ROOT, capture_output=True).returncode != 0 and not allow_dirty:
+            raise SystemExit(f"refused: {f} is not tracked by git")
+    return dirty
 
 
 def ledger_rows() -> list[dict]:
@@ -96,6 +112,7 @@ def main(argv=None):
     ap.add_argument("--version", required=True)
     ap.add_argument("--model", action="append", required=True, help="model file(s); 'none' for baselines without a model")
     ap.add_argument("--final", action="store_true")
+    ap.add_argument("--code-commit", default=None, help="commit of the code that produced the predictions (e.g. frozen worktree)")
     ap.add_argument("--n-boot", type=int, default=1000)
     ap.add_argument("--jobs", type=int, default=16)
     ap.add_argument("--allow-dirty", action="store_true", help=argparse.SUPPRESS)  # harness self-test only
@@ -109,12 +126,7 @@ def main(argv=None):
     if not re.fullmatch(r"[A-Za-z0-9._+-]+", a.version) or not re.fullmatch(r"[A-Za-z0-9._+-]+", a.method):
         raise SystemExit("version/method must match [A-Za-z0-9._+-]+")
 
-    dirty = git("status", "--porcelain", "--untracked-files=no")
-    if dirty and not a.allow_dirty:
-        raise SystemExit("refused: git tree has modified tracked files — commit first:\n" + dirty)
-    for f in CODE_FILES + ["docs/PREREG.md", "scripts/run_test_eval.py"]:
-        if subprocess.run(["git", "ls-files", "--error-unmatch", f], cwd=ROOT, capture_output=True).returncode != 0 and not a.allow_dirty:
-            raise SystemExit(f"refused: {f} is not tracked by git")
+    dirty = gate_check(a.allow_dirty)
     check_versions(a.version, a.final, a.benchmark, a.method)
 
     models = {}
@@ -133,7 +145,8 @@ def main(argv=None):
     rec = {
         "utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "commit": git("rev-parse", "HEAD"), "dirty": bool(dirty), "host": socket.gethostname(),
-        "version": a.version, "final": a.final, "benchmark": a.benchmark, "method": a.method,
+        "version": a.version, "final": a.final, "benchmark": a.benchmark, "method": a.method, "prediction_code_commit": a.code_commit,
+        "scoring_files_sha256": {f: sha256(ROOT / f) for f in SCORING_FILES},
         "models": models, "code_sha256": {f: sha256(ROOT / f) for f in CODE_FILES}, "code_sha256_combined": code_sha,
         "prereg_sha256": sha256(ROOT / "docs/PREREG.md"),
         "gt_sha256": (dir_sha256(bench.abspath)[0] if bench.abspath.is_dir() else sha256(bench.abspath)) if bench.abspath.exists() else None,
@@ -156,6 +169,7 @@ def main(argv=None):
         LEDGER.parent.mkdir(parents=True, exist_ok=True)
         LEDGER.write_text(LEDGER_HEADER)
     row = (f"| {rec['utc']} | {a.version} | {'yes' if a.final else 'no'} | {a.benchmark} | {a.method} | {rec['commit'][:10]}{' (dirty)' if dirty else ''} | "
+           f"{(a.code_commit or '')[:10]} | "
            f"{model_sha} | {code_sha[:12]} | {rec['prereg_sha256'][:12]} | {(rec['gt_sha256'] or '')[:12]} | {rec['preds_sha256'][:12]} | "
            f"{info['n_pred_missing']} | {head} | {os.path.relpath(out, ROOT)} |\n")
     with open(LEDGER, "a") as f:

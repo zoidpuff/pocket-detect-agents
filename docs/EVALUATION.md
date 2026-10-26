@@ -333,3 +333,32 @@ Primary C1-strict metric `recall_ldca_topn2` (pocket with minimal DCA must have 
   collapse, success if any copy is hit — computed by Track D's evaluator; headline `recall_DCC12_topn2@interface`
   (O6), `recall_DCA4_topn2@interface`, `precision_DCC12_topn2@all`, with 30 % cluster (and UniProt) bootstrap
   over complexes. Oracle (GT copies) = 1.0.
+
+## 13. Pre-registered test pipeline
+
+1. **Predictions** — `scripts/predict_benchmarks.py --version <v> --freeze <FREEZE.md>` (only after the freeze).
+   Models (and AF rankers) are read from FREEZE.md and must match their listed sha256. PREREG mapping: ranker `all`
+   for LIGYSIS full / AF set / dimers, `small` for LIGYSIS_NI / COACH420(mlig) / HOLO4K(mlig) / CryptoBench /
+   PocketWatch; `--af-mode` (+ AF ranker) for PocketWatch and the AF set; presets default (primary) and accurate;
+   seeds SEEDS[:3] (model files `_s0.._s2`). Inputs are the baselines' (`baselines/outputs/inputs/<bench>`, dimer
+   assemblies), LIGYSIS predictions are mapped from the authors' TRANS frame to the evaluation frame with
+   `pocketdetect.ligysis.trans_preds_to_original` (identical to the baseline conversion; verified file-by-file).
+   Backend: fast CLI on GPUs; the reference CLI (sharded CPU processes) where AF mode needs an AF ranker that the
+   fast CLI cannot take. Wall-clock per run → `results/test/<v>/preds/{index.json,TIMINGS.md}`; `--plan` prints the plan.
+2. **Analysis** — `scripts/run_prereg_analysis.py --version <v>`: every BURROW variant is scored through the gated
+   `run_test_eval.py` (ledger); comparators are re-scored from their baseline prediction directories with the same
+   code/GT (`results/test/<v>/comparators`). Logic in `pocketdetect.prereg`:
+   * Family 1 (fixed sequence, each seed, vs published fpocket+PRANK per-chain predictions **and** the fpocket
+     4.2.3+PRANK 2.4.2 re-run): C1 = recall_topn2 Δ ≥ 2.0 and CI low > 0; C1-strict = recall_ldca_topn2 CI low > 0;
+     C2 = P1K CI low > −3. Common-chain-subset sensitivity for the published comparator.
+   * Family 2 (each seed): O2a/O2b/O3/O4/O5/O6 vs the best (highest point estimate) of the listed baselines;
+     one-sided bootstrap p for H0 Δ ≤ −2, Holm step-down at α = 0.025; pass / fail (upper CI < −2) / inconclusive;
+     superiority = CI low > 0. Endpoint verdict = pass in all three seeds (implementation choice; per-seed reported).
+   * Paired comparisons: rows matched on the reference key, missing = miss, rows undefined for both dropped
+     (C1-strict sites without ligand atoms); pooled rates; same unit weights for both arms; P1K recomputed per resample.
+   * Descriptive: secondary metrics, LIGYSIS_NI, accurate preset, strata (fold novelty = max Foldseek TM band of the
+     structure's chains, LIGYSIS ligand class ion / nucleotide-cofactor / other, AF site pLDDT band, dimer site class;
+     strata < 100 rows flagged), controls (oracle, protein centroid, random surface, ≥ 12 Å surface tiling).
+   * Output `results/test/<v>/SUMMARY.md` + `summary.json` with provenance.
+3. **Dry run** — `--dry-run --stand-in p2rank_2.5.1` writes to `results/test/_dryrun/` (no ledger, no gating): a
+   baseline stands in for BURROW; checks method-vs-itself (Δ = 0, CI = [0, 0]) and oracle-vs-comparator.

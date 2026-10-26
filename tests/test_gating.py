@@ -30,14 +30,11 @@ def test_version_cap(tmp_path, monkeypatch):
         rte.check_versions("final2", True, "ligysis", "M")
 
 
-def test_dirty_tree_refused(tmp_path):
-    dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-    if not dirty:
-        pytest.skip("tree is clean; refusal path not exercised")
-    (tmp_path / "p").mkdir()
-    r = subprocess.run([sys.executable, str(ROOT / "scripts/run_test_eval.py"), "--benchmark", "cryptobench", "--pred-dir", str(tmp_path / "p"),
-                        "--method", "x", "--version", "t", "--model", "none"], capture_output=True, text=True, env=ENV)
-    assert r.returncode != 0 and "refused" in (r.stderr + r.stdout)
+def test_dirty_scoring_files_refused(monkeypatch):
+    monkeypatch.setattr(rte, "git", lambda *a: " M src/pocketdetect/site_eval.py")
+    with pytest.raises(SystemExit, match="refused"):
+        rte.gate_check(False)
+    assert rte.gate_check(True) == " M src/pocketdetect/site_eval.py"
 
 
 def test_dev_script_refuses_test_gt(tmp_path):

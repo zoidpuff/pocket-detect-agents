@@ -115,6 +115,16 @@ def main(argv=None):
         df = df.merge(L, on=["structure_id", "site_id"], how="left")
         df["ligand_atoms"] = df["ligand_atoms"].fillna("")
     write_sites(df, OUT / "sites.tsv")
+    # LIGYSIS_NI (descriptive, PREREG): sites with ion_prop != 1 (LIGYSIS convention); N recomputed over
+    # the remaining sites of the chain, scored flags kept; chains left without sites dropped.
+    ni = df[df.ion_prop.astype(float) != 1].copy()
+    ni["n_sites"] = ni.groupby("structure_id").site_id.transform("size").astype(int)
+    (OUT.parent / "ligysis_ni").mkdir(exist_ok=True)
+    write_sites(ni, OUT.parent / "ligysis_ni" / "sites.tsv")
+    (OUT.parent / "ligysis_ni" / "README.md").write_text(
+        "# LIGYSIS_NI site table\n\nSubset of `../ligysis_lbs/sites.tsv` with `ion_prop != 1` (LIGYSIS non-ion convention); "
+        f"N recomputed per chain. {len(ni)} sites, {int(ni.scored.sum())} scored, {ni.structure_id.nunique()} chains. "
+        "Built by scripts/build_gt_ligysis.py.\n")
     dev = df.center_check_dev
     summary = {
         "n_sites": len(df), "n_scored": int(df.scored.sum()), "n_chains": df.structure_id.nunique(),
