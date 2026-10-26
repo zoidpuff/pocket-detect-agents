@@ -32,7 +32,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 0.5 LIGYSIS ligand coords (6,387/6,721 sites; PREREG A2), AF (2,526 models) + dimer in test runner, AF utils
 - [x] 1. Literature & benchmarks (LITERATURE.md) — [!] LIGYSIS top-N+2 bar: fpocket+PRANK 60.4, P2Rank 51.9, P2Rank-CONS 53.9 (P1K 90.7); headroom = candidate recall (P2Rank max recall 57% vs fpocket 91%) + calibrated ranking; no dimer benchmark exists → build one
 - [x] 2. Data acquisition (DATA.md) — 48 GB raw: P2Rank sets, LIGYSIS (+11 methods' preds), PocketWatch (MIT, 1,573 test sites ≥2024), CryptoBench, PocketMiner, scPDB (no license: academic only), AF2BIND, HOTPocket (catalogue, not benchmark), BioLiP2 2025-11-12; PDB mirror snapshot ~2026-10-16; mmseqs/foldseek installed
-  - [~] 2.A Train/dev builder (BioLiP2, LIGYSIS-style pooled labels, leakage removal)
+  - [x] 2.A Train/dev: 6,644 train / 596 dev entries (5,303/513 clusters; 14,073/1,261 sites; ~37% ion-only sites); 77.4% of 268k BioLiP2 chains removed by leakage rule; test-union sha 27c3d793; 60% of train fold-disjoint (TM<0.5); verify PASS
+  - [~] 2.A' Independent leakage audit (separate agent, re-implemented checks from original sources)
   - [x] 2.C AF test set: 2,527 proteins/6,731 sites (LBS subset, primary O5); holo-biased (median local RMSD 0.38 Å), only 95 sites pLDDT<70; PAE unavailable (403) → dropped
   - [x] 2.D Dimer benchmark: 400 complexes (274 homo/126 hetero), 807 unique sites, 243 interface (177 homo, 66 hetero); oracle ceiling 1.0 (J≥0.5)
 - [x] 3. Baselines wrapped: P2Rank 2.5.1/2.4.2 (Temurin 17), fpocket 4.2.3/4.0.3 (-O0), fpocket+PRANK; optional: pyKVFinder, DeepPocket, PUResNet v2 (torch port), GrASP, VN-EGNN, IF-SitePred, Kalasanty, PocketMiner
