@@ -15,6 +15,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D7 (20:15): Accept G1 deviation (fallback worse than primary); NMS by one-to-one P1K; phase-3 selection on train-CV to limit dev optimism; freeze 23:00.
 - D6 (18:40): Leakage audit fix is conservative — drop every entry flagged under any tier (186 entries, ~2.6%) rather than only the 8 hard failures; manifests filtered by scripts/data/apply_audit_exclusions.py.
 - D5 (17:15): Speed budget — default preset ≤ ~100 ms/core (≥5× faster than P2Rank) within 0.5 pts of best dev setting; optional `--preset accurate` if >1 pt better; pre-registered claims use the default. Feature design freeze ~23:00 (backend port before 01:00 freeze). Fast backend post-feature path already bit-identical (79 vs 252 ms).
 - D4 (16:20): Session restart interrupted 5 agents; all resumed via SendMessage from on-disk state (no work lost). Node is SHARED with other users (foreign processes, GPU 2 partly used) → prefer GPUs 0,1,3; respect 128 GB RAM.
@@ -48,7 +49,15 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [!] G1 PASSED: candidate recall 90.97% (≤40 pockets) vs fpocket 77.5%, P2Rank-all 83.4% (CHEN11+JOINED, 974 ligands)
     - [x] Trained on CHEN11 only → JOINED: DCA4 top-n 71.1–71.8 vs P2Rank 73.5; top-n+2 82.4–83.2 vs 79.7; LDCC12 top-n+2 89–91 vs 88.0 (unpaired). Geometry-only: DCA4 top-n 35.4.
     - [-] Speed: 586 ms/structure (target 70) — Python loops; perf pass after feature stabilisation
-  - [~] 5.2 Phase 2: BioLiP2 train/dev, `all`/`small` rankers, NMS tuning with DCA4/P1K guard, fpocket-candidate ablation
+  - [x] 5.2 Phase 2 (BioLiP2 audited train 6,475 / dev 579; 3 seeds; paired cluster bootstrap vs P2Rank 2.5.1)
+    - [!] `all` default: top-N+2 DCC12 65.0 vs 54.1 (Δ +10.2…+11.4, CI lo ≥ +5.8); DCA4 top-N+2 55.7 vs 36.0; P1K 70.2 vs 46.3; top-N 55.7 vs 47.7
+    - [~] `small` (non-ion): 64.2 vs 58.4 (one seed CI lo < 0); DCA4 +12; P1K +21
+    - [x] Presets: default (30 rays, L 6/10/16, 3 Å sub-lattice, score buriedness ≥0.7 points, 250×63) ≈80 ms/core; accurate (60 rays) +1.2 top-N+2 on small → shipped as `--preset accurate`
+    - [x] NMS 10 Å chosen by one-to-one P1K (raw P1K rewards duplicates; 14 Å would inflate top-N+2 to 72.6 by spreading — rejected)
+    - [-] fpocket candidates + BURROW ranker: top-N+2 64.8 but DCA4 39.7 vs 56.2, P1K 59.4 vs 72.1 → own candidates matter for precision/localisation
+    - [-] G1 on BioLiP dev: 58.6% at ≤40 geometric candidates (fpocket 47.3%) → gate failed as specified but fallback would be worse; kept BURROW candidates (deviation, G1.md addendum). Full pre-ranking pool 93.6%.
+  - [~] 5.3 Independent review of dev results (separate agent)
+  - [~] 5.4 Phase 3: `small` ranker + within-protein ranking improvements (selection by train cluster-CV; dev once); FREEZE 23:00
 - [~] 6. AF mode
   - [x] 6.1 Track C2: AF train/dev labels (2,844/278 entries with sites; 45% coverage of train in local AFDB; median local RMSD 0.23 Å; only 57 true sites pLDDT<70); AF stress set (300 test proteins ≥37.5% residues pLDDT<50; descriptive)
   - [~] 6.2 AF-mode developer (interim, AF dev 278 entries/607 sites + 10× train-OOF set):
