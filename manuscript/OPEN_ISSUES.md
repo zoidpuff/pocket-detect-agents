@@ -1,14 +1,7 @@
 # Open issues for the submitting authors
 
-## References (manuscript/build/refs.py → references.bib; do not guess missing details)
-Incomplete — details not in LITERATURE.md; placeholders are visible in the reference list:
-1. Portnoi, Keys, DiFrancesco, Gruver (zPocket / PocketWatch), arXiv:2610.17696 (2026): initials and title missing.
-2. Carpenter & Altman (HOTPocket), J Cheminform 17:180 (2025), doi:10.1186/s13321-025-01125-x: first author's initials and title missing.
-3. Zillmer & Walther, PLoS Comput Biol 2025 (PMC12324681): initials, title, volume/article number and DOI missing.
-4. Gazizov, …, Ovchinnikov, Polizzi (AF2BIND), Nat Methods 23:626 (2026), doi:10.1038/s41592-026-03011-2: full author list and title missing.
-
-Titles/author lists written from the agent's background knowledge (venue, volume and DOI are from LITERATURE.md) — please verify:
-5. Kandel et al. 2024 (PUResNet v2) title and co-authors; 6. Smith et al. 2024 (GrASP); 7. Sestak et al. (VN-EGNN; J Cheminform 18:11, listed online 2025-12-15, cited as 2026); 8. Carbery et al. 2024 (IF-SitePred); 9. Schmidtke et al. 2010 JCIM 50:2191 author list; 10. Škrhák et al. 2025 (CryptoBench) initials; 11. Zhang et al. 2024 (BioLiP2) authors/title and DOI (only PMC id listed); 12. Meller et al. 2023 (PocketMiner) author list; 13. Krivák & Hoksza 2015 (PRANK) DOI (only PMC id listed).
+## References (manuscript/build/refs.py → references.bib)
+Items 1–13 of the earlier list (missing initials/titles for zPocket/PocketWatch, HOTPocket, Zillmer & Walther, AF2BIND; unverified author lists/DOIs for PUResNetV2.0, GrASP, VN-EGNN, IF-SitePred, Schmidtke 2010, CryptoBench, BioLiP2, PocketMiner, PRANK) were resolved on 2026-10-27 against Crossref, PubMed/Europe PMC and arXiv. See REFERENCES_CHECK.md for the status of every reference and three wording notes on in-text claims (P2Rank 52.6% vs published 51.9%; LIGYSIS 6,721 vs 6,882 sites; Zillmer & Walther also filter on PAE).
 
 Added beyond LITERATURE.md (standard tools/methods, verifiable): LightGBM (Ke 2017), MMseqs2 (Steinegger & Söding 2017), Foldseek (van Kempen 2024), gemmi (Wojdyr 2022), Numba (Lam 2015), PyTorch (Paszke 2019), Triton (Tillet 2019), NumPy (Harris 2020), SciPy (Virtanen 2020), PDB (Berman 2000), AlphaFold DB (Varadi 2022), AlphaFold2 (Jumper 2021), Holm 1979 (statistics), and Clark, Martin & Mahowald 2026 (arXiv:2610.29162, the source of the writing guide; cited from manuscript/skill/SKILL.md). Please confirm that these are acceptable.
 

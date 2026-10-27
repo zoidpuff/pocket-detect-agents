@@ -306,26 +306,26 @@ We thank the authors of LIGYSIS, P2Rank, fpocket, CryptoBench, PocketWatch, BioL
 1. Hendlich M, Rippmann F, Barnickel G. LIGSITE: automatic and efficient detection of potential small molecule-binding sites in proteins. J Mol Graph Model. 1997;15:359–363. doi:10.1016/S1093-3263(98)00002-3
 2. Weisel M, Proschak E, Schneider G. PocketPicker: analysis of ligand binding-sites with shape descriptors. Chem Cent J. 2007;1:7. doi:10.1186/1752-153X-1-7
 3. Le Guilloux V, Schmidtke P, Tufféry P. Fpocket: an open source platform for ligand pocket detection. BMC Bioinformatics. 2009;10:168. doi:10.1186/1471-2105-10-168
-4. Krivák R, Hoksza D. Improving protein-ligand binding site prediction accuracy by classification of inner pocket points using local features. J Cheminform. 2015;7:12. PMC4414931
+4. Krivák R, Hoksza D. Improving protein-ligand binding site prediction accuracy by classification of inner pocket points using local features. J Cheminform. 2015;7:12. doi:10.1186/s13321-015-0059-5
 5. Krivák R, Hoksza D. P2Rank: machine learning based tool for rapid and accurate prediction of ligand binding sites from protein structure. J Cheminform. 2018;10:39. doi:10.1186/s13321-018-0285-8
-6. Aggarwal R, Gupta A, Chelur V, Jawahar CV, Priyakumar UD. DeepPocket: ligand binding site detection and segmentation using 3D convolutional neural networks. J Chem Inf Model. 2022;62:5069. doi:10.1021/acs.jcim.1c00799
-7. Kandel J, et al. PUResNetV2.0: a deep learning model leveraging sparse representation for improved ligand binding site prediction. J Cheminform. 2024;16:66. doi:10.1186/s13321-024-00865-6
-8. Smith Z, Strobel M, Vani BP, Tiwary P. Graph attention site prediction (GrASP): identifying druggable binding sites using graph neural networks with attention. J Chem Inf Model. 2024;64:2637. doi:10.1021/acs.jcim.3c01698
-9. Sestak F, Schneckenreiter L, Brandstetter J, Hochreiter S, Mayr A, Klambauer G. VN-EGNN: E(3)-equivariant graph neural networks with virtual nodes enhance protein binding site identification. J Cheminform. 2026;18:11. doi:10.1186/s13321-025-01127-9
+6. Aggarwal R, Gupta A, Chelur V, Jawahar CV, Priyakumar UD. DeepPocket: ligand binding site detection and segmentation using 3D convolutional neural networks. J Chem Inf Model. 2022;62:5069–5079. doi:10.1021/acs.jcim.1c00799
+7. Kandel J, Shrestha P, Tayara H, Chong KT. PUResNetV2.0: a deep learning model leveraging sparse representation for improved ligand binding site prediction. J Cheminform. 2024;16:66. doi:10.1186/s13321-024-00865-6
+8. Smith Z, Strobel M, Vani BP, Tiwary P. Graph attention site prediction (GrASP): identifying druggable binding sites using graph neural networks with attention. J Chem Inf Model. 2024;64:2637–2644. doi:10.1021/acs.jcim.3c01698
+9. Sestak F, Schneckenreiter L, Brandstetter J, Hochreiter S, Mayr A, Klambauer G. VN-EGNN: E(3)- and SE(3)-equivariant graph neural networks with virtual nodes enhance protein binding site identification. J Cheminform. 2025;18:11. doi:10.1186/s13321-025-01127-9
 10. Carbery A, Buttenschoen M, Skyner R, von Delft F, Deane CM. Learnt representations of proteins can be used for accurate prediction of small molecule binding sites on experimentally determined and predicted protein structures. J Cheminform. 2024;16:32. doi:10.1186/s13321-024-00821-4
 11. Utgés JS, Barton GJ. Comparative evaluation of methods for the prediction of protein-ligand binding sites. J Cheminform. 2024;16:126. doi:10.1186/s13321-024-00923-z
-12. Yang J, Roy A, Zhang Y. Protein-ligand binding site recognition using complementary binding-specific substructure comparison and sequence profile alignment. Bioinformatics. 2013;29:2588–2595.
-13. Schmidtke P, Souaille C, Estienne F, Baurin N, Kroemer RT. Large-scale comparison of four binding site detection algorithms. J Chem Inf Model. 2010;50:2191–2200.
-14. Škrhák V, Novotný M, Feidakis CP, Krivák R, Hoksza D. CryptoBench: cryptic protein-ligand binding sites dataset and benchmark. Bioinformatics. 2025;41:btae745. PMC11725321
-15. Portnoi, Keys, DiFrancesco, Gruver. [Title of the zPocket/PocketWatch preprint to be completed]. arXiv. 2026. arXiv:2610.17696.
+12. Yang J, Roy A, Zhang Y. Protein-ligand binding site recognition using complementary binding-specific substructure comparison and sequence profile alignment. Bioinformatics. 2013;29:2588–2595. doi:10.1093/bioinformatics/btt447
+13. Schmidtke P, Souaille C, Estienne F, Baurin N, Kroemer RT. Large-scale comparison of four binding site detection algorithms. J Chem Inf Model. 2010;50:2191–2200. doi:10.1021/ci1000289
+14. Škrhák V, Novotný M, Feidakis CP, Krivák R, Hoksza D. CryptoBench: cryptic protein-ligand binding sites dataset and benchmark. Bioinformatics. 2025;41:btae745. doi:10.1093/bioinformatics/btae745
+15. Portnoi T, Keys AM, DiFrancesco BR, Gruver N. zPocket: better pocket finding with frozen co-folding features. arXiv. 2026. arXiv:2610.17696.
 16. Durairaj J, et al. PLINDER: the protein-ligand interactions dataset and evaluation resource. bioRxiv. 2024. doi:10.1101/2024.07.17.603955
 17. Jumper J, Evans R, Pritzel A, Green T, Figurnov M, Ronneberger O, et al. Highly accurate protein structure prediction with AlphaFold. Nature. 2021;596:583–589. doi:10.1038/s41586-021-03819-2
 18. Varadi M, Anyango S, Deshpande M, Nair S, Natassia C, Yordanova G, et al. AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models. Nucleic Acids Res. 2022;50:D439–D444. doi:10.1093/nar/gkab1061
-19. Carpenter, Altman RB. [Title of the HOTPocket article to be completed]. J Cheminform. 2025;17:180. doi:10.1186/s13321-025-01125-x
-20. Zillmer, Walther D. [Title to be completed]. PLoS Comput Biol. 2025. PMC12324681
-21. Gazizov, et al. [Title of the AF2BIND article to be completed]. Nat Methods. 2026;23:626. doi:10.1038/s41592-026-03011-2
+19. Carpenter KA, Altman RB. The Human Omnibus of Targetable Pockets. J Cheminform. 2025;17:180. doi:10.1186/s13321-025-01125-x
+20. Zillmer H, Walther D. Towards a comprehensive view of the pocketome universe—biological implications and algorithmic challenges. PLoS Comput Biol. 2025;21:e1013298. doi:10.1371/journal.pcbi.1013298
+21. Gazizov A, Lian A, Goverde C, Mou J, Ovchinnikov S, Polizzi NF. AF2BIND: predicting small-molecule binding sites using the pair representation of AlphaFold2. Nat Methods. 2026;23:626–635. doi:10.1038/s41592-026-03011-2
 22. Ke G, Meng Q, Finley T, Wang T, Chen W, Ma W, Ye Q, Liu TY. LightGBM: a highly efficient gradient boosting decision tree. In: Advances in Neural Information Processing Systems 30; 2017. p. 3146–3154.
-23. Zhang C, Zhang X, Freddolino PL, Zhang Y. BioLiP2: an updated structure database for biologically relevant ligand-protein interactions. Nucleic Acids Res. 2024;52:D404–D412. PMC10767969
+23. Zhang C, Zhang X, Freddolino PL, Zhang Y. BioLiP2: an updated structure database for biologically relevant ligand-protein interactions. Nucleic Acids Res. 2024;52:D404–D412. doi:10.1093/nar/gkad630
 24. Huang B, Schroeder M. LIGSITEcsc: predicting ligand binding sites using the Connolly surface and degree of conservation. BMC Struct Biol. 2006;6:19. doi:10.1186/1472-6807-6-19
 25. Kawabata T. Detection of multiscale pockets on protein surfaces using mathematical morphology. Proteins. 2010;78:1195–1211. doi:10.1002/prot.22639
 26. Halgren TA. Identifying and characterizing binding sites and assessing druggability. J Chem Inf Model. 2009;49:377–389. doi:10.1021/ci800324m
