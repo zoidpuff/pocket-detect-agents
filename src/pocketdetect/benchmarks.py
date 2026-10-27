@@ -62,6 +62,9 @@ REGISTRY: dict[str, Benchmark] = {b.name: b for b in [
     Benchmark("af_set_allsites", "sites", "data/processed/gt/af_set_allsites/sites.tsv", ("af_set",),
               ("recall_topn2", "P1K", "hallucination_rate_topn2"), note="O5 sensitivity: all LIGYSIS sites of the UniProt",
               extras=("hallucination",)),
+    Benchmark("dimer_chains", "dimer", "data/processed/dimer", ("dimer",),
+              ("recall_DCC12_topn2@interface", "recall_DCA4_topn2@interface", "precision_DCC12_topn2@all", "recall_DCC12_topn2@all"),
+              note="descriptive: isolated-chain inputs (eval_dimer --mode chain --chain-set all, as the baselines' dimer_chains)"),
     Benchmark("dimer", "dimer", "data/processed/dimer", ("dimer",),
               ("recall_DCC12_topn2@interface", "recall_DCA4_topn2@interface", "precision_DCC12_topn2@all", "recall_DCC12_topn2@all"),
               note="PREREG O6 via scripts/eval_dimer.py (assembly input, J>=0.5 grouping = amendment A1, label-free collapse)"),
@@ -184,7 +187,8 @@ def _run_dimer(b: Benchmark, data: Path, pred_dir, out: Path, n_boot: int, seed:
     sys.modules["eval_dimer"] = ed  # dataclasses need the module registered
     spec.loader.exec_module(ed)
     gts = ed.load_gts(Path(data))
-    sites, units, summ_complex = ed.run(gts, "assembly", Path(pred_dir), "j50", "primary", True, False, Path(data), 0)
+    mode, chain_set = ("chain", "all") if b.name == "dimer_chains" else ("assembly", "primary")
+    sites, units, summ_complex = ed.run(gts, mode, Path(pred_dir), "j50", chain_set, True, False, Path(data), 0)
     sites.to_csv(out / "sites.csv", index=False)
     units.to_csv(out / "units.csv", index=False)
     summ_complex.to_csv(out / "summary_eval_dimer_point.csv", index=False)

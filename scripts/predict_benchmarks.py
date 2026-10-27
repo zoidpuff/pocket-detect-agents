@@ -52,6 +52,8 @@ PLAN = {
     "af_set": (INPUTS / "af_set", "all", True, ""),
     "dimer": (ROOT / "data/processed/dimer/inputs/assembly", "all", False, ""),
 }
+# descriptive-only inputs (never part of "all"): BURROW on isolated dimer chains (= baselines' dimer_chains)
+EXTRA_PLAN = {"dimer_chains": (ROOT / "data/processed/dimer/inputs/chains", "all", False, "")}
 MODEL_RE = re.compile(r"burrow_(all|small)_(default|accurate)_s(\d+)\.json$")
 
 
@@ -233,6 +235,7 @@ def main(argv=None):
         raise SystemExit(f"pocketdetect resolves to {chk}, not inside {CODE['root']}")
     seeds = [int(s) for s in a.seeds.split(",")]
     benches = list(PLAN) if a.benchmarks == "all" else a.benchmarks.split(",")
+    PLAN.update({k: v for k, v in EXTRA_PLAN.items() if k in benches})
     fast_af = fast_supports_af_ranker()
     jobs = []
     for preset in a.presets.split(","):

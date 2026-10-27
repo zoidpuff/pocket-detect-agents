@@ -68,7 +68,7 @@ FAMILY2 = [
 ]
 CLUSTER_SOURCES = {"ligysis": ("ligysis", "ligysis_extra"), "ligysis_ni": ("ligysis", "ligysis_extra"), "coach420_mlig": ("coach420",),
                    "holo4k_mlig": ("holo4k",), "pocketwatch": ("pocketwatch_test",), "cryptobench": ("cryptobench",),
-                   "af_set": ("af_set",), "af_set_allsites": ("af_set",), "dimer": ("dimer",)}
+                   "af_set": ("af_set",), "af_set_allsites": ("af_set",), "dimer": ("dimer",), "dimer_chains": ("dimer",)}
 INTERFACE = ("homo_interface", "hetero_interface")
 
 
@@ -98,7 +98,8 @@ def load_rows(benchmark: str, eval_dir: str | Path) -> Rows:
         g = groups_for_structures(sorted(S.complex_id.unique()), CLUSTER_SOURCES[benchmark])
         S["group"] = S.complex_id.map(g)
         S["site"] = S["site"].astype(str)
-        return Rows("dimer", S, ["complex_id", "site"], None, str(d))
+        S["structure_id"] = S["structure_id"].astype(str)  # = complex_id (assembly mode) or <pdb>_<chain> (chain mode)
+        return Rows("dimer", S, ["structure_id", "site"], None, str(d))
     raise FileNotFoundError(f"no evaluation tables in {d}")
 
 
