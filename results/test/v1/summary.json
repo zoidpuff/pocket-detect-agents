@@ -1024,6 +1024,14 @@
       {
         "benchmark": "ligysis",
         "method": "BURROW[burrow_all_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 32.865585585585585,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "BURROW[burrow_all_default_s0]",
         "metric": "recall_topn",
         "value": 0.5514060407677429,
         "ci_low": 0.5296518277870816,
@@ -1116,6 +1124,14 @@
         "value": 0.08125070307397443,
         "ci_low": 0.07612315156803107,
         "ci_high": 0.08614689247994003
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "BURROW[burrow_all_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 35.015855855855854,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "ligysis",
@@ -1216,6 +1232,14 @@
       {
         "benchmark": "ligysis",
         "method": "fpocket_4.2.3+PRANK_2.4.2",
+        "metric": "pockets_per_structure",
+        "value": 20.85009009009009,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "fpocket_4.2.3+PRANK_2.4.2",
         "metric": "recall_topn",
         "value": 0.48460050587710163,
         "ci_low": 0.46464155291685977,
@@ -1308,6 +1332,14 @@
         "value": 0.1158003819162556,
         "ci_low": 0.10483708457250068,
         "ci_high": 0.12634751162944557
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "published:fpocket+PRANK",
+        "metric": "pockets_per_structure",
+        "value": 20.85009009009009,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "ligysis",
@@ -1408,6 +1440,14 @@
       {
         "benchmark": "ligysis_ni",
         "method": "BURROW[burrow_small_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 36.0199700449326,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "BURROW[burrow_small_default_s0]",
         "metric": "recall_topn",
         "value": 0.47669645013281814,
         "ci_low": 0.45199632307483545,
@@ -1500,6 +1540,14 @@
         "value": 0.09413228920004721,
         "ci_low": 0.08987995466725035,
         "ci_high": 0.09822271578342134
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "BURROW[burrow_small_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 37.952071892161754,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "ligysis_ni",
@@ -1600,6 +1648,14 @@
       {
         "benchmark": "ligysis_ni",
         "method": "fpocket_4.2.3+PRANK_2.4.2",
+        "metric": "pockets_per_structure",
+        "value": 23.393909136295555,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "fpocket_4.2.3+PRANK_2.4.2",
         "metric": "recall_topn",
         "value": 0.5228205747404009,
         "ci_low": 0.5008602621397954,
@@ -1692,6 +1748,14 @@
         "value": 0.1691083133408458,
         "ci_low": 0.1596551620055891,
         "ci_high": 0.1779129532745833
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 5.138791812281577,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "ligysis_ni",
@@ -1792,6 +1856,14 @@
       {
         "benchmark": "coach420_mlig",
         "method": "BURROW[burrow_small_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 32.99,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "BURROW[burrow_small_default_s0]",
         "metric": "success_DCA4_topn",
         "value": 0.7176781002638523,
         "ci_low": 0.6684748470613939,
@@ -1820,6 +1892,14 @@
         "value": 0.6517150395778364,
         "ci_low": 0.594084007207524,
         "ci_high": 0.7164862563040647
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "BURROW[burrow_small_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 34.836666666666666,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "coach420_mlig",
@@ -1856,6 +1936,14 @@
       {
         "benchmark": "coach420_mlig",
         "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 16.173333333333332,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
         "metric": "success_DCA4_topn",
         "value": 0.6701846965699209,
         "ci_low": 0.6192832970751753,
@@ -1884,6 +1972,14 @@
         "value": 0.6200527704485488,
         "ci_low": 0.565329007985258,
         "ci_high": 0.6719399187468588
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 3.4466666666666668,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "coach420_mlig",
@@ -1920,6 +2016,14 @@
       {
         "benchmark": "holo4k_mlig",
         "method": "BURROW[burrow_small_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 40.796403712296986,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "BURROW[burrow_small_default_s0]",
         "metric": "success_DCA4_topn",
         "value": 0.7839685772475996,
         "ci_low": 0.7552897990062912,
@@ -1948,6 +2052,14 @@
         "value": 0.43802734943264476,
         "ci_low": 0.39918860486576346,
         "ci_high": 0.4791786724812992
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "BURROW[burrow_small_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 42.05365429234339,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "holo4k_mlig",
@@ -1984,6 +2096,14 @@
       {
         "benchmark": "holo4k_mlig",
         "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 29.801044083526683,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
         "metric": "success_DCA4_topn",
         "value": 0.7054116962467268,
         "ci_low": 0.6698249553765243,
@@ -2016,6 +2136,14 @@
       {
         "benchmark": "holo4k_mlig",
         "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 7.9361948955916475,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "p2rank_2.5.1",
         "metric": "success_DCA4_topn",
         "value": 0.7657841140529531,
         "ci_low": 0.7318627518669703,
@@ -2044,6 +2172,14 @@
         "value": 0.4480651731160896,
         "ci_low": 0.40946083961046886,
         "ci_high": 0.48664628823485795
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "BURROW[burrow_small_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 36.373873873873876,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "cryptobench",
@@ -2136,6 +2272,14 @@
       {
         "benchmark": "cryptobench",
         "method": "BURROW[burrow_small_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 38.013513513513516,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "BURROW[burrow_small_accurate_s0]",
         "metric": "recall_topn",
         "value": 0.4222222222222222,
         "ci_low": 0.3554588428442029,
@@ -2220,6 +2364,14 @@
         "value": 0.08988593965772725,
         "ci_low": 0.08108896148742882,
         "ci_high": 0.09853168770579768
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 20.8018018018018,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "cryptobench",
@@ -2312,6 +2464,14 @@
       {
         "benchmark": "cryptobench",
         "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 4.225225225225225,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "p2rank_2.5.1",
         "metric": "recall_topn",
         "value": 0.5037037037037037,
         "ci_low": 0.4389263947138159,
@@ -2396,6 +2556,14 @@
         "value": 0.2698426118268885,
         "ci_low": 0.24113941855930773,
         "ci_high": 0.2993211997895633
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "BURROW[burrow_small_default_s0_af]",
+        "metric": "pockets_per_structure",
+        "value": 44.347381864623244,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "pocketwatch",
@@ -2488,6 +2656,14 @@
       {
         "benchmark": "pocketwatch",
         "method": "BURROW[burrow_small_accurate_s0_af]",
+        "metric": "pockets_per_structure",
+        "value": 45.50127713920817,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "BURROW[burrow_small_accurate_s0_af]",
         "metric": "recall_topn",
         "value": 0.5136681500317863,
         "ci_low": 0.4809459774222041,
@@ -2572,6 +2748,14 @@
         "value": 0.10618637749859548,
         "ci_low": 0.10249299550227907,
         "ci_high": 0.1099133307814607
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 40.989144316730524,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "pocketwatch",
@@ -2664,6 +2848,14 @@
       {
         "benchmark": "pocketwatch",
         "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 9.206896551724139,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "p2rank_2.5.1",
         "metric": "recall_topn",
         "value": 0.6020343293070566,
         "ci_low": 0.5682057600131416,
@@ -2752,6 +2944,14 @@
       {
         "benchmark": "pocketwatch",
         "method": "p2rank_2.5.1_af",
+        "metric": "pockets_per_structure",
+        "value": 11.699233716475096,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "p2rank_2.5.1_af",
         "metric": "recall_topn",
         "value": 0.6230133502860775,
         "ci_low": 0.5876028395321187,
@@ -2836,6 +3036,14 @@
         "value": 0.31337912646751986,
         "ci_low": 0.3011905231889913,
         "ci_high": 0.3251900825160668
+      },
+      {
+        "benchmark": "af_set",
+        "method": "BURROW[burrow_all_default_s0_af]",
+        "metric": "pockets_per_structure",
+        "value": 42.08234362628662,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "af_set",
@@ -2952,6 +3160,14 @@
       {
         "benchmark": "af_set",
         "method": "BURROW[burrow_all_accurate_s0_af]",
+        "metric": "pockets_per_structure",
+        "value": 43.45368171021378,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "BURROW[burrow_all_accurate_s0_af]",
         "metric": "recall_topn",
         "value": 0.4889264841587204,
         "ci_low": 0.46716201832921234,
@@ -3060,6 +3276,14 @@
         "value": 0.00033967391304347825,
         "ci_low": 8.344842719892679e-05,
         "ci_high": 0.0007380346530738034
+      },
+      {
+        "benchmark": "af_set",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 42.662311955661124,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "af_set",
@@ -3176,6 +3400,14 @@
       {
         "benchmark": "af_set",
         "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 5.2513855898654,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "p2rank_2.5.1",
         "metric": "recall_topn",
         "value": 0.42156259612426944,
         "ci_low": 0.40018260492123564,
@@ -3284,6 +3516,14 @@
         "value": 0.002854547813675879,
         "ci_low": 0.0013510958922301822,
         "ci_high": 0.0048334369303911755
+      },
+      {
+        "benchmark": "af_set",
+        "method": "p2rank_2.5.1_af",
+        "metric": "pockets_per_structure",
+        "value": 7.442596991290578,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "af_set",
@@ -3400,6 +3640,14 @@
       {
         "benchmark": "dimer",
         "method": "BURROW[burrow_all_default_s0]",
+        "metric": "pockets_per_structure",
+        "value": 46.3725,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "BURROW[burrow_all_default_s0]",
         "metric": "recall_DCC12_topn2@interface",
         "value": 0.8559670781893004,
         "ci_low": 0.805145500997009,
@@ -3444,6 +3692,14 @@
         "value": 0.8636363636363636,
         "ci_low": 0.7719024122807017,
         "ci_high": 0.9483031427324312
+      },
+      {
+        "benchmark": "dimer",
+        "method": "BURROW[burrow_all_accurate_s0]",
+        "metric": "pockets_per_structure",
+        "value": 47.045,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "dimer",
@@ -3496,6 +3752,14 @@
       {
         "benchmark": "dimer",
         "method": "fpocket_4.2.3+PRANK_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 50.4525,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "fpocket_4.2.3+PRANK_2.5.1",
         "metric": "recall_DCC12_topn2@interface",
         "value": 0.8683127572016461,
         "ci_low": 0.818510101010101,
@@ -3540,6 +3804,14 @@
         "value": 0.8787878787878788,
         "ci_low": 0.7894736842105263,
         "ci_high": 0.9538636363636364
+      },
+      {
+        "benchmark": "dimer",
+        "method": "p2rank_2.5.1",
+        "metric": "pockets_per_structure",
+        "value": 13.18,
+        "ci_low": null,
+        "ci_high": null
       },
       {
         "benchmark": "dimer",
@@ -4935,7 +5207,7 @@
     }
   ],
   "provenance": {
-    "commit": "348f26fd624860c9a88edfbf370fdcd63aafa07e",
+    "commit": "20421b60d68a3dd14848bacd370916053d420089",
     "dirty_tree": true,
     "prediction_code_commit": "5e13267ca7f38c20be8907821ab0e49891ee3d5a",
     "prereg_sha256": "59c7e41ef2f29900fb50e0582ff851dccd93da4a33585e6c89fe3c299aba8c37",
@@ -4974,7 +5246,7 @@
       "seed": 20261026,
       "units": "30% sequence clusters (MMseqs2)"
     },
-    "utc": "2026-10-26T23:16:55Z",
-    "seconds": 2110
+    "utc": "2026-10-26T23:43:45Z",
+    "seconds": 73
   }
 }

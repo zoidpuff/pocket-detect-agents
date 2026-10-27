@@ -1,0 +1,17 @@
+metric,value,ci_low,ci_high,n
+recall_topn,1.0,1.0,1.0,270
+recall_anyp_topn,1.0,1.0,1.0,270
+recall_1to1_topn,1.0,1.0,1.0,270
+recall_topn2,1.0,1.0,1.0,270
+recall_anyp_topn2,1.0,1.0,1.0,270
+recall_1to1_topn2,1.0,1.0,1.0,270
+recall_max,1.0,1.0,1.0,270
+RRO,,,,0
+P1K,1.0,1.0,1.0,270
+TP@100FP,270.0,246.975,297.025,270
+P1K_1to1,1.0,1.0,1.0,270
+TP@100FP_1to1,270.0,246.975,297.025,270
+n_scored_sites,270.0,,,270
+n_structures,222.0,,,222
+n_groups,203.0,,,203
+n_pred_missing,0.0,,,222

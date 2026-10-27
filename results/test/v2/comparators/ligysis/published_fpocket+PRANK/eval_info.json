@@ -1,0 +1,70 @@
+{
+  "benchmark": {
+    "name": "ligysis",
+    "kind": "sites",
+    "path": "data/processed/gt/ligysis_lbs/sites.tsv",
+    "cluster_sources": [
+      "ligysis",
+      "ligysis_extra"
+    ],
+    "headline": [
+      "recall_topn2",
+      "recall_ldca_topn2",
+      "P1K",
+      "recall_topn",
+      "recall_max",
+      "recall_1to1_topn2",
+      "P1K_1to1"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG C1 / C1-strict / C2",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/gt/ligysis_lbs/sites.tsv",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/_common/published_fpocket+PRANK/preds",
+  "n_boot": 1000,
+  "seed": 20261026,
+  "n_pred_missing": 16,
+  "headline": {
+    "recall_topn2": {
+      "value": 0.6042255616723702,
+      "ci_low": 0.5835625675373464,
+      "ci_high": 0.6232258591450945
+    },
+    "recall_ldca_topn2": {
+      "value": 0.31579771410677937,
+      "ci_low": 0.2961209989716512,
+      "ci_high": 0.33552159152320515
+    },
+    "P1K": {
+      "value": 0.817,
+      "ci_low": 0.777,
+      "ci_high": 0.8520249999999999
+    },
+    "recall_topn": {
+      "value": 0.48846897783067994,
+      "ci_low": 0.46834149982787937,
+      "ci_high": 0.5076801849443437
+    },
+    "recall_max": {
+      "value": 0.9129593810444874,
+      "ci_low": 0.9031576028429575,
+      "ci_high": 0.9219229379777701
+    },
+    "recall_1to1_topn2": {
+      "value": 0.6634429400386848,
+      "ci_low": 0.6458177675201895,
+      "ci_high": 0.6811088677085408
+    },
+    "P1K_1to1": {
+      "value": 0.764,
+      "ci_low": 0.723,
+      "ci_high": 0.799025
+    }
+  }
+}

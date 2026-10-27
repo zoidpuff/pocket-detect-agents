@@ -1,0 +1,39 @@
+{
+  "benchmark": {
+    "name": "holo4k_mlig",
+    "kind": "ligands",
+    "path": "data/raw/p2rank_datasets/current/holo4k(mlig).ds",
+    "cluster_sources": [
+      "holo4k"
+    ],
+    "headline": [
+      "success_DCA4_topn",
+      "success_DCA4_topn2"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O2b",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/raw/p2rank_datasets/current/holo4k(mlig).ds",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/v2/preds/holo4k_mlig/burrow_small_default_s1/preds",
+  "n_boot": 1000,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "success_DCA4_topn": {
+      "value": 0.7841140529531568,
+      "ci_low": 0.7526755458515283,
+      "ci_high": 0.8142858165603011
+    },
+    "success_DCA4_topn2": {
+      "value": 0.8690718649985453,
+      "ci_low": 0.8458463086986202,
+      "ci_high": 0.8911364684848979
+    }
+  }
+}

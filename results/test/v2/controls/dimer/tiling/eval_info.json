@@ -1,0 +1,51 @@
+{
+  "benchmark": {
+    "name": "dimer",
+    "kind": "dimer",
+    "path": "data/processed/dimer",
+    "cluster_sources": [
+      "dimer"
+    ],
+    "headline": [
+      "recall_DCC12_topn2@interface",
+      "recall_DCA4_topn2@interface",
+      "precision_DCC12_topn2@all",
+      "recall_DCC12_topn2@all"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O6 via scripts/eval_dimer.py (assembly input, J>=0.5 grouping = amendment A1, label-free collapse)",
+    "extras": []
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/dimer",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/_common/controls/dimer/tiling/preds",
+  "n_boot": 200,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "recall_DCC12_topn2@interface": {
+      "value": 0.17695473251028807,
+      "ci_low": 0.13233957219251338,
+      "ci_high": 0.22716661068189456
+    },
+    "recall_DCA4_topn2@interface": {
+      "value": 0.06584362139917696,
+      "ci_low": 0.037788865546218485,
+      "ci_high": 0.09917583252309188
+    },
+    "precision_DCC12_topn2@all": {
+      "value": 0.10138539042821158,
+      "ci_low": 0.0849463401210787,
+      "ci_high": 0.11918410316289722
+    },
+    "recall_DCC12_topn2@all": {
+      "value": 0.23296158612143741,
+      "ci_low": 0.19813691941048045,
+      "ci_high": 0.27483459899048496
+    }
+  }
+}

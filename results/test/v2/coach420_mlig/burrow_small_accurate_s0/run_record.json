@@ -1,0 +1,103 @@
+{
+  "utc": "2026-10-26T23:58:52Z",
+  "commit": "20421b60d68a3dd14848bacd370916053d420089",
+  "dirty": false,
+  "host": "eu-g6-048",
+  "version": "v2",
+  "final": false,
+  "benchmark": "coach420_mlig",
+  "method": "burrow_small_accurate_s0",
+  "prediction_code_commit": "0d925b2d5bb27f4e028cf7bd2eccd9cd18d7a71d",
+  "scoring_files_sha256": {
+    "src/pocketdetect/evaluate.py": "0ff2e4027048f11426ac839fd78d72dec9e1606b6d093d53a3a5e3bd47a55e47",
+    "src/pocketdetect/ligands.py": "92c30622b3aa0140e63ecc0350f84901e6859a60686011e8a32d0e6d896a299a",
+    "src/pocketdetect/site_eval.py": "e331476e57ed318173bb0612a1d48473749b4fdc3c200e73756b653b6fd7e4e1",
+    "src/pocketdetect/sites.py": "a7843e8d0334a452673f798abeb84f63c221927789d29389d1f4db1e9b6ba75c",
+    "src/pocketdetect/benchmarks.py": "e7921f9e19fef0d73dc2c005f97e1274e466002312560cc7b0d46e297f25114f",
+    "src/pocketdetect/clusters.py": "cf497348077e108224ddfe95183dc9947a796a020a9c53f44cf1ea1302f96dc9",
+    "src/pocketdetect/structure.py": "c1898b99108f030d0f7be7f72eb02407708819d7bb12636f20921ca75d22cab6",
+    "src/pocketdetect/ligysis.py": "74e62e3c76466c4422fdaa6b3bb0e83ff866b2f40ee804d6a31fcbae633e79fa",
+    "src/pocketdetect/af_eval.py": "1b92ba02df22341a443bcd35610cb7849c440dbd281e662cf00e4af6de27fa9d",
+    "src/pocketdetect/prereg.py": "cdff6a50b155eadaa8d68dd19113bb771b65dd87f7d37423337b32cd3b48f134",
+    "src/pocketdetect/controls.py": "576eb39adbd6a06d5600207e9ccdabf1261b4c3732863eccc4d748afe0dd04df",
+    "src/pocketdetect/seeds.py": "a73ebba00a049d20449017ce4fa7576a2cda052164d5102ea30692f6d006501d",
+    "scripts/eval_dimer.py": "4c7bbd9f518fd54bf43c5758382a66bb8f1468a3b7a7becba09fc2795836cb7b",
+    "scripts/run_test_eval.py": "c3acb0102b29856dfd457d93540ffc7a16bba6ed49d905d2330e7d4169ccbc7a",
+    "scripts/run_prereg_analysis.py": "94f3beabe94395c5f5dfbaab62d2017b919d985d3b0ab055cb4dea33a05133b1",
+    "docs/PREREG.md": "59c7e41ef2f29900fb50e0582ff851dccd93da4a33585e6c89fe3c299aba8c37"
+  },
+  "models": {
+    "/cluster/project/beltrao/gmagnus/pocket_detect/results/dev/freeze_v2/models/burrow_small_accurate_s0.json": "0533eb6178728258dc78c28f923800f272c3665668bea4b745203d03e54f0d98"
+  },
+  "code_sha256": {
+    "src/pocketdetect/evaluate.py": "0ff2e4027048f11426ac839fd78d72dec9e1606b6d093d53a3a5e3bd47a55e47",
+    "src/pocketdetect/ligands.py": "92c30622b3aa0140e63ecc0350f84901e6859a60686011e8a32d0e6d896a299a",
+    "src/pocketdetect/site_eval.py": "e331476e57ed318173bb0612a1d48473749b4fdc3c200e73756b653b6fd7e4e1",
+    "src/pocketdetect/sites.py": "a7843e8d0334a452673f798abeb84f63c221927789d29389d1f4db1e9b6ba75c",
+    "src/pocketdetect/benchmarks.py": "e7921f9e19fef0d73dc2c005f97e1274e466002312560cc7b0d46e297f25114f",
+    "src/pocketdetect/clusters.py": "cf497348077e108224ddfe95183dc9947a796a020a9c53f44cf1ea1302f96dc9"
+  },
+  "code_sha256_combined": "0b55e5f59b97593a699f1d3717dc1f712e94d26fae59d3ac6a37844ef6466104",
+  "prereg_sha256": "59c7e41ef2f29900fb50e0582ff851dccd93da4a33585e6c89fe3c299aba8c37",
+  "gt_sha256": "87d6e1724637adfa3dd84c891e80c36f0501c4c2dc7f11b62ec4c585c4f3c417",
+  "seed": 20261026,
+  "n_boot": 1000,
+  "argv": [
+    "/cluster/project/beltrao/gmagnus/pocket_detect/scripts/run_test_eval.py",
+    "--benchmark",
+    "coach420_mlig",
+    "--pred-dir",
+    "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/v2/preds/coach420_mlig/burrow_small_accurate_s0/preds",
+    "--method",
+    "burrow_small_accurate_s0",
+    "--version",
+    "v2",
+    "--n-boot",
+    "1000",
+    "--model",
+    "/cluster/project/beltrao/gmagnus/pocket_detect/results/dev/freeze_v2/models/burrow_small_accurate_s0.json",
+    "--code-commit",
+    "0d925b2d5bb27f4e028cf7bd2eccd9cd18d7a71d"
+  ],
+  "preds_sha256": "925c96091c78b7f1b18b59ef98c25866d9be54cae110d4c31af876546c2b9743",
+  "n_pred_files": 300,
+  "evaluation": {
+    "benchmark": {
+      "name": "coach420_mlig",
+      "kind": "ligands",
+      "path": "data/raw/p2rank_datasets/current/coach420(mlig).ds",
+      "cluster_sources": [
+        "coach420"
+      ],
+      "headline": [
+        "success_DCA4_topn",
+        "success_DCA4_topn2"
+      ],
+      "split": "test",
+      "rules": "p2rank_strict",
+      "criteria": [
+        "DCA4",
+        "DCC4"
+      ],
+      "note": "PREREG O2a",
+      "extras": []
+    },
+    "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/raw/p2rank_datasets/current/coach420(mlig).ds",
+    "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/results/test/v2/preds/coach420_mlig/burrow_small_accurate_s0/preds",
+    "n_boot": 1000,
+    "seed": 20261026,
+    "n_pred_missing": 0,
+    "headline": {
+      "success_DCA4_topn": {
+        "value": 0.7150395778364116,
+        "ci_low": 0.6648126463700234,
+        "ci_high": 0.7707892641679078
+      },
+      "success_DCA4_topn2": {
+        "value": 0.8311345646437994,
+        "ci_low": 0.7875606870384726,
+        "ci_high": 0.8740422328314359
+      }
+    }
+  }
+}
