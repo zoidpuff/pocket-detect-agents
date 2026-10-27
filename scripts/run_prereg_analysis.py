@@ -403,6 +403,7 @@ def main(argv=None):
                     desc.append({"benchmark": b, "method": name, "metric": m, "value": float(sv.loc[m, "value"]),
                                  "ci_low": float(sv.loc[m, "ci_low"]) if pd.notna(sv.loc[m, "ci_low"]) else None,
                                  "ci_high": float(sv.loc[m, "ci_high"]) if pd.notna(sv.loc[m, "ci_high"]) else None})
+    extra_cmp: list = []
     if a.extra:
         for e in json.loads(a.extra.read_text()):
             b = e["bench"]
@@ -411,6 +412,20 @@ def main(argv=None):
             else:
                 d = gated_evaluate(version, b, e["name"], ROOT / e["pred_dir"], e.get("models", ["none"]), a.n_boot, e.get("code_commit", code_commit))
             sv = summary_values(d)
+            # paired Δ vs the listed reference evaluations (descriptive; endpoint metric of the benchmark)
+            ep = next((x for x in FAMILY1[:1] + FAMILY2 if x.benchmark == b), None)
+            metric, stratum = (ep.metric, ep.stratum) if ep else ("recall_topn2", None)
+            for ref in e.get("compare_to", []):
+                if ref.get("baseline"):
+                    rd = comparator_eval(b, ref["baseline"])
+                    rname = ref["baseline"]
+                else:
+                    rd = ROOT / "results/test" / ref["version"] / b / ref["variant"]
+                    rname = f"{ref['version']}:{ref['variant']}"
+                for mm in ([metric, "recall_ldca_topn2"] if b == "ligysis" else [metric]):
+                    c = paired(rows(b, d), rows(b, rd), mm, stratum=stratum, n_boot=a.n_boot)
+                    extra_cmp.append({"benchmark": b, "method": e["name"], "reference": rname, "metric": mm + (f"@{stratum}" if stratum else ""),
+                                      **{k: v for k, v in c.items() if not k.startswith("_") and k not in ("metric", "stratum")}})
             for m in SECONDARY[kind_of(b)] + ["pockets_per_structure"]:
                 v = pockets_per_structure(d) if m == "pockets_per_structure" else (sv.loc[m, "value"] if m in sv.index else None)
                 if v is not None:
@@ -418,6 +433,7 @@ def main(argv=None):
                                  "ci_low": float(sv.loc[m, "ci_low"]) if m in sv.index and pd.notna(sv.loc[m, "ci_low"]) else None,
                                  "ci_high": float(sv.loc[m, "ci_high"]) if m in sv.index and pd.notna(sv.loc[m, "ci_high"]) else None})
     result["descriptive"]["secondary"] = desc
+    result["descriptive"]["extra_paired"] = extra_cmp
     if a.compare_version:
         other = json.loads((ROOT / "results/test" / a.compare_version / "summary.json").read_text())["descriptive"]["secondary"]
         keep = ("recall_topn2", "recall_anyp_topn2", "recall_max", "P1K", "P1K_1to1", "pockets_per_structure", "success_DCA4_topn",
@@ -549,6 +565,11 @@ def render(R: dict) -> str:
         sc = 1 if (r["metric"].startswith("TP@") or r["metric"] == "pockets_per_structure") else 100
         ci = f" [{r['ci_low'] * sc:.1f}, {r['ci_high'] * sc:.1f}]" if r["ci_low"] is not None else ""
         L.append(f"| {r['benchmark']} | {r['method']} | {r['metric']} | {r['value'] * sc:.1f}{ci} |")
+    if R["descriptive"].get("extra_paired"):
+        L += ["", "## Descriptive extra rows — paired Δ (no claims; ablations / retrained baselines)", "",
+              "| benchmark | method | reference | metric | method | reference | Δ [95% CI] | n rows |", "|---|---|---|---|---|---|---|---|"]
+        for r in R["descriptive"]["extra_paired"]:
+            L.append(f"| {r['benchmark']} | {r['method']} | {r['reference']} | {r['metric']} | {f(r['a'])} | {f(r['b'])} | {f(r['diff'])} [{f(r['ci_low'])}, {f(r['ci_high'])}] | {r['n_rows']} |")
     if R["descriptive"].get("tradeoff"):
         L += ["", "## Output-length trade-off (BURROW seed 0; both versions)", "", "| benchmark | version | variant | metric | value |", "|---|---|---|---|---|"]
         for r in sorted(R["descriptive"]["tradeoff"], key=lambda r: (r["benchmark"], r["method"], r["metric"], r["version"])):

@@ -188,7 +188,10 @@ def finalize(bench: str, vdir: Path, suffix: str) -> Path:
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--version", required=True)
-    ap.add_argument("--freeze", required=True, type=Path)
+    ap.add_argument("--freeze", type=Path, default=None, help="FREEZE.md (frozen BURROW models); or use --prefix/--model-all/--model-small")
+    ap.add_argument("--prefix", default=None, help="descriptive model set: variant = <prefix>_<ranker>_s0[_af] (preset label 'default')")
+    ap.add_argument("--model-all", type=Path, default=None)
+    ap.add_argument("--model-small", type=Path, default=None)
     ap.add_argument("--presets", default="default,accurate")
     ap.add_argument("--seeds", default="0,1,2", help="indices into SEEDS (model files _s<i>)")
     ap.add_argument("--benchmarks", default="all")
@@ -204,7 +207,16 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if not re.fullmatch(r"[A-Za-z0-9._+-]+", a.version) or a.version.startswith("_"):
         raise SystemExit("bad version name")
-    fz = parse_freeze(a.freeze)
+    if a.prefix:
+        if not (a.model_all and a.model_small):
+            raise SystemExit("--prefix needs --model-all and --model-small")
+        fz = {"models": {("all", "default", 0): a.model_all.resolve(), ("small", "default", 0): a.model_small.resolve()}, "af_rankers": {},
+              "sha256": {str(a.model_all.resolve()): sha256(a.model_all), str(a.model_small.resolve()): sha256(a.model_small)}}
+        a.presets, a.seeds = "default", "0"
+    elif a.freeze:
+        fz = parse_freeze(a.freeze)
+    else:
+        raise SystemExit("--freeze or --prefix required")
     set_code_root(a.code_root.resolve())
     code_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=CODE["root"], capture_output=True, text=True).stdout.strip()
     code_dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=CODE["root"], capture_output=True, text=True).stdout.strip()
@@ -228,7 +240,7 @@ def main(argv=None):
                 backend = a.backend
                 if backend == "auto":
                     backend = "reference" if (af and afr is not None and not fast_af) else "fast"
-                variant = f"burrow_{ranker}_{preset}_s{seed}" + ("_af" if af else "")
+                variant = (f"{a.prefix}_{ranker}_s{seed}" if a.prefix else f"burrow_{ranker}_{preset}_s{seed}") + ("_af" if af else "")
                 jobs.append(dict(bench=b, variant=variant, inputs=str(inp), ranker=ranker, preset=preset, seed=seed, seed_value=SEEDS[seed],
                                  af_mode=af, model=str(model), af_ranker=str(afr) if afr else None, backend=backend, suffix=suffix))
     out_root = ROOT / "results/test" / a.version / "preds"
@@ -238,7 +250,8 @@ def main(argv=None):
         return
     out_root.mkdir(parents=True, exist_ok=True)
     idx_path = out_root / "index.json"
-    index = json.loads(idx_path.read_text()) if idx_path.exists() else {"version": a.version, "freeze": str(a.freeze), "sha256": fz["sha256"], "runs": {}}
+    index = json.loads(idx_path.read_text()) if idx_path.exists() else {"version": a.version, "freeze": str(a.freeze), "sha256": {}, "runs": {}}
+    index["sha256"].update(fz["sha256"])
     if index.get("code_commit") not in (None, code_commit):
         raise SystemExit(f"index.json was produced with code {index['code_commit']}, not {code_commit}")
     index.update(code_commit=code_commit, code_root=str(CODE["root"]))
