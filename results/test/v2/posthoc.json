@@ -1,0 +1,612 @@
+{
+  "label": "POST-HOC, DESCRIPTIVE (not pre-registered)",
+  "bootstrap": {
+    "n_boot": 1000,
+    "seed": 20261026,
+    "units": "30% sequence clusters"
+  },
+  "o5_ligand_class": [
+    {
+      "split": "2-class",
+      "class": "ion",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 68.70355078447564,
+      "b": 36.62262592898431,
+      "diff": 32.08092485549133,
+      "ci_low": 28.33303075608714,
+      "ci_high": 36.146780484415544,
+      "a_ci": [
+        65.63567223420975,
+        71.56507278435204
+      ],
+      "n_rows": 2422,
+      "n_units": 832,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "split": "2-class",
+      "class": "ion",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 50.218150087260035,
+      "b": 5.279232111692845,
+      "diff": 44.93891797556719,
+      "ci_low": 41.449852186045725,
+      "ci_high": 48.82999508882089,
+      "a_ci": [
+        46.786060830751836,
+        53.88364350770749
+      ],
+      "n_rows": 2292,
+      "n_units": 806,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 130,
+      "common_subset": false
+    },
+    {
+      "split": "2-class",
+      "class": "non-ion",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 62.083333333333336,
+      "b": 60.19607843137255,
+      "diff": 1.8872549019607843,
+      "ci_low": -0.09621070750086502,
+      "ci_high": 3.8678071220141677,
+      "a_ci": [
+        59.86308886943553,
+        64.4271642705117
+      ],
+      "n_rows": 4080,
+      "n_units": 1263,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "split": "2-class",
+      "class": "non-ion",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 47.865528281750265,
+      "b": 43.81003201707578,
+      "diff": 4.055496264674493,
+      "ci_low": 2.4804961625356836,
+      "ci_high": 5.578197268654372,
+      "a_ci": [
+        45.31560457745491,
+        50.320034960392846
+      ],
+      "n_rows": 3748,
+      "n_units": 1215,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 332,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "ion",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 68.70355078447564,
+      "b": 36.62262592898431,
+      "diff": 32.08092485549133,
+      "ci_low": 28.33303075608714,
+      "ci_high": 36.146780484415544,
+      "a_ci": [
+        65.63567223420975,
+        71.56507278435204
+      ],
+      "n_rows": 2422,
+      "n_units": 832,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "ion",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 50.218150087260035,
+      "b": 5.279232111692845,
+      "diff": 44.93891797556719,
+      "ci_low": 41.449852186045725,
+      "ci_high": 48.82999508882089,
+      "a_ci": [
+        46.786060830751836,
+        53.88364350770749
+      ],
+      "n_rows": 2292,
+      "n_units": 806,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 130,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "nucleotide-cofactor",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 84.91048593350384,
+      "b": 84.78260869565217,
+      "diff": 0.1278772378516624,
+      "ci_low": -2.273051948051957,
+      "ci_high": 2.4702064504696075,
+      "a_ci": [
+        81.4547265394452,
+        88.0706627147134
+      ],
+      "n_rows": 782,
+      "n_units": 449,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "nucleotide-cofactor",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 82.6086956521739,
+      "b": 82.20108695652173,
+      "diff": 0.4076086956521739,
+      "ci_low": -2.4002409638554236,
+      "ci_high": 3.374468199206324,
+      "a_ci": [
+        78.96196832448412,
+        85.85217154728927
+      ],
+      "n_rows": 736,
+      "n_units": 431,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 46,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "other",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 56.67070952092177,
+      "b": 54.36628259551243,
+      "diff": 2.304426925409339,
+      "ci_low": -0.05969849822309164,
+      "ci_high": 4.935946422573053,
+      "a_ci": [
+        54.338976588591756,
+        59.32115483120594
+      ],
+      "n_rows": 3298,
+      "n_units": 1018,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "split": "3-class",
+      "class": "other",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 39.375830013280215,
+      "b": 34.428950863213814,
+      "diff": 4.946879150066401,
+      "ci_low": 3.083609656019913,
+      "ci_high": 6.758145483249085,
+      "a_ci": [
+        37.13523270750755,
+        41.73703148594107
+      ],
+      "n_rows": 3012,
+      "n_units": 972,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 286,
+      "common_subset": false
+    }
+  ],
+  "ligysis_ni": [
+    {
+      "method": "v1:burrow_small_default_s0",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 58.72977541656605,
+      "b": 63.366336633663366,
+      "diff": -4.636561217097319,
+      "ci_low": -6.337086501506671,
+      "ci_high": -2.9004975799960953,
+      "a_ci": [
+        56.170996201202165,
+        61.21783817540701
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v1:burrow_small_default_s0",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.2326656394453,
+      "b": 48.20236260914227,
+      "diff": 3.0303030303030303,
+      "ci_low": 1.4932113894355705,
+      "ci_high": 4.661612815059616,
+      "a_ci": [
+        48.896715121745615,
+        53.888979508667866
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v1:burrow_small_default_s0",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 58.72977541656605,
+      "b": 60.927312243419465,
+      "diff": -2.1975368268534172,
+      "ci_low": -4.5377899530430055,
+      "ci_high": 0.024650320137568935,
+      "a_ci": [
+        56.170996201202165,
+        61.21783817540701
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v1:burrow_small_default_s0",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.2326656394453,
+      "b": 44.5814072932717,
+      "diff": 6.6512583461736,
+      "ci_low": 4.928284139242617,
+      "ci_high": 8.496498018330444,
+      "a_ci": [
+        48.896715121745615,
+        53.888979508667866
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s0",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.36078241970539,
+      "b": 63.366336633663366,
+      "diff": 2.994445786042019,
+      "ci_low": 1.06807166924614,
+      "ci_high": 4.743391150673192,
+      "a_ci": [
+        64.09820925028806,
+        68.54762172043905
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s0",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.30970724191063,
+      "b": 48.20236260914227,
+      "diff": 3.1073446327683616,
+      "ci_low": 1.4765299541164838,
+      "ci_high": 4.816392103917616,
+      "a_ci": [
+        48.78648541412058,
+        53.96990486494793
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s0",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.36078241970539,
+      "b": 60.927312243419465,
+      "diff": 5.433470176285922,
+      "ci_low": 3.4914748903445187,
+      "ci_high": 7.471066251160564,
+      "a_ci": [
+        64.09820925028806,
+        68.54762172043905
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s0",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.30970724191063,
+      "b": 44.5814072932717,
+      "diff": 6.728299948638932,
+      "ci_low": 5.165903780474852,
+      "ci_high": 8.360119114689182,
+      "a_ci": [
+        48.78648541412058,
+        53.96990486494793
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s1",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.81960879014731,
+      "b": 63.366336633663366,
+      "diff": 3.453272156483941,
+      "ci_low": 1.5115933644599178,
+      "ci_high": 5.265659174363073,
+      "a_ci": [
+        64.60813812970717,
+        69.07100578595919
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s1",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.74627632254751,
+      "b": 48.20236260914227,
+      "diff": 3.5439137134052388,
+      "ci_low": 1.973600185752878,
+      "ci_high": 5.2193248113063575,
+      "a_ci": [
+        49.2652059559921,
+        54.19580009489001
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s1",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.81960879014731,
+      "b": 60.927312243419465,
+      "diff": 5.892296546727843,
+      "ci_low": 3.9006037504741835,
+      "ci_high": 7.877885356327449,
+      "a_ci": [
+        64.60813812970717,
+        69.07100578595919
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s1",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.74627632254751,
+      "b": 44.5814072932717,
+      "diff": 7.164869029275809,
+      "ci_low": 5.623237288743762,
+      "ci_high": 8.820832015061686,
+      "a_ci": [
+        49.2652059559921,
+        54.19580009489001
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s2",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.69886500845206,
+      "b": 63.366336633663366,
+      "diff": 3.3325283747886982,
+      "ci_low": 1.3849971095825495,
+      "ci_high": 5.102380475666084,
+      "a_ci": [
+        64.36690906492377,
+        68.90522644399051
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s2",
+      "comparator": "fpocket_4.2.3+PRANK_2.4.2",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.41242937853107,
+      "b": 48.20236260914227,
+      "diff": 3.210066769388803,
+      "ci_low": 1.607172125530656,
+      "ci_high": 4.909858747171427,
+      "a_ci": [
+        48.89452842963273,
+        53.96416530413221
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s2",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_topn2",
+      "stratum": "",
+      "a": 66.69886500845206,
+      "b": 60.927312243419465,
+      "diff": 5.771552765032601,
+      "ci_low": 3.7966241124587095,
+      "ci_high": 7.702490368103799,
+      "a_ci": [
+        64.36690906492377,
+        68.90522644399051
+      ],
+      "n_rows": 4141,
+      "n_units": 1246,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "method": "v2:burrow_small_default_s2",
+      "comparator": "p2rank_2.5.1",
+      "metric": "recall_ldca_topn2",
+      "stratum": "",
+      "a": 51.41242937853107,
+      "b": 44.5814072932717,
+      "diff": 6.831022085259374,
+      "ci_low": 5.301821125695157,
+      "ci_high": 8.468647660938036,
+      "a_ci": [
+        48.89452842963273,
+        53.96416530413221
+      ],
+      "n_rows": 3894,
+      "n_units": 1220,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 247,
+      "common_subset": false
+    }
+  ],
+  "o6_interface_fold_novelty": [
+    {
+      "metric": "success_DCC12_topn2",
+      "stratum": "0.5-0.7",
+      "a": 83.33333333333333,
+      "b": 86.11111111111111,
+      "diff": -2.7777777777777777,
+      "ci_low": -14.70588235294118,
+      "ci_high": 8.830213903743312,
+      "a_ci": [
+        69.69065656565657,
+        97.05882352941177
+      ],
+      "n_rows": 36,
+      "n_units": 33,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "metric": "success_DCC12_topn2",
+      "stratum": "<0.5",
+      "a": 81.81818181818181,
+      "b": 86.01398601398601,
+      "diff": -4.195804195804196,
+      "ci_low": -10.855117976574444,
+      "ci_high": 2.2905167351732163,
+      "a_ci": [
+        74.60317460317461,
+        88.72375939849624
+      ],
+      "n_rows": 143,
+      "n_units": 94,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    },
+    {
+      "metric": "success_DCC12_topn2",
+      "stratum": ">0.7",
+      "a": 89.0625,
+      "b": 92.1875,
+      "diff": -3.125,
+      "ci_low": -10.610139860139862,
+      "ci_high": 3.4497882637628607,
+      "a_ci": [
+        80.32786885245902,
+        96.36979969183358
+      ],
+      "n_rows": 64,
+      "n_units": 50,
+      "n_unpaired_as_miss": 0,
+      "n_undefined_dropped": 0,
+      "common_subset": false
+    }
+  ],
+  "o6_note": "interface = homo_interface + hetero_interface sites (243 of 807); fold stratum = max Foldseek TM band over the complex's chains",
+  "provenance": {
+    "v1": {
+      "8b59de7": "identical",
+      "20421b6": "identical",
+      "2b367a9": "identical",
+      "9521756": "identical",
+      "HEAD": "identical",
+      "reference_commit": "8b59de7"
+    },
+    "v2": {
+      "2b367a9": "identical",
+      "9521756": "identical",
+      "HEAD": "identical",
+      "reference_commit": "2b367a9"
+    }
+  },
+  "dimer_counts": {
+    "assemblies_scored": 400,
+    "sites": 807,
+    "interface_sites": 243,
+    "assemblies_with_interface_site": 214,
+    "cluster30_units": 283
+  }
+}
