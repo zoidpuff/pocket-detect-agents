@@ -33,4 +33,4 @@ logs/
 .worktrees/
 results/test/*/preds/
 results/ablations/models/abl_drop-*
-release/
+/release/
