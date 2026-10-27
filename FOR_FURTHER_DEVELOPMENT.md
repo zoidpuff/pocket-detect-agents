@@ -164,7 +164,7 @@ burrow predict release/burrow/examples/ --out out/batch --workers 2 --ranker sma
 burrow predict release/burrow/examples/1a28_A.pdb --out out/full --min-score none    # 40 pockets (v2: 6)
 burrow predict release/burrow/examples/1a28_A.pdb --out out/region --output-rule region   # 11 pockets
 ```
-- **Backends.** `--backend auto` (default) runs the fast backend and falls back to the reference per input; `--device cuda:0,1 --workers 8` uses GPUs. Outputs are byte-identical across reference, fast CPU and fast GPU (`tests/test_burrow_cli_backends.py`, `scripts/verify_burrow_fast.py`). Exception: `--preset fast` currently has no GPU path (the 1.5 Å grid trips a float32 check), so it falls back to CPU.
+- **Backends.** `--backend auto` (default) runs the fast backend and falls back to the reference per input; `--device cuda:0,1 --workers 8` uses GPUs. Outputs are byte-identical across reference, fast CPU and fast GPU (`tests/test_burrow_cli_backends.py`, `scripts/verify_burrow_fast.py`). `--preset fast` also runs on GPU: its 1.5 Å grid needed the inverse grid spacing as an fp64 kernel argument, which is fixed and tested (`docs/PERF.md`).
 - **Speed** (`docs/PERF.md` "Final like-for-like timing", 200 LIGYSIS chains, 1 core, warm, excluding parsing): `fast` 28.4 ms, `default` 96.0 ms, `accurate` 203.0 ms median. Throughput at 24 CPU workers: 371 / 150 / 80 structures/s. Large GPU batches (10,000 structures, 3 GPUs): fast 646/s, default 411/s.
 - **Parser.** `burrow/fast/io.py` parses about 3× faster than `load_structure` with identical output.
 - **Cold start.** The first Numba compilation takes ~37 s once per installation.
