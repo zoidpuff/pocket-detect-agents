@@ -25,7 +25,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
-- D16 (02:20): No further test version: three dev cycles show saturation on non-ion ranking; use remaining time for completeness, external report review, error analysis.
+- D16 (02:01): No further test version: three dev cycles show saturation on non-ion ranking; use remaining time for completeness, external report review, error analysis.
 - D15 (01:41): v2 is the final version (v3 failed its gate). Remaining time → descriptive rows, REPORT.md, independent report review, number-check script.
 - D14 (01:20): Use the last allowed version (v3) for multimer/interface sites only if a dev signal (train-assembly OOF) reproduces the weakness; gate fixed before experiments. Decision informed by the test O6 result → disclosed as test-informed targeting in the report.
 - D13 (23:09): Adopt v2 (H5 output floor) as the candidate final version BEFORE any v1 test result is seen; v1 and v2 both reported on test; full candidate list remains available via --min-score none. Framing: v2 trades max recall for a shorter, higher-confidence list that the LIGYSIS closest-pocket rule rewards.
