@@ -25,6 +25,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D16 (02:20): No further test version: three dev cycles show saturation on non-ion ranking; use remaining time for completeness, external report review, error analysis.
 - D15 (01:41): v2 is the final version (v3 failed its gate). Remaining time → descriptive rows, REPORT.md, independent report review, number-check script.
 - D14 (01:20): Use the last allowed version (v3) for multimer/interface sites only if a dev signal (train-assembly OOF) reproduces the weakness; gate fixed before experiments. Decision informed by the test O6 result → disclosed as test-informed targeting in the report.
 - D13 (23:09): Adopt v2 (H5 output floor) as the candidate final version BEFORE any v1 test result is seen; v1 and v2 both reported on test; full candidate list remains available via --min-score none. Framing: v2 trades max recall for a shorter, higher-confidence list that the LIGYSIS closest-pocket rule rewards.
@@ -110,4 +111,6 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [~] 8.4 Descriptive test rows: ablations A1–A3 (+A1 with floor), P2Rank-ours, optional AF ranker, strata
   - [x] 8.5 Descriptive: [!] PocketMiner test residue ROC-AUC BURROW v2 0.792 ≈ PocketMiner 0.789 (cryptic-trained) ≫ P2Rank 0.601; AUPRC 0.714 (0.755 with --min-score none) vs 0.712. CryptoBench test holo vs apo (233 paired sites): BURROW 68.7→79.4 (drop 10.7), P2Rank 72.1→79.8 (7.7); on holo DCA4 BURROW +6.4 over P2Rank
   - [~] 8.6 Packaging: unified CLI (fast backend routing), README, scripts/reproduce_all.sh (+smoke), full pytest
-  - [~] 8.7 REPORT.md draft (fresh writer agent) + scripts/check_report_numbers.py
+  - [x] 8.7 REPORT.md draft (fresh writer) + checker (1,160 numbers pass); 6 placeholders pending descriptive rows/packaging
+    - [!] Non-ion LIGYSIS (LIGYSIS_NI, v2 small): top-N+2 66.4 vs fpocket+PRANK 63.4 / P2Rank 60.9; DCA4 51.3 vs 48.2/44.6; P1K 89.6 vs 82.7/80.8; but any-pocket 71.7 vs 72.9 and one-to-one 66.6 vs 68.5 (fpocket+PRANK ahead) → drug-like sites: at par to modestly better; ions carry most of C1 margin (v2 ion Δ +29.5, 'other' +2.2)
+  - [~] 8.8 Dev error analysis of missed non-ion sites (for follow-ups)
