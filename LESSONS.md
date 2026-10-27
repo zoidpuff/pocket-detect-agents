@@ -17,3 +17,4 @@ One-line rules with evidence. Final prune 2026-10-27 ~07:20 after a fresh-agent 
 13. Select on train cluster-CV, touch dev rarely, and disclose any test-informed steering (evidence: phase 3 selected on CV, dev once; D14 v3 targeted O6 after test v1 — disclosed).
 14. Time-box exploratory branches with a kill criterion; optimise feature-dependent code only after the freeze (evidence: AF side-chain tolerance −16 pts; v3 +0.3…+1.9 vs +3 gate; backend feature stage re-ported after freeze).
 15. Run frozen-version test predictions from an isolated git worktree, and test exactness at every branch boundary value (evidence: v2 edits began minutes after FREEZE v1, D10; Triton fp32 bug only at pLDDT = 70, D11).
+16. A privacy checker must not contain the identifiers it guards against; keep project-specific patterns in an untracked local file (evidence: release audit found the user's username/surname/lab hard-coded in check_release_clean.py).
