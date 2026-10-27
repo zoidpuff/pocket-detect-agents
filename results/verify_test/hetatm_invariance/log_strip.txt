@@ -1,0 +1,1 @@
+[burrow] 3/3 ok -> results/verify_test/hetatm_invariance/out_strip

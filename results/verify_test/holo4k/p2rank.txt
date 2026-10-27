@@ -1,0 +1,1 @@
+p2rank_2.5.1	ligands=6885	structures=3416	DCA4_topn=76.49	DCA4_topn2=83.31	heavy=False

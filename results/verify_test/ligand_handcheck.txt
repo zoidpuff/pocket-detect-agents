@@ -1,0 +1,12 @@
+1l9l_A site 3 1l9l_SO4_E_84: real heavy atoms 5, matched <=0.01A 5, max nn-dist 0.000 A; table atoms for site 5
+3f3y_A site 3 3f3y_4OA_E_326: real heavy atoms 27, matched <=0.01A 27, max nn-dist 0.000 A; table atoms for site 126
+6yb8_B site 2 6yb8_C2R_K_802: real heavy atoms 22, matched <=0.01A 22, max nn-dist 0.000 A; table atoms for site 44
+7mnu_B site 0 7mnu_ZN_E_1801: real heavy atoms 1, matched <=0.01A 1, max nn-dist 0.000 A; table atoms for site 1
+6fxh_A 1 6fxh_MG_GB_606 ligand residue not found in mmCIF
+7jl5_A site 0 7jl5_ZN_C_701: real heavy atoms 1, matched <=0.01A 1, max nn-dist 0.000 A; table atoms for site 1
+6s7t_A site 0 6s7t_EGY_Q_915: real heavy atoms 43, matched <=0.01A 43, max nn-dist 0.000 A; table atoms for site 86
+5wp9_I site 0 5wp9_MG_Z_802: real heavy atoms 1, matched <=0.01A 1, max nn-dist 0.000 A; table atoms for site 223
+2p0a_A 0 2p0a_ANP_HA_707 ligand residue not found in mmCIF
+5of9_B site 0 5of9_ZN_F_701: real heavy atoms 1, matched <=0.01A 1, max nn-dist 0.000 A; table atoms for site 6
+7uhy_B 2 7uhy_ZN_RA_1004 ligand residue not found in mmCIF
+3bo5_A site 1 3bo5_ZN_E_304: real heavy atoms 1, matched <=0.01A 1, max nn-dist 0.000 A; table atoms for site 1

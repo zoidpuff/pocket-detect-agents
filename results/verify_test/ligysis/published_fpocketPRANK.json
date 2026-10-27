@@ -1,0 +1,16 @@
+{
+ "method": "published_fpocket+PRANK",
+ "src": "published",
+ "n_sites_NR": 6721,
+ "n_chains": 2775,
+ "n_missing_chains": 16,
+ "n_pockets": 57859,
+ "topN": 3283,
+ "topN2": 4061,
+ "max": 6136,
+ "topN_pct": 48.85,
+ "topN2_pct": 60.42,
+ "max_pct": 91.3,
+ "P1K_pct": 81.7,
+ "n_score_nan": 0
+}

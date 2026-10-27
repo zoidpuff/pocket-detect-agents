@@ -1,0 +1,16 @@
+{
+ "method": "burrow_v1_s1",
+ "src": "results/test/v1/preds/ligysis/burrow_all_default_s1/raw",
+ "n_sites_NR": 6721,
+ "n_chains": 2775,
+ "n_missing_chains": 0,
+ "n_pockets": 91187,
+ "topN": 3741,
+ "topN2": 4338,
+ "max": 6672,
+ "topN_pct": 55.66,
+ "topN2_pct": 64.54,
+ "max_pct": 99.27,
+ "P1K_pct": 96.4,
+ "n_score_nan": 0
+}

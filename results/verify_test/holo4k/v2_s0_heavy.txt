@@ -1,0 +1,1 @@
+burrow_v2_s0	ligands=6886	structures=3416	DCA4_topn=78.10	DCA4_topn2=86.96	heavy=True

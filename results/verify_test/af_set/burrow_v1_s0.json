@@ -1,0 +1,18 @@
+{
+ "method": "burrow_v1_s0_af",
+ "n_scored": 6502,
+ "n_missing_files": 0,
+ "C1_topn2_pct": 59.2,
+ "topn_pct": 49.2,
+ "n_lig_sites": 6040,
+ "C1strict_ldca4_topn2_pct": 49.67,
+ "anydca4_topn2_pct": 51.46,
+ "P1K_pct": 58.4,
+ "pockets_per_chain_mean": 42.08,
+ "pockets_per_chain_median": 49.0,
+ "pockets_per_chain_min": 3,
+ "pockets_per_chain_max": 50,
+ "n_chains_zero_pockets": 0,
+ "n_nan_scores": 0,
+ "frame_maxdev_A": null
+}

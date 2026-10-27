@@ -1,0 +1,16 @@
+{
+ "method": "fpocket423_PRANK242",
+ "src": "baselines/outputs/ligysis/fpocket_4.2.3+PRANK_2.4.2/preds",
+ "n_sites_NR": 6721,
+ "n_chains": 2775,
+ "n_missing_chains": 16,
+ "n_pockets": 57859,
+ "topN": 3257,
+ "topN2": 3999,
+ "max": 6006,
+ "topN_pct": 48.46,
+ "topN2_pct": 59.5,
+ "max_pct": 89.36,
+ "P1K_pct": 81.7,
+ "n_score_nan": 0
+}
