@@ -164,6 +164,16 @@ def write_md(R, path):
              "pass (`test_af_soft_weights_identical`, `test_gpu_batch_identical`, `test_gpu_features_identical`; "
              "default and accurate presets). A failure reported earlier came from running on a full GPU 0 (CUDA "
              "out-of-memory), not from a numerical difference.\n")
+    L.append("**Fix 2026-10-27 (GPU, `--preset fast`):** the GPU ray march received 1/spacing as a Python float "
+             "(fp32 in Triton); 1/1.5 Å is not fp32-exact, so the fast preset (1.5 Å grid) was rejected on GPU and "
+             "the CLI fell back to the reference implementation. 1/spacing is now passed as an fp64 tensor (as the "
+             "CPU reference computes it). Verified exact vs the reference on 40 random BioLiP dev structures for "
+             "`burrow_{all,small}_fast_s0` (GPUs 1/2) and 40 AF dev models in AF mode (`all`, GPU 1); regression "
+             "tests: `fast` added to the parametrised equivalence tests (CPU + GPU) and "
+             "`test_gpu_march_non_fp32_spacing`.\n")
+    fin = ROOT / "results/perf/bench_final.md"
+    if fin.exists():
+        L.append(fin.read_text())
     for preset in ("default", "accurate"):
         P = R["presets"][preset]
         L.append(f"\n## {preset.upper()} preset — 1 core, warm (ms per structure)\n")

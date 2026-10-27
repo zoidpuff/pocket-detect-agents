@@ -70,7 +70,7 @@ def main():
             print(f"CHECKSUM MISMATCH {key}: {algo} {got} != {want}", file=sys.stderr)
             bad += 1
             continue
-        if key not in done:
+        if os.path.basename(key) not in done:
             sha = hash_file(out, "sha256")
             with open(man_path, "a") as m:
                 m.write(f"{os.path.basename(key)}\t{sha}\t{x['size']}\t"
