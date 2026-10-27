@@ -25,6 +25,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D18 (08:45): Remaining ~6 h → `--preset fast` (speed goal) + AF filter descriptive row; no change to pre-registered default; fast preset evaluated on dev, test rows descriptive only.
 - D17 (07:15): API session limit paused all agents ~02:40–07:10 (≈4.5 h lost). Descriptive predictions had completed in detached jobs. Re-plan: descriptive scoring + error analysis by ~08:30, report fill + independent report review by ~10:30, final retro/branch by ~12:00. 8 orphaned P2Rank-2.4.2 JVMs (idle, ~16 GB RSS, from 16:28 smoke tests) could not be killed (permission denied) — reported to user.
 - D16 (02:01): No further test version: three dev cycles show saturation on non-ion ranking; use remaining time for completeness, external report review, error analysis.
 - D15 (01:41): v2 is the final version (v3 failed its gate). Remaining time → descriptive rows, REPORT.md, independent report review, number-check script.
@@ -114,6 +115,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 8.6 Packaging: unified CLI (--device/--workers/--backend; byte-identical across backends), README, scripts/reproduce_all.sh (smoke 7 s), pytest 226 pass
   - [x] 8.7 REPORT.md complete (fresh writer; commit 76207ee) + checker: 1,408 tagged numbers, 0 fail
   - [x] 8.9 Independent report review (reviews/report/REPORT_REVIEW.md): honest & traceable; MUST: goal-by-goal verdict, [!] O5 AF-set superiority is ion-driven (non-ion +1.9 [−0.2,4.1], reviewer RNG), O6 fold rows mislabelled, single deviations caveat, LIGYSIS_NI numbers, unused-dataset rationale, provenance/branch fixes
-  - [~] 8.10 Post-hoc descriptive numbers (project bootstrap) → report revision
+  - [x] 8.10 Post-hoc descriptive (project bootstrap; results/test/v2/POSTHOC.md): O5 ion +32.1 / non-ion +1.9 [−0.1,3.9]; LIGYSIS_NI v2 +3.0…+3.5 vs fpocket+PRANK (v1 −4.6); O6 interface fold strata all CIs incl. 0; bug found: SUMMARY O6 fold strata used all 807 sites (descriptive only) → REPORT revised (cd4f57e), checker 1,578 pass
+  - [~] 8.11 `--preset fast` (≤35 ms/core target, ≤2 pt dev loss) — speed is the weakest delivered goal
+  - [~] 8.12 Descriptive: naive + pLDDT<70 filter on AF test set
     - [!] Non-ion LIGYSIS (LIGYSIS_NI, v2 small): top-N+2 66.4 vs fpocket+PRANK 63.4 / P2Rank 60.9; DCA4 51.3 vs 48.2/44.6; P1K 89.6 vs 82.7/80.8; but any-pocket 71.7 vs 72.9 and one-to-one 66.6 vs 68.5 (fpocket+PRANK ahead) → drug-like sites: at par to modestly better; ions carry most of C1 margin (v2 ion Δ +29.5, 'other' +2.2)
   - [x] 8.8 Dev non-ion error analysis (805 sites; v2 71.2, fpocket+PRANK 66.0, P2Rank 58.4): of 232 v2 misses 65% dropped by output floor, 22% ranked >N+2, 9% closest rule, 4% no candidate; shallow (buriedness<0.65) and flexible (low WCN) sites, lipids/detergents/additives hardest; cofactors easiest
