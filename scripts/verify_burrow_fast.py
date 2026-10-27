@@ -45,28 +45,44 @@ def main(argv=None):
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--ranker", default="learned")
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--path-col", default="structure_path")
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--af-mode", action="store_true",
+                    help="AF mode (pruning + soft occlusion weights) on AF models; manifest column model_path")
     a = ap.parse_args(argv)
     df = read_manifest(a.manifest).sample(a.n, random_state=SEEDS[1])
     model = BurrowModel.load(a.model)
     fm = FP.FastModel.from_model(model)
     res = lambda p: str(p if Path(p).is_absolute() else ROOT / p)
-    Ps = [load_protein(res(p), structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
+    Ws = [None] * len(df)
+    n_exact70 = 0
+    if a.af_mode:
+        from pocketdetect.structure import load_structure
+        from pocketdetect.burrow.af import af_protein
+        Ps, Ws = [], []
+        for s, p in zip(df.structure_id, df[a.path_col]):
+            P, w, _ = af_protein(load_structure(res(p), structure_id=s))
+            Ps.append(P)
+            Ws.append(w)
+            n_exact70 += bool(w is not None and np.any((w == 0.75) | (w == 0.5)))
+    else:
+        Ps = [load_protein(res(p), structure_id=s) for s, p in zip(df.structure_id, df.structure_path)]
     if a.device == "cpu":
-        fast = [FP.predict_protein(P, fm, ranker=a.ranker) for P in Ps]
+        fast = [FP.predict_protein(P, fm, ranker=a.ranker, weights=w) for P, w in zip(Ps, Ws)]
     else:
         from pocketdetect.burrow.fast.gpu import predict_batch
-        fast = predict_batch(Ps, fm, device=a.device, ranker=a.ranker)
+        fast = predict_batch(Ps, fm, device=a.device, ranker=a.ranker, weights=Ws)
     rows, n_top, n_exact = [], 0, 0
-    for P, f in zip(Ps, fast):
-        r = ref_predict(P, model, ranker=a.ranker)
+    for P, f, w in zip(Ps, fast, Ws):
+        r = ref_predict(P, model, ranker=a.ranker, weights=w)
         top, ex = compare(r, f)
         n_top += top
         n_exact += ex
         rows.append(dict(id=P.id, n_ref=len(r.scores), n_fast=len(f.scores), top10_ok=top, exact=ex))
         if not top:
             print("TOP10 MISMATCH", P.id, r.scores[:5], f.scores[:5], flush=True)
-    summ = dict(n=len(Ps), model=a.model.name, device=a.device, ranker=a.ranker, top10_identical=n_top, exact=n_exact,
+    summ = dict(n=len(Ps), model=a.model.name, device=a.device, ranker=a.ranker, af_mode=a.af_mode,
+                n_with_exact_w075_or_w05_atoms=n_exact70, top10_identical=n_top, exact=n_exact,
                 date=time.strftime("%Y-%m-%d %H:%M"))
     print(json.dumps(summ))
     if a.out:

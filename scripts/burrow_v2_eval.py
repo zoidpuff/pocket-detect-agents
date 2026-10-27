@@ -46,7 +46,9 @@ _G = {}
 
 def _pred_job(f):
     P = load_protein(f, structure_id=Path(f).stem)
-    write_prediction(_G["out"], predict_protein(P, _G["model"]), points=False)
+    from pocketdetect.burrow.experimental import is_experimental, predict_protein_experimental
+    fn = predict_protein_experimental if is_experimental(_G["model"]) else predict_protein
+    write_prediction(_G["out"], fn(P, _G["model"]), points=False)
     return f
 
 

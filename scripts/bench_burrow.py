@@ -145,11 +145,25 @@ def write_md(R, path):
          "points scored (`burrow_all_accurate_s0`). Structure sets: `speed200` = the 200 LIGYSIS chains timed for "
          "P2Rank/fpocket in `results/baselines/SPEED.md`; `biolip_dev` = 300 random BioLiP dev chains.\n",
          "## Equivalence (fast backend == reference)\n",
-         "`scripts/verify_burrow_fast.py`, 64 random BioLiP dev structures per run; `exact` = identical scores, "
-         "centres, residue sets and pocket points for every structure.\n",
-         "| model | device | structures | top-10 identical | exact |", "|---|---|---|---|---|"]
+         "`scripts/verify_burrow_fast.py` against the frozen v1 reference (worktree at b6a896b): 64 random BioLiP dev "
+         "structures per standard-mode run, 40 random AF dev models (`results/dev_af/af_dev_entries.csv`) per AF-mode "
+         "run; `exact` = identical scores, centres, residue sets and pocket points for every structure.\n",
+         "| model | mode | device | structures | with pLDDT 60/70 atoms (w = 0.5/0.75) | top-10 identical | exact |",
+         "|---|---|---|---|---|---|---|"]
     for k, v in sorted(R.get("verify", {}).items()):
-        L.append(f"| {v.get('model', k)} | {v['device']} | {v['n']} | {v['top10_identical']} | {v['exact']} |")
+        L.append(f"| {v.get('model', k)} | {'AF' if v.get('af_mode') else 'standard'} | {v['device']} | {v['n']} | "
+                 f"{v.get('n_with_exact_w075_or_w05_atoms', '–')} | {v['top10_identical']} | {v['exact']} |")
+    L.append("\n**Fix 2026-10-26 22:10 (GPU AF mode):** Triton passes Python float kernel arguments as fp32. The "
+             "first-hit threshold ln 2 (and the PSP opacity threshold) therefore reached the fp64 ray-march kernel "
+             "rounded. Atoms with pLDDT exactly 70 have w = 0.75 and mu = ln 2 (float32), so tau == float32(ln 2) "
+             "decided first-hit differently from the CPU reference. depth / hit_* features differed for 6 of 40 human "
+             "AF models in AF mode; standard mode was unaffected (w = 1). Both thresholds are now passed as fp64 "
+             "tensors, other scalars are checked to be exact in fp32, and a regression test with exact 0.5 / 0.75 "
+             "weights was added (`tests/test_burrow_fast_equivalence.py::test_af_soft_weights_identical`). "
+             "Re-run of the GPU half on 2026-10-26 23:45 (main 348f26f, physical GPU 1): all 6 GPU equivalence tests "
+             "pass (`test_af_soft_weights_identical`, `test_gpu_batch_identical`, `test_gpu_features_identical`; "
+             "default and accurate presets). A failure reported earlier came from running on a full GPU 0 (CUDA "
+             "out-of-memory), not from a numerical difference.\n")
     for preset in ("default", "accurate"):
         P = R["presets"][preset]
         L.append(f"\n## {preset.upper()} preset — 1 core, warm (ms per structure)\n")
