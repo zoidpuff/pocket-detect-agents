@@ -2,7 +2,7 @@
 
     python -m pocketdetect.burrow.fast predict <files|dirs|@list> --out OUT
            [--device cpu | cuda:0 | cuda:0,1,3] [--workers N] [--batch 32]
-           [--af-mode] [--ranker all|small|geometry] [--preset default|accurate] [--model M.json]
+           [--af-mode] [--ranker all|small|geometry] [--preset default|accurate|fast] [--model M.json]
            [--no-points]
 
 Outputs are identical to ``python -m pocketdetect.burrow predict`` (same writer, same files:
@@ -222,7 +222,7 @@ def main(argv=None):
     p.add_argument("--batch", type=int, default=32, help="structures per GPU batch")
     p.add_argument("--af-mode", action="store_true")
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
-    p.add_argument("--preset", choices=["default", "accurate"], default="default")
+    p.add_argument("--preset", choices=["default", "accurate", "fast"], default="default")
     p.add_argument("--model", type=Path, default=None)
     p.add_argument("--no-points", action="store_true")
     p.add_argument("--compact", type=int, default=0, metavar="K",

@@ -7,6 +7,8 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "results/dev/biolip/inputs_audited.csv"
 MODELS = [ROOT / f"results/dev/freeze/models/burrow_all_{p}_s0.json" for p in ("default", "accurate")]
+# --preset fast (1.5 Å grid): 1/1.5 is not fp32-exact -> regression for the fp64 inverse spacing of the GPU ray march
+MODELS.append(ROOT / "results/dev/freeze_fast/models/burrow_all_fast_s0.json")
 pytestmark = pytest.mark.skipif(not (MANIFEST.exists() and all(m.exists() for m in MODELS)),
                                 reason="dev data / frozen models not available")
 
@@ -19,7 +21,7 @@ def cuda():
         return False
 
 
-@pytest.fixture(scope="module", params=MODELS, ids=["default", "accurate"])
+@pytest.fixture(scope="module", params=MODELS, ids=["default", "accurate", "fast"])
 def dev(request):
     from pocketdetect.burrow.devdata import read_manifest
     from pocketdetect.burrow.model import BurrowModel
@@ -111,3 +113,22 @@ def test_af_soft_weights_identical(dev):
     if cuda():
         from pocketdetect.burrow.fast.gpu import predict_batch
         assert same_prediction(r, predict_batch([P], fm, device="cuda:0", weights=[w])[0])
+
+
+@pytest.mark.skipif(not cuda(), reason="CUDA not available")
+def test_gpu_march_non_fp32_spacing():
+    """The GPU ray march must take 1/spacing in fp64 (1/1.5 Å is not representable in fp32)."""
+    import torch
+    from types import SimpleNamespace
+    from pocketdetect.burrow.fast import gpu
+    assert float(np.float32(1 / 1.5)) != 1 / 1.5
+    grid = SimpleNamespace(spacing=1.5, origin=torch.zeros((1, 3), dtype=torch.float64, device="cuda:0"),
+                           dims=torch.full((1, 3), 8, dtype=torch.long, device="cuda:0"),
+                           base=torch.zeros(1, dtype=torch.long, device="cuda:0"),
+                           mu=torch.zeros(512, device="cuda:0"), mub=torch.zeros(512, device="cuda:0"),
+                           label=torch.full((512,), -1, dtype=torch.int8, device="cuda:0"))
+    cfg = SimpleNamespace(n_rays=12, lengths=(6.0, 10.0, 16.0))
+    pts = torch.full((2, 3), 6.0, device="cuda:0")
+    blocked, _, depth, _ = gpu._march(pts, torch.zeros(2, dtype=torch.long, device="cuda:0"), grid, cfg, "cuda:0")
+    assert torch.all(blocked == 0) and torch.all(depth == 16.0)
+

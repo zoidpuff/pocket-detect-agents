@@ -14,16 +14,38 @@ Presets (`results/dev/FREEZE.md`): **default** = 30 rays, 6/10/16 Å, 3 Å sub-l
 | burrow_all_accurate_s0.json | AF | cuda:0 | 40 | 8 | 40 | 40 |
 | burrow_all_default_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
 | burrow_all_default_s0.json | AF | cuda:0 | 40 | 8 | 40 | 40 |
+| burrow_all_fast_s0.json | AF | cuda:1 | 40 | 8 | 40 | 40 |
 | burrow_all_accurate_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
 | burrow_all_accurate_s0.json | standard | cuda:3 | 64 | 0 | 64 | 64 |
 | burrow_all_default_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
 | burrow_all_default_s0.json | standard | cuda:0 | 64 | 0 | 64 | 64 |
+| burrow_all_fast_s0.json | standard | cuda:1 | 40 | 0 | 40 | 40 |
+| burrow_small_fast_s0.json | standard | cuda:2 | 40 | 0 | 40 | 40 |
 | burrow_small_accurate_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
 | burrow_small_accurate_s0.json | standard | cuda:0 | 64 | 0 | 64 | 64 |
 | burrow_small_default_s0.json | standard | cpu | 64 | 0 | 64 | 64 |
 | burrow_small_default_s0.json | standard | cuda:1 | 64 | 0 | 64 | 64 |
 
 **Fix 2026-10-26 22:10 (GPU AF mode):** Triton passes Python float kernel arguments as fp32. The first-hit threshold ln 2 (and the PSP opacity threshold) therefore reached the fp64 ray-march kernel rounded. Atoms with pLDDT exactly 70 have w = 0.75 and mu = ln 2 (float32), so tau == float32(ln 2) decided first-hit differently from the CPU reference. depth / hit_* features differed for 6 of 40 human AF models in AF mode; standard mode was unaffected (w = 1). Both thresholds are now passed as fp64 tensors, other scalars are checked to be exact in fp32, and a regression test with exact 0.5 / 0.75 weights was added (`tests/test_burrow_fast_equivalence.py::test_af_soft_weights_identical`). Re-run of the GPU half on 2026-10-26 23:45 (main 348f26f, physical GPU 1): all 6 GPU equivalence tests pass (`test_af_soft_weights_identical`, `test_gpu_batch_identical`, `test_gpu_features_identical`; default and accurate presets). A failure reported earlier came from running on a full GPU 0 (CUDA out-of-memory), not from a numerical difference.
+
+**Fix 2026-10-27 (GPU, `--preset fast`):** the GPU ray march received 1/spacing as a Python float (fp32 in Triton); 1/1.5 Å is not fp32-exact, so the fast preset (1.5 Å grid) was rejected on GPU and the CLI fell back to the reference implementation. 1/spacing is now passed as an fp64 tensor (as the CPU reference computes it). Verified exact vs the reference on 40 random BioLiP dev structures for `burrow_{all,small}_fast_s0` (GPUs 1/2) and 40 AF dev models in AF mode (`all`, GPU 1); regression tests: `fast` added to the parametrised equivalence tests (CPU + GPU) and `test_gpu_march_non_fp32_spacing`.
+
+## Final like-for-like timing (one session: 2026-10-27 09:33, host eu-g6-048, commit 2241cbe + uncommitted fast-backend changes)
+
+Same 200 LIGYSIS chains for every tool (`baselines/ligysis_speed200.txt`, median 1,803 atoms), same node (AMD EPYC 9554, 4x RTX 4090), measured back to back by `scripts/bench_final.py`; nothing else of this project ran on the node. **Shared node:** other users' jobs ran concurrently. Node load (1/5/15 min) is given for every measurement. BURROW = the CLI default models for each preset with the `all` ranker (fast: `results/dev/freeze_fast`, default/accurate: `results/dev/freeze_v2`), fast backend, BLAS/Numba pinned to 1 thread per process.
+
+| method | 1 core warm, excl. parsing: median / p90 ms | 1 core warm, incl. parsing: median / p90 ms | 1 process on 200 chains, wall s (amortised ms; start-up incl.) | 32 CPU workers, structures/s | 1 GPU (10 workers), structures/s | 3 GPUs (10 workers each), structures/s |
+|---|---|---|---|---|---|---|
+| BURROW fast | 30.9 / 74.1 | 41.3 / 98.8 | 12.9 (64) | 255.6 | 131.8 | 176.1 |
+| BURROW default | 98.4 / 267.3 | 109.7 / 295.0 | 31.4 (157) | 139.6 | 102.3 | 153.8 |
+| BURROW accurate | 206.1 / 496.8 | 216.6 / 524.6 | 57.4 (287) | 88.9 | 88.3 | 131.2 |
+| P2Rank 2.5.1 (batch, one JVM, 1 thread) | – (batch only) | – (batch only) | 53.9 (270) | – | – | – |
+| fpocket 4.2.3 (1 process) | – | 396.0 / 1117.4 (fpocket call) | 120.83 (604) | – | – | – |
+
+Loads (1/5/15 min) per measurement: BURROW fast 1-core 21.11 23.34 26.24 -> 20.71 23.15 26.13; BURROW default 1-core 20.71 23.15 26.13 -> 20.21 22.80 25.92; BURROW accurate 1-core 20.21 22.80 25.92 -> 19.56 22.16 25.52; cpu1w fast 22.16 23.76 25.65 -> 21.52 23.57 25.56; cpu32 fast 18.68 22.00 24.82 -> 23.89 23.01 25.11; gpu1 fast 34.12 25.62 25.91 -> 32.67 25.71 25.93; gpu3 fast 30.96 26.12 26.06 -> 33.07 26.80 26.28; cpu1w default 21.52 23.57 25.56 -> 19.03 22.74 25.21; cpu32 default 23.89 23.01 25.11 -> 28.23 23.96 25.40; gpu1 default 32.67 25.71 25.93 -> 32.12 26.00 26.02; gpu3 default 33.07 26.80 26.28 -> 35.68 27.57 26.54; cpu1w accurate 19.03 22.74 25.21 -> 18.68 22.00 24.82; cpu32 accurate 28.23 23.96 25.40 -> 34.12 25.62 25.91; gpu1 accurate 32.12 26.00 26.02 -> 30.96 26.12 26.06; gpu3 accurate 35.68 27.57 26.54 -> 37.85 28.42 26.84; p2rank 19.56 22.16 25.52 -> 26.75 23.33 25.70; fpocket 26.75 23.33 25.70 -> 22.16 23.76 25.65.
+
+Columns: *1 core warm* = per-structure wall time in one warm process (first structure run twice before timing), excl. or incl. reading/parsing the PDB file; *1 process on 200 chains* = complete CLI run with one worker (`python -m pocketdetect.burrow.fast predict --workers 1`; interpreter start, imports, model load, parsing, writing) and, for the baselines, the project wrappers with the same input list (P2Rank: gemmi cleaning + one JVM over all 200 files, JVM start included; fpocket: gemmi cleaning + one fpocket process per structure, sequential); throughput columns = speed200 x 10 (2,000 structures) through the BURROW CLI incl. parsing and writing, process start-up included. Baseline per-structure medians: P2Rank batch mode gives only the amortised time (JVM total / 200); fpocket's column is the fpocket call per structure (it includes fpocket's own parsing), gemmi cleaning median 3.0 ms in addition. Multi-thread baseline numbers (P2Rank 8/32 threads 49/47 ms, fpocket 32 processes 39 ms per structure) are from the earlier session in results/baselines/SPEED.md (load 20-68).
+
 
 
 ## DEFAULT preset — 1 core, warm (ms per structure)

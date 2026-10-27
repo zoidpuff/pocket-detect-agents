@@ -180,7 +180,8 @@ def _march(pts, pb, grid, cfg, dev):
     _launch(_march64_kernel, ((P + bp - 1) // bp,), dev, pts.contiguous(), grid.origin[pb].contiguous(),
             grid.dims[pb].to(torch.int32).contiguous(), grid.base[pb].contiguous(), dirs.contiguous(), grid.mu,
             grid.mub, grid.label, torch.as_tensor(ck, dtype=torch.int32, device=dev), blocked, blocked_bb, depth, hit,
-            P, K, _f32x(step), _f32x(ck[-1] * step), _f32x(1.0 / grid.spacing),
+            P, K, _f32x(step), _f32x(ck[-1] * step),
+            torch.tensor([1.0 / grid.spacing], dtype=torch.float64, device=dev),   # fp64 like the reference
             torch.tensor([0.6931471805599453], dtype=torch.float64, device=dev), NL=NL, NC=NC, BP=bp, RB=rb, num_warps=4)
     return blocked, blocked_bb, depth, hit
 

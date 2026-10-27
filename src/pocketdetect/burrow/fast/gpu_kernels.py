@@ -274,9 +274,10 @@ def _psp64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, out_pt
 
 @triton.jit
 def _march64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, mub_ptr, lab_ptr, ck_ptr,
-                    blk_ptr, blkb_ptr, depth_ptr, hit_ptr, P, K, step, lmax, inv_h, ln2_ptr,
+                    blk_ptr, blkb_ptr, depth_ptr, hit_ptr, P, K, step, lmax, inv_h_ptr, ln2_ptr,
                     NL: tl.constexpr, NC: tl.constexpr, BP: tl.constexpr, RB: tl.constexpr):
     ln2 = tl.load(ln2_ptr)                    # fp64 (Python float kernel args are passed as fp32!)
+    inv_h = tl.load(inv_h_ptr)                # fp64 1/spacing (1/1.5 Å is not fp32-exact; --preset fast)
     pid = tl.program_id(0)
     p = pid * BP + tl.arange(0, BP)
     k = tl.arange(0, RB)
