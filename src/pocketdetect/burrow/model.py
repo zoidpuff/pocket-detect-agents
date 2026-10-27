@@ -248,6 +248,34 @@ def apo_pocket_features(pockets_idx, vol, F, names):
     return out.astype(np.float32)
 
 
+IF_NAMES = ["if_frac_multichain_pts", "if_minority_chain_frac8"]
+
+
+def interface_pocket_features(pockets_idx, centers, pts, coords, chain):
+    """v3/(b): interface awareness for multi-chain inputs (0 for single chains): fraction of pocket
+    points with heavy atoms of >= 2 chains within 4 Å, and minority-chain fraction of the atoms
+    within 8 Å of the pocket centre."""
+    from scipy.spatial import cKDTree
+    n = len(pockets_idx)
+    out = np.zeros((n, 2), np.float32)
+    chain = np.asarray(chain).astype(str)
+    if n == 0 or len(np.unique(chain)) < 2:
+        return out
+    _, cid = np.unique(chain, return_inverse=True)
+    tree = cKDTree(coords)
+    used = np.unique(np.concatenate([np.asarray(i) for i in pockets_idx]))
+    multi = {}
+    for i, l in zip(used.tolist(), tree.query_ball_point(pts[used], 4.0)):
+        multi[i] = len(np.unique(cid[l])) >= 2 if l else False
+    for k, idx in enumerate(pockets_idx):
+        out[k, 0] = np.mean([multi[i] for i in np.asarray(idx).tolist()])
+        l = tree.query_ball_point(centers[k], 8.0)
+        if l:
+            cnt = np.bincount(cid[l])
+            out[k, 1] = 1.0 - cnt.max() / cnt.sum()
+    return out
+
+
 @dataclass
 class BurrowModel:
     point_model: str            # LightGBM model string
