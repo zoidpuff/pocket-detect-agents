@@ -113,6 +113,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 8.5 Descriptive: [!] PocketMiner test residue ROC-AUC BURROW v2 0.792 ≈ PocketMiner 0.789 (cryptic-trained) ≫ P2Rank 0.601; AUPRC 0.714 (0.755 with --min-score none) vs 0.712. CryptoBench test holo vs apo (233 paired sites): BURROW 68.7→79.4 (drop 10.7), P2Rank 72.1→79.8 (7.7); on holo DCA4 BURROW +6.4 over P2Rank
   - [x] 8.6 Packaging: unified CLI (--device/--workers/--backend; byte-identical across backends), README, scripts/reproduce_all.sh (smoke 7 s), pytest 226 pass
   - [x] 8.7 REPORT.md complete (fresh writer; commit 76207ee) + checker: 1,408 tagged numbers, 0 fail
-  - [~] 8.9 Independent critical review of REPORT.md (fresh agent)
+  - [x] 8.9 Independent report review (reviews/report/REPORT_REVIEW.md): honest & traceable; MUST: goal-by-goal verdict, [!] O5 AF-set superiority is ion-driven (non-ion +1.9 [−0.2,4.1], reviewer RNG), O6 fold rows mislabelled, single deviations caveat, LIGYSIS_NI numbers, unused-dataset rationale, provenance/branch fixes
+  - [~] 8.10 Post-hoc descriptive numbers (project bootstrap) → report revision
     - [!] Non-ion LIGYSIS (LIGYSIS_NI, v2 small): top-N+2 66.4 vs fpocket+PRANK 63.4 / P2Rank 60.9; DCA4 51.3 vs 48.2/44.6; P1K 89.6 vs 82.7/80.8; but any-pocket 71.7 vs 72.9 and one-to-one 66.6 vs 68.5 (fpocket+PRANK ahead) → drug-like sites: at par to modestly better; ions carry most of C1 margin (v2 ion Δ +29.5, 'other' +2.2)
   - [x] 8.8 Dev non-ion error analysis (805 sites; v2 71.2, fpocket+PRANK 66.0, P2Rank 58.4): of 232 v2 misses 65% dropped by output floor, 22% ranked >N+2, 9% closest rule, 4% no candidate; shallow (buriedness<0.65) and flexible (low WCN) sites, lipids/detergents/additives hardest; cofactors easiest
