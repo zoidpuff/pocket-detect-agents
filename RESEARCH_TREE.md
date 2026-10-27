@@ -102,4 +102,6 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - [~] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
   - [x] 8.0 Ablations (dev, seed 0; results/ablations/ABLATIONS.md): A3 shuffled labels −28/−36 (control OK); A2 CHEN11-only −3.2 (small) / −10.8 (all, no ion labels); [!] A1 fold-disjoint training −0.6/−0.3 (CIs include 0) → no evidence of fold memorisation; A4 feature-group drops each ≤ 2.5 pts (metal −2.5 on all, atom densities −1.7) → redundant feature set; retraining v1 is bit-identical
-  - [~] 8.2 Test v2
+  - [!] 8.2 Test v2 (FREEZE v2 0d925b2): C1 72.5/72.0/72.3 vs 60.4 published (Δ +11.6…+12.1, CI lo ≥ 9.9) and 59.5 re-run; C1-strict 54.0–54.2 (Δ ≈ +22.4); C2 P1K 96.1–96.9 (Δ +14.4…+15.2). Family 2: O2b pass, O3 PocketWatch pass (+0.8 [−1.4,+2.9]), O5 AF pass & superior (+13.1 [11.0,15.7]); O2a COACH420 +1.6 inconclusive, O4 CryptoBench −2.6 [−8.6,+3.0] inconclusive, O6 dimer −3.7 [−8.8,+0.9] inconclusive. Trade-off LIGYSIS: any-pocket 80.1→76.9, max recall 99.3→84.2, pockets/chain 32.9→9.1
+  - [~] 8.3 Independent recomputation of test headline numbers (fresh agent; authors' LBS code where possible)
+  - [~] 8.4 Descriptive test rows: ablations A1–A3 (+A1 with floor), P2Rank-ours, strata
