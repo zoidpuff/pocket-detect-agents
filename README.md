@@ -71,6 +71,11 @@ improves "closest-pocket" benchmark metrics (e.g. LIGYSIS top-N+2) by 5–10 poi
 coverage: some true sites are only found by low-scoring pockets (max recall ~99 % → 73–87 %).
 For exhaustive pocket discovery use `--min-score none` (identical to FREEZE v1 output).
 
+**Optional `--output-rule region`** (not the default): the v2 floor plus the best pocket (score ≥ 0.005) of every
+surface region more than 16 Å away from the pockets already kept. More coverage for exhaustive discovery
+(~14 instead of ~7 pockets per structure; dev max recall +7 to +10 points with unchanged top-N+2, DCA4 and P1K —
+dev evidence only, it did not pass the gate for a new default: `results/dev/biolip/V3b_CYCLE.md`).
+
 ## Models
 * `results/dev/freeze_v2/models/burrow_{all,small}_{default,accurate}_s{0,1,2}.json` — FREEZE v2
   (paths and sha256: [results/dev/FREEZE_v2.md](results/dev/FREEZE_v2.md)); the CLI uses seed 0.

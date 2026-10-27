@@ -27,6 +27,7 @@ DEFAULT_MODELS = {  # FREEZE v2 (results/dev/FREEZE_v2.md; D13): v1 models + out
 }
 # AF-mode ranker (owned by the AF-mode developer, burrow/af_rank.py); retrained after the feature freeze.
 DEFAULT_AF_RANKER = None  # decision D8: --af-mode default = standard ranker (pruning + soft occlusion only)
+REGION_RULE = "c16_0.005"   # burrow.output_rules; selected on train-CV (results/dev/biolip/V3b_CYCLE.md)
 _EXT = (".pdb", ".ent", ".cif", ".mmcif", ".pdb.gz", ".ent.gz", ".cif.gz", ".mmcif.gz")
 
 
@@ -172,6 +173,10 @@ def main(argv=None):
     p.add_argument("--min-score", default=None,
                    help="override the model's output score floor (v2 models: 0.03); 'none' = output the full "
                         "NMS'd pocket list (up to 50; recommended for exhaustive discovery)")
+    p.add_argument("--output-rule", choices=["v2", "region"], default="v2",
+                   help="v2 (default): score floor 0.03 after 3 pockets; region: v2 plus the best pocket (score >= "
+                        "0.005) of every surface region > 16 Å from kept pockets — more coverage for exhaustive "
+                        "discovery (dev evidence only, results/dev/biolip/V3b_CYCLE.md)")
     p.add_argument("--device", default="cpu", help="cpu | cuda:N | cuda:0,1 (GPU = fast backend)")
     p.add_argument("--workers", type=int, default=1, help="CPU worker processes (per GPU in GPU mode)")
     p.add_argument("--backend", choices=["auto", "fast", "reference"], default="auto",
@@ -180,6 +185,10 @@ def main(argv=None):
     p.add_argument("--no-points", action="store_true")
     a = ap.parse_args(argv)
     os.environ.setdefault("NUMBA_NUM_THREADS", str(a.threads))
+    if a.output_rule != "v2":
+        if a.min_score is not None:
+            ap.error("--output-rule region cannot be combined with --min-score")
+        a.min_score = "none"          # full list from either backend, then the post-filter below
     paths = _expand(a.inputs)
     a.out.mkdir(parents=True, exist_ok=True)
     backend = a.backend
@@ -209,6 +218,11 @@ def main(argv=None):
         if done:
             print(f"[burrow] {len(todo)} input(s) re-run with the reference implementation", file=sys.stderr)
         rows += _run_reference(a, todo, a.out)
+    if a.output_rule == "region":
+        from .output_rules import filter_prediction_files
+        for x in paths:
+            if (a.out / f"{_stem(x)}.csv").exists():
+                filter_prediction_files(a.out, _stem(x), REGION_RULE, 300.0)
     header = "stem,status,n_atoms,n_pockets,total_ms,parse_ms,backend_or_timings..."
     (a.out / "timing.csv").write_text("\n".join([header] + rows) + "\n")
     n_ok = sum(1 for r in rows if ",ok," in r)

@@ -87,6 +87,11 @@ structure and raises closest-pocket top-N+2 by 5–10 points on every dev set (i
 leaves P1K unchanged and slightly raises DCA4 top-N+2, but lowers **coverage**: max recall falls
 from ~99 % to 73–87 % (apo non-cryptic 97 → 65 %) and any-pocket top-N+2 by 0.3–4.6 points
 (`results/dev/biolip/V2_CYCLE.md`). For exhaustive pocket discovery use `--min-score none`.
+**Optional `--output-rule region`** (v3b, not the default; `burrow.output_rules`, rule `c16_0.005`): the v2 floor
+plus every pocket with score ≥ 0.005 whose centre is > 16 Å from all pockets kept so far (applied as a post-filter
+after either backend). More coverage for exhaustive discovery: on dev, max recall +7 to +10 points at unchanged
+closest-pocket top-N+2, DCA4 and P1K (~14 pockets/structure); dev evidence only — it missed the +2.0 non-ion
+top-N+2 gate for a new default (`results/dev/biolip/V3b_CYCLE.md`).
 ### 5.5 Reported residues
 Residues with a heavy atom ≤ 4 Å of a pocket point; if none (pockets of distant sub-lattice
 points only), residues with any atom ≤ 6 Å of the centre (LIGYSIS rule for point-less methods);
