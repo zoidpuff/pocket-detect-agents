@@ -10,7 +10,7 @@ References were verified against Crossref/PubMed by the reference-verifier agent
 17. **Repository URL** is the placeholder https://github.com/<to-be-published>/burrow (main text, Data and code availability). The release repository (release/burrow) was still a skeleton when this text was written; check that it contains the models, predictions and scripts that the availability statement promises.
 18. **Speed numbers** come from a shared node (±30%); REPORT §6.7 recommends repeating them on an exclusive node before publication.
 19. **"More than 130 git commits"** is from `git log` at the time of writing (136 commits, including the first manuscript commit); update if needed.
-20. Revision 1: Introduction–Discussion ≈4,720 words, Methods ≈3,120 (total ≈7,840 excluding tables, captions and references; above the ~6,500 target, mainly from referee-requested caveats and agent-setup details); abstract 296 words; author summary 197 words. The referee's COULD-item C1 (shortening) was not applied.
+20. Revision 2: Introduction–Discussion ≈3,560 words, Methods ≈1,910 (total ≈5,470, excluding tables, captions and references); abstract 297 words. Detail moved to S3 Text (Extended methods and results).
 25. The "How this work was produced" box was kept at the top as the user requested, although PLOS research articles have no boxes (referee format note); it can be moved into the Introduction at submission.
 
 ## Format / build
