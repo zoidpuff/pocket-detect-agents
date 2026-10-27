@@ -113,7 +113,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - [~] 9. Extension (D19)
   - [~] 9.1 T1 GPU feeding / speed
   - [~] 9.2 T2 relative output floor (candidate v3)
-  - [~] 9.3 T3 isolated-chain dimer row
+  - [x] 9.3 [!] T3 isolated chains (1,062 chains; descriptive): BURROW v2 interface DCC12 +14.2 [9.0,20.1] vs P2Rank chain mode, +1.3 vs fpocket+PRANK; vs own assembly mode −1.2 (DCA4 −11.1) → BURROW robust to a missing partner chain (P2Rank 87.7→55.4)
 - [x] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
   - [x] 8.0 Ablations (dev, seed 0; results/ablations/ABLATIONS.md): A3 shuffled labels −28/−36 (control OK); A2 CHEN11-only −3.2 (small) / −10.8 (all, no ion labels); [!] A1 fold-disjoint training −0.6/−0.3 (CIs include 0) → no evidence of fold memorisation; A4 feature-group drops each ≤ 2.5 pts (metal −2.5 on all, atom densities −1.7) → redundant feature set; retraining v1 is bit-identical
