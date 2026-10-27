@@ -3860,6 +3860,4984 @@
         "value": 0.9242424242424242,
         "ci_low": 0.8593191964285715,
         "ci_high": 0.9833333333333333
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.3666564134112581,
+        "ci_low": 0.34700614482353875,
+        "ci_high": 0.38689892260995795
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.45585973546601044,
+        "ci_low": 0.4356902421423786,
+        "ci_high": 0.47632143144412553
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.9610888957243925,
+        "ci_low": 0.9512729761577735,
+        "ci_high": 0.9694263890413127
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.6391879421716395,
+        "ci_low": 0.6188576602021247,
+        "ci_high": 0.6617339438657719
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.5867425407566903,
+        "ci_low": 0.5658579456910543,
+        "ci_high": 0.6089186887941042
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "recall_ldca_topn2",
+        "value": 0.3165562913907285,
+        "ci_low": 0.2982676444060868,
+        "ci_high": 0.33547323233028525
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "P1K",
+        "value": 0.782,
+        "ci_low": 0.743,
+        "ci_high": 0.8190249999999999
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.734,
+        "ci_low": 0.6919749999999999,
+        "ci_high": 0.771
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 550.0,
+        "ci_low": 467.975,
+        "ci_high": 639.0
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "RRO",
+        "value": 0.5996904350201632,
+        "ci_low": 0.5907814595199392,
+        "ci_high": 0.6085325173742676
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.16222308727320636,
+        "ci_low": 0.15421977657804412,
+        "ci_high": 0.16936392848799586
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.11325173848165015,
+        "ci_low": 0.10920828605425141,
+        "ci_high": 0.11711886639669011
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "hallucination_rate",
+        "value": 0.0005427537611883451,
+        "ci_low": 0.0003843688141132547,
+        "ci_high": 0.000709791278003626
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "value": 8.493290300662476e-05,
+        "ci_low": 0.0,
+        "ci_high": 0.0002673978085547494
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_chen11_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 41.57561361836896,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.49123346662565365,
+        "ci_low": 0.471015266880922,
+        "ci_high": 0.5107782917358524
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.5847431559520148,
+        "ci_low": 0.5639268401373854,
+        "ci_high": 0.605328301126729
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.9806213472777607,
+        "ci_low": 0.9745645418842519,
+        "ci_high": 0.9860704330734336
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7291602583820362,
+        "ci_low": 0.7103747582703701,
+        "ci_high": 0.7469790617341837
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.6779452476161181,
+        "ci_low": 0.6590614250128642,
+        "ci_high": 0.6959851480191336
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "recall_ldca_topn2",
+        "value": 0.4922185430463576,
+        "ci_low": 0.4717081682991613,
+        "ci_high": 0.5124848240699594
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "P1K",
+        "value": 0.594,
+        "ci_low": 0.543975,
+        "ci_high": 0.649025
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.591,
+        "ci_low": 0.541,
+        "ci_high": 0.647025
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 143.0,
+        "ci_low": 89.0,
+        "ci_high": 201.04999999999995
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "RRO",
+        "value": 0.5815479079618373,
+        "ci_low": 0.5741974792754716,
+        "ci_high": 0.5895703702340878
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.16851719214927627,
+        "ci_low": 0.1604152529214807,
+        "ci_high": 0.1757328498632843
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.12466837573929804,
+        "ci_low": 0.12019986204206816,
+        "ci_high": 0.12900068792693428
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "hallucination_rate",
+        "value": 0.001090697105891645,
+        "ci_low": 0.0008444665200758373,
+        "ci_high": 0.0013565793318075798
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "value": 0.0011896668932698845,
+        "ci_low": 0.0006116127833072549,
+        "ci_high": 0.001804876751969994
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 42.10372129849564,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.23162103968009842,
+        "ci_low": 0.21374548534942023,
+        "ci_high": 0.2498947796173668
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.31513380498308213,
+        "ci_low": 0.29542906297392,
+        "ci_high": 0.3337476251206915
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.9569363272839126,
+        "ci_low": 0.9469786691037813,
+        "ci_high": 0.9654836596395314
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.5252230083051369,
+        "ci_low": 0.5022938442820757,
+        "ci_high": 0.5471064544823717
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.4750845893571209,
+        "ci_low": 0.45367480222440565,
+        "ci_high": 0.49514333517242715
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "recall_ldca_topn2",
+        "value": 0.1824503311258278,
+        "ci_low": 0.16828336365888047,
+        "ci_high": 0.19652183890019673
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "P1K",
+        "value": 0.36,
+        "ci_low": 0.313,
+        "ci_high": 0.41
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.269,
+        "ci_low": 0.235,
+        "ci_high": 0.306
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 87.0,
+        "ci_low": 47.0,
+        "ci_high": 128.0
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "RRO",
+        "value": 0.4971981789403594,
+        "ci_low": 0.4872850116020788,
+        "ci_high": 0.5077890346202987
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.15845990562908072,
+        "ci_low": 0.15097822813602316,
+        "ci_high": 0.16528839303057902
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.09150274497438508,
+        "ci_low": 0.0866665157551244,
+        "ci_high": 0.09610642682003308
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "hallucination_rate",
+        "value": 0.006516598371752983,
+        "ci_low": 0.005691049750895537,
+        "ci_high": 0.007368229676883731
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "value": 0.003057324840764331,
+        "ci_low": 0.002031243159630511,
+        "ci_high": 0.004225255862715055
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_shuffled_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 43.861441013460016,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.7071240105540897,
+        "ci_low": 0.6567500515782958,
+        "ci_high": 0.7578978057388369
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8126649076517151,
+        "ci_low": 0.7718759004898664,
+        "ci_high": 0.8549242227979275
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.38786279683377306,
+        "ci_low": 0.33761132492288887,
+        "ci_high": 0.4412700907551091
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.6279683377308707,
+        "ci_low": 0.5684681113460183,
+        "ci_high": 0.6880513634025038
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 32.42333333333333,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.6860158311345647,
+        "ci_low": 0.6342790868924889,
+        "ci_high": 0.7460164238333865
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8100263852242744,
+        "ci_low": 0.766930894308943,
+        "ci_high": 0.8536653877774733
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.39577836411609496,
+        "ci_low": 0.34465713469853965,
+        "ci_high": 0.45404572463399195
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.6385224274406333,
+        "ci_low": 0.581871526342382,
+        "ci_high": 0.7041077969649399
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 33.026666666666664,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.28232189973614774,
+        "ci_low": 0.2345339244315099,
+        "ci_high": 0.3366643551548935
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.39050131926121373,
+        "ci_low": 0.3398450318756364,
+        "ci_high": 0.44534040178571427
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.1503957783641161,
+        "ci_low": 0.10962379078291173,
+        "ci_high": 0.19133060138949196
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.23482849604221637,
+        "ci_low": 0.19022818257283633,
+        "ci_high": 0.2861441045984836
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 34.64,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_topn",
+        "value": 0.42962962962962964,
+        "ci_low": 0.362988664821405,
+        "ci_high": 0.49434068263726944
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.6666666666666666,
+        "ci_low": 0.6,
+        "ci_high": 0.7298446300252477
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_max",
+        "value": 0.9962962962962963,
+        "ci_low": 0.9883245593957428,
+        "ci_high": 1.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.8037037037037037,
+        "ci_low": 0.7538432835820895,
+        "ci_high": 0.854016546743902
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7888888888888889,
+        "ci_low": 0.7352829768270945,
+        "ci_high": 0.8421052631578947
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "P1K",
+        "value": 0.368,
+        "ci_low": 0.337,
+        "ci_high": 0.396
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.221,
+        "ci_low": 0.202,
+        "ci_high": 0.24
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "TP@100FP",
+        "value": 139.0,
+        "ci_low": 104.0,
+        "ci_high": 180.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "RRO",
+        "value": 0.6263259642647637,
+        "ci_low": 0.5965248965712068,
+        "ci_high": 0.6553904628993502
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "res_f1",
+        "value": 0.13390222933178106,
+        "ci_low": 0.12192323935725807,
+        "ci_high": 0.1457413371736094
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "res_mcc",
+        "value": 0.06922573068758181,
+        "ci_low": 0.0598408704053552,
+        "ci_high": 0.07753382512472633
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 35.86036036036036,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_topn",
+        "value": 0.43333333333333335,
+        "ci_low": 0.3646875,
+        "ci_high": 0.5000435540069686
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.6444444444444445,
+        "ci_low": 0.5764640279903782,
+        "ci_high": 0.7120651284333855
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_max",
+        "value": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.8037037037037037,
+        "ci_low": 0.7481738104385051,
+        "ci_high": 0.8583105067501468
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7888888888888889,
+        "ci_low": 0.7289135194307608,
+        "ci_high": 0.8481506701253783
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "P1K",
+        "value": 0.378,
+        "ci_low": 0.346975,
+        "ci_high": 0.413025
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.219,
+        "ci_low": 0.198,
+        "ci_high": 0.241
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "TP@100FP",
+        "value": 151.0,
+        "ci_low": 118.975,
+        "ci_high": 189.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "RRO",
+        "value": 0.59890983472358,
+        "ci_low": 0.568975938689539,
+        "ci_high": 0.6266146668669548
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "res_f1",
+        "value": 0.13605783825234816,
+        "ci_low": 0.12372056173671096,
+        "ci_high": 0.14793045775766092
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "res_mcc",
+        "value": 0.07519216456514552,
+        "ci_low": 0.06677044652791424,
+        "ci_high": 0.08353381123832379
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 36.265765765765764,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_topn",
+        "value": 0.15925925925925927,
+        "ci_low": 0.1131370741017771,
+        "ci_high": 0.2063565278509928
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.2962962962962963,
+        "ci_low": 0.23896223262032087,
+        "ci_high": 0.35036496350364965
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_max",
+        "value": 0.9962962962962963,
+        "ci_low": 0.9880478087649402,
+        "ci_high": 1.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.44074074074074077,
+        "ci_low": 0.37638277189223507,
+        "ci_high": 0.5018805923353351
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.4185185185185185,
+        "ci_low": 0.3589605734767025,
+        "ci_high": 0.48057046751834737
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "P1K",
+        "value": 0.152,
+        "ci_low": 0.132,
+        "ci_high": 0.176
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.087,
+        "ci_low": 0.076,
+        "ci_high": 0.104
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "TP@100FP",
+        "value": 28.0,
+        "ci_low": 17.0,
+        "ci_high": 35.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "RRO",
+        "value": 0.47137386415494115,
+        "ci_low": 0.4426975278240573,
+        "ci_high": 0.5004050863433862
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "res_f1",
+        "value": 0.12507338244960725,
+        "ci_low": 0.11330716553566014,
+        "ci_high": 0.1363445378961512
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "res_mcc",
+        "value": 0.030190016923104367,
+        "ci_low": 0.01885938882145825,
+        "ci_high": 0.040741345744099156
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 38.05855855855856,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_DCC12_topn2@interface",
+        "value": 0.8477366255144033,
+        "ci_low": 0.7935147190008921,
+        "ci_high": 0.9
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_DCA4_topn2@interface",
+        "value": 0.7037037037037037,
+        "ci_low": 0.629998031496063,
+        "ci_high": 0.7782805429864253
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_DCC12_topn2@all",
+        "value": 0.7149938042131351,
+        "ci_low": 0.673386402269478,
+        "ci_high": 0.7583911097779471
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "precision_DCC12_topn2@all",
+        "value": 0.38495252008765524,
+        "ci_low": 0.3573334356661155,
+        "ci_high": 0.41316531268310447
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_DCC12_topn2@homo_interface",
+        "value": 0.847457627118644,
+        "ci_low": 0.7921942640692641,
+        "ci_high": 0.9030555555555556
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_DCC12_topn2@hetero_interface",
+        "value": 0.8484848484848485,
+        "ci_low": 0.7321085164835165,
+        "ci_high": 0.9464520676691729
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 46.275,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_DCC12_topn2@interface",
+        "value": 0.8683127572016461,
+        "ci_low": 0.8210697180248245,
+        "ci_high": 0.9095077614379085
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_DCA4_topn2@interface",
+        "value": 0.7901234567901234,
+        "ci_low": 0.7310868562916726,
+        "ci_high": 0.8487192231836111
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_DCC12_topn2@all",
+        "value": 0.8376703841387856,
+        "ci_low": 0.7985186594010591,
+        "ci_high": 0.873712306701031
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "precision_DCC12_topn2@all",
+        "value": 0.4827586206896552,
+        "ci_low": 0.4512661972855179,
+        "ci_high": 0.5154531719090321
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_DCC12_topn2@homo_interface",
+        "value": 0.8587570621468926,
+        "ci_low": 0.7989410800552105,
+        "ci_high": 0.9130507246376811
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_DCC12_topn2@hetero_interface",
+        "value": 0.8939393939393939,
+        "ci_low": 0.8225079323109467,
+        "ci_high": 0.9583476027397261
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 46.3925,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_DCC12_topn2@interface",
+        "value": 0.6995884773662552,
+        "ci_low": 0.6398293694186258,
+        "ci_high": 0.7641648168701444
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_DCA4_topn2@interface",
+        "value": 0.5720164609053497,
+        "ci_low": 0.5,
+        "ci_high": 0.6493561993561994
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_DCC12_topn2@all",
+        "value": 0.49814126394052044,
+        "ci_low": 0.45195277923297866,
+        "ci_high": 0.5463656820103903
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "precision_DCC12_topn2@all",
+        "value": 0.24513096037609133,
+        "ci_low": 0.21789949414401671,
+        "ci_high": 0.2735206318477115
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_DCC12_topn2@homo_interface",
+        "value": 0.7062146892655368,
+        "ci_low": 0.6315446820175439,
+        "ci_high": 0.7849553490067431
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_DCC12_topn2@hetero_interface",
+        "value": 0.6818181818181818,
+        "ci_low": 0.5714285714285714,
+        "ci_high": 0.7936507936507936
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 47.11,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.6907186499854524,
+        "ci_low": 0.6565374453008098,
+        "ci_high": 0.7228242912751229
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8044806517311609,
+        "ci_low": 0.7763716758381564,
+        "ci_high": 0.8299903175011539
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.42973523421588594,
+        "ci_low": 0.3998038287176664,
+        "ci_high": 0.4630859990563142
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.39613034623217924,
+        "ci_low": 0.3561026963886046,
+        "ci_high": 0.4373997194589568
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 40.4762180974478,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.7768402676752982,
+        "ci_low": 0.7475647459672929,
+        "ci_high": 0.8062933617239872
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8724178062263602,
+        "ci_low": 0.8513966297235934,
+        "ci_high": 0.8931868124716393
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.5043642711667151,
+        "ci_low": 0.4690497722347035,
+        "ci_high": 0.5394505337643258
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.43642711667151585,
+        "ci_low": 0.39766044336388046,
+        "ci_high": 0.4776972492204686
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 40.885150812064964,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.2973523421588595,
+        "ci_low": 0.2522135632868939,
+        "ci_high": 0.3432691182951548
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.3863834739598487,
+        "ci_low": 0.33780335770135633,
+        "ci_high": 0.43478418565710547
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.16889729415187663,
+        "ci_low": 0.13659780785835568,
+        "ci_high": 0.202751918666797
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.17078847832411986,
+        "ci_low": 0.13982836128854087,
+        "ci_high": 0.20091474405220897
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 42.1203596287703,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_topn",
+        "value": 0.40038684719535783,
+        "ci_low": 0.38139780631353665,
+        "ci_high": 0.4202718308441571
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_topn2",
+        "value": 0.516292218419878,
+        "ci_low": 0.4960997122733755,
+        "ci_high": 0.536576520345196
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_max",
+        "value": 0.986013986013986,
+        "ci_low": 0.9807340183089926,
+        "ci_high": 0.9907976330224858
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7287606011010266,
+        "ci_low": 0.7070256095934035,
+        "ci_high": 0.7474217226727721
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.6859098348460051,
+        "ci_low": 0.6649579795143411,
+        "ci_high": 0.705405434714303
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.33896978237043995,
+        "ci_low": 0.3188902526727774,
+        "ci_high": 0.3599065624454189
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "P1K",
+        "value": 0.862,
+        "ci_low": 0.8309749999999999,
+        "ci_high": 0.890025
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "P1K_1to1",
+        "value": 0.815,
+        "ci_low": 0.782,
+        "ci_high": 0.851
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "TP@100FP",
+        "value": 711.0,
+        "ci_low": 577.975,
+        "ci_high": 852.025
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "RRO",
+        "value": 0.6125437956854317,
+        "ci_low": 0.6038781787996551,
+        "ci_high": 0.6214765347860007
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "res_f1",
+        "value": 0.21610363011685574,
+        "ci_low": 0.20742986756872847,
+        "ci_high": 0.22436892233299036
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "res_mcc",
+        "value": 0.0608726654873102,
+        "ci_low": 0.05641883537696303,
+        "ci_high": 0.06513710050908438
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_chen11_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 32.53045045045045,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_topn",
+        "value": 0.5475375688141646,
+        "ci_low": 0.5256454150197629,
+        "ci_high": 0.5694134815843434
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_topn2",
+        "value": 0.6427614938253237,
+        "ci_low": 0.6213095328116514,
+        "ci_high": 0.662515334572901
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_max",
+        "value": 0.9918166939443536,
+        "ci_low": 0.9879615915470791,
+        "ci_high": 0.9952854576473359
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.799880970093736,
+        "ci_low": 0.7838865894971621,
+        "ci_high": 0.8153383002077971
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7565838416902246,
+        "ci_low": 0.7390742108536775,
+        "ci_high": 0.7735372902122866
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.5428213558791295,
+        "ci_low": 0.5201606841395626,
+        "ci_high": 0.5643604833871382
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "P1K",
+        "value": 0.959,
+        "ci_low": 0.937975,
+        "ci_high": 0.979
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "P1K_1to1",
+        "value": 0.959,
+        "ci_low": 0.937,
+        "ci_high": 0.979
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "TP@100FP",
+        "value": 1432.0,
+        "ci_low": 1161.975,
+        "ci_high": 1695.05
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "RRO",
+        "value": 0.5969252708263711,
+        "ci_low": 0.5896758571749463,
+        "ci_high": 0.6044330901505006
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "res_f1",
+        "value": 0.22087670608689275,
+        "ci_low": 0.2120760226011234,
+        "ci_high": 0.22891796207745876
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "res_mcc",
+        "value": 0.07742381515698124,
+        "ci_low": 0.07252779911701018,
+        "ci_high": 0.08214210599334895
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 32.96684684684685,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_topn",
+        "value": 0.2608242821008778,
+        "ci_low": 0.24280186349272317,
+        "ci_high": 0.27841705075181383
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_topn2",
+        "value": 0.35902395476863563,
+        "ci_low": 0.3394128028125912,
+        "ci_high": 0.3785337544172857
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_max",
+        "value": 0.9794673411694689,
+        "ci_low": 0.9733409722529542,
+        "ci_high": 0.9856385612225032
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.6188067251897039,
+        "ci_low": 0.5989877247928403,
+        "ci_high": 0.638867207329786
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.5731289986609136,
+        "ci_low": 0.5527690936148805,
+        "ci_high": 0.5926089663211382
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.22530139345545638,
+        "ci_low": 0.20830659429218268,
+        "ci_high": 0.24320742390291358
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "P1K",
+        "value": 0.478,
+        "ci_low": 0.422,
+        "ci_high": 0.530025
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "P1K_1to1",
+        "value": 0.353,
+        "ci_low": 0.316,
+        "ci_high": 0.391
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "TP@100FP",
+        "value": 117.0,
+        "ci_low": 72.0,
+        "ci_high": 183.02499999999998
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "RRO",
+        "value": 0.5106521600067672,
+        "ci_low": 0.5003674877024376,
+        "ci_high": 0.5208934462524026
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "res_f1",
+        "value": 0.20784764381694282,
+        "ci_low": 0.19956747692499552,
+        "ci_high": 0.21571302393891872
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "res_mcc",
+        "value": 0.036945588298718,
+        "ci_low": 0.03219628241460832,
+        "ci_high": 0.04157007480397762
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_shuffled_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 34.37945945945946,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_topn",
+        "value": 0.45085728085003623,
+        "ci_low": 0.4282972028784134,
+        "ci_high": 0.47485069057611834
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.5713595749818884,
+        "ci_low": 0.5457939041624676,
+        "ci_high": 0.5970508569065517
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_max",
+        "value": 0.9884085969572567,
+        "ci_low": 0.9812385616597744,
+        "ci_high": 0.994180177605455
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7396764066650567,
+        "ci_low": 0.7172419163505269,
+        "ci_high": 0.7608964941748764
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7000724462690171,
+        "ci_low": 0.676680990197311,
+        "ci_high": 0.7217434157809685
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.48382126348228044,
+        "ci_low": 0.45857566761298063,
+        "ci_high": 0.5096529703349597
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "P1K",
+        "value": 0.869,
+        "ci_low": 0.836,
+        "ci_high": 0.898025
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.811,
+        "ci_low": 0.775,
+        "ci_high": 0.843
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "TP@100FP",
+        "value": 771.0,
+        "ci_low": 649.95,
+        "ci_high": 893.0
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "RRO",
+        "value": 0.6175858112742854,
+        "ci_low": 0.6076540120960039,
+        "ci_high": 0.6272451510909305
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "res_f1",
+        "value": 0.20732605753561947,
+        "ci_low": 0.19937698922558494,
+        "ci_high": 0.2153814049361923
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "res_mcc",
+        "value": 0.08109603296147248,
+        "ci_low": 0.07749155588615247,
+        "ci_high": 0.0847955184399494
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_chen11_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 35.45931103344982,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_topn",
+        "value": 0.4725911615551799,
+        "ci_low": 0.44998726205283146,
+        "ci_high": 0.49726204229976667
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.586090316348708,
+        "ci_low": 0.5617002568302696,
+        "ci_high": 0.6111482802730706
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_max",
+        "value": 0.9891330596474281,
+        "ci_low": 0.9828816433694322,
+        "ci_high": 0.9941465584033222
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7616517749335909,
+        "ci_low": 0.7416011693003502,
+        "ci_high": 0.7823925450950554
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7215648394107703,
+        "ci_low": 0.6997177145332208,
+        "ci_high": 0.7433314141841028
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.5092449922958397,
+        "ci_low": 0.48498191179982864,
+        "ci_high": 0.5343214298619642
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "P1K",
+        "value": 0.876,
+        "ci_low": 0.8439749999999999,
+        "ci_high": 0.9
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.792,
+        "ci_low": 0.759,
+        "ci_high": 0.819
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "TP@100FP",
+        "value": 785.0,
+        "ci_low": 696.975,
+        "ci_high": 900.0
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "RRO",
+        "value": 0.5978893593366498,
+        "ci_low": 0.5880611870359517,
+        "ci_high": 0.6078196919547876
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "res_f1",
+        "value": 0.21009089558993974,
+        "ci_low": 0.20184111636467367,
+        "ci_high": 0.21809662299512375
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "res_mcc",
+        "value": 0.08852746858230796,
+        "ci_low": 0.08410053656655289,
+        "ci_high": 0.09270507890170979
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 36.03394907638542,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_topn",
+        "value": 0.2675682202366578,
+        "ci_low": 0.24397683836135864,
+        "ci_high": 0.28932622976672756
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.36585365853658536,
+        "ci_low": 0.342312878931352,
+        "ci_high": 0.3894374944684805
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_max",
+        "value": 0.982612895435885,
+        "ci_low": 0.975148750022514,
+        "ci_high": 0.9894047474064611
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.578604201883603,
+        "ci_low": 0.5541807328788736,
+        "ci_high": 0.6034071218492977
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.5266843757546487,
+        "ci_low": 0.5045936572256694,
+        "ci_high": 0.5491782887121466
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.28762198253723675,
+        "ci_low": 0.2669256514873625,
+        "ci_high": 0.3094172745350044
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "P1K",
+        "value": 0.386,
+        "ci_low": 0.33,
+        "ci_high": 0.434025
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.266,
+        "ci_low": 0.227975,
+        "ci_high": 0.299
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "TP@100FP",
+        "value": 114.0,
+        "ci_low": 75.0,
+        "ci_high": 168.0
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "RRO",
+        "value": 0.505748563997963,
+        "ci_low": 0.4951242782294098,
+        "ci_high": 0.5165278031612237
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "res_f1",
+        "value": 0.19804280515199676,
+        "ci_low": 0.19043745749283147,
+        "ci_high": 0.20543748726084102
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "res_mcc",
+        "value": 0.04288253331697512,
+        "ci_low": 0.03816778439939086,
+        "ci_high": 0.047381578308160435
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_shuffled_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 37.491263105341986,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "recall_topn",
+        "value": 0.48951048951048953,
+        "ci_low": 0.4579613120891522,
+        "ci_high": 0.5197223683081965
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.7024793388429752,
+        "ci_low": 0.6723879644328008,
+        "ci_high": 0.7308941932784792
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "recall_max",
+        "value": 0.9936427209154481,
+        "ci_low": 0.9895482356403867,
+        "ci_high": 0.9970354415100622
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7883026064844246,
+        "ci_low": 0.760179166006025,
+        "ci_high": 0.8142072521344104
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7768595041322314,
+        "ci_low": 0.7483353267406496,
+        "ci_high": 0.8034959723304427
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "P1K",
+        "value": 0.661,
+        "ci_low": 0.624,
+        "ci_high": 0.699
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.599,
+        "ci_low": 0.5609500000000001,
+        "ci_high": 0.638
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "TP@100FP",
+        "value": 227.0,
+        "ci_low": 177.0,
+        "ci_high": 292.025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "RRO",
+        "value": 0.6236868876148558,
+        "ci_low": 0.6114834956548265,
+        "ci_high": 0.6370073557369369
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "res_f1",
+        "value": 0.14122673551697218,
+        "ci_low": 0.1360599639878084,
+        "ci_high": 0.14692744929555726
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "res_mcc",
+        "value": 0.07977115770835326,
+        "ci_low": 0.07616225358989788,
+        "ci_high": 0.08345847094154761
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_chen11_small_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 43.98403575989783,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "recall_topn",
+        "value": 0.5022250476795931,
+        "ci_low": 0.471408079300365,
+        "ci_high": 0.5323655202858874
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.7285441830896376,
+        "ci_low": 0.6983546617915904,
+        "ci_high": 0.7563406054907383
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "recall_max",
+        "value": 0.9949141767323586,
+        "ci_low": 0.9912879788844107,
+        "ci_high": 0.9980724700249219
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.8188175460902734,
+        "ci_low": 0.7917086830565312,
+        "ci_high": 0.8434335094028877
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.8099173553719008,
+        "ci_low": 0.7828318908745,
+        "ci_high": 0.8353780620317514
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "P1K",
+        "value": 0.697,
+        "ci_low": 0.655,
+        "ci_high": 0.73705
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.63,
+        "ci_low": 0.5879749999999999,
+        "ci_high": 0.667025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "TP@100FP",
+        "value": 249.0,
+        "ci_low": 171.0,
+        "ci_high": 330.025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "RRO",
+        "value": 0.6056570780965086,
+        "ci_low": 0.5927331781819378,
+        "ci_high": 0.61842914863338
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "res_f1",
+        "value": 0.1445178181758572,
+        "ci_low": 0.13932054278947698,
+        "ci_high": 0.1501652998576633
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "res_mcc",
+        "value": 0.0889133117844116,
+        "ci_low": 0.08527663899524045,
+        "ci_high": 0.0925636130177423
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_small_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 44.38058748403576,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "recall_topn",
+        "value": 0.18626827717736807,
+        "ci_low": 0.16431481726569738,
+        "ci_high": 0.2086077647213719
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.28862047043865224,
+        "ci_low": 0.2636485048400896,
+        "ci_high": 0.31448615608476455
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "recall_max",
+        "value": 0.9739351557533376,
+        "ci_low": 0.9650847116159484,
+        "ci_high": 0.9821561422130994
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.4125874125874126,
+        "ci_low": 0.3821427653356796,
+        "ci_high": 0.44481836162841165
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.3916083916083916,
+        "ci_low": 0.36374636407085653,
+        "ci_high": 0.42203516634663774
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "P1K",
+        "value": 0.097,
+        "ci_low": 0.072,
+        "ci_high": 0.125
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.064,
+        "ci_low": 0.049,
+        "ci_high": 0.082
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "TP@100FP",
+        "value": 5.0,
+        "ci_low": 0.0,
+        "ci_high": 12.0
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "RRO",
+        "value": 0.4675865098955536,
+        "ci_low": 0.4551470111852219,
+        "ci_high": 0.4817591451660988
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "res_f1",
+        "value": 0.13230724706518468,
+        "ci_low": 0.12723636156334925,
+        "ci_high": 0.13763571134771307
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "res_mcc",
+        "value": 0.03796320603005117,
+        "ci_low": 0.03345003761262616,
+        "ci_high": 0.04269379546573086
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_shuffled_small_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 45.540868454661556,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.5404490925868963,
+        "ci_low": 0.522808478891823,
+        "ci_high": 0.5588502824087958
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.6456474930790526,
+        "ci_low": 0.6256433668239252,
+        "ci_high": 0.6653120534434561
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.7911411873269764,
+        "ci_low": 0.7723218817136973,
+        "ci_high": 0.8090714164875439
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.6920947400799754,
+        "ci_low": 0.6730706787251249,
+        "ci_high": 0.711157284072157
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.6313442017840665,
+        "ci_low": 0.6119354971957779,
+        "ci_high": 0.6509456014450993
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "recall_ldca_topn2",
+        "value": 0.48774834437086095,
+        "ci_low": 0.4658741718637831,
+        "ci_high": 0.5092338025446642
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "P1K",
+        "value": 0.603,
+        "ci_low": 0.55,
+        "ci_high": 0.655
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.6,
+        "ci_low": 0.548,
+        "ci_high": 0.652025
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 148.0,
+        "ci_low": 93.975,
+        "ci_high": 208.02499999999998
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "RRO",
+        "value": 0.515077606796985,
+        "ci_low": 0.5060526152121573,
+        "ci_high": 0.5241343302689282
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.31855355097891397,
+        "ci_low": 0.30477743824151526,
+        "ci_high": 0.33377467236051317
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.2958525354206657,
+        "ci_low": 0.28377734042666375,
+        "ci_high": 0.31074494760742716
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "hallucination_rate",
+        "value": 0.001722282023681378,
+        "ci_low": 0.0012195470958784947,
+        "ci_high": 0.002277592601546771
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "value": 0.0009970993473531545,
+        "ci_low": 0.00046250481611365363,
+        "ci_high": 0.0016143815288250987
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 11.033254156769596,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.5581359581667179,
+        "ci_low": 0.5400743011539396,
+        "ci_high": 0.5768692541102894
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.6581051984004922,
+        "ci_low": 0.6405769568553494,
+        "ci_high": 0.6775145425282323
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.7597662257766841,
+        "ci_low": 0.7409481999333288,
+        "ci_high": 0.7786751332745613
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.6916333435865888,
+        "ci_low": 0.6730487505734638,
+        "ci_high": 0.7107396547708145
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.631959397108582,
+        "ci_low": 0.6128170440099192,
+        "ci_high": 0.6528393960799093
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_ldca_topn2",
+        "value": 0.4960264900662252,
+        "ci_low": 0.4749704042446834,
+        "ci_high": 0.5180943771616918
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "P1K",
+        "value": 0.739,
+        "ci_low": 0.685975,
+        "ci_high": 0.787
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.733,
+        "ci_low": 0.68,
+        "ci_high": 0.78
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 290.0,
+        "ci_low": 152.0,
+        "ci_high": 391.0
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "RRO",
+        "value": 0.5437512993797932,
+        "ci_low": 0.5351023235533233,
+        "ci_high": 0.552348649287504
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.3355922588892642,
+        "ci_low": 0.32182870946919795,
+        "ci_high": 0.3511160123894064
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.3130628767621987,
+        "ci_low": 0.3004522974197945,
+        "ci_high": 0.3278103855995085
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "hallucination_rate",
+        "value": 0.0019298499541660636,
+        "ci_low": 0.0013069265712439436,
+        "ci_high": 0.002602141138354104
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "value": 0.0008426966292134832,
+        "ci_low": 0.00036488528087753983,
+        "ci_high": 0.0015006570539122682
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 8.205463182897862,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.6754617414248021,
+        "ci_low": 0.6194002231328714,
+        "ci_high": 0.7395860180412371
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.7941952506596306,
+        "ci_low": 0.7460644977534274,
+        "ci_high": 0.8408582268754202
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.40369393139841686,
+        "ci_low": 0.3527784668816671,
+        "ci_high": 0.46176068793948893
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.6279683377308707,
+        "ci_low": 0.569067237969677,
+        "ci_high": 0.6947911497105046
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 5.333333333333333,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_topn",
+        "value": 0.4777777777777778,
+        "ci_low": 0.4085485093842985,
+        "ci_high": 0.5432767224536873
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.7037037037037037,
+        "ci_low": 0.6359921933085502,
+        "ci_high": 0.7655735528412108
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_max",
+        "value": 0.8481481481481481,
+        "ci_low": 0.7892808441558441,
+        "ci_high": 0.8976138302823456
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7703703703703704,
+        "ci_low": 0.7069437068507701,
+        "ci_high": 0.832090233140865
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7518518518518519,
+        "ci_low": 0.688383152173913,
+        "ci_high": 0.8140651424742333
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "P1K",
+        "value": 0.368,
+        "ci_low": 0.330975,
+        "ci_high": 0.402
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.212,
+        "ci_low": 0.192,
+        "ci_high": 0.231
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "TP@100FP",
+        "value": 145.0,
+        "ci_low": 111.0,
+        "ci_high": 182.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "RRO",
+        "value": 0.5349004360451669,
+        "ci_low": 0.5045619711792403,
+        "ci_high": 0.5671160537295665
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "res_f1",
+        "value": 0.29692037653633935,
+        "ci_low": 0.2712098332087829,
+        "ci_high": 0.3223112686551787
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "res_mcc",
+        "value": 0.2740142723900677,
+        "ci_low": 0.2460437836766364,
+        "ci_high": 0.30186854783231953
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 6.292792792792793,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_DCC12_topn2@interface",
+        "value": 0.8395061728395061,
+        "ci_low": 0.7882328015952144,
+        "ci_high": 0.8843016364294887
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_DCA4_topn2@interface",
+        "value": 0.7530864197530864,
+        "ci_low": 0.6896468028121862,
+        "ci_high": 0.8217472535974006
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_DCC12_topn2@all",
+        "value": 0.8364312267657993,
+        "ci_low": 0.8002449748743719,
+        "ci_high": 0.8706188074760199
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "precision_DCC12_topn2@all",
+        "value": 0.46656649135987976,
+        "ci_low": 0.43711081019454645,
+        "ci_high": 0.496119491248665
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_DCC12_topn2@homo_interface",
+        "value": 0.8361581920903954,
+        "ci_low": 0.7724442307095654,
+        "ci_high": 0.8965572858731925
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_DCC12_topn2@hetero_interface",
+        "value": 0.8484848484848485,
+        "ci_low": 0.7571428571428571,
+        "ci_high": 0.9275831202046035
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 15.67,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_topn",
+        "value": 0.7748036077974978,
+        "ci_low": 0.7451169411726005,
+        "ci_high": 0.804106303506696
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8683444864707593,
+        "ci_low": 0.8470285300499957,
+        "ci_high": 0.8907707802447626
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCC4_topn",
+        "value": 0.5026185627000291,
+        "ci_low": 0.4702625008528191,
+        "ci_high": 0.5389818846337441
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "success_DCA4_top1",
+        "value": 0.4372999709048589,
+        "ci_low": 0.39814764228057437,
+        "ci_high": 0.47815234824846664
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 8.172273781902552,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_topn",
+        "value": 0.6127064424936766,
+        "ci_low": 0.5925144455277624,
+        "ci_high": 0.632462897862725
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_topn2",
+        "value": 0.7174527600059515,
+        "ci_low": 0.6973421419871543,
+        "ci_high": 0.737882251465043
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_max",
+        "value": 0.8454099092396965,
+        "ci_low": 0.8289966672874673,
+        "ci_high": 0.862925331721656
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7705698556762387,
+        "ci_low": 0.7531888744596213,
+        "ci_high": 0.789183174140877
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7098646034816247,
+        "ci_low": 0.690879169928227,
+        "ci_high": 0.7297550190963271
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.5392202912165336,
+        "ci_low": 0.5173888504258234,
+        "ci_high": 0.5626527822956182
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "P1K",
+        "value": 0.966,
+        "ci_low": 0.943,
+        "ci_high": 0.983
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "P1K_1to1",
+        "value": 0.966,
+        "ci_low": 0.942,
+        "ci_high": 0.983
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "TP@100FP",
+        "value": 1469.0,
+        "ci_low": 1221.9,
+        "ci_high": 1721.3499999999997
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "RRO",
+        "value": 0.5252767690208099,
+        "ci_low": 0.5151005818465108,
+        "ci_high": 0.535718395576531
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "res_f1",
+        "value": 0.35649508963488996,
+        "ci_low": 0.3431699042310137,
+        "ci_high": 0.36900230562631203
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "res_mcc",
+        "value": 0.28469558374712367,
+        "ci_low": 0.2715967231945555,
+        "ci_high": 0.2970256207506369
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.abl_fold_disjoint_floor_all_s0",
+        "metric": "pockets_per_structure",
+        "value": 9.52972972972973,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_topn",
+        "value": 0.5409321419946873,
+        "ci_low": 0.5207809548256801,
+        "ci_high": 0.5613687677874672
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_topn2",
+        "value": 0.6631248490702729,
+        "ci_low": 0.6410365291310044,
+        "ci_high": 0.6846494934209427
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_max",
+        "value": 0.7899058198502777,
+        "ci_low": 0.7698267869944247,
+        "ci_high": 0.8107579639513225
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7126297995653224,
+        "ci_low": 0.6915909076066015,
+        "ci_high": 0.735029139478324
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_1to1_topn2",
+        "value": 0.6609514609997585,
+        "ci_low": 0.6397174666518616,
+        "ci_high": 0.6845285799000639
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "recall_ldca_topn2",
+        "value": 0.519517205957884,
+        "ci_low": 0.49642499310897387,
+        "ci_high": 0.5430328044720285
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "P1K",
+        "value": 0.867,
+        "ci_low": 0.8329749999999999,
+        "ci_high": 0.893
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "P1K_1to1",
+        "value": 0.782,
+        "ci_low": 0.7439749999999999,
+        "ci_high": 0.808
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "TP@100FP",
+        "value": 769.0,
+        "ci_low": 668.975,
+        "ci_high": 879.0
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "RRO",
+        "value": 0.5078063497509768,
+        "ci_low": 0.49289488715818947,
+        "ci_high": 0.5213909244938842
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "res_f1",
+        "value": 0.37331721725540634,
+        "ci_low": 0.35845870485363807,
+        "ci_high": 0.3885210420961357
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "res_mcc",
+        "value": 0.3147749033291659,
+        "ci_low": 0.30000077746640347,
+        "ci_high": 0.32988727036385607
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0",
+        "metric": "pockets_per_structure",
+        "value": 8.341987019470794,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "recall_topn",
+        "value": 0.5143038779402416,
+        "ci_low": 0.4831519771615345,
+        "ci_high": 0.5444757923702446
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.7539732994278449,
+        "ci_low": 0.7248140515077324,
+        "ci_high": 0.7799052106268853
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "recall_max",
+        "value": 0.9154481881754609,
+        "ci_low": 0.8976996752431309,
+        "ci_high": 0.9321154036574371
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.8086458995549904,
+        "ci_low": 0.7813035979302876,
+        "ci_high": 0.8322615762062733
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7933884297520661,
+        "ci_low": 0.7655511549492398,
+        "ci_high": 0.8180080255340801
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "P1K",
+        "value": 0.699,
+        "ci_low": 0.657,
+        "ci_high": 0.7380249999999999
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.634,
+        "ci_low": 0.5969749999999999,
+        "ci_high": 0.673
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "TP@100FP",
+        "value": 275.0,
+        "ci_low": 179.0,
+        "ci_high": 359.025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "RRO",
+        "value": 0.5849457092540514,
+        "ci_low": 0.570862179524606,
+        "ci_high": 0.59928940873013
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "res_f1",
+        "value": 0.33652456406242853,
+        "ci_low": 0.323314600354471,
+        "ci_high": 0.3496763431950509
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "res_mcc",
+        "value": 0.3276010165449068,
+        "ci_low": 0.3141261796982626,
+        "ci_high": 0.3397142011950332
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.abl_fold_disjoint_floor_small_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 10.798212005108557,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_topn",
+        "value": 0.47870311506675145,
+        "ci_low": 0.4474361750241055,
+        "ci_high": 0.5086928267509094
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_topn2",
+        "value": 0.7323585505403687,
+        "ci_low": 0.7027362499354861,
+        "ci_high": 0.760543977643665
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_max",
+        "value": 0.9154481881754609,
+        "ci_low": 0.897392294661976,
+        "ci_high": 0.9320574744284199
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_anyp_topn2",
+        "value": 0.7997457088366179,
+        "ci_low": 0.7731237945413599,
+        "ci_high": 0.8253122377596563
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7870311506675143,
+        "ci_low": 0.7602909066364141,
+        "ci_high": 0.8137380678318686
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "P1K",
+        "value": 0.559,
+        "ci_low": 0.511975,
+        "ci_high": 0.6050249999999999
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "P1K_1to1",
+        "value": 0.529,
+        "ci_low": 0.484,
+        "ci_high": 0.5700249999999999
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "TP@100FP",
+        "value": 7.0,
+        "ci_low": 1.0,
+        "ci_high": 25.024999999999977
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "RRO",
+        "value": 0.602425122669978,
+        "ci_low": 0.5877724732648902,
+        "ci_high": 0.6156365843632049
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "res_f1",
+        "value": 0.33659285434453273,
+        "ci_low": 0.3228594251817797,
+        "ci_high": 0.3496537665104864
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "res_mcc",
+        "value": 0.3301546653335062,
+        "ci_low": 0.3162441285638747,
+        "ci_high": 0.3428198191865313
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.v2_afranker_all_s0_af",
+        "metric": "pockets_per_structure",
+        "value": 11.684546615581098,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn",
+        "value": 0.4207707186430591,
+        "ci_low": 0.40004838460061865,
+        "ci_high": 0.4419039991330375
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn2",
+        "value": 0.4584139264990329,
+        "ci_low": 0.43588354552478753,
+        "ci_high": 0.4791972333981671
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_max",
+        "value": 0.4796905222437137,
+        "ci_low": 0.45651595378268583,
+        "ci_high": 0.5027118165604673
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_anyp_topn2",
+        "value": 0.4660020830233596,
+        "ci_low": 0.4431329420146682,
+        "ci_high": 0.48789333043796224
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_1to1_topn2",
+        "value": 0.3916083916083916,
+        "ci_low": 0.37178022389024695,
+        "ci_high": 0.41184854661408155
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_ldca_topn2",
+        "value": 0.28088304368248,
+        "ci_low": 0.25918215136601974,
+        "ci_high": 0.30268232382627147
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K",
+        "value": 0.844,
+        "ci_low": 0.806975,
+        "ci_high": 0.876
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K_1to1",
+        "value": 0.837,
+        "ci_low": 0.8,
+        "ci_high": 0.868
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "TP@100FP",
+        "value": 684.0,
+        "ci_low": 584.0,
+        "ci_high": 797.0
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "RRO",
+        "value": 0.5353234108110266,
+        "ci_low": 0.5229964585910237,
+        "ci_high": 0.5486235442258116
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_f1",
+        "value": 0.32672197637356304,
+        "ci_low": 0.3079960693512887,
+        "ci_high": 0.345712567901257
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_mcc",
+        "value": 0.29044295449851093,
+        "ci_low": 0.2706666737658085,
+        "ci_high": 0.3098934993930814
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 2.6036036036036037,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn",
+        "value": 0.4839410770345327,
+        "ci_low": 0.4601845478686133,
+        "ci_high": 0.5115337824044903
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn2",
+        "value": 0.5339290026563632,
+        "ci_low": 0.507601105556233,
+        "ci_high": 0.5629842604289399
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_max",
+        "value": 0.5604926346293166,
+        "ci_low": 0.5324968610437527,
+        "ci_high": 0.5897309153712713
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_anyp_topn2",
+        "value": 0.5435885051919827,
+        "ci_low": 0.5169565188175664,
+        "ci_high": 0.5728687069533741
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_1to1_topn2",
+        "value": 0.47307413668196086,
+        "ci_low": 0.44640281199063486,
+        "ci_high": 0.501333197953752
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_ldca_topn2",
+        "value": 0.4214175654853621,
+        "ci_low": 0.3912554520271972,
+        "ci_high": 0.4529843267630624
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K",
+        "value": 0.859,
+        "ci_low": 0.8219749999999999,
+        "ci_high": 0.890025
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K_1to1",
+        "value": 0.847,
+        "ci_low": 0.809,
+        "ci_high": 0.881
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "TP@100FP",
+        "value": 731.0,
+        "ci_low": 602.0,
+        "ci_high": 859.0749999999999
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "RRO",
+        "value": 0.5604223089136097,
+        "ci_low": 0.5474872718209594,
+        "ci_high": 0.5734308801176008
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_f1",
+        "value": 0.4022700204981268,
+        "ci_low": 0.38322929040500153,
+        "ci_high": 0.42205495222298933
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_mcc",
+        "value": 0.37115736126375476,
+        "ci_low": 0.35159657387529203,
+        "ci_high": 0.39149592503092706
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 2.890664003994009,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_topn",
+        "value": 0.6754617414248021,
+        "ci_low": 0.6170174758953169,
+        "ci_high": 0.7346599942188178
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_topn2",
+        "value": 0.7097625329815304,
+        "ci_low": 0.6540350809261984,
+        "ci_high": 0.7668437864525405
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCC4_topn",
+        "value": 0.41952506596306066,
+        "ci_low": 0.3623115024766098,
+        "ci_high": 0.47309314750130643
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_top1",
+        "value": 0.6411609498680739,
+        "ci_low": 0.5769230769230769,
+        "ci_high": 0.7048410863025193
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 2.48,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_topn",
+        "value": 0.7867326156531859,
+        "ci_low": 0.7553203726033887,
+        "ci_high": 0.8148185307279473
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_topn2",
+        "value": 0.8507419260983415,
+        "ci_low": 0.8251616467179191,
+        "ci_high": 0.8736883911786876
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCC4_topn",
+        "value": 0.4973814372999709,
+        "ci_low": 0.45122780131769097,
+        "ci_high": 0.5417735996093166
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "success_DCA4_top1",
+        "value": 0.458539423916206,
+        "ci_low": 0.42051826183822566,
+        "ci_high": 0.4971077937444519
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 5.875870069605568,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn",
+        "value": 0.4962962962962963,
+        "ci_low": 0.4319954545454545,
+        "ci_high": 0.5614082761250954
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn2",
+        "value": 0.6555555555555556,
+        "ci_low": 0.5933827493261455,
+        "ci_high": 0.7148427902895583
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_max",
+        "value": 0.6888888888888889,
+        "ci_low": 0.6264140576404728,
+        "ci_high": 0.7480314960629921
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_anyp_topn2",
+        "value": 0.6666666666666666,
+        "ci_low": 0.6078011684125705,
+        "ci_high": 0.7240069958847737
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_1to1_topn2",
+        "value": 0.6296296296296297,
+        "ci_low": 0.5713891806722688,
+        "ci_high": 0.686837494227269
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K",
+        "value": 0.37066246056782337,
+        "ci_low": 0.32894736842105265,
+        "ci_high": 0.4135608705445126
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K_1to1",
+        "value": 0.277602523659306,
+        "ci_low": 0.24709234365867913,
+        "ci_high": 0.3092202012383901
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "TP@100FP",
+        "value": 110.0,
+        "ci_low": 91.0,
+        "ci_high": 135.0
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "RRO",
+        "value": 0.5532977759754509,
+        "ci_low": 0.5187300901867286,
+        "ci_high": 0.5868110557639491
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_f1",
+        "value": 0.2921413059554235,
+        "ci_low": 0.2618875183686199,
+        "ci_high": 0.32580233361082206
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_mcc",
+        "value": 0.27042595946578724,
+        "ci_low": 0.2385201294300299,
+        "ci_high": 0.3053091004087703
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 2.855855855855856,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn",
+        "value": 0.5829624920534011,
+        "ci_low": 0.5497463435443243,
+        "ci_high": 0.6124855410301262
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn2",
+        "value": 0.7355371900826446,
+        "ci_low": 0.7012687845979324,
+        "ci_high": 0.7639677639810597
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_max",
+        "value": 0.7902097902097902,
+        "ci_low": 0.7592689057474027,
+        "ci_high": 0.8173063464885065
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_anyp_topn2",
+        "value": 0.757787666878576,
+        "ci_low": 0.722638298923244,
+        "ci_high": 0.7853670921412345
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_1to1_topn2",
+        "value": 0.7253655435473617,
+        "ci_low": 0.6904005085823267,
+        "ci_high": 0.7541638739710017
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K",
+        "value": 0.605,
+        "ci_low": 0.561975,
+        "ci_high": 0.650025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K_1to1",
+        "value": 0.592,
+        "ci_low": 0.55,
+        "ci_high": 0.637025
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "TP@100FP",
+        "value": 273.0,
+        "ci_low": 212.975,
+        "ci_high": 338.0
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "RRO",
+        "value": 0.583195989389341,
+        "ci_low": 0.5691594498434597,
+        "ci_high": 0.5969127026376041
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_f1",
+        "value": 0.40985083175346243,
+        "ci_low": 0.39241656906938105,
+        "ci_high": 0.42653000470477964
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_mcc",
+        "value": 0.39670152406799875,
+        "ci_low": 0.3786515125676106,
+        "ci_high": 0.4135727073814941
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 3.5906768837803322,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn",
+        "value": 0.3457397723777299,
+        "ci_low": 0.326224072524017,
+        "ci_high": 0.3662625997796079
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_topn2",
+        "value": 0.3757305444478622,
+        "ci_low": 0.35497365652912083,
+        "ci_high": 0.3974937645744877
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_max",
+        "value": 0.3866502614580129,
+        "ci_low": 0.36528664971449487,
+        "ci_high": 0.40849707968293697
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_anyp_topn2",
+        "value": 0.37865272223931096,
+        "ci_low": 0.3577693421723696,
+        "ci_high": 0.4003737701954009
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_1to1_topn2",
+        "value": 0.3143648108274377,
+        "ci_low": 0.2958946317182441,
+        "ci_high": 0.33349930792828775
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_ldca_topn2",
+        "value": 0.24221854304635762,
+        "ci_low": 0.22400785981697394,
+        "ci_high": 0.2611668578648783
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K",
+        "value": 0.734,
+        "ci_low": 0.696,
+        "ci_high": 0.775025
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "P1K_1to1",
+        "value": 0.719,
+        "ci_low": 0.679,
+        "ci_high": 0.764
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "TP@100FP",
+        "value": 497.0,
+        "ci_low": 413.0,
+        "ci_high": 572.0
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "RRO",
+        "value": 0.4942578518156007,
+        "ci_low": 0.48273222054236564,
+        "ci_high": 0.5061179598754824
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_f1",
+        "value": 0.2800678496458482,
+        "ci_low": 0.26263839520633075,
+        "ci_high": 0.29879837024369915
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "res_mcc",
+        "value": 0.2680188523025846,
+        "ci_low": 0.2510019209930675,
+        "ci_high": 0.2871416532381716
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "hallucination_rate",
+        "value": 0.008391608391608392,
+        "ci_low": 0.005514135970115193,
+        "ci_high": 0.011486720513862615
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "hallucination_rate_topn2",
+        "value": 0.008613617719442166,
+        "ci_low": 0.005730685283933741,
+        "ci_high": 0.011711784108213101
+      },
+      {
+        "benchmark": "af_set",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 2.264449722882027,
+        "ci_low": null,
+        "ci_high": null
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_DCC12_topn2@interface",
+        "value": 0.8436213991769548,
+        "ci_low": 0.7936452045606974,
+        "ci_high": 0.8894125946527538
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_DCA4_topn2@interface",
+        "value": 0.7736625514403292,
+        "ci_low": 0.7066042735567912,
+        "ci_high": 0.8390309233449477
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_DCC12_topn2@all",
+        "value": 0.6815365551425031,
+        "ci_low": 0.6323032215685155,
+        "ci_high": 0.7283050892690347
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "precision_DCC12_topn2@all",
+        "value": 0.3904761904761905,
+        "ci_low": 0.3648441164989127,
+        "ci_high": 0.4175061700967619
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_DCC12_topn2@homo_interface",
+        "value": 0.8248587570621468,
+        "ci_low": 0.7614180448665465,
+        "ci_high": 0.8817204301075269
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "recall_DCC12_topn2@hetero_interface",
+        "value": 0.8939393939393939,
+        "ci_low": 0.8135101940555147,
+        "ci_high": 0.9655318527177089
+      },
+      {
+        "benchmark": "dimer",
+        "method": "extra:desc.p2rank_ours",
+        "metric": "pockets_per_structure",
+        "value": 8.5525,
+        "ci_low": null,
+        "ci_high": null
+      }
+    ],
+    "extra_paired": [
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_chen11_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 45.585973546601046,
+        "b": 59.18179021839434,
+        "diff": -13.595816671793294,
+        "ci_low": -15.545829309988122,
+        "ci_high": -11.63827066591542,
+        "a_ci": [
+          43.56902421423786,
+          47.63214314441255
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_chen11_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 31.655629139072847,
+        "b": 49.66887417218543,
+        "diff": -18.013245033112582,
+        "ci_low": -20.17836145156418,
+        "ci_high": -15.955697057017073,
+        "a_ci": [
+          29.737404706951786,
+          33.79288301581783
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_fold_disjoint_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 58.474315595201475,
+        "b": 59.18179021839434,
+        "diff": -0.7074746231928637,
+        "ci_low": -1.4822676286598795,
+        "ci_high": 0.058519663194233885,
+        "a_ci": [
+          56.39268401373854,
+          60.5328301126729
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_fold_disjoint_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 49.22185430463576,
+        "b": 49.66887417218543,
+        "diff": -0.4470198675496689,
+        "ci_low": -1.1178799056883215,
+        "ci_high": 0.26523118192588496,
+        "a_ci": [
+          47.150674253535,
+          51.26904967715856
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_shuffled_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 31.513380498308212,
+        "b": 59.18179021839434,
+        "diff": -27.668409720086128,
+        "ci_low": -29.957886873497213,
+        "ci_high": -25.43380409021829,
+        "a_ci": [
+          29.542906297392005,
+          33.374762512069154
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_shuffled_all_s0_af",
+        "reference": "v1:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 18.24503311258278,
+        "b": 49.66887417218543,
+        "diff": -31.423841059602648,
+        "ci_low": -33.78363084184545,
+        "ci_high": -29.159806320034157,
+        "a_ci": [
+          16.79385298820507,
+          19.741218075604348
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.abl_chen11_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 70.71240105540898,
+        "b": 71.76781002638522,
+        "diff": -1.0554089709762533,
+        "ci_low": -5.160140323628066,
+        "ci_high": 2.9739911144020645,
+        "a_ci": [
+          65.67500515782959,
+          75.7897805738837
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.abl_fold_disjoint_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 68.60158311345647,
+        "b": 71.76781002638522,
+        "diff": -3.1662269129287597,
+        "ci_low": -6.011409506549145,
+        "ci_high": -0.2642496392496313,
+        "a_ci": [
+          63.42790868924889,
+          74.60164238333864
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.abl_shuffled_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 28.232189973614776,
+        "b": 71.76781002638522,
+        "diff": -43.53562005277045,
+        "ci_low": -51.39349571999869,
+        "ci_high": -36.64730949197861,
+        "a_ci": [
+          23.45339244315099,
+          33.66643551548935
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.abl_chen11_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 66.66666666666667,
+        "b": 66.66666666666667,
+        "diff": 0.0,
+        "ci_low": -5.726156918017379,
+        "ci_high": 5.22394560299548,
+        "a_ci": [
+          60.0,
+          72.98446300252476
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.abl_fold_disjoint_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 64.44444444444444,
+        "b": 66.66666666666667,
+        "diff": -2.2222222222222223,
+        "ci_low": -5.748235920649707,
+        "ci_high": 0.7466959097641581,
+        "a_ci": [
+          57.64640279903782,
+          71.20651284333856
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.abl_shuffled_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 29.62962962962963,
+        "b": 66.66666666666667,
+        "diff": -37.03703703703704,
+        "ci_low": -44.445500633713564,
+        "ci_high": -29.854393081279657,
+        "a_ci": [
+          23.896223262032088,
+          35.03649635036496
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.abl_chen11_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 84.77366255144032,
+        "b": 85.59670781893004,
+        "diff": -0.823045267489712,
+        "ci_low": -4.955562408881916,
+        "ci_high": 3.8913352946759012,
+        "a_ci": [
+          79.0422210550887,
+          89.78745115067304
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.abl_fold_disjoint_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 86.83127572016461,
+        "b": 85.59670781893004,
+        "diff": 1.2345679012345678,
+        "ci_low": -1.9696945643891253,
+        "ci_high": 4.622336276282659,
+        "a_ci": [
+          81.8173369381548,
+          90.82610814262189
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.abl_shuffled_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 69.95884773662551,
+        "b": 85.59670781893004,
+        "diff": -15.637860082304528,
+        "ci_low": -21.645021645021643,
+        "ci_high": -9.16477272727273,
+        "a_ci": [
+          63.809113300492605,
+          76.00265486725664
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.abl_chen11_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 69.07186499854524,
+        "b": 78.39685772475997,
+        "diff": -9.324992726214722,
+        "ci_low": -11.764283607592072,
+        "ci_high": -6.841237701760015,
+        "a_ci": [
+          65.83188883710356,
+          72.16742505747618
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.abl_fold_disjoint_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 77.68402676752983,
+        "b": 78.39685772475997,
+        "diff": -0.7128309572301426,
+        "ci_low": -1.5351484952188958,
+        "ci_high": 0.2179019432630544,
+        "a_ci": [
+          74.66352353497027,
+          80.6022957135589
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.abl_shuffled_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 29.735234215885946,
+        "b": 78.39685772475997,
+        "diff": -48.661623508874015,
+        "ci_low": -53.27025489566464,
+        "ci_high": -44.10098527271665,
+        "a_ci": [
+          25.381717226361157,
+          34.158081717487
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_chen11_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_topn2",
+        "a": 51.6292218419878,
+        "b": 64.29102812081535,
+        "diff": -12.661806278827555,
+        "ci_low": -14.90293662478856,
+        "ci_high": -10.628178786914738,
+        "a_ci": [
+          49.609971227337546,
+          53.65765203451959
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_chen11_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_ldca_topn2",
+        "a": 33.896978237043996,
+        "b": 54.43870361672147,
+        "diff": -20.54172537967747,
+        "ci_low": -23.410891146842264,
+        "ci_high": -17.8857058797565,
+        "a_ci": [
+          31.949124043465183,
+          35.86127879557759
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_fold_disjoint_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_topn2",
+        "a": 64.27614938253237,
+        "b": 64.29102812081535,
+        "diff": -0.014878738282993602,
+        "ci_low": -0.8221904493044796,
+        "ci_high": 0.7733597927828303,
+        "a_ci": [
+          62.130953281165134,
+          66.2515334572901
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_fold_disjoint_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_ldca_topn2",
+        "a": 54.28213558791295,
+        "b": 54.43870361672147,
+        "diff": -0.1565680288085173,
+        "ci_low": -0.7921762210324607,
+        "ci_high": 0.5085672468209568,
+        "a_ci": [
+          52.04322800341908,
+          56.54209139239417
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_shuffled_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_topn2",
+        "a": 35.90239547686356,
+        "b": 64.29102812081535,
+        "diff": -28.388632643951794,
+        "ci_low": -30.792751230848996,
+        "ci_high": -26.159953017737305,
+        "a_ci": [
+          33.94128028125912,
+          37.85337544172857
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_shuffled_all_s0",
+        "reference": "v1:burrow_all_default_s0",
+        "metric": "recall_ldca_topn2",
+        "a": 22.53013934554564,
+        "b": 54.43870361672147,
+        "diff": -31.908564271175827,
+        "ci_low": -34.542737399538176,
+        "ci_high": -29.457454960740407,
+        "a_ci": [
+          20.883503188716666,
+          24.23656635294764
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.abl_chen11_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 57.135957498188844,
+        "b": 58.72977541656605,
+        "diff": -1.5938179183772037,
+        "ci_low": -3.0340365629745043,
+        "ci_high": -0.25302844393014723,
+        "a_ci": [
+          54.46642175550998,
+          59.6629973674366
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.abl_fold_disjoint_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 58.6090316348708,
+        "b": 58.72977541656605,
+        "diff": -0.12074378169524269,
+        "ci_low": -1.0766234958533725,
+        "ci_high": 0.865323617673812,
+        "a_ci": [
+          56.24371571401048,
+          60.89914425545992
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.abl_shuffled_small_s0",
+        "reference": "v1:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 36.58536585365854,
+        "b": 58.72977541656605,
+        "diff": -22.14440956290751,
+        "ci_low": -24.842059789192653,
+        "ci_high": -19.39354199651431,
+        "a_ci": [
+          34.47931076165122,
+          38.74406560434831
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.abl_chen11_small_s0_af",
+        "reference": "v1:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 70.24793388429752,
+        "b": 73.10870947234584,
+        "diff": -2.860775588048315,
+        "ci_low": -5.021693300205555,
+        "ci_high": -0.654803730710018,
+        "a_ci": [
+          67.28505975245412,
+          73.18787352847441
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.abl_fold_disjoint_small_s0_af",
+        "reference": "v1:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 72.85441830896376,
+        "b": 73.10870947234584,
+        "diff": -0.25429116338207247,
+        "ci_low": -1.7661297819151183,
+        "ci_high": 1.2591357917954273,
+        "a_ci": [
+          69.86647578559986,
+          75.91577794647289
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.abl_shuffled_small_s0_af",
+        "reference": "v1:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 28.862047043865225,
+        "b": 73.10870947234584,
+        "diff": -44.24666242848061,
+        "ci_low": -47.32818723680687,
+        "ci_high": -41.00900190411232,
+        "a_ci": [
+          26.31553496895042,
+          31.74479658247873
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_fold_disjoint_floor_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 64.56474930790526,
+        "b": 64.54936942479237,
+        "diff": 0.015379883112888341,
+        "ci_low": -0.8365427006075393,
+        "ci_high": 0.7487983861861445,
+        "a_ci": [
+          62.564336682392515,
+          66.53120534434561
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.abl_fold_disjoint_floor_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 48.77483443708609,
+        "b": 48.758278145695364,
+        "diff": 0.016556291390728478,
+        "ci_low": -0.6913340871684789,
+        "ci_high": 0.6837898716369862,
+        "a_ci": [
+          46.64572125117748,
+          50.94135603690034
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "hallucination_rate",
+        "a": 0.19298499541660635,
+        "b": 0.16945812807881774,
+        "diff": 0.02352686733778863,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "a": 0.08426966292134831,
+        "b": 0.11909124221326493,
+        "diff": -0.034821579291916614,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 65.81051984004921,
+        "b": 64.54936942479237,
+        "diff": 1.261150415256844,
+        "ci_low": 0.4998979853390409,
+        "ci_high": 2.0500865092039695,
+        "a_ci": [
+          64.05769568553494,
+          67.75145425282324
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 49.602649006622514,
+        "b": 48.758278145695364,
+        "diff": 0.8443708609271523,
+        "ci_low": 0.29244806972940074,
+        "ci_high": 1.4404159123981628,
+        "a_ci": [
+          47.566121135789984,
+          51.658683595531876
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "P1K",
+        "a": 73.9,
+        "b": 58.9,
+        "diff": 15.000000000000002,
+        "ci_low": 10.7,
+        "ci_high": 18.602500000000003,
+        "n_units": 1691,
+        "n_rows": 20727,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "hallucination_rate",
+        "a": 0.19298499541660635,
+        "b": 0.37234042553191493,
+        "diff": -0.17935543011530855,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "hallucination_rate_topn2",
+        "a": 0.08426966292134831,
+        "b": 0.2581658996520373,
+        "diff": -0.17389623673068896,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "recall_topn2",
+        "a": 65.81051984004921,
+        "b": 51.414949246385724,
+        "diff": 14.395570593663487,
+        "ci_low": 12.065921823681023,
+        "ci_high": 16.806210989106948,
+        "a_ci": [
+          64.05769568553494,
+          67.75145425282324
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "recall_ldca_topn2",
+        "a": 49.602649006622514,
+        "b": 29.188741721854306,
+        "diff": 20.41390728476821,
+        "ci_low": 18.314208423061554,
+        "ci_high": 22.798004581513833,
+        "a_ci": [
+          47.566121135789984,
+          51.658683595531876
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "P1K",
+        "a": 73.9,
+        "b": 73.9,
+        "diff": 0.0,
+        "ci_low": -7.000000000000006,
+        "ci_high": 6.400000000000006,
+        "n_units": 1691,
+        "n_rows": 20727,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.abl_fold_disjoint_floor_small_s0",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 67.54617414248021,
+        "b": 70.97625329815304,
+        "diff": -3.430079155672823,
+        "ci_low": -6.510841628590086,
+        "ci_high": -0.49990694789081924,
+        "a_ci": [
+          61.94002231328714,
+          73.95860180412372
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.abl_fold_disjoint_floor_small_s0",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 70.37037037037037,
+        "b": 69.25925925925925,
+        "diff": 1.1111111111111112,
+        "ci_low": -2.4307672764227664,
+        "ci_high": 4.762783342119128,
+        "a_ci": [
+          63.59921933085502,
+          76.55735528412109
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.abl_fold_disjoint_floor_all_s0",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 83.95061728395062,
+        "b": 83.95061728395062,
+        "diff": 0.0,
+        "ci_low": -2.7036282858200615,
+        "ci_high": 2.409638554216864,
+        "a_ci": [
+          79.04399723863345,
+          88.56232011512631
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.abl_fold_disjoint_floor_small_s0",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 77.48036077974979,
+        "b": 78.20773930753565,
+        "diff": -0.7273785277858598,
+        "ci_low": -1.559092246071291,
+        "ci_high": 0.1585042719564693,
+        "a_ci": [
+          74.39672368886771,
+          80.42216638626614
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_fold_disjoint_floor_all_s0",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "recall_topn2",
+        "a": 71.74527600059515,
+        "b": 72.47433417646184,
+        "diff": -0.7290581758666865,
+        "ci_low": -1.5313913131467665,
+        "ci_high": 0.10565940808813201,
+        "a_ci": [
+          69.73421419871542,
+          73.7882251465043
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.abl_fold_disjoint_floor_all_s0",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "recall_ldca_topn2",
+        "a": 53.92202912165336,
+        "b": 54.18819477062784,
+        "diff": -0.2661656489744794,
+        "ci_low": -0.9405477870733383,
+        "ci_high": 0.39728813040343947,
+        "a_ci": [
+          51.649787132587925,
+          56.12731996351376
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.abl_fold_disjoint_floor_small_s0",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 66.31248490702728,
+        "b": 66.36078241970539,
+        "diff": -0.04829751267809708,
+        "ci_low": -1.0997035628270768,
+        "ci_high": 0.992918515319773,
+        "a_ci": [
+          64.22938674930236,
+          68.49392679018347
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.abl_fold_disjoint_floor_small_s0_af",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 75.3973299427845,
+        "b": 76.60521296884933,
+        "diff": -1.2078830260648443,
+        "ci_low": -2.746911155362676,
+        "ci_high": 0.12617585584325117,
+        "a_ci": [
+          72.39652090209022,
+          78.086103917025
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "hallucination_rate",
+        "a": 0.0,
+        "b": 0.0,
+        "diff": 0.0,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "hallucination_rate_topn2",
+        "a": 0.0,
+        "b": 0.0,
+        "diff": 0.0,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 73.23585505403688,
+        "b": 76.60521296884933,
+        "diff": -3.3693579148124604,
+        "ci_low": -4.869868739149359,
+        "ci_high": -1.849866751322379,
+        "a_ci": [
+          70.52290219289223,
+          76.0652954933856
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "P1K",
+        "a": 55.900000000000006,
+        "b": 70.5,
+        "diff": -14.59999999999999,
+        "ci_low": -17.300000000000004,
+        "ci_high": -9.499999999999996,
+        "n_units": 910,
+        "n_rows": 18298,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "hallucination_rate",
+        "a": 0.0,
+        "b": 0.0,
+        "diff": 0.0,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "hallucination_rate_topn2",
+        "a": 0.0,
+        "b": 0.0,
+        "diff": 0.0,
+        "ci_low": null,
+        "ci_high": null,
+        "n_rows": null
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "recall_topn2",
+        "a": 73.23585505403688,
+        "b": 75.84233947870311,
+        "diff": -2.6064844246662426,
+        "ci_low": -4.639908595016949,
+        "ci_high": -0.6385492415356964,
+        "a_ci": [
+          70.52290219289223,
+          76.0652954933856
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.v2_afranker_all_s0_af",
+        "reference": "p2rank_2.5.1_af",
+        "metric": "P1K",
+        "a": 55.900000000000006,
+        "b": 56.49999999999999,
+        "diff": -0.5999999999999894,
+        "ci_low": -3.7000000000000033,
+        "ci_high": 7.199999999999996,
+        "n_units": 910,
+        "n_rows": 18298,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_topn2",
+        "a": 45.84139264990329,
+        "b": 52.551703615533405,
+        "diff": -6.710310965630114,
+        "ci_low": -8.00336986112504,
+        "ci_high": -5.296505969035397,
+        "a_ci": [
+          43.58835455247875,
+          47.91972333981671
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_ldca_topn2",
+        "a": 28.088304368248004,
+        "b": 29.77923907937999,
+        "diff": -1.6909347111319868,
+        "ci_low": -2.386564679424365,
+        "ci_high": -1.0242605706654793,
+        "a_ci": [
+          26.03926096472969,
+          30.355569496751627
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "recall_topn2",
+        "a": 45.84139264990329,
+        "b": 72.47433417646184,
+        "diff": -26.632941526558547,
+        "ci_low": -29.089629864337994,
+        "ci_high": -24.16839301463283,
+        "a_ci": [
+          43.58835455247875,
+          47.91972333981671
+        ],
+        "n_rows": 6721,
+        "n_units": 1687,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "recall_ldca_topn2",
+        "a": 28.088304368248004,
+        "b": 54.18819477062784,
+        "diff": -26.099890402379835,
+        "ci_low": -28.84248648065424,
+        "ci_high": -23.564469189881212,
+        "a_ci": [
+          26.03926096472969,
+          30.355569496751627
+        ],
+        "n_rows": 6387,
+        "n_units": 1664,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 334,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_topn2",
+        "a": 53.39290026563632,
+        "b": 60.927312243419465,
+        "diff": -7.534411977783144,
+        "ci_low": -9.18906201952694,
+        "ci_high": -5.884994294783918,
+        "a_ci": [
+          50.71234019629742,
+          56.2311650261832
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "ligysis_ni",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 53.39290026563632,
+        "b": 66.36078241970539,
+        "diff": -12.967882154069066,
+        "ci_low": -14.990657126136725,
+        "ci_high": -10.927489186028225,
+        "a_ci": [
+          50.71234019629742,
+          56.2311650261832
+        ],
+        "n_rows": 4141,
+        "n_units": 1246,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "success_DCA4_topn",
+        "a": 67.54617414248021,
+        "b": 69.39313984168865,
+        "diff": -1.8469656992084433,
+        "ci_low": -4.569892473118287,
+        "ci_high": 0.6948138297872313,
+        "a_ci": [
+          61.70174758953168,
+          73.46599942188178
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "coach420_mlig",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 67.54617414248021,
+        "b": 70.97625329815304,
+        "diff": -3.430079155672823,
+        "ci_low": -7.318624712964683,
+        "ci_high": 0.5119487408490049,
+        "a_ci": [
+          61.70174758953168,
+          73.46599942188178
+        ],
+        "n_rows": 379,
+        "n_units": 247,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "success_DCA4_topn",
+        "a": 78.6732615653186,
+        "b": 76.57841140529531,
+        "diff": 2.094850160023276,
+        "ci_low": 0.5937683080144412,
+        "ci_high": 3.5741797270078624,
+        "a_ci": [
+          75.74883073216935,
+          81.36317588872492
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "holo4k_mlig",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "success_DCA4_topn",
+        "a": 78.6732615653186,
+        "b": 78.20773930753565,
+        "diff": 0.46552225778295026,
+        "ci_low": -1.8745420795625245,
+        "ci_high": 2.922647297203544,
+        "a_ci": [
+          75.74883073216935,
+          81.36317588872492
+        ],
+        "n_rows": 6874,
+        "n_units": 708,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_topn2",
+        "a": 65.55555555555556,
+        "b": 71.85185185185185,
+        "diff": -6.296296296296297,
+        "ci_low": -10.257633587786257,
+        "ci_high": -2.1658701919331045,
+        "a_ci": [
+          59.33827493261456,
+          71.48427902895584
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "cryptobench",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_small_default_s0",
+        "metric": "recall_topn2",
+        "a": 65.55555555555556,
+        "b": 69.25925925925925,
+        "diff": -3.7037037037037037,
+        "ci_low": -8.890804597701152,
+        "ci_high": 1.4925373134328292,
+        "a_ci": [
+          59.33827493261456,
+          71.48427902895584
+        ],
+        "n_rows": 270,
+        "n_units": 203,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_topn2",
+        "a": 73.55371900826447,
+        "b": 75.27018436109346,
+        "diff": -1.7164653528289893,
+        "ci_low": -3.734295535126992,
+        "ci_high": 0.3190648811743961,
+        "a_ci": [
+          70.2752879894091,
+          76.43948123668305
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "pocketwatch",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_small_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 73.55371900826447,
+        "b": 76.60521296884933,
+        "diff": -3.0514939605848697,
+        "ci_low": -5.574760717792676,
+        "ci_high": -0.6450937894946885,
+        "a_ci": [
+          70.2752879894091,
+          76.43948123668305
+        ],
+        "n_rows": 1573,
+        "n_units": 910,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_topn2",
+        "a": 37.57305444478622,
+        "b": 47.323900338357426,
+        "diff": -9.750845893571208,
+        "ci_low": -11.370654005472021,
+        "ci_high": -8.139318296532343,
+        "a_ci": [
+          35.49736565291208,
+          39.74937645744877
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "recall_ldca_topn2",
+        "a": 24.221854304635762,
+        "b": 27.864238410596027,
+        "diff": -3.642384105960265,
+        "ci_low": -4.540487996473637,
+        "ci_high": -2.735737436672018,
+        "a_ci": [
+          22.36548468202365,
+          26.182383996461848
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_topn2",
+        "a": 37.57305444478622,
+        "b": 64.54936942479237,
+        "diff": -26.97631498000615,
+        "ci_low": -29.525874140888533,
+        "ci_high": -24.589453254500118,
+        "a_ci": [
+          35.49736565291208,
+          39.74937645744877
+        ],
+        "n_rows": 6502,
+        "n_units": 1691,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "af_set",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_all_default_s0_af",
+        "metric": "recall_ldca_topn2",
+        "a": 24.221854304635762,
+        "b": 48.758278145695364,
+        "diff": -24.5364238410596,
+        "ci_low": -26.581710048683988,
+        "ci_high": -22.736643797744804,
+        "a_ci": [
+          22.36548468202365,
+          26.182383996461848
+        ],
+        "n_rows": 6040,
+        "n_units": 1648,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 462,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.p2rank_ours",
+        "reference": "p2rank_2.5.1",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 84.36213991769547,
+        "b": 87.65432098765432,
+        "diff": -3.292181069958848,
+        "ci_low": -6.828727955299454,
+        "ci_high": 0.0,
+        "a_ci": [
+          79.73537830650237,
+          88.88888888888889
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
+      },
+      {
+        "benchmark": "dimer",
+        "method": "desc.p2rank_ours",
+        "reference": "v2:burrow_all_default_s0",
+        "metric": "success_DCC12_topn2@interface",
+        "a": 84.36213991769547,
+        "b": 83.95061728395062,
+        "diff": 0.411522633744856,
+        "ci_low": -4.31410746116628,
+        "ci_high": 5.0404502721425,
+        "a_ci": [
+          79.73537830650237,
+          88.88888888888889
+        ],
+        "n_rows": 243,
+        "n_units": 158,
+        "n_unpaired_as_miss": 0,
+        "n_undefined_dropped": 0,
+        "common_subset": false
       }
     ],
     "tradeoff": [
@@ -6610,10 +11588,18 @@
       "n_structures_or_units": 2003,
       "n_pred_missing": 0,
       "eval_dir": "results/test/v2/comparators/ligysis_ni/p2rank_2.5.1"
+    },
+    {
+      "benchmark": "ligysis",
+      "method": "p2rank_2.5.1",
+      "n_reference": 6721,
+      "n_structures_or_units": 2775,
+      "n_pred_missing": 0,
+      "eval_dir": "results/test/v2/comparators/ligysis/p2rank_2.5.1"
     }
   ],
   "provenance": {
-    "commit": "20421b60d68a3dd14848bacd370916053d420089",
+    "commit": "95217560205e403a2b21b393e42bec87b1b50482",
     "dirty_tree": true,
     "prediction_code_commit": "0d925b2d5bb27f4e028cf7bd2eccd9cd18d7a71d",
     "prereg_sha256": "59c7e41ef2f29900fb50e0582ff851dccd93da4a33585e6c89fe3c299aba8c37",
@@ -6652,7 +11638,7 @@
       "seed": 20261026,
       "units": "30% sequence clusters (MMseqs2)"
     },
-    "utc": "2026-10-27T00:09:41Z",
-    "seconds": 1554
+    "utc": "2026-10-27T06:37:18Z",
+    "seconds": 1481
   }
 }

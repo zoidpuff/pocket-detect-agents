@@ -1,0 +1,59 @@
+{
+  "benchmark": {
+    "name": "af_set",
+    "kind": "sites",
+    "path": "data/processed/gt/af_set/sites.tsv",
+    "cluster_sources": [
+      "af_set"
+    ],
+    "headline": [
+      "recall_topn2",
+      "recall_ldca_topn2",
+      "P1K",
+      "hallucination_rate_topn2",
+      "hallucination_rate"
+    ],
+    "split": "test",
+    "rules": "p2rank_strict",
+    "criteria": [
+      "DCA4",
+      "DCC4"
+    ],
+    "note": "PREREG O5 (scripts/build_gt_af.py from Track C)",
+    "extras": [
+      "hallucination"
+    ]
+  },
+  "gt_path": "/cluster/project/beltrao/gmagnus/pocket_detect/data/processed/gt/af_set/sites.tsv",
+  "pred_dir": "/cluster/project/beltrao/gmagnus/pocket_detect/baselines/outputs/af_set/p2rank_ours/preds",
+  "n_boot": 1000,
+  "seed": 20261026,
+  "n_pred_missing": 0,
+  "headline": {
+    "recall_topn2": {
+      "value": 0.3757305444478622,
+      "ci_low": 0.35497365652912083,
+      "ci_high": 0.3974937645744877
+    },
+    "recall_ldca_topn2": {
+      "value": 0.24221854304635762,
+      "ci_low": 0.22400785981697394,
+      "ci_high": 0.2611668578648783
+    },
+    "P1K": {
+      "value": 0.734,
+      "ci_low": 0.696,
+      "ci_high": 0.775025
+    },
+    "hallucination_rate_topn2": {
+      "value": 0.008613617719442166,
+      "ci_low": 0.005730685283933741,
+      "ci_high": 0.011711784108213101
+    },
+    "hallucination_rate": {
+      "value": 0.008391608391608392,
+      "ci_low": 0.005514135970115193,
+      "ci_high": 0.011486720513862615
+    }
+  }
+}
