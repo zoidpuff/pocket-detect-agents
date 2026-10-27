@@ -614,9 +614,15 @@ def fig3():
     ax.set_ylim(len(rows) - 0.5, -1.0)
     ax.set_yticks([])
     vline(ax, 0, color=INK2, lw=0.7)
-    threshold(ax, 2, -0.5, 3.5, "+2 bar", -0.92)
-    threshold(ax, -3, 3.5, 5.5, "−3 margin", 3.38)
-    ax.set_xlim(-8, 26)
+    # pre-registered criterion per row group (src/pocketdetect/prereg.py FAMILY1): C1 Δ ≥ +2 and CI > 0;
+    # C1-strict CI > 0 only (the solid 0 line); C2 non-inferiority, lower CI bound > −3
+    threshold(ax, 2, -0.5, 1.5, "+2", -0.92)
+    threshold(ax, -3, 3.5, 5.5, "−3", 3.38)
+    for yc, txt in ((0.5, "C1: Δ ≥ +2\nand CI > 0"), (2.5, "C1-strict:\nCI > 0"), (4.5, "C2: lower CI\nbound > −3")):
+        ax.text(-14.6, yc, txt, ha="left", va="center", fontsize=FS, color=INK2, style="italic", linespacing=1.1)
+    for yb in (1.5, 3.5):
+        ax.axhline(yb, color=GRID, lw=0.6, zorder=0)
+    ax.set_xlim(-15, 26)
     ax.set_xlabel("Δ BURROW − comparator on LIGYSIS (percentage points)")
     ax.text(R + 0.012, -0.62, "pass v1 / v2\n(3 seeds)", transform=tr_lab, ha="left", va="bottom", fontsize=FS,
             color=INK2)
@@ -672,9 +678,11 @@ def fig3():
         "cluster-bootstrap CIs (30 % sequence clusters, 1,000 resamples); ticks mark the point estimates of "
         "seeds 1 and 2. (A) Family 1, a fixed testing sequence on LIGYSIS: C1 = top-N+2 at DCC ≤ 12 Å; "
         "C1-strict = top-N+2 at DCA ≤ 4 Å; C2 = pooled P1K. Comparators are the published fpocket+PRANK "
-        "predictions and our re-run of fpocket 4.2.3 + PRANK 2.4.2 (comparator value in brackets). C1 and "
-        "C1-strict required Δ ≥ +2 with a CI above 0 for every seed and both comparators. C2 was a "
-        "non-inferiority test at −3. (B) Family 2: Holm-adjusted non-inferiority (margin −2) against the "
+        "predictions and our re-run of fpocket 4.2.3 + PRANK 2.4.2 (comparator value in brackets). C1 "
+        "required Δ ≥ +2 points with a CI above 0, and C1-strict required a CI above 0, for every seed and "
+        "both comparators. C2 was a non-inferiority test at −3 (lower CI bound > −3). Each row group's "
+        "criterion is printed at its left; dashed lines mark the +2 bar (C1 rows only) and the −3 margin "
+        "(C2 rows only). (B) Family 2: Holm-adjusted non-inferiority (margin −2) against the "
         "better of P2Rank 2.5.1 and fpocket 4.2.3 + PRANK on identical inputs; 'superior' means the CI "
         "excludes 0. n = scored sites (ligands for COACH420/HOLO4K). Right: pre-registered decisions. "
         "Source: results/test/v1/summary.json and results/test/v2/summary.json (family1, family2)."
@@ -1098,13 +1106,14 @@ def figS2():
                              hspace=0.2)
     top = outer[0].subgridspec(1, 2, wspace=0.06)
 
-    def offscale(ax, xl, y, v, lo, hi, color):
+    def offscale(ax, xl, y, v, lo, hi, color, prefix=""):
         """Value left of the axis range: arrow at the left edge plus the printed value and CI."""
         w = xl[1] - xl[0]
         ax.annotate("", xy=(xl[0] + 0.005 * w, y), xytext=(xl[0] + 0.1 * w, y),
                     arrowprops=dict(arrowstyle="-|>,head_length=0.3,head_width=0.15", color=color, lw=1.0))
-        ax.text(xl[0] + 0.115 * w, y, f"{signed(v)} [{lo:.1f}, {hi:.1f}]".replace("-", "−"), va="center",
-                ha="left", fontsize=FS, color=INK2)
+        ax.text(xl[0] + 0.115 * w, y, prefix + f"{signed(v)} [{lo:.1f}, {hi:.1f}]".replace("-", "−"), va="center",
+                ha="left", fontsize=FS, color=INK2, zorder=6,
+                bbox=dict(boxstyle="square,pad=0.08", fc="white", ec="none"))
 
     XD = (-17, 6)
     dev_axes = []
@@ -1117,21 +1126,24 @@ def figS2():
         ax.set_position([pos.x0 + (0.245 if j_ == 0 else 0.02), pos.y0, pos.width - (0.255 if j_ == 0 else 0.03),
                          pos.height])
         xgrid(ax)
+        ypos = [i + (0.35 if abl == "shuffled" else 0.0) for i, (abl, _) in enumerate(dev_rows)]
         for i, (abl, lab) in enumerate(dev_rows):
-            for var, filled, o in (("all", True, -0.17), ("small", False, 0.17)):
+            i = ypos[i]
+            sep = 0.36 if abl == "shuffled" else 0.17  # off-scale rows carry printed labels: more room
+            for var, filled, o in (("all", True, -sep), ("small", False, sep)):
                 key = {"ablation": abl, "variant": var, "table": table, "metric": "recall_topn2"}
                 d = C(ABL, key, "diff", f"{table} {abl} {var} diff")
                 lo = C(ABL, key, "lo", f"{table} {abl} {var} lo")
                 hi = C(ABL, key, "hi", f"{table} {abl} {var} hi")
                 if lo < XD[0]:
-                    offscale(ax, XD, i + o, d, lo, hi, INK2)
+                    offscale(ax, XD, i + o, d, lo, hi, INK2, prefix=f"{var}: ")
                 else:
                     dot(ax, d, i + o, lo, hi, color=INK2, ms=4.6, filled=filled)
         n = C(ABL, {"ablation": "fold_disjoint", "variant": "all", "table": table, "metric": "recall_topn2"},
               "n_sites", f"{table} n_sites")
-        ax.set_yticks(range(len(dev_rows)))
+        ax.set_yticks(ypos)
         ax.set_yticklabels([r[1] for r in dev_rows] if j_ == 0 else [])
-        ax.set_ylim(len(dev_rows) - 0.5, -0.6)
+        ax.set_ylim(ypos[-1] + 0.65, -0.6)
         vline(ax, 0, color=INK2, lw=0.7)
         ax.set_xlim(*XD)
         ax.set_xlabel("Δ DCC12 top-N+2 vs v1 (pp)")
