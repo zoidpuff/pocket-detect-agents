@@ -112,7 +112,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
 - [~] 9. Extension (D19)
   - [~] 9.1 T1 GPU feeding / speed
-  - [~] 9.2 T2 relative output floor (candidate v3)
+  - [-] 9.2 T2 per-region output floor NEGATIVE vs D19 gate: dev non-ion top-N+2 +1.2 [+0.1,+2.4] (small default; need +2.0); guards pass, max recall +7…+10, apo non-cryptic +8…+10 → no v3; offered as optional non-default `--output-rule region` (descriptive)
   - [x] 9.3 [!] T3 isolated chains (1,062 chains; descriptive): BURROW v2 interface DCC12 +14.2 [9.0,20.1] vs P2Rank chain mode, +1.3 vs fpocket+PRANK; vs own assembly mode −1.2 (DCA4 −11.1) → BURROW robust to a missing partner chain (P2Rank 87.7→55.4)
 - [x] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
