@@ -19,3 +19,4 @@ One-line rules with evidence. Pruned at M2 (2026-10-26 ~20:20) after a fresh-age
 15. Exactness tests must cover boundary values of every parameterised branch (evidence: Triton fp32 float-arg bug only at pLDDT exactly 70 — 60/60 equivalence on non-AF inputs missed it).
 16. The container's effective memory cap is ~79 GB (not the 128 GB budget): size jobs accordingly (evidence: P2Rank training OOM-killed at ~79 GB on full and 50% sets).
 17. Never kill via `ps | grep | xargs kill`: the pattern matches your own shell (evidence: method dev killed its own shell 4× in the v2 cycle); store PIDs at launch and kill those.
+18. Expect API session limits during long autonomous runs: keep all compute in detached jobs with completion markers so a pause costs only wall-clock, not work (evidence: 4.5 h pause at 02:40; all descriptive predictions finished detached with ALL_DONE markers).
