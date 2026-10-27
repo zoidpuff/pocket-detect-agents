@@ -110,8 +110,8 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [!] 7.4 Human proteome (AFDB v6; 23,586 models / 20,550 proteins, fragments merged): naive 169 s (8,374/min), --af-mode 129 s (10,996/min) on 3 GPUs × 8 workers, 17.5 GB RAM; incl. tar extraction 6.5–7.9k/min. Top-3 pockets with mean pLDDT<50: 8.0% naive → 0.9% AF mode (34.9% → 3.6% in ≥50%-disordered proteins); P2Rank -c alphafold 1.6% (500-protein subset), 960/min vs ~2,800/min. Known HOTPocket/BioLiP2 sites in top-3: 40% (descriptive; overlaps train/test)
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
-- [~] 9. Extension (D19)
-  - [~] 9.1 T1 GPU feeding / speed
+- [x] 9. Extension (D19)
+  - [x] 9.1 [!] T1 speed (byte-identical): parse 11→3.2 ms; 1-core incl. parsing fast 41.6→31.5 ms, default 110.6→99.2 (P2Rank 209 ms same session → fast ≈6.6×); 10k structures, 3 GPUs vs 24 CPU: fast 646 vs 545/s, default 411 vs 171/s — GPU path now wins
   - [-] 9.2 T2 per-region output floor NEGATIVE vs D19 gate: dev non-ion top-N+2 +1.2 [+0.1,+2.4] (small default; need +2.0); guards pass, max recall +7…+10, apo non-cryptic +8…+10 → no v3; offered as optional non-default `--output-rule region` (descriptive)
   - [x] 9.3 [!] T3 isolated chains (1,062 chains; descriptive): BURROW v2 interface DCC12 +14.2 [9.0,20.1] vs P2Rank chain mode, +1.3 vs fpocket+PRANK; vs own assembly mode −1.2 (DCA4 −11.1) → BURROW robust to a missing partner chain (P2Rank 87.7→55.4)
 - [x] 8. Final benchmark + REPORT.md
