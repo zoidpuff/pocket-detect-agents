@@ -3,7 +3,7 @@
 Written by the PI agent from its own session record. Times are CET. Git history (main repository) is the authoritative timeline.
 
 ## Framing
-The whole project — literature review, design, data curation, method development, benchmarking, and the written report — was carried out by AI agents (Claude Code; models Claude Opus 5.5 and Claude Sonnet 5.5) running autonomously on one compute node (64-core AMD EPYC 9554, 4× RTX 4090, shared with other users; effective memory cap ≈79 GB) inside a Singularity container on the ETH Euler cluster. A human (the user) wrote the initial prompt (PROMPT.md), later granted a 3–4 h extension, asked three follow-up questions (multimers, GPU use, remaining ideas), and requested this manuscript. The human did not write code, choose methods, or edit results.
+The whole project — literature review, design, data curation, method development, benchmarking, and the written report — was carried out by AI agents (Claude Code; models Claude Opus 5.5 and Claude Sonnet 5.5) running autonomously on one compute node (64-core AMD EPYC 9554, 4× RTX 4090, shared with other users; effective memory cap ≈79 GB) inside a Singularity container on the ETH Euler cluster. A human (the user) wrote the initial prompt (PROMPT.md), later granted a 3–4 h extension, asked three follow-up questions (multimers, GPU use, remaining ideas), asked whether the work was finalized, and requested this manuscript (verbatim follow-ups: manuscript/FOLLOWUP_PROMPTS.md). Agent briefs were written by the PI agent and are not archived as files. The human did not write code, choose methods, or edit results.
 
 ## Roles
 - **PI agent** (Claude Opus 5.5, one long session): planned, delegated, reviewed and integrated; owned DESIGN.md, PREREG.md amendments, RESEARCH_TREE.md (research tree + decision log D0–D19), LESSONS.md, all git commits. Did not write method code.
@@ -29,6 +29,11 @@ The whole project — literature review, design, data curation, method developme
 | 22–23 | Process retrospectives ("what should we stop doing / what worked") | Sonnet ×2 | reviews/process/*.md |
 | 24 | Report writer + number checker | Opus | REPORT.md, scripts/check_report_numbers.py |
 | 25 | External report reviewer | Opus | reviews/report/REPORT_REVIEW.md |
+| 26 | Release-repository builder | Opus | release/burrow (scrubbed MVP repo) |
+| 27 | Figure maker (used the `dataviz` skill) | Opus | manuscript/figures |
+| 28 | Manuscript writer (used the edit-for-clarity skill) | Opus | manuscript/main.*, S1–S2 Text |
+| 29 | Reference verifier | Opus | verified bibliography |
+| 30 | Manuscript reviewer | Opus | manuscript/REVIEW.md |
 
 ## Process rules (enforced by the PI)
 - Design by critique: DESIGN v1 → 6 independent reviewers → v2 → 2 reviewers → v3; claims, endpoints, comparators, margins and multiplicity frozen in docs/PREREG.md (sha256 recorded) before any test-set run; amendments A1–A3 dated and made before the relevant predictions existed.
