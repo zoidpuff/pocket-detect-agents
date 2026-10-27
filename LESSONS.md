@@ -1,22 +1,19 @@
 # LESSONS — process rules for running this project efficiently
 
-One-line rules with evidence. Pruned at M2 (2026-10-26 ~20:20) after a fresh-agent retrospective (reviews/process/M2_retro.md).
+One-line rules with evidence. Final prune 2026-10-27 ~07:20 after a fresh-agent retrospective (reviews/process/FINAL_retro.md; earlier: M2_retro.md).
 
-1. Inspect mounts/tools before planning (evidence: no Java/nvcc/conda; PAE endpoint 403 → plan around what exists).
-2. Only the PI commits, explicit paths only; sub-agents never git add/commit/reset (evidence: 8.9k unreachable objects ≈169 MB from an agent's staging; in-progress files swept into early PI commits).
-3. One source of truth for constants (seeds in src/pocketdetect/seeds.py; docs reference, never restate) (evidence: DESIGN v1 vs seeds.py mismatch).
-4. After a session restart, check git status + disk and resume agents via SendMessage with their file list (evidence: two restarts, 5 agents resumed, no work lost).
-5. Launch any job > ~5 min with nohup + log; cap workers (shared 4096-thread user limit) (evidence: detached jobs survived restarts; thread-limit hangs in bench runs).
-6. Reproduce published numbers before building on a harness (evidence: LIGYSIS 33/33 variants + P2Rank evaluator to 0.1% made all later comparisons trustworthy).
-7. Data/leakage "done" requires an independent re-implementation, not the builder's own verifier (evidence: Track A verify PASS; audit found 7 missed assembly partners + 85 borderline hits → D6).
-8. Pre-register gates and endpoints; log every deviation as a dated decision with reason (evidence: G1 failed on BioLiP dev but fallback was worse → documented D7, not silently dropped).
-9. Every mechanism/negative claim needs a control (evidence: random-pruning control showed pLDDT pruning ≠ removing atoms; byte-identical no-op check).
-10. Select on train cluster-CV, touch dev rarely, never tune a metric's leniency (evidence: NMS 14 Å would inflate LIGYSIS top-N+2 to 72.6 by spreading pockets — rejected via one-to-one P1K).
-11. Commit at each agent hand-off and at least hourly; use git/`date` timestamps, not memory (evidence: ~40 uncommitted paths at 20:11; D1/D2 times written ~20 min off).
-12. Cap exploratory branches with a kill criterion; optimise feature-*dependent* code only after the freeze (evidence: AF side-chain tolerance −16 pts; backend's feature stage must be re-ported after freeze, while feature-independent parts — trees, NMS — were safe to port early).
-13. Run frozen-version test predictions from an isolated git worktree at the freeze commit; development continues on main (evidence: v2 edits to burrow/pipeline.py started minutes after FREEZE v1).
-14. Kill only PIDs you started; never `pkill -f` broad patterns on a shared node, and schedule heavy jobs through the PI (evidence: proteome run OOM + `pkill -f "burrow.fast predict"` killed the test-v1 cryptobench job at 22:05).
-15. Exactness tests must cover boundary values of every parameterised branch (evidence: Triton fp32 float-arg bug only at pLDDT exactly 70 — 60/60 equivalence on non-AF inputs missed it).
-16. The container's effective memory cap is ~79 GB (not the 128 GB budget): size jobs accordingly (evidence: P2Rank training OOM-killed at ~79 GB on full and 50% sets).
-17. Never kill via `ps | grep | xargs kill`: the pattern matches your own shell (evidence: method dev killed its own shell 4× in the v2 cycle); store PIDs at launch and kill those.
-18. Expect API session limits during long autonomous runs: keep all compute in detached jobs with completion markers so a pause costs only wall-clock, not work (evidence: 4.5 h pause at 02:40; all descriptive predictions finished detached with ALL_DONE markers).
+1. Inspect mounts, tools and *real* resource caps before planning (evidence: no Java/nvcc/conda; PAE endpoint 403; effective container memory ~79 GB, not 128 — P2Rank training OOM).
+2. Only the PI commits, explicit paths only; sub-agents never git add/commit/reset (evidence: 8.9k unreachable objects ≈169 MB from an agent's staging).
+3. Commit at each hand-off and at least hourly, one commit per result including its tree note; take timestamps from git/`date`, not memory (evidence: ~40 uncommitted paths at M2; several decision times written 20–50 min off; ~30% of commits were bookkeeping-only).
+4. One source of truth for constants (evidence: DESIGN v1 seeds vs src/pocketdetect/seeds.py mismatch).
+5. Run every job > ~5 min detached with a log and a completion marker; cap workers on a shared node (evidence: two restarts + a 4.5 h API pause cost only wall-clock; thread-limit hangs).
+6. After a restart or pause, check git status + disk and resume agents with their file lists rather than relaunching (evidence: 5 agents resumed twice, zero lost work).
+7. Kill only PIDs you stored at launch; never `pkill -f` or `ps | grep | xargs kill` (evidence: a broad pkill killed the test-v1 cryptobench job; an agent killed its own shell 4×).
+8. Reproduce published numbers before building on a harness (evidence: LIGYSIS 33/33 variants + P2Rank evaluator to 0.1% made every comparison credible).
+9. "Done" for data/leakage requires an independent re-implementation (evidence: builder verify PASS vs independent audit FAIL → 186 entries dropped, D6).
+10. Pre-register gates, endpoints *and output-list-length policy*; log every deviation as a dated decision (evidence: G1 deviation D7; the v2 output floor added ~8 pts on C1 while C1-strict was unchanged — decide list length before the first test run).
+11. Every mechanism or negative claim needs a control; never tune a metric's leniency (evidence: random-pruning control; byte-identical no-op; NMS 14 Å rejected; shuffled-label −28/−36).
+12. Decompose headline gains by composition (ligand class, site type) before claiming them (evidence: ions carried ~2/3 of the `all` gain; drug-like "other" sites +2.2 only).
+13. Select on train cluster-CV, touch dev rarely, and disclose any test-informed steering (evidence: phase 3 selected on CV, dev once; D14 v3 targeted O6 after test v1 — disclosed).
+14. Time-box exploratory branches with a kill criterion; optimise feature-dependent code only after the freeze (evidence: AF side-chain tolerance −16 pts; v3 +0.3…+1.9 vs +3 gate; backend feature stage re-ported after freeze).
+15. Run frozen-version test predictions from an isolated git worktree, and test exactness at every branch boundary value (evidence: v2 edits began minutes after FREEZE v1, D10; Triton fp32 bug only at pLDDT = 70, D11).
