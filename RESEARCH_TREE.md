@@ -51,7 +51,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
 - D0 (14:55): Single uv venv at `.venv` shared by all agents; restricted/large data kept out of git under `data/raw`, `data/processed`; manifests + checksums committed. Git identity set locally to gmagnusson <gmagnusson@ethz.ch> (no preset identity found in container).
 
 ## Tree
-- [~] 0. Infrastructure
+- [x] 0. Infrastructure
   - [x] 0.1 Hardware/data inspection
   - [x] 0.2 Python env (.venv: numpy 2.5/scipy/numba 0.68/gemmi 0.7.5/torch 2.6-cu124 4 GPUs OK/lightgbm/xgboost)
   - [x] 0.3 Eval harness — [!] reproduces P2Rank 2.5.1 evaluator on COACH420/HOLO4K(+mlig) to 0.1% (rules `p2rank_strict` = O2 headline)
@@ -70,11 +70,11 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - Baseline headlines (P2Rank 2.5.1 / fpocket / fpocket+PRANK): COACH420 DCA4 top-n 69.4/39.6/67.0; HOLO4K 76.6/35.6/70.5; CryptoBench top-N+2 71.9/34.1/59.6; PocketWatch 75.3 (af 75.8)/32.7/70.2; AF set 47.3 (af 51.4)/33.0/48.6; dimer interface (assembly) 87.7/63.4/86.8, (isolated chain) 55.4/49.8/68.3; LIGYSIS C1-strict DCA top-N+2: P2Rank 29.8, fpocket4.0.3+PRANK 31.8
     - Speed: P2Rank 2.5.1 one JVM 0.3 s/struct (1 thread), 0.05 s (8 threads), 3.3 s with JVM per structure; fpocket 0.62 s (loaded shared node)
     - Optional: GrASP CryptoBench 71.9, PUResNet v2 64.4 (scPDB-trained, leaky)
-- [~] 4. DESIGN.md + review rounds
+- [x] 4. DESIGN.md + review rounds
   - [x] 4.1 DESIGN v1 draft (BURROW: grid-buriedness+SAS candidates → analytical point feats → GBM point scorer → clustering + geometric recall pass + NMS → calibrated GBM pocket ranker; AF mode = pruning + soft occlusion + side-chain tolerance + AF-trained ranker)
   - [x] 4.2 Review round 1: external PI, data/prior work, statistics, algorithms/compute, agent failure modes, biophysics/AF → DESIGN v2
   - [x] 4.3 Review round 2 (external PI+stats; data+agent risks) → DESIGN v3 + docs/PREREG.md frozen (sha256 582b8b56349cb2ab762d0f59a495738a938ee1d592c01e2517dbf581e049f8d6). Reviews capped at 2 rounds (time; round-2 changes were refinements, no structural objections).
-- [~] 5. Method development
+- [x] 5. Method development
   - [x] 5.1 BURROW v0 (CPU end-to-end): 1 Å shell grid + prefilter + metal candidates → 86 feats (60 rays, first-hit chemistry) → LGBM point scorer → multi-scale pockets → LGBM ranker (cross-fitted) → NMS
     - [!] G1 PASSED: candidate recall 90.97% (≤40 pockets) vs fpocket 77.5%, P2Rank-all 83.4% (CHEN11+JOINED, 974 ligands)
     - [x] Trained on CHEN11 only → JOINED: DCA4 top-n 71.1–71.8 vs P2Rank 73.5; top-n+2 82.4–83.2 vs 79.7; LDCC12 top-n+2 89–91 vs 88.0 (unpaired). Geometry-only: DCA4 top-n 35.4.
@@ -104,12 +104,12 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
     - [x] Strata: near-low-pLDDT sites (train-OOF 640): no mechanism helps vs pLDDT<70 filter (prune+soft −1.6 [−4.3,+1.2]; λ and stronger curves hurt); pl-AF-ranker −3.0 recall there but P@k +7.7 / top-1 +4.8 in >30%-disorder proteins; hallucinations in >30% bin 37.1% naive → ~0.2% pruned
     - [x] FINAL on frozen all_default_s0: AF dev DCC12 top-N+2 64.3 (naive 63.1, pLDDT<70 filter 63.4, P2Rank-alphafold 56.2); DCA4 56.3 vs 36.9; P1K 49.2 vs 31.3; vs filter = equivalent (dev +0.8 [−1.3,+3.1]); hallucinations 5.0%→0.2%; no-op byte-identical (3 seeds). Optional pl ranker afr_final (sha 935f8871): P1K +6.7
     - [x] D8: --af-mode = prune + soft occlusion + standard ranker (recall-optimal; O5); pl AF ranker optional `--af-ranker` for calibrated proteome screening
-- [~] 7. CPU/GPU backends + throughput
+- [x] 7. CPU/GPU backends + throughput
   - [!] 7.3 Fast backend ported to FREEZE v1 (exact 64/64 × 4 models × CPU/GPU). Default preset: 66 ms/core median warm excl. parsing (81 incl.; p90 148) on 40 LIGYSIS chains, 109 ms median on 200 larger chains; 6,392 structs/min on 32 CPU workers, 5,505/min on 3 GPUs; P2Rank 47 ms/struct and fpocket 39 ms/struct at 32-way parallelism on the same chains (node load ~80)
   - [!] 7.4 Human proteome (AFDB v6; 23,586 models / 20,550 proteins, fragments merged): naive 169 s (8,374/min), --af-mode 129 s (10,996/min) on 3 GPUs × 8 workers, 17.5 GB RAM; incl. tar extraction 6.5–7.9k/min. Top-3 pockets with mean pLDDT<50: 8.0% naive → 0.9% AF mode (34.9% → 3.6% in ≥50%-disordered proteins); P2Rank -c alphafold 1.6% (500-protein subset), 960/min vs ~2,800/min. Known HOTPocket/BioLiP2 sites in top-3: 40% (descriptive; overlaps train/test)
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
-- [~] 8. Final benchmark + REPORT.md
+- [x] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
   - [x] 8.0 Ablations (dev, seed 0; results/ablations/ABLATIONS.md): A3 shuffled labels −28/−36 (control OK); A2 CHEN11-only −3.2 (small) / −10.8 (all, no ion labels); [!] A1 fold-disjoint training −0.6/−0.3 (CIs include 0) → no evidence of fold memorisation; A4 feature-group drops each ≤ 2.5 pts (metal −2.5 on all, atom densities −1.7) → redundant feature set; retraining v1 is bit-identical
   - [!] 8.2 Test v2 (FREEZE v2 0d925b2): C1 72.5/72.0/72.3 vs 60.4 published (Δ +11.6…+12.1, CI lo ≥ 9.9) and 59.5 re-run; C1-strict 54.0–54.2 (Δ ≈ +22.4); C2 P1K 96.1–96.9 (Δ +14.4…+15.2). Family 2: O2b pass, O3 PocketWatch pass (+0.8 [−1.4,+2.9]), O5 AF pass & superior (+13.1 [11.0,15.7]); O2a COACH420 +1.6 inconclusive, O4 CryptoBench −2.6 [−8.6,+3.0] inconclusive, O6 dimer −3.7 [−8.8,+0.9] inconclusive. Trade-off LIGYSIS: any-pocket 80.1→76.9, max recall 99.3→84.2, pockets/chain 32.9→9.1
@@ -118,6 +118,7 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [x] 8.4 Descriptive test rows (results/test/v2/DESCRIPTIVE.md): [!] A1 fold-disjoint vs v1 within noise on LIGYSIS (−0.01), AF, HOLO4K, dimer; COACH420 −3.2 [−6.0,−0.3]; A2 CHEN11-only LIGYSIS −12.7, AF −13.6; A3 shuffled −16…−49; P2Rank-ours below stock on LIGYSIS/AF/CryptoBench, +2.1 HOLO4K; AF ranker on AF test set: top-N+2 +1.3 [0.5,2.1], P1K 73.9 vs 58.9 (= P2Rank-AF 73.9) → recommended for AF proteome screening (descriptive; default unchanged); PocketWatch models have B=100 everywhere → AF mode inert there
   - [x] 8.5 Descriptive: [!] PocketMiner test residue ROC-AUC BURROW v2 0.792 ≈ PocketMiner 0.789 (cryptic-trained) ≫ P2Rank 0.601; AUPRC 0.714 (0.755 with --min-score none) vs 0.712. CryptoBench test holo vs apo (233 paired sites): BURROW 68.7→79.4 (drop 10.7), P2Rank 72.1→79.8 (7.7); on holo DCA4 BURROW +6.4 over P2Rank
   - [x] 8.6 Packaging: unified CLI (--device/--workers/--backend; byte-identical across backends), README, scripts/reproduce_all.sh (smoke 7 s), pytest 226 pass
+  - [x] 8.15 REPORT.md final (timing, fast preset, AF filter rows; checker 1,693 pass)
   - [x] 8.7 REPORT.md complete (fresh writer; commit 76207ee) + checker: 1,408 tagged numbers, 0 fail
   - [x] 8.9 Independent report review (reviews/report/REPORT_REVIEW.md): honest & traceable; MUST: goal-by-goal verdict, [!] O5 AF-set superiority is ion-driven (non-ion +1.9 [−0.2,4.1], reviewer RNG), O6 fold rows mislabelled, single deviations caveat, LIGYSIS_NI numbers, unused-dataset rationale, provenance/branch fixes
   - [x] 8.10 Post-hoc descriptive (project bootstrap; results/test/v2/POSTHOC.md): O5 ion +32.1 / non-ion +1.9 [−0.1,3.9]; LIGYSIS_NI v2 +3.0…+3.5 vs fpocket+PRANK (v1 −4.6); O6 interface fold strata all CIs incl. 0; bug found: SUMMARY O6 fold strata used all 807 sites (descriptive only) → REPORT revised (cd4f57e), checker 1,578 pass
