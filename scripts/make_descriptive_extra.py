@@ -36,8 +36,13 @@ def main():
         for key, r in sorted(idx["runs"].items()):
             if r["rc"] != 0 or r["n_pred_files"] != r["n_inputs"]:
                 sys.exit(f"incomplete run {vdir}/{key}")
-            out.append({"name": r["variant"], "bench": r["bench"], "pred_dir": r["pred_dir"], "models": [r["model"]],
-                        "code_commit": idx["code_commit"], "compare_to": [{"version": ref_version, "variant": counterpart(r["variant"])}]})
+            refs = [{"version": ref_version, "variant": counterpart(r["variant"])}]
+            models = [r["model"]] + ([r["af_ranker"]] if r.get("af_ranker") else [])
+            if "afranker" in r["variant"]:  # AF ranker row: vs the PREREG v2 variant of that benchmark and vs P2Rank -c alphafold
+                refs = [{"version": "v2", "variant": "burrow_small_default_s0_af" if r["bench"] == "pocketwatch" else "burrow_all_default_s0_af"},
+                        {"baseline": "p2rank_2.5.1_af"}]
+            out.append({"name": r["variant"], "bench": r["bench"], "pred_dir": r["pred_dir"], "models": models,
+                        "code_commit": idx["code_commit"], "compare_to": refs})
     PLAN = {"ligysis": ("all", False), "ligysis_ni": ("small", False), "coach420_mlig": ("small", False), "holo4k_mlig": ("small", False),
             "cryptobench": ("small", False), "pocketwatch": ("small", True), "af_set": ("all", True), "dimer": ("all", False)}
     for b, (ranker, af) in PLAN.items():

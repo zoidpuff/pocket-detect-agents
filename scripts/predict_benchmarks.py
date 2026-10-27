@@ -192,6 +192,8 @@ def main(argv=None):
     ap.add_argument("--prefix", default=None, help="descriptive model set: variant = <prefix>_<ranker>_s0[_af] (preset label 'default')")
     ap.add_argument("--model-all", type=Path, default=None)
     ap.add_argument("--model-small", type=Path, default=None)
+    ap.add_argument("--af-ranker", type=Path, default=None, help="--prefix mode: AF-mode ranker JSON (reference CLI flag)")
+    ap.add_argument("--force-ranker", choices=["all", "small"], default=None, help="--prefix mode: override the PREREG ranker mapping")
     ap.add_argument("--presets", default="default,accurate")
     ap.add_argument("--seeds", default="0,1,2", help="indices into SEEDS (model files _s<i>)")
     ap.add_argument("--benchmarks", default="all")
@@ -210,9 +212,12 @@ def main(argv=None):
     if a.prefix:
         if not (a.model_all and a.model_small):
             raise SystemExit("--prefix needs --model-all and --model-small")
-        fz = {"models": {("all", "default", 0): a.model_all.resolve(), ("small", "default", 0): a.model_small.resolve()}, "af_rankers": {},
+        fz = {"models": {("all", "default", 0): a.model_all.resolve(), ("small", "default", 0): a.model_small.resolve()},
+              "af_rankers": {(None, None): a.af_ranker.resolve()} if a.af_ranker else {},
               "sha256": {str(a.model_all.resolve()): sha256(a.model_all), str(a.model_small.resolve()): sha256(a.model_small)}}
         a.presets, a.seeds = "default", "0"
+        if a.af_ranker:
+            fz["sha256"][str(a.af_ranker.resolve())] = sha256(a.af_ranker)
     elif a.freeze:
         fz = parse_freeze(a.freeze)
     else:
@@ -233,6 +238,8 @@ def main(argv=None):
         for seed in seeds:
             for b in benches:
                 inp, ranker, af, suffix = PLAN[b]
+                if a.prefix and a.force_ranker:
+                    ranker = a.force_ranker
                 model = fz["models"].get((ranker, preset, seed))
                 if model is None:
                     raise SystemExit(f"FREEZE.md lacks burrow_{ranker}_{preset}_s{seed}.json")

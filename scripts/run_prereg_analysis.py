@@ -136,6 +136,27 @@ def pockets_per_structure(eval_dir: Path) -> float | None:
     return None
 
 
+def hallucination_for(bench: str, pred_dir: Path) -> dict:
+    """Pooled hallucination rates (pocketdetect.af_eval) of a prediction dir on an AF/ESMFold benchmark."""
+    from pocketdetect.af_eval import hallucination_counts, pocket_plddt
+    from pocketdetect.evaluate import empty_predictions, read_predictions
+    from pocketdetect.sites import read_sites, sites_by_structure
+    from pocketdetect.structure import load_structure
+
+    by = sites_by_structure(read_sites(REGISTRY[bench].abspath))
+    tot = {"n_pockets": 0, "n_hallucinated": 0, "n_pockets_topn2": 0, "n_hallucinated_topn2": 0}
+    for sid, ss in by.items():
+        p = Path(pred_dir) / f"{sid}.csv"
+        pred = read_predictions(p, sid) if p.exists() else empty_predictions(sid)
+        if not pred.n:
+            continue
+        h = hallucination_counts(pred, pocket_plddt(pred, load_structure(ss[0].meta["structure_path"])), ss)
+        for k in tot:
+            tot[k] += h[k]
+    return {"hallucination_rate": tot["n_hallucinated"] / max(tot["n_pockets"], 1),
+            "hallucination_rate_topn2": tot["n_hallucinated_topn2"] / max(tot["n_pockets_topn2"], 1)}
+
+
 def summary_values(eval_dir: Path) -> pd.Series:
     s = pd.read_csv(eval_dir / "summary.csv")
     if "average" in s.columns:
@@ -422,7 +443,20 @@ def main(argv=None):
                 else:
                     rd = ROOT / "results/test" / ref["version"] / b / ref["variant"]
                     rname = f"{ref['version']}:{ref['variant']}"
-                for mm in ([metric, "recall_ldca_topn2"] if b == "ligysis" else [metric]):
+                if b in ("af_set", "pocketwatch") and "afranker" in e["name"]:
+                    if ref.get("baseline"):
+                        rp = baseline_pred_dir(b, ref["baseline"])
+                    else:
+                        ix = json.loads((ROOT / "results/test" / ref["version"] / "preds/index.json").read_text())
+                        rp = ROOT / ix["runs"][f"{b}/{ref['variant']}"]["pred_dir"]
+                    ha, hb = hallucination_for(b, ROOT / e["pred_dir"]), hallucination_for(b, rp)
+                    for k in ha:
+                        extra_cmp.append({"benchmark": b, "method": e["name"], "reference": rname, "metric": k, "a": 100 * ha[k], "b": 100 * hb[k],
+                                          "diff": 100 * (ha[k] - hb[k]), "ci_low": None, "ci_high": None, "n_rows": None})
+                mets_cmp = [metric, "recall_ldca_topn2"] if b in ("ligysis", "af_set") else [metric]
+                if "afranker" in e["name"]:
+                    mets_cmp = mets_cmp + ["P1K"]
+                for mm in mets_cmp:
                     c = paired(rows(b, d), rows(b, rd), mm, stratum=stratum, n_boot=a.n_boot)
                     extra_cmp.append({"benchmark": b, "method": e["name"], "reference": rname, "metric": mm + (f"@{stratum}" if stratum else ""),
                                       **{k: v for k, v in c.items() if not k.startswith("_") and k not in ("metric", "stratum")}})
