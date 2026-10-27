@@ -1,0 +1,820 @@
+figure,item,value,selector
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 value,72.4743,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_low,70.5349,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_high,74.306,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 value,54.1882,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_low,51.9976,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_high,56.6412,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] P1K value,96.1,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] P1K ci_low,93.6,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] P1K ci_high,98,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_default_s0] pockets_per_structure value,9.06018,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=pockets_per_structure}/value
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 value,71.3138,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 ci_low,69.4084,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 ci_high,73.1957,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 value,54.1725,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 ci_low,51.9588,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 ci_high,56.4454,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] P1K value,95.6,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=P1K}/value*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] P1K ci_low,92.4,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=P1K}/ci_low*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] P1K ci_high,97.8,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=P1K}/ci_high*100
+fig2_ligysis,v2 ligysis BURROW[burrow_all_accurate_s0] pockets_per_structure value,8.14018,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=pockets_per_structure}/value
+fig2_ligysis,ligysis | desc.fast_all_s0 | v2:burrow_all_default_s0 | recall_topn2,72.47,md:results/test/v2/DESCRIPTIVE.md::^## `--preset fast`::^\| ligysis \| desc\.fast_all_s0 \| v2:burrow_all_default_s0 \| recall_topn2 \|::c4.0
+fig2_ligysis,ligysis | desc.fast_all_s0 | v2:burrow_all_default_s0 | recall_ldca_topn2,53.39,md:results/test/v2/DESCRIPTIVE.md::^## `--preset fast`::^\| ligysis \| desc\.fast_all_s0 \| v2:burrow_all_default_s0 \| recall_ldca_topn2 \|::c4.0
+fig2_ligysis,ligysis | desc.fast_all_s0 | v2:burrow_all_default_s0 | P1K,97,md:results/test/v2/DESCRIPTIVE.md::^## `--preset fast`::^\| ligysis \| desc\.fast_all_s0 \| v2:burrow_all_default_s0 \| P1K \|::c4.0
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 value,64.291,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/value*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_low,62.2525,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_low*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_high,66.2229,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_high*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 value,54.4387,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/value*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_low,52.3116,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_low*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_high,56.7396,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_high*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] P1K value,95.7,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/value*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] P1K ci_low,93.4,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/ci_low*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] P1K ci_high,98,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=P1K}/ci_high*100
+fig2_ligysis,v1 ligysis BURROW[burrow_all_default_s0] pockets_per_structure value,32.8656,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=pockets_per_structure}/value
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_topn2 value,59.5001,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/value*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_topn2 ci_low,57.4483,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_topn2 ci_high,61.3737,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_ldca_topn2 value,31.799,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_ldca_topn2}/value*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_ldca_topn2 ci_low,29.7372,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_ldca_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 recall_ldca_topn2 ci_high,33.9229,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=recall_ldca_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 P1K value,81.7,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=P1K}/value*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 P1K ci_low,77.7,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=P1K}/ci_low*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 P1K ci_high,85.5,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=P1K}/ci_high*100
+fig2_ligysis,v2 ligysis fpocket_4.2.3+PRANK_2.4.2 pockets_per_structure value,20.8501,v2:descriptive/secondary{benchmark=ligysis;method=fpocket_4.2.3+PRANK_2.4.2;metric=pockets_per_structure}/value
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c2.0,52.6,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.0
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c2.1,50.3,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.1
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c2.2,54.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.2
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c4.0,29.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.0
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c4.1,27.6,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.1
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c4.2,32,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.2
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c5.0,80.5,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c5.0
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c5.1,76.4,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c5.1
+fig2_ligysis,HEADLINES ligysis p2rank_2.5.1 c5.2,83.6,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c5.2
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_topn2 value,60.4226,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/value*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_topn2 ci_low,58.3563,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_topn2 ci_high,62.3226,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_ldca_topn2 value,31.5798,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_ldca_topn2}/value*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_ldca_topn2 ci_low,29.6121,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_ldca_topn2}/ci_low*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK recall_ldca_topn2 ci_high,33.5522,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_ldca_topn2}/ci_high*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK P1K value,81.7,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=P1K}/value*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK P1K ci_low,77.7,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=P1K}/ci_low*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK P1K ci_high,85.2025,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=P1K}/ci_high*100
+fig2_ligysis,v2 ligysis published:fpocket+PRANK pockets_per_structure value,20.8501,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=pockets_per_structure}/value
+fig2_ligysis,P2Rank+Cons topN+2,53.8908,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank+Cons}/topN2*100
+fig2_ligysis,P2Rank+Cons P1K,90.7,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank+Cons}/P1K*100
+fig2_ligysis,DeepPocket-Rescored topN+2,58.1015,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=DeepPocket-Rescored}/topN2*100
+fig2_ligysis,DeepPocket-Rescored P1K,81.7,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=DeepPocket-Rescored}/P1K*100
+fig2_ligysis,P2Rank topN+2,51.9417,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/topN2*100
+fig2_ligysis,P2Rank P1K,79.2,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/P1K*100
+fig2_ligysis,GrASP topN+2,49.8735,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=GrASP}/topN2*100
+fig2_ligysis,GrASP P1K,92.5,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=GrASP}/P1K*100
+fig2_ligysis,DeepPocket-Segmented-NR topN+2,49.3677,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=DeepPocket-Segmented-NR}/topN2*100
+fig2_ligysis,DeepPocket-Segmented-NR P1K,81.6,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=DeepPocket-Segmented-NR}/P1K*100
+fig2_ligysis,Ligsite-AA topN+2,49.0254,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=Ligsite-AA}/topN2*100
+fig2_ligysis,Ligsite-AA P1K,68.8,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=Ligsite-AA}/P1K*100
+fig2_ligysis,PocketFinder-AA topN+2,48.8767,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=PocketFinder-AA}/topN2*100
+fig2_ligysis,PocketFinder-AA P1K,65.3,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=PocketFinder-AA}/P1K*100
+fig2_ligysis,Surfnet-AA topN+2,47.359,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=Surfnet-AA}/topN2*100
+fig2_ligysis,Surfnet-AA P1K,68.6,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=Surfnet-AA}/P1K*100
+fig2_ligysis,fpocket topN+2,46.5258,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=fpocket}/topN2*100
+fig2_ligysis,fpocket P1K,47.3,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=fpocket}/P1K*100
+fig2_ligysis,VN-EGNN-NR topN+2,46.0943,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=VN-EGNN-NR}/topN2*100
+fig2_ligysis,VN-EGNN-NR P1K,91.5,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=VN-EGNN-NR}/P1K*100
+fig2_ligysis,PUResNet+PRANK topN+2,41.0951,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=PUResNet+PRANK}/topN2*100
+fig2_ligysis,PUResNet+PRANK P1K,93.3,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=PUResNet+PRANK}/P1K*100
+fig2_ligysis,IF-SitePred-rescored-NR topN+2,39.1162,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=IF-SitePred-rescored-NR}/topN2*100
+fig2_ligysis,IF-SitePred-rescored-NR P1K,94.3,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=IF-SitePred-rescored-NR}/P1K*100
+fig2_ligysis,reproduction: n methods,33,csv:results/validation/ligysis_reproduction/reproduction.csv#count
+fig2_ligysis,reproduction: max |diff| pts,0.383366,csv:results/validation/ligysis_reproduction/reproduction.csv#max(|*_diff_pts|)
+fig2_ligysis,C1 n sites,6721,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/n_rows
+fig2_ligysis,C1 n units,1687,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/n_units
+fig2_ligysis,DCA4 n,6387,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/n_rows
+fig2_ligysis,LIGYSIS chains,2775,v2:denominators{benchmark=ligysis;method=BURROW[burrow_all_default_s0]}/n_structures_or_units
+fig3_prereg,C1 published:fpocket+PRANK comparator,60.4226,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/b
+fig3_prereg,v2 C1 published:fpocket+PRANK s0 diff,12.0518,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C1 published:fpocket+PRANK s0 ci_low,9.9218,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v2 C1 published:fpocket+PRANK s0 ci_high,14.2462,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v2 C1 published:fpocket+PRANK s1,11.5905,v2:family1{endpoint=C1;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C1 published:fpocket+PRANK s2,11.8584,v2:family1{endpoint=C1;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,v1 C1 published:fpocket+PRANK s0 diff,3.86847,v1:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C1 published:fpocket+PRANK s0 ci_low,1.98221,v1:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v1 C1 published:fpocket+PRANK s0 ci_high,6.00807,v1:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v1 C1 published:fpocket+PRANK s1,4.09165,v1:family1{endpoint=C1;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C1 published:fpocket+PRANK s2,4.4785,v1:family1{endpoint=C1;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,C1 fpocket_4.2.3+PRANK_2.4.2 comparator,59.5001,v2:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/b
+fig3_prereg,v2 C1 fpocket_4.2.3+PRANK_2.4.2 s0 diff,12.9743,v2:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C1 fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,10.855,v2:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v2 C1 fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,15.1735,v2:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v2 C1 fpocket_4.2.3+PRANK_2.4.2 s1,12.513,v2:family1{endpoint=C1;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C1 fpocket_4.2.3+PRANK_2.4.2 s2,12.7808,v2:family1{endpoint=C1;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,v1 C1 fpocket_4.2.3+PRANK_2.4.2 s0 diff,4.79095,v1:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C1 fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,2.88205,v1:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v1 C1 fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,6.9816,v1:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v1 C1 fpocket_4.2.3+PRANK_2.4.2 s1,5.01413,v1:family1{endpoint=C1;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C1 fpocket_4.2.3+PRANK_2.4.2 s2,5.40098,v1:family1{endpoint=C1;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,C1-strict published:fpocket+PRANK comparator,31.5798,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/b
+fig3_prereg,v2 C1-strict published:fpocket+PRANK s0 diff,22.6084,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C1-strict published:fpocket+PRANK s0 ci_low,20.003,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v2 C1-strict published:fpocket+PRANK s0 ci_high,25.4631,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v2 C1-strict published:fpocket+PRANK s1,22.5771,v2:family1{endpoint=C1-strict;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C1-strict published:fpocket+PRANK s2,22.4205,v2:family1{endpoint=C1-strict;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,v1 C1-strict published:fpocket+PRANK s0 diff,22.8589,v1:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C1-strict published:fpocket+PRANK s0 ci_low,20.2379,v1:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v1 C1-strict published:fpocket+PRANK s0 ci_high,25.8923,v1:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v1 C1-strict published:fpocket+PRANK s1,22.5458,v1:family1{endpoint=C1-strict;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C1-strict published:fpocket+PRANK s2,22.9372,v1:family1{endpoint=C1-strict;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,C1-strict fpocket_4.2.3+PRANK_2.4.2 comparator,31.799,v2:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/b
+fig3_prereg,v2 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 diff,22.3892,v2:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,19.5665,v2:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v2 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,25.3505,v2:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v2 C1-strict fpocket_4.2.3+PRANK_2.4.2 s1,22.3579,v2:family1{endpoint=C1-strict;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C1-strict fpocket_4.2.3+PRANK_2.4.2 s2,22.2013,v2:family1{endpoint=C1-strict;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C1-strict', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C1-strict;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,v1 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 diff,22.6397,v1:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,19.7882,v1:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v1 C1-strict fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,25.8059,v1:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v1 C1-strict fpocket_4.2.3+PRANK_2.4.2 s1,22.3266,v1:family1{endpoint=C1-strict;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C1-strict fpocket_4.2.3+PRANK_2.4.2 s2,22.718,v1:family1{endpoint=C1-strict;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C1-strict', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C1-strict;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,C2 published:fpocket+PRANK comparator,81.7,v2:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/b
+fig3_prereg,v2 C2 published:fpocket+PRANK s0 diff,14.4,v2:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C2 published:fpocket+PRANK s0 ci_low,10.2,v2:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v2 C2 published:fpocket+PRANK s0 ci_high,19,v2:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v2 C2 published:fpocket+PRANK s1,14.8,v2:family1{endpoint=C2;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v2 C2 published:fpocket+PRANK s2,15.2,v2:family1{endpoint=C2;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C2;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v2:family1{endpoint=C2;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,v1 C2 published:fpocket+PRANK s0 diff,14,v1:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C2 published:fpocket+PRANK s0 ci_low,10.0975,v1:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/ci_low
+fig3_prereg,v1 C2 published:fpocket+PRANK s0 ci_high,18.6025,v1:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/ci_high
+fig3_prereg,v1 C2 published:fpocket+PRANK s1,14.7,v1:family1{endpoint=C2;seed_index=1;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,v1 C2 published:fpocket+PRANK s2,15.2,v1:family1{endpoint=C2;seed_index=2;comparator=published:fpocket+PRANK}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 0, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C2;seed_index=0;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 1, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C2;seed_index=1;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 2, 'comparator': 'published:fpocket+PRANK'} pass=True",1,v1:family1{endpoint=C2;seed_index=2;comparator=published:fpocket+PRANK}/pass
+fig3_prereg,C2 fpocket_4.2.3+PRANK_2.4.2 comparator,81.7,v2:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/b
+fig3_prereg,v2 C2 fpocket_4.2.3+PRANK_2.4.2 s0 diff,14.4,v2:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C2 fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,10.2,v2:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v2 C2 fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,18.9025,v2:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v2 C2 fpocket_4.2.3+PRANK_2.4.2 s1,14.8,v2:family1{endpoint=C2;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v2 C2 fpocket_4.2.3+PRANK_2.4.2 s2,15.2,v2:family1{endpoint=C2;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C2;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v2 family1 {'endpoint': 'C2', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v2:family1{endpoint=C2;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,v1 C2 fpocket_4.2.3+PRANK_2.4.2 s0 diff,14,v1:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C2 fpocket_4.2.3+PRANK_2.4.2 s0 ci_low,9.9,v1:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_low
+fig3_prereg,v1 C2 fpocket_4.2.3+PRANK_2.4.2 s0 ci_high,18.7,v1:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/ci_high
+fig3_prereg,v1 C2 fpocket_4.2.3+PRANK_2.4.2 s1,14.7,v1:family1{endpoint=C2;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,v1 C2 fpocket_4.2.3+PRANK_2.4.2 s2,15.2,v1:family1{endpoint=C2;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/diff
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 0, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C2;seed_index=0;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 1, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C2;seed_index=1;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,"v1 family1 {'endpoint': 'C2', 'seed_index': 2, 'comparator': 'fpocket_4.2.3+PRANK_2.4.2'} pass=True",1,v1:family1{endpoint=C2;seed_index=2;comparator=fpocket_4.2.3+PRANK_2.4.2}/pass
+fig3_prereg,O2a comparator value,69.3931,v2:family2{endpoint=O2a;seed_index=0}/b
+fig3_prereg,O2a n,379,v2:family2{endpoint=O2a;seed_index=0}/n_rows
+fig3_prereg,v2 O2a diff,1.58311,v2:family2{endpoint=O2a;seed_index=0}/diff
+fig3_prereg,v2 O2a ci_low,-3.03072,v2:family2{endpoint=O2a;seed_index=0}/ci_low
+fig3_prereg,v2 O2a ci_high,5.82285,v2:family2{endpoint=O2a;seed_index=0}/ci_high
+fig3_prereg,v2 O2a s1,2.11082,v2:family2{endpoint=O2a;seed_index=1}/diff
+fig3_prereg,v2 O2a s2,1.84697,v2:family2{endpoint=O2a;seed_index=2}/diff
+fig3_prereg,v2 O2a s0 decision=inconclusive superior=False,0,v2:family2{endpoint=O2a;seed_index=0}/superior
+fig3_prereg,v1 O2a diff,2.37467,v1:family2{endpoint=O2a;seed_index=0}/diff
+fig3_prereg,v1 O2a ci_low,-2.65975,v1:family2{endpoint=O2a;seed_index=0}/ci_low
+fig3_prereg,v1 O2a ci_high,7.06462,v1:family2{endpoint=O2a;seed_index=0}/ci_high
+fig3_prereg,v1 O2a s1,1.84697,v1:family2{endpoint=O2a;seed_index=1}/diff
+fig3_prereg,v1 O2a s2,3.95778,v1:family2{endpoint=O2a;seed_index=2}/diff
+fig3_prereg,v1 O2a s0 decision=inconclusive superior=False,0,v1:family2{endpoint=O2a;seed_index=0}/superior
+fig3_prereg,O2b comparator value,76.5784,v2:family2{endpoint=O2b;seed_index=0}/b
+fig3_prereg,O2b n,6874,v2:family2{endpoint=O2b;seed_index=0}/n_rows
+fig3_prereg,v2 O2b diff,1.62933,v2:family2{endpoint=O2b;seed_index=0}/diff
+fig3_prereg,v2 O2b ci_low,-1.15887,v2:family2{endpoint=O2b;seed_index=0}/ci_low
+fig3_prereg,v2 O2b ci_high,4.30761,v2:family2{endpoint=O2b;seed_index=0}/ci_high
+fig3_prereg,v2 O2b s1,1.83299,v2:family2{endpoint=O2b;seed_index=1}/diff
+fig3_prereg,v2 O2b s2,1.36747,v2:family2{endpoint=O2b;seed_index=2}/diff
+fig3_prereg,v2 O2b s0 decision=pass superior=False,0,v2:family2{endpoint=O2b;seed_index=0}/superior
+fig3_prereg,v1 O2b diff,1.81845,v1:family2{endpoint=O2b;seed_index=0}/diff
+fig3_prereg,v1 O2b ci_low,-0.955537,v1:family2{endpoint=O2b;seed_index=0}/ci_low
+fig3_prereg,v1 O2b ci_high,4.41736,v1:family2{endpoint=O2b;seed_index=0}/ci_high
+fig3_prereg,v1 O2b s1,1.81845,v1:family2{endpoint=O2b;seed_index=1}/diff
+fig3_prereg,v1 O2b s2,1.42566,v1:family2{endpoint=O2b;seed_index=2}/diff
+fig3_prereg,v1 O2b s0 decision=pass superior=False,0,v1:family2{endpoint=O2b;seed_index=0}/superior
+fig3_prereg,O3 comparator value,75.8423,v2:family2{endpoint=O3;seed_index=0}/b
+fig3_prereg,O3 n,1573,v2:family2{endpoint=O3;seed_index=0}/n_rows
+fig3_prereg,v2 O3 diff,0.762873,v2:family2{endpoint=O3;seed_index=0}/diff
+fig3_prereg,v2 O3 ci_low,-1.40644,v2:family2{endpoint=O3;seed_index=0}/ci_low
+fig3_prereg,v2 O3 ci_high,2.92602,v2:family2{endpoint=O3;seed_index=0}/ci_high
+fig3_prereg,v2 O3 s1,0.762873,v2:family2{endpoint=O3;seed_index=1}/diff
+fig3_prereg,v2 O3 s2,1.27146,v2:family2{endpoint=O3;seed_index=2}/diff
+fig3_prereg,v2 O3 s0 decision=pass superior=False,0,v2:family2{endpoint=O3;seed_index=0}/superior
+fig3_prereg,v1 O3 diff,-2.73363,v1:family2{endpoint=O3;seed_index=0}/diff
+fig3_prereg,v1 O3 ci_low,-4.90044,v1:family2{endpoint=O3;seed_index=0}/ci_low
+fig3_prereg,v1 O3 ci_high,-0.540906,v1:family2{endpoint=O3;seed_index=0}/ci_high
+fig3_prereg,v1 O3 s1,-1.97076,v1:family2{endpoint=O3;seed_index=1}/diff
+fig3_prereg,v1 O3 s2,-1.97076,v1:family2{endpoint=O3;seed_index=2}/diff
+fig3_prereg,v1 O3 s0 decision=inconclusive superior=False,0,v1:family2{endpoint=O3;seed_index=0}/superior
+fig3_prereg,O4 comparator value,71.8519,v2:family2{endpoint=O4;seed_index=0}/b
+fig3_prereg,O4 n,270,v2:family2{endpoint=O4;seed_index=0}/n_rows
+fig3_prereg,v2 O4 diff,-2.59259,v2:family2{endpoint=O4;seed_index=0}/diff
+fig3_prereg,v2 O4 ci_low,-8.55044,v2:family2{endpoint=O4;seed_index=0}/ci_low
+fig3_prereg,v2 O4 ci_high,2.97642,v2:family2{endpoint=O4;seed_index=0}/ci_high
+fig3_prereg,v2 O4 s1,1.11111,v2:family2{endpoint=O4;seed_index=1}/diff
+fig3_prereg,v2 O4 s2,-0.740741,v2:family2{endpoint=O4;seed_index=2}/diff
+fig3_prereg,v2 O4 s0 decision=inconclusive superior=False,0,v2:family2{endpoint=O4;seed_index=0}/superior
+fig3_prereg,v1 O4 diff,-5.18519,v1:family2{endpoint=O4;seed_index=0}/diff
+fig3_prereg,v1 O4 ci_low,-11.0733,v1:family2{endpoint=O4;seed_index=0}/ci_low
+fig3_prereg,v1 O4 ci_high,1.02398,v1:family2{endpoint=O4;seed_index=0}/ci_high
+fig3_prereg,v1 O4 s1,-3.33333,v1:family2{endpoint=O4;seed_index=1}/diff
+fig3_prereg,v1 O4 s2,-3.33333,v1:family2{endpoint=O4;seed_index=2}/diff
+fig3_prereg,v1 O4 s0 decision=inconclusive superior=False,0,v1:family2{endpoint=O4;seed_index=0}/superior
+fig3_prereg,O5 comparator value,51.4149,v2:family2{endpoint=O5;seed_index=0}/b
+fig3_prereg,O5 n,6502,v2:family2{endpoint=O5;seed_index=0}/n_rows
+fig3_prereg,v2 O5 diff,13.1344,v2:family2{endpoint=O5;seed_index=0}/diff
+fig3_prereg,v2 O5 ci_low,10.9675,v2:family2{endpoint=O5;seed_index=0}/ci_low
+fig3_prereg,v2 O5 ci_high,15.6506,v2:family2{endpoint=O5;seed_index=0}/ci_high
+fig3_prereg,v2 O5 s1,13.0883,v2:family2{endpoint=O5;seed_index=1}/diff
+fig3_prereg,v2 O5 s2,12.996,v2:family2{endpoint=O5;seed_index=2}/diff
+fig3_prereg,v2 O5 s0 decision=pass superior=True,1,v2:family2{endpoint=O5;seed_index=0}/superior
+fig3_prereg,v1 O5 diff,7.76684,v1:family2{endpoint=O5;seed_index=0}/diff
+fig3_prereg,v1 O5 ci_low,5.25919,v1:family2{endpoint=O5;seed_index=0}/ci_low
+fig3_prereg,v1 O5 ci_high,10.3406,v1:family2{endpoint=O5;seed_index=0}/ci_high
+fig3_prereg,v1 O5 s1,7.35158,v1:family2{endpoint=O5;seed_index=1}/diff
+fig3_prereg,v1 O5 s2,7.70532,v1:family2{endpoint=O5;seed_index=2}/diff
+fig3_prereg,v1 O5 s0 decision=pass superior=True,1,v1:family2{endpoint=O5;seed_index=0}/superior
+fig3_prereg,O6 comparator value,87.6543,v2:family2{endpoint=O6;seed_index=0}/b
+fig3_prereg,O6 n,243,v2:family2{endpoint=O6;seed_index=0}/n_rows
+fig3_prereg,v2 O6 diff,-3.7037,v2:family2{endpoint=O6;seed_index=0}/diff
+fig3_prereg,v2 O6 ci_low,-8.74551,v2:family2{endpoint=O6;seed_index=0}/ci_low
+fig3_prereg,v2 O6 ci_high,0.885054,v2:family2{endpoint=O6;seed_index=0}/ci_high
+fig3_prereg,v2 O6 s1,-2.88066,v2:family2{endpoint=O6;seed_index=1}/diff
+fig3_prereg,v2 O6 s2,-2.46914,v2:family2{endpoint=O6;seed_index=2}/diff
+fig3_prereg,v2 O6 s0 decision=inconclusive superior=False,0,v2:family2{endpoint=O6;seed_index=0}/superior
+fig3_prereg,v1 O6 diff,-2.05761,v1:family2{endpoint=O6;seed_index=0}/diff
+fig3_prereg,v1 O6 ci_low,-7.08802,v1:family2{endpoint=O6;seed_index=0}/ci_low
+fig3_prereg,v1 O6 ci_high,2.81269,v1:family2{endpoint=O6;seed_index=0}/ci_high
+fig3_prereg,v1 O6 s1,-3.29218,v1:family2{endpoint=O6;seed_index=1}/diff
+fig3_prereg,v1 O6 s2,-3.29218,v1:family2{endpoint=O6;seed_index=2}/diff
+fig3_prereg,v1 O6 s0 decision=inconclusive superior=False,0,v1:family2{endpoint=O6;seed_index=0}/superior
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 value,64.291,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/value*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_low,62.2525,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_low*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_high,66.2229,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 value,72.4743,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_low,70.5349,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_high,74.306,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_topn2 value,60.4226,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_topn2 ci_low,58.3563,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_topn2 ci_high,62.3226,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_topn2}/ci_high*100
+fig4_composition_tradeoff,P2Rank published topN2,51.9417,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/topN2*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 value,80.0922,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/value*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 ci_low,78.4607,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/ci_low*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 ci_high,81.7046,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 value,76.9231,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 ci_low,75.0988,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_anyp_topn2 ci_high,78.7297,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_anyp_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_anyp_topn2 value,71.4179,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_anyp_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_anyp_topn2 ci_low,69.5573,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_anyp_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_anyp_topn2 ci_high,73.186,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_anyp_topn2}/ci_high*100
+fig4_composition_tradeoff,P2Rank published topN2_anyp,53.3849,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/topN2_anyp*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 value,76.0006,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/value*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 ci_low,74.187,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/ci_low*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 ci_high,77.7472,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 value,71.3436,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 ci_low,69.368,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_1to1_topn2 ci_high,73.326,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_1to1_topn2}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_1to1_topn2 value,66.3443,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_1to1_topn2}/value*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_1to1_topn2 ci_low,64.5818,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_1to1_topn2}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_1to1_topn2 ci_high,68.1109,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_1to1_topn2}/ci_high*100
+fig4_composition_tradeoff,P2Rank published topN2_1to1,44.5023,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/topN2_1to1*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_max value,99.3305,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/value*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_max ci_low,98.9847,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/ci_low*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] recall_max ci_high,99.634,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_max value,84.169,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/value*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_max ci_low,82.5769,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] recall_max ci_high,85.923,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_max}/ci_high*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_max value,91.2959,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_max}/value*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_max ci_low,90.3158,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_max}/ci_low*100
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK recall_max ci_high,92.1923,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=recall_max}/ci_high*100
+fig4_composition_tradeoff,P2Rank published max_recall,57.0004,csv:results/validation/ligysis_reproduction/reproduction.csv#{method=P2Rank}/max_recall*100
+fig4_composition_tradeoff,v1 ligysis BURROW[burrow_all_default_s0] pockets_per_structure value,32.8656,v1:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=pockets_per_structure}/value
+fig4_composition_tradeoff,v2 ligysis BURROW[burrow_all_default_s0] pockets_per_structure value,9.06018,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=pockets_per_structure}/value
+fig4_composition_tradeoff,v2 ligysis published:fpocket+PRANK pockets_per_structure value,20.8501,v2:descriptive/secondary{benchmark=ligysis;method=published:fpocket+PRANK;metric=pockets_per_structure}/value
+fig4_composition_tradeoff,C1 ion v1 diff,21.5891,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/diff
+fig4_composition_tradeoff,C1 ion v1 ci_low,17.9771,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/ci_low
+fig4_composition_tradeoff,C1 ion v1 ci_high,25.1816,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/ci_high
+fig4_composition_tradeoff,C1 ion n,2580,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/n_rows
+fig4_composition_tradeoff,C1 ion v2 diff,29.4961,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/diff
+fig4_composition_tradeoff,C1 ion v2 ci_low,26.0759,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/ci_low
+fig4_composition_tradeoff,C1 ion v2 ci_high,32.7264,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/ci_high
+fig4_composition_tradeoff,C1 ion n,2580,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=ion}/n_rows
+fig4_composition_tradeoff,LIGYSIS_NI v1 diff,-4.63656,json:results/test/v2/posthoc.json#ligysis_ni{method=v1:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/diff
+fig4_composition_tradeoff,LIGYSIS_NI v1 ci_low,-6.33709,json:results/test/v2/posthoc.json#ligysis_ni{method=v1:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,LIGYSIS_NI v1 ci_high,-2.9005,json:results/test/v2/posthoc.json#ligysis_ni{method=v1:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,LIGYSIS_NI n,4141,json:results/test/v2/posthoc.json#ligysis_ni{method=v1:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/n_rows
+fig4_composition_tradeoff,LIGYSIS_NI v2 diff,2.99445,json:results/test/v2/posthoc.json#ligysis_ni{method=v2:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/diff
+fig4_composition_tradeoff,LIGYSIS_NI v2 ci_low,1.06807,json:results/test/v2/posthoc.json#ligysis_ni{method=v2:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,LIGYSIS_NI v2 ci_high,4.74339,json:results/test/v2/posthoc.json#ligysis_ni{method=v2:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,LIGYSIS_NI n,4141,json:results/test/v2/posthoc.json#ligysis_ni{method=v2:burrow_small_default_s0;comparator=fpocket_4.2.3+PRANK_2.4.2;metric=recall_topn2}/n_rows
+fig4_composition_tradeoff,C1 nucleotide-cofactor v1 diff,-0.880503,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/diff
+fig4_composition_tradeoff,C1 nucleotide-cofactor v1 ci_low,-3.58114,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/ci_low
+fig4_composition_tradeoff,C1 nucleotide-cofactor v1 ci_high,2.1454,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/ci_high
+fig4_composition_tradeoff,C1 nucleotide-cofactor n,795,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/n_rows
+fig4_composition_tradeoff,C1 nucleotide-cofactor v2 diff,4.65409,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/diff
+fig4_composition_tradeoff,C1 nucleotide-cofactor v2 ci_low,1.95278,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/ci_low
+fig4_composition_tradeoff,C1 nucleotide-cofactor v2 ci_high,7.66927,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/ci_high
+fig4_composition_tradeoff,C1 nucleotide-cofactor n,795,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=nucleotide-cofactor}/n_rows
+fig4_composition_tradeoff,C1 other v1 diff,-6.81411,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/diff
+fig4_composition_tradeoff,C1 other v1 ci_low,-8.71238,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/ci_low
+fig4_composition_tradeoff,C1 other v1 ci_high,-4.91024,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/ci_high
+fig4_composition_tradeoff,C1 other n,3346,v1:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/n_rows
+fig4_composition_tradeoff,C1 other v2 diff,2.2116,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/diff
+fig4_composition_tradeoff,C1 other v2 ci_low,0.0845633,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/ci_low
+fig4_composition_tradeoff,C1 other v2 ci_high,4.29809,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/ci_high
+fig4_composition_tradeoff,C1 other n,3346,v2:descriptive/strata{endpoint=C1;kind=ligand_class;stratum=other}/n_rows
+fig4_composition_tradeoff,O5 ion diff,32.0809,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=ion;metric=recall_topn2}/diff
+fig4_composition_tradeoff,O5 ion ci_low,28.333,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=ion;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,O5 ion ci_high,36.1468,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=ion;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,O5 ion n,2422,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=ion;metric=recall_topn2}/n_rows
+fig4_composition_tradeoff,O5 non-ion diff,1.88725,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=non-ion;metric=recall_topn2}/diff
+fig4_composition_tradeoff,O5 non-ion ci_low,-0.0962107,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=non-ion;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,O5 non-ion ci_high,3.86781,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=non-ion;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,O5 non-ion n,4080,json:results/test/v2/posthoc.json#o5_ligand_class{split=2-class;class=non-ion;metric=recall_topn2}/n_rows
+fig4_composition_tradeoff,O5 nucleotide-cofactor diff,0.127877,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=nucleotide-cofactor;metric=recall_topn2}/diff
+fig4_composition_tradeoff,O5 nucleotide-cofactor ci_low,-2.27305,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=nucleotide-cofactor;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,O5 nucleotide-cofactor ci_high,2.47021,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=nucleotide-cofactor;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,O5 nucleotide-cofactor n,782,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=nucleotide-cofactor;metric=recall_topn2}/n_rows
+fig4_composition_tradeoff,O5 other diff,2.30443,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=other;metric=recall_topn2}/diff
+fig4_composition_tradeoff,O5 other ci_low,-0.0596985,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=other;metric=recall_topn2}/ci_low
+fig4_composition_tradeoff,O5 other ci_high,4.93595,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=other;metric=recall_topn2}/ci_high
+fig4_composition_tradeoff,O5 other n,3298,json:results/test/v2/posthoc.json#o5_ligand_class{split=3-class;class=other;metric=recall_topn2}/n_rows
+fig5_speed,fast ms/structure,48,md:docs/PERF.md::^## Final like-for-like timing::^\| BURROW fast \|::c3.1
+fig5_speed,ligysis | desc.fast_all_s0 | v2:burrow_all_default_s0 | recall_topn2,72.47,md:results/test/v2/DESCRIPTIVE.md::^## `--preset fast`::^\| ligysis \| desc\.fast_all_s0 \| v2:burrow_all_default_s0 \| recall_topn2 \|::c4.0
+fig5_speed,ligysis | desc.fast_all_s0 | v2:burrow_all_default_s0 | recall_ldca_topn2,53.39,md:results/test/v2/DESCRIPTIVE.md::^## `--preset fast`::^\| ligysis \| desc\.fast_all_s0 \| v2:burrow_all_default_s0 \| recall_ldca_topn2 \|::c4.0
+fig5_speed,default ms/structure,142,md:docs/PERF.md::^## Final like-for-like timing::^\| BURROW default \|::c3.1
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 value,72.4743,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/value*100
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_low,70.5349,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_low*100
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_topn2 ci_high,74.306,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_topn2}/ci_high*100
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 value,54.1882,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/value*100
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_low,51.9976,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_low*100
+fig5_speed,v2 ligysis BURROW[burrow_all_default_s0] recall_ldca_topn2 ci_high,56.6412,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_default_s0];metric=recall_ldca_topn2}/ci_high*100
+fig5_speed,accurate ms/structure,271,md:docs/PERF.md::^## Final like-for-like timing::^\| BURROW accurate \|::c3.1
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 value,71.3138,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/value*100
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 ci_low,69.4084,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/ci_low*100
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_topn2 ci_high,73.1957,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_topn2}/ci_high*100
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 value,54.1725,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/value*100
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 ci_low,51.9588,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/ci_low*100
+fig5_speed,v2 ligysis BURROW[burrow_all_accurate_s0] recall_ldca_topn2 ci_high,56.4454,v2:descriptive/secondary{benchmark=ligysis;method=BURROW[burrow_all_accurate_s0];metric=recall_ldca_topn2}/ci_high*100
+fig5_speed,P2Rank ms/structure,209,md:docs/PERF.md::^## Final like-for-like timing::^\| P2Rank 2\.5\.1::c3.1
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c2.0,52.6,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.0
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c2.1,50.3,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.1
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c2.2,54.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c2.2
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c4.0,29.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.0
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c4.1,27.6,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.1
+fig5_speed,HEADLINES ligysis p2rank_2.5.1 c4.2,32,md:results/baselines/HEADLINES.md::^## ligysis$::^\| p2rank_2\.5\.1 \|::c4.2
+fig5_speed,fpocket ms/structure,605,md:docs/PERF.md::^## Final like-for-like timing::^\| fpocket 4\.2\.3 \(1 process\)::c3.1
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c2.0,45.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c2.0
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c2.1,43.7,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c2.1
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c2.2,47.8,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c2.2
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c4.0,19.9,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c4.0
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c4.1,18.4,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c4.1
+fig5_speed,HEADLINES ligysis fpocket_4.2.3 c4.2,21.4,md:results/baselines/HEADLINES.md::^## ligysis$::^\| fpocket_4\.2\.3 \|::c4.2
+fig5_speed,fast 24 CPU workers structures/s,544.7,"md:docs/PERF.md::^## Track T1::^\| fast \| CLI, 24 CPU workers, 10,000 structures::c3.0"
+fig5_speed,fast 3 GPUs (8 workers each) structures/s,646.3,"md:docs/PERF.md::^## Track T1::^\| fast \| CLI, 3 GPUs \(8 workers each\), 10,000 structures::c3.0"
+fig5_speed,default 24 CPU workers structures/s,171,"md:docs/PERF.md::^## Track T1::^\| default \| CLI, 24 CPU workers, 10,000 structures::c3.0"
+fig5_speed,default 3 GPUs (8 workers each) structures/s,411.4,"md:docs/PERF.md::^## Track T1::^\| default \| CLI, 3 GPUs \(8 workers each\), 10,000 structures::c3.0"
+fig5_speed,accurate 24 CPU workers structures/s,88.2,"md:docs/PERF.md::^## Track T1::^\| accurate \| CLI, 24 CPU workers, 10,000 structures::c3.0"
+fig5_speed,accurate 3 GPUs (8 workers each) structures/s,338.1,"md:docs/PERF.md::^## Track T1::^\| accurate \| CLI, 3 GPUs \(8 workers each\), 10,000 structures::c3.0"
+fig6_af_dimers,desc.v2_naive_all_s0 top-N+2,63.55,md:results/test/v2/DESCRIPTIVE.md::^## Naive \(no --af-mode\)::^\| af_set \| desc\.v2_naive_all_s0 \| v2:burrow_all_default_s0_af \| recall_topn2 \|::c4.0
+fig6_af_dimers,desc.v2_naive_all_s0 halluc top-N+2,2.8,md:results/test/v2/DESCRIPTIVE.md::^## Naive \(no --af-mode\)::^\| af_set \| desc\.v2_naive_all_s0 \| v2:burrow_all_default_s0_af \| hallucination_rate_topn2 \|::c4.0
+fig6_af_dimers,desc.v2_naive_plddt70_all_s0 top-N+2,64.13,md:results/test/v2/DESCRIPTIVE.md::^## Naive \(no --af-mode\)::^\| af_set \| desc\.v2_naive_plddt70_all_s0 \| v2:burrow_all_default_s0_af \| recall_topn2 \|::c4.0
+fig6_af_dimers,desc.v2_naive_plddt70_all_s0 halluc top-N+2,0,md:results/test/v2/DESCRIPTIVE.md::^## Naive \(no --af-mode\)::^\| af_set \| desc\.v2_naive_plddt70_all_s0 \| v2:burrow_all_default_s0_af \| hallucination_rate_topn2 \|::c4.0
+fig6_af_dimers,v2 af_set BURROW[burrow_all_default_s0_af] recall_topn2 value,64.5494,v2:descriptive/secondary{benchmark=af_set;method=BURROW[burrow_all_default_s0_af];metric=recall_topn2}/value*100
+fig6_af_dimers,v2 af_set BURROW[burrow_all_default_s0_af] recall_topn2 ci_low,62.7561,v2:descriptive/secondary{benchmark=af_set;method=BURROW[burrow_all_default_s0_af];metric=recall_topn2}/ci_low*100
+fig6_af_dimers,v2 af_set BURROW[burrow_all_default_s0_af] recall_topn2 ci_high,66.5169,v2:descriptive/secondary{benchmark=af_set;method=BURROW[burrow_all_default_s0_af];metric=recall_topn2}/ci_high*100
+fig6_af_dimers,v2 af_set BURROW[burrow_all_default_s0_af] hallucination_rate_topn2 value,0.119091,v2:descriptive/secondary{benchmark=af_set;method=BURROW[burrow_all_default_s0_af];metric=hallucination_rate_topn2}/value*100
+fig6_af_dimers,v2 af_set p2rank_2.5.1_af recall_topn2 value,51.4149,v2:descriptive/secondary{benchmark=af_set;method=p2rank_2.5.1_af;metric=recall_topn2}/value*100
+fig6_af_dimers,v2 af_set p2rank_2.5.1_af recall_topn2 ci_low,49.2505,v2:descriptive/secondary{benchmark=af_set;method=p2rank_2.5.1_af;metric=recall_topn2}/ci_low*100
+fig6_af_dimers,v2 af_set p2rank_2.5.1_af recall_topn2 ci_high,53.4906,v2:descriptive/secondary{benchmark=af_set;method=p2rank_2.5.1_af;metric=recall_topn2}/ci_high*100
+fig6_af_dimers,v2 af_set p2rank_2.5.1_af hallucination_rate_topn2 value,0.258166,v2:descriptive/secondary{benchmark=af_set;method=p2rank_2.5.1_af;metric=hallucination_rate_topn2}/value*100
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@interface value,83.9506,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@interface}/value*100
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@interface ci_low,78.6726,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@interface}/ci_low*100
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@interface ci_high,89.0644,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@interface}/ci_high*100
+fig6_af_dimers,BURROW chain interface,69.56,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@interface \|::c3.0"
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@interface value,87.6543,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@interface}/value*100
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@interface ci_low,83.0357,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@interface}/ci_low*100
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@interface ci_high,92.119,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@interface}/ci_high*100
+fig6_af_dimers,P2Rank 2.5.1 chain interface,55.36,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@interface \|::c4.0"
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@interface value,86.8313,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@interface}/value*100
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@interface ci_low,81.851,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@interface}/ci_low*100
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@interface ci_high,91.8813,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@interface}/ci_high*100
+fig6_af_dimers,fpocket 4.2.3 + PRANK 2.5.1 chain interface,68.3,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| fpocket_4\.2\.3\+PRANK_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@interface \|::c4.0"
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@all value,83.891,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@all}/value*100
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@all ci_low,79.9471,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@all}/ci_low*100
+fig6_af_dimers,v2 dimer BURROW[burrow_all_default_s0] recall_DCC12_topn2@all ci_high,87.2898,v2:descriptive/secondary{benchmark=dimer;method=BURROW[burrow_all_default_s0];metric=recall_DCC12_topn2@all}/ci_high*100
+fig6_af_dimers,BURROW chain all,81.59,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@all \|::c3.0"
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@all value,72.8625,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@all}/value*100
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@all ci_low,68.1876,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@all}/ci_low*100
+fig6_af_dimers,v2 dimer p2rank_2.5.1 recall_DCC12_topn2@all ci_high,77.2401,v2:descriptive/secondary{benchmark=dimer;method=p2rank_2.5.1;metric=recall_DCC12_topn2@all}/ci_high*100
+fig6_af_dimers,P2Rank 2.5.1 chain all,62.4,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@all \|::c4.0"
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@all value,74.8451,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@all}/value*100
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@all ci_low,70.8013,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@all}/ci_low*100
+fig6_af_dimers,v2 dimer fpocket_4.2.3+PRANK_2.5.1 recall_DCC12_topn2@all ci_high,78.9819,v2:descriptive/secondary{benchmark=dimer;method=fpocket_4.2.3+PRANK_2.5.1;metric=recall_DCC12_topn2@all}/ci_high*100
+fig6_af_dimers,fpocket 4.2.3 + PRANK 2.5.1 chain all,72.71,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| fpocket_4\.2\.3\+PRANK_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@all \|::c4.0"
+fig6_af_dimers,O5 n sites,6502,v2:family2{endpoint=O5;seed_index=0}/n_rows
+fig6_af_dimers,O5 units,1691,v2:family2{endpoint=O5;seed_index=0}/n_units
+fig6_af_dimers,AF set structures,2526,v2:denominators{benchmark=af_set;method=BURROW[burrow_all_default_s0_af]}/n_structures_or_units
+fig6_af_dimers,dimer assemblies_scored,400,json:results/test/v2/posthoc.json#dimer_counts/assemblies_scored
+fig6_af_dimers,dimer sites,807,json:results/test/v2/posthoc.json#dimer_counts/sites
+fig6_af_dimers,dimer interface_sites,243,json:results/test/v2/posthoc.json#dimer_counts/interface_sites
+fig6_af_dimers,BURROW site-level chain vs asm DCC12 0,-1.23,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCC12_topn2@interface \|::c5.0"
+fig6_af_dimers,BURROW site-level chain vs asm DCC12 1,-7.21,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCC12_topn2@interface \|::c5.1"
+fig6_af_dimers,BURROW site-level chain vs asm DCC12 2,4.41,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCC12_topn2@interface \|::c5.2"
+fig6_af_dimers,BURROW site-level chain vs asm DCA4 0,-11.11,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCA4_topn2@interface \|::c5.0"
+fig6_af_dimers,BURROW site-level chain vs asm DCA4 1,-16.21,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCA4_topn2@interface \|::c5.1"
+fig6_af_dimers,BURROW site-level chain vs asm DCA4 2,-5.57,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \(site-level, any chain\) \| v2:burrow_all_default_s0 \(assembly mode\) \| success_DCA4_topn2@interface \|::c5.2"
+fig6_af_dimers,chain-mode interface rows,634,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@interface \|::c6.0"
+fig6_af_dimers,chain-mode all rows,1678,"md:results/test/v2/DESCRIPTIVE.md::^## Dimer benchmark, isolated-chain inputs::^\| desc\.v2chains_all_s0 \| p2rank_2\.5\.1 \(chain mode\) \| success_DCC12_topn2@all \|::c6.0"
+figS1_strata,C1 <0.5 v1 diff,6.75616,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,C1 <0.5 v1 ci_low,4.02766,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,C1 <0.5 v1 ci_high,9.37182,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,C1 <0.5 n,4544,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,C1 <0.5 v2 diff,15.2949,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,C1 <0.5 v2 ci_low,12.4528,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,C1 <0.5 v2 ci_high,18.0293,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,C1 <0.5 n,4544,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,C1 0.5-0.7 v1 diff,1.73724,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,C1 0.5-0.7 v1 ci_low,-2.44189,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,C1 0.5-0.7 v1 ci_high,6.26451,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,C1 0.5-0.7 n,921,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,C1 0.5-0.7 v2 diff,8.79479,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,C1 0.5-0.7 v2 ci_low,4.6757,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,C1 0.5-0.7 v2 ci_high,13.1751,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,C1 0.5-0.7 n,921,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,C1 >0.7 v1 diff,-0.0796178,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,C1 >0.7 v1 ci_low,-3.56297,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,C1 >0.7 v1 ci_high,3.94907,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,C1 >0.7 n,1256,v1:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,C1 >0.7 v2 diff,7.64331,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,C1 >0.7 v2 ci_low,4.18406,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,C1 >0.7 v2 ci_high,11.5904,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,C1 >0.7 n,1256,v2:descriptive/strata{endpoint=C1;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O5 <0.5 v1 diff,14.6275,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O5 <0.5 v1 ci_low,10.0221,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O5 <0.5 v1 ci_high,18.988,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O5 <0.5 n,2215,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O5 <0.5 v2 diff,20.6772,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O5 <0.5 v2 ci_low,16.124,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O5 <0.5 v2 ci_high,24.8723,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O5 <0.5 n,2215,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O5 0.5-0.7 v1 diff,4.11118,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O5 0.5-0.7 v1 ci_low,-0.190217,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O5 0.5-0.7 v1 ci_high,8.93758,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O5 0.5-0.7 n,1727,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O5 0.5-0.7 v2 diff,8.85929,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O5 0.5-0.7 v2 ci_low,5.15832,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O5 0.5-0.7 v2 ci_high,12.6391,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O5 0.5-0.7 n,1727,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O5 >0.7 v1 diff,4.29688,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O5 >0.7 v1 ci_low,1.05179,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O5 >0.7 v1 ci_high,8.02199,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O5 >0.7 n,2560,v1:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O5 >0.7 v2 diff,9.49219,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O5 >0.7 v2 ci_low,6.16977,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O5 >0.7 v2 ci_high,12.9189,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O5 >0.7 n,2560,v2:descriptive/strata{endpoint=O5;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O6 interface <0.5 diff,-4.1958,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=<0.5}/diff
+figS1_strata,O6 interface <0.5 ci_low,-10.8551,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=<0.5}/ci_low
+figS1_strata,O6 interface <0.5 ci_high,2.29052,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=<0.5}/ci_high
+figS1_strata,O6 interface <0.5 n,143,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=<0.5}/n_rows
+figS1_strata,O6 interface 0.5-0.7 diff,-2.77778,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=0.5-0.7}/diff
+figS1_strata,O6 interface 0.5-0.7 ci_low,-14.7059,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=0.5-0.7}/ci_low
+figS1_strata,O6 interface 0.5-0.7 ci_high,8.83021,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=0.5-0.7}/ci_high
+figS1_strata,O6 interface 0.5-0.7 n,36,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=0.5-0.7}/n_rows
+figS1_strata,O6 interface >0.7 diff,-3.125,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=>0.7}/diff
+figS1_strata,O6 interface >0.7 ci_low,-10.6101,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=>0.7}/ci_low
+figS1_strata,O6 interface >0.7 ci_high,3.44979,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=>0.7}/ci_high
+figS1_strata,O6 interface >0.7 n,64,json:results/test/v2/posthoc.json#o6_interface_fold_novelty{stratum=>0.7}/n_rows
+figS1_strata,O2b <0.5 v1 diff,1.28064,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O2b <0.5 v1 ci_low,-3.82029,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O2b <0.5 v1 ci_high,6.33192,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O2b <0.5 n,2733,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O2b <0.5 v2 diff,1.35382,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O2b <0.5 v2 ci_low,-3.81997,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O2b <0.5 v2 ci_high,6.39305,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O2b <0.5 n,2733,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O2b 0.5-0.7 v1 diff,0.547731,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O2b 0.5-0.7 v1 ci_low,-3.51702,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O2b 0.5-0.7 v1 ci_high,4.86032,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O2b 0.5-0.7 n,1278,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O2b 0.5-0.7 v2 diff,0.391236,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O2b 0.5-0.7 v2 ci_low,-3.67381,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O2b 0.5-0.7 v2 ci_high,4.83255,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O2b 0.5-0.7 n,1278,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O2b >0.7 v1 diff,2.97932,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O2b >0.7 v1 ci_low,-0.414258,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O2b >0.7 v1 ci_high,5.94712,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O2b >0.7 n,2853,v1:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O2b >0.7 v2 diff,2.55871,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O2b >0.7 v2 ci_low,-1.2771,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O2b >0.7 v2 ci_high,6.11779,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O2b >0.7 n,2853,v2:descriptive/strata{endpoint=O2b;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O3 <0.5 v1 diff,-3.87597,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O3 <0.5 v1 ci_low,-8.42582,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O3 <0.5 v1 ci_high,0.766357,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O3 <0.5 n,258,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O3 <0.5 v2 diff,-1.16279,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O3 <0.5 v2 ci_low,-6.77534,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O3 <0.5 v2 ci_high,4.2001,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O3 <0.5 n,258,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O3 0.5-0.7 v1 diff,-4.46809,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O3 0.5-0.7 v1 ci_low,-8.74256,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O3 0.5-0.7 v1 ci_high,-0.619583,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O3 0.5-0.7 n,470,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O3 0.5-0.7 v2 diff,0.851064,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O3 0.5-0.7 v2 ci_low,-3.59504,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O3 0.5-0.7 v2 ci_high,5.13398,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O3 0.5-0.7 n,470,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O3 >0.7 v1 diff,-1.42012,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O3 >0.7 v1 ci_low,-4.40704,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O3 >0.7 v1 ci_high,1.45646,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O3 >0.7 n,845,v1:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O3 >0.7 v2 diff,1.30178,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O3 >0.7 v2 ci_low,-1.62416,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O3 >0.7 v2 ci_high,4.13853,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O3 >0.7 n,845,v2:descriptive/strata{endpoint=O3;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O4 <0.5 v1 diff,-3.07692,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O4 <0.5 v1 ci_low,-12.5023,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O4 <0.5 v1 ci_high,6.35048,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O4 <0.5 n,130,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O4 <0.5 v2 diff,0.769231,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/diff
+figS1_strata,O4 <0.5 v2 ci_low,-7.3543,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/ci_low
+figS1_strata,O4 <0.5 v2 ci_high,9.39729,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/ci_high
+figS1_strata,O4 <0.5 n,130,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=<0.5}/n_rows
+figS1_strata,O4 0.5-0.7 v1 diff,-5.66038,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O4 0.5-0.7 v1 ci_low,-18.5185,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O4 0.5-0.7 v1 ci_high,6.25,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O4 0.5-0.7 n,53,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O4 0.5-0.7 v2 diff,-7.54717,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/diff
+figS1_strata,O4 0.5-0.7 v2 ci_low,-22.9653,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_low
+figS1_strata,O4 0.5-0.7 v2 ci_high,8.17195,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/ci_high
+figS1_strata,O4 0.5-0.7 n,53,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=0.5-0.7}/n_rows
+figS1_strata,O4 >0.7 v1 diff,-8.04598,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O4 >0.7 v1 ci_low,-17.0732,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O4 >0.7 v1 ci_high,1.14976,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O4 >0.7 n,87,v1:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,O4 >0.7 v2 diff,-4.5977,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/diff
+figS1_strata,O4 >0.7 v2 ci_low,-13.5802,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/ci_low
+figS1_strata,O4 >0.7 v2 ci_high,3.26087,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/ci_high
+figS1_strata,O4 >0.7 n,87,v2:descriptive/strata{endpoint=O4;kind=fold_novelty_maxTM;stratum=>0.7}/n_rows
+figS1_strata,dimer interface sites,243,json:results/test/v2/posthoc.json#dimer_counts/interface_sites
+figS2_ablations,BioLiP dev fold_disjoint all diff,-0.3276,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev fold_disjoint all lo,-2.00648,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev fold_disjoint all hi,1.31915,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev fold_disjoint small diff,-0.621118,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev fold_disjoint small lo,-2.43057,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev fold_disjoint small hi,1.34772,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev chen11 all diff,-10.8108,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev chen11 all lo,-14.1577,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev chen11 all hi,-7.628,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev chen11 small diff,-3.22981,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev chen11 small lo,-5.88311,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev chen11 small hi,-0.526162,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:rays all diff,-0.819001,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:rays all lo,-2.36038,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:rays all hi,0.73714,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:rays small diff,-0.621118,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:rays small lo,-2.2783,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:rays small hi,1.30391,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:bbbur all diff,-0.4095,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:bbbur all lo,-1.86323,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:bbbur all hi,1.11972,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:bbbur small diff,-0.124224,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:bbbur small lo,-1.73741,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:bbbur small hi,1.3892,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:hitchem all diff,-0.2457,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:hitchem all lo,-1.8773,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:hitchem all hi,1.49624,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:hitchem small diff,-1.36646,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:hitchem small lo,-3.36555,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:hitchem small hi,0.774759,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:metal all diff,-2.5389,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:metal all lo,-4.36137,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:metal all hi,-0.703627,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:metal small diff,-0.993789,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:metal small lo,-2.95457,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:metal small hi,0.943879,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:rescomp all diff,-0.3276,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:rescomp all lo,-1.96316,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:rescomp all hi,1.44008,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:rescomp small diff,-1.11801,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:rescomp small lo,-3.30812,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:rescomp small hi,1.40008,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:atomclass all diff,-1.7199,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:atomclass all lo,-3.45698,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:atomclass all hi,-0.155018,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev drop:atomclass small diff,-1.11801,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev drop:atomclass small lo,-3.49207,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev drop:atomclass small hi,1.44099,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev shuffled all diff,-35.6265,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev shuffled all lo,-40.4515,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev shuffled all hi,-31.3768,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev shuffled small diff,-28.1988,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=BioLiP dev;metric=recall_topn2}/diff
+figS2_ablations,BioLiP dev shuffled small lo,-32.69,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=BioLiP dev;metric=recall_topn2}/lo
+figS2_ablations,BioLiP dev shuffled small hi,-23.7054,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=BioLiP dev;metric=recall_topn2}/hi
+figS2_ablations,BioLiP dev n_sites,1221,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=BioLiP dev;metric=recall_topn2}/n_sites
+figS2_ablations,apo-dev cryptic fold_disjoint all diff,-1.83318,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic fold_disjoint all lo,-3.87463,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic fold_disjoint all hi,0.186402,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic fold_disjoint small diff,-0.91659,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic fold_disjoint small lo,-3.11676,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic fold_disjoint small hi,1.16535,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic chen11 all diff,0.183318,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic chen11 all lo,-2.35518,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic chen11 all hi,2.84796,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic chen11 small diff,-0.458295,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic chen11 small lo,-2.83029,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic chen11 small hi,2.07792,csv:results/ablations/ablations_long.csv#{ablation=chen11;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:rays all diff,-1.5582,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:rays all lo,-3.46084,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:rays all hi,0.541102,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:rays small diff,0.091659,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:rays small lo,-1.92728,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:rays small hi,2.02313,csv:results/ablations/ablations_long.csv#{ablation=drop:rays;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:bbbur all diff,-1.5582,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:bbbur all lo,-3.35807,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:bbbur all hi,0.364349,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:bbbur small diff,0.733272,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:bbbur small lo,-1.28603,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:bbbur small hi,2.51867,csv:results/ablations/ablations_long.csv#{ablation=drop:bbbur;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:hitchem all diff,-1.92484,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:hitchem all lo,-3.98021,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:hitchem all hi,0,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:hitchem small diff,2.38313,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:hitchem small lo,0.278035,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:hitchem small hi,4.54989,csv:results/ablations/ablations_long.csv#{ablation=drop:hitchem;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:metal all diff,-1.46654,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:metal all lo,-3.46133,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:metal all hi,0.367232,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:metal small diff,-0.458295,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:metal small lo,-2.34143,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:metal small hi,1.44047,csv:results/ablations/ablations_long.csv#{ablation=drop:metal;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:rescomp all diff,-0.641613,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:rescomp all lo,-3.08099,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:rescomp all hi,1.68887,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:rescomp small diff,1.74152,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:rescomp small lo,-0.463248,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:rescomp small hi,3.95805,csv:results/ablations/ablations_long.csv#{ablation=drop:rescomp;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:atomclass all diff,-0.549954,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:atomclass all lo,-2.9851,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:atomclass all hi,2.00575,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic drop:atomclass small diff,-0.366636,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic drop:atomclass small lo,-2.73754,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic drop:atomclass small hi,1.91803,csv:results/ablations/ablations_long.csv#{ablation=drop:atomclass;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic shuffled all diff,-28.231,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic shuffled all lo,-31.9013,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic shuffled all hi,-24.5139,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=all;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic shuffled small diff,-28.3226,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=apo-dev cryptic;metric=recall_topn2}/diff
+figS2_ablations,apo-dev cryptic shuffled small lo,-31.6226,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=apo-dev cryptic;metric=recall_topn2}/lo
+figS2_ablations,apo-dev cryptic shuffled small hi,-24.9747,csv:results/ablations/ablations_long.csv#{ablation=shuffled;variant=small;table=apo-dev cryptic;metric=recall_topn2}/hi
+figS2_ablations,apo-dev cryptic n_sites,1091,csv:results/ablations/ablations_long.csv#{ablation=fold_disjoint;variant=all;table=apo-dev cryptic;metric=recall_topn2}/n_sites
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_topn2 diff,-0.0148787,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_topn2 ci_low,-0.82219,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_topn2 ci_high,0.77336,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_ldca_topn2 diff,-0.156568,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_ldca_topn2 ci_low,-0.792176,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_all_s0 ligysis recall_ldca_topn2 ci_high,0.508567,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_small_s0 ligysis_ni recall_topn2 diff,-0.120744,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_small_s0 ligysis_ni recall_topn2 ci_low,-1.07662,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_small_s0 ligysis_ni recall_topn2 ci_high,0.865324,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_small_s0 coach420_mlig success_DCA4_topn diff,-3.16623,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_fold_disjoint_small_s0 coach420_mlig success_DCA4_topn ci_low,-6.01141,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_small_s0 coach420_mlig success_DCA4_topn ci_high,-0.26425,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_small_s0 holo4k_mlig success_DCA4_topn diff,-0.712831,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_fold_disjoint_small_s0 holo4k_mlig success_DCA4_topn ci_low,-1.53515,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_small_s0 holo4k_mlig success_DCA4_topn ci_high,0.217902,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_small_s0 cryptobench recall_topn2 diff,-2.22222,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_small_s0 cryptobench recall_topn2 ci_low,-5.74824,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_small_s0 cryptobench recall_topn2 ci_high,0.746696,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_small_s0_af pocketwatch recall_topn2 diff,-0.254291,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_small_s0_af pocketwatch recall_topn2 ci_low,-1.76613,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_small_s0_af pocketwatch recall_topn2 ci_high,1.25914,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_topn2 diff,-0.707475,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_topn2 ci_low,-1.48227,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_topn2 ci_high,0.0585197,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_ldca_topn2 diff,-0.44702,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_ldca_topn2 ci_low,-1.11788,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_all_s0_af af_set recall_ldca_topn2 ci_high,0.265231,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_all_s0 dimer success_DCC12_topn2@interface diff,1.23457,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/diff
+figS2_ablations,desc.abl_fold_disjoint_all_s0 dimer success_DCC12_topn2@interface ci_low,-1.96969,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_all_s0 dimer success_DCC12_topn2@interface ci_high,4.62234,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_topn2 diff,-0.729058,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_topn2 ci_low,-1.53139,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_topn2 ci_high,0.105659,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_ldca_topn2 diff,-0.266166,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_ldca_topn2 ci_low,-0.940548,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 ligysis recall_ldca_topn2 ci_high,0.397288,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 ligysis_ni recall_topn2 diff,-0.0482975,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 ligysis_ni recall_topn2 ci_low,-1.0997,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 ligysis_ni recall_topn2 ci_high,0.992919,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 coach420_mlig success_DCA4_topn diff,-3.43008,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 coach420_mlig success_DCA4_topn ci_low,-6.51084,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 coach420_mlig success_DCA4_topn ci_high,-0.499907,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 holo4k_mlig success_DCA4_topn diff,-0.727379,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 holo4k_mlig success_DCA4_topn ci_low,-1.55909,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 holo4k_mlig success_DCA4_topn ci_high,0.158504,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 cryptobench recall_topn2 diff,1.11111,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 cryptobench recall_topn2 ci_low,-2.43077,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0 cryptobench recall_topn2 ci_high,4.76278,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_fold_disjoint_floor_small_s0;reference=v2:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0_af pocketwatch recall_topn2 diff,-1.20788,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_floor_small_s0_af;reference=v2:burrow_small_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0_af pocketwatch recall_topn2 ci_low,-2.74691,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_floor_small_s0_af;reference=v2:burrow_small_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_small_s0_af pocketwatch recall_topn2 ci_high,0.126176,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_fold_disjoint_floor_small_s0_af;reference=v2:burrow_small_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_topn2 diff,0.0153799,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_topn2 ci_low,-0.836543,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_topn2 ci_high,0.748798,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_ldca_topn2 diff,0.0165563,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_ldca_topn2 ci_low,-0.691334,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0_af af_set recall_ldca_topn2 ci_high,0.68379,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_fold_disjoint_floor_all_s0_af;reference=v2:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 dimer success_DCC12_topn2@interface diff,0,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/diff
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 dimer success_DCC12_topn2@interface ci_low,-2.70363,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_low
+figS2_ablations,desc.abl_fold_disjoint_floor_all_s0 dimer success_DCC12_topn2@interface ci_high,2.40964,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_fold_disjoint_floor_all_s0;reference=v2:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_high
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_topn2 diff,-12.6618,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_topn2 ci_low,-14.9029,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_topn2 ci_high,-10.6282,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_ldca_topn2 diff,-20.5417,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_ldca_topn2 ci_low,-23.4109,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_all_s0 ligysis recall_ldca_topn2 ci_high,-17.8857,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_small_s0 ligysis_ni recall_topn2 diff,-1.59382,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_chen11_small_s0 ligysis_ni recall_topn2 ci_low,-3.03404,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_small_s0 ligysis_ni recall_topn2 ci_high,-0.253028,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_small_s0 coach420_mlig success_DCA4_topn diff,-1.05541,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_chen11_small_s0 coach420_mlig success_DCA4_topn ci_low,-5.16014,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_chen11_small_s0 coach420_mlig success_DCA4_topn ci_high,2.97399,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_chen11_small_s0 holo4k_mlig success_DCA4_topn diff,-9.32499,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_chen11_small_s0 holo4k_mlig success_DCA4_topn ci_low,-11.7643,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_chen11_small_s0 holo4k_mlig success_DCA4_topn ci_high,-6.84124,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_chen11_small_s0 cryptobench recall_topn2 diff,0,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_chen11_small_s0 cryptobench recall_topn2 ci_low,-5.72616,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_small_s0 cryptobench recall_topn2 ci_high,5.22395,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_chen11_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_small_s0_af pocketwatch recall_topn2 diff,-2.86078,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_chen11_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_chen11_small_s0_af pocketwatch recall_topn2 ci_low,-5.02169,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_chen11_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_small_s0_af pocketwatch recall_topn2 ci_high,-0.654804,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_chen11_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_topn2 diff,-13.5958,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_topn2 ci_low,-15.5458,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_topn2 ci_high,-11.6383,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_ldca_topn2 diff,-18.0132,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_ldca_topn2 ci_low,-20.1784,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_chen11_all_s0_af af_set recall_ldca_topn2 ci_high,-15.9557,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_chen11_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_chen11_all_s0 dimer success_DCC12_topn2@interface diff,-0.823045,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/diff
+figS2_ablations,desc.abl_chen11_all_s0 dimer success_DCC12_topn2@interface ci_low,-4.95556,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_low
+figS2_ablations,desc.abl_chen11_all_s0 dimer success_DCC12_topn2@interface ci_high,3.89134,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_chen11_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_high
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_topn2 diff,-28.3886,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_topn2 ci_low,-30.7928,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_topn2 ci_high,-26.16,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_ldca_topn2 diff,-31.9086,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_ldca_topn2 ci_low,-34.5427,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_all_s0 ligysis recall_ldca_topn2 ci_high,-29.4575,v2:descriptive/extra_paired{benchmark=ligysis;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_small_s0 ligysis_ni recall_topn2 diff,-22.1444,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_shuffled_small_s0 ligysis_ni recall_topn2 ci_low,-24.8421,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_small_s0 ligysis_ni recall_topn2 ci_high,-19.3935,v2:descriptive/extra_paired{benchmark=ligysis_ni;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_small_s0 coach420_mlig success_DCA4_topn diff,-43.5356,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_shuffled_small_s0 coach420_mlig success_DCA4_topn ci_low,-51.3935,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_shuffled_small_s0 coach420_mlig success_DCA4_topn ci_high,-36.6473,v2:descriptive/extra_paired{benchmark=coach420_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_shuffled_small_s0 holo4k_mlig success_DCA4_topn diff,-48.6616,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/diff
+figS2_ablations,desc.abl_shuffled_small_s0 holo4k_mlig success_DCA4_topn ci_low,-53.2703,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_low
+figS2_ablations,desc.abl_shuffled_small_s0 holo4k_mlig success_DCA4_topn ci_high,-44.101,v2:descriptive/extra_paired{benchmark=holo4k_mlig;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=success_DCA4_topn}/ci_high
+figS2_ablations,desc.abl_shuffled_small_s0 cryptobench recall_topn2 diff,-37.037,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_shuffled_small_s0 cryptobench recall_topn2 ci_low,-44.4455,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_small_s0 cryptobench recall_topn2 ci_high,-29.8544,v2:descriptive/extra_paired{benchmark=cryptobench;method=desc.abl_shuffled_small_s0;reference=v1:burrow_small_default_s0;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_small_s0_af pocketwatch recall_topn2 diff,-44.2467,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_shuffled_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_shuffled_small_s0_af pocketwatch recall_topn2 ci_low,-47.3282,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_shuffled_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_small_s0_af pocketwatch recall_topn2 ci_high,-41.009,v2:descriptive/extra_paired{benchmark=pocketwatch;method=desc.abl_shuffled_small_s0_af;reference=v1:burrow_small_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_topn2 diff,-27.6684,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/diff
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_topn2 ci_low,-29.9579,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_topn2 ci_high,-25.4338,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_ldca_topn2 diff,-31.4238,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/diff
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_ldca_topn2 ci_low,-33.7836,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_low
+figS2_ablations,desc.abl_shuffled_all_s0_af af_set recall_ldca_topn2 ci_high,-29.1598,v2:descriptive/extra_paired{benchmark=af_set;method=desc.abl_shuffled_all_s0_af;reference=v1:burrow_all_default_s0_af;metric=recall_ldca_topn2}/ci_high
+figS2_ablations,desc.abl_shuffled_all_s0 dimer success_DCC12_topn2@interface diff,-15.6379,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/diff
+figS2_ablations,desc.abl_shuffled_all_s0 dimer success_DCC12_topn2@interface ci_low,-21.645,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_low
+figS2_ablations,desc.abl_shuffled_all_s0 dimer success_DCC12_topn2@interface ci_high,-9.16477,v2:descriptive/extra_paired{benchmark=dimer;method=desc.abl_shuffled_all_s0;reference=v1:burrow_all_default_s0;metric=success_DCC12_topn2@interface}/ci_high
