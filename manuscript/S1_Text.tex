@@ -80,7 +80,7 @@ This text lists every major approach that the agents tried and then abandoned, o
 
 \textbf{What was tried.} A learning-free baseline (\texttt{--ranker geometry}) that ranks BURROW's geometric candidates by buried volume, Σ vol $\cdot$ clip((b $-$ 0.7)/0.3, 0, 1)$^{2}$, with the same suppression.
 
-\textbf{Evidence.} 53.3 top-N+2 on dev against 54.1 for P2Rank 2.5.1. BURROW's own pockets with randomly shuffled ranks scored 14.6 on dev, the level of evenly spaced surface pockets. (results/dev/biolip/final\_table.md; results/review\_dev/REVIEW.md.)
+\textbf{Evidence.} 53.3 top-N+2 on dev against 54.1 for P2Rank 2.5.1. BURROW's own pockets with randomly shuffled ranks scored 14.6 on dev. (results/dev/biolip/final\_table.md; results/review\_dev/REVIEW.md.)
 
 \textbf{Lesson.} The candidates and features are analytical, but the accuracy comes from the learned scorer and ranker. The manuscript says so explicitly.
 
@@ -170,9 +170,9 @@ This text lists every major approach that the agents tried and then abandoned, o
 
 \section*{16. Speed targets}
 
-\textbf{What was tried.} The design set a target of at most 70 ms per structure on one core for the default preset, and expected GPUs to beat CPU workers.
+\textbf{What was tried.} The design set a target of at most 70 ms per structure on one core, decision D5 set a target of at least 5 times faster than P2Rank for the default preset, and the agents expected GPUs to beat CPU workers.
 
-\textbf{Evidence.} In the final like-for-like timing, the default preset took 96.0 ms (median, excluding parsing; 90th percentile 264.9 ms), so the target was missed on larger chains. Before the speed track in the extension, the GPU path was limited by the host and lost to 24 CPU workers. After that track, three GPUs beat 24 CPU workers for every preset over 10,000 structures, with byte-identical output. On short runs of 2,000 structures, CPU workers still won for the fast preset. (docs/PERF.md.)
+\textbf{Evidence.} In the final like-for-like timing, the default preset took 96.0 ms (median, excluding parsing; 90th percentile 264.9 ms), so it missed the target at the median. Only the fast preset, added after the test runs, met it (28.4 ms). The self-set target of at least 5 times faster than P2Rank (decision D5) was also missed by the default preset: per process, including start-up and input and output, it took 142 ms against 209 ms for P2Rank (about 1.5 times faster). The fast preset took 48 ms per process (about 4.4 times faster than P2Rank) and 31.5 ms on one warm core including parsing (about 6.6 times less than P2Rank's 209 ms). Before the speed track in the extension, the GPU path was limited by the host and lost to 24 CPU workers. After that track, three GPUs beat 24 CPU workers for every preset over 10,000 structures, with byte-identical output. On short runs of 2,000 structures, CPU workers still won for the fast preset. (docs/PERF.md.)
 
 \textbf{Lesson.} Optimise code that depends on features only after the feature freeze, and measure throughput at the batch sizes that users will run.
 

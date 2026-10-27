@@ -8,13 +8,14 @@ The agents ran Claude Code (models Claude Opus 5.5 and Claude Sonnet 5.5) inside
 
 ## 2. What the human did
 
-A human (the user) set up the container, the hardware allocation and the data mounts, and wrote the initial prompt (Section 8). During the run, the human:
+A human (the user) set up the container, the hardware allocation and the data mounts, and wrote the initial prompt (Section 8). After the project's first completion, the human sent four messages (reproduced verbatim in Section 9):
 
-1. granted a time extension of 3–4 h after the main report was finished;
-2. asked three follow-up questions, about multimer handling, about GPU use, and about remaining ideas;
-3. supplied a writing guide ("edit-for-clarity"), and requested this manuscript and a release repository.
+1. three questions, about multimer handling and testing, about GPU use, and about whether all ideas for speed and accuracy had been exhausted;
+2. a time extension of 3–4 h;
+3. a question whether the work was finished;
+4. a request for this manuscript and a release repository, which pointed to the edit-for-clarity writing guide.
 
-The human did not write code, choose methods, select or edit results, or edit text. The exact wording of the follow-up messages was not saved in the repository (see Section 9).
+The environment also restarted the session twice with an empty "Continue" message. The human did not write code, choose methods, select or edit results, or edit text.
 
 ## 3. The PI agent
 
@@ -22,7 +23,7 @@ The PI agent was one long Claude Opus 5.5 session. Its tasks were to plan, deleg
 
 ## 4. Sub-agents
 
-Each sub-agent was a fresh Claude Code agent with its own context. The PI launched it with a written brief that stated the goal, the files and directories it owned, the expected deliverables, and the project rules (no commits, no test-set access outside the gated script, detached jobs with logs for anything longer than about 5 minutes, verification on toy data with known answers). The PI could send follow-up messages to a running or finished agent to continue its work with its context intact. S1 Table lists all roles. Opus was used for design, method, data and verification roles; Sonnet for the baselines engineer, the leakage auditor and the two process retrospectives.
+Each sub-agent was a fresh Claude Code agent with its own context. The PI launched it with a written brief that stated the goal, the files and directories it owned, the expected deliverables, and the project rules (no commits, no test-set access outside the gated script, detached jobs with logs for anything longer than about 5 minutes, verification on toy data with known answers). The PI could send follow-up messages to a running or finished agent to continue its work with its context intact. S1 Table lists all 30 roles (25 during the project and 5 for the release repository and this manuscript); the literature reviewer also used two research sub-agents. Several roles were served by the same long-lived agent that was resumed many times, for example the evaluation engineer, the method developer and the geometry and HPC engineer. Agent briefs and session transcripts were not archived as files, so individual delegation steps cannot be audited from the repository. Opus was used for design, method, data, verification and manuscript roles; Sonnet for the baselines engineer, the leakage auditor and the two process retrospectives. The Claude Code version, tool settings and token usage were not recorded. Two "skills" (packaged instructions) were used in the manuscript phase: edit-for-clarity for the text and dataviz for the figures.
 
 **Review rounds.** The design went through two review rounds, below the cap of three that the prompt allowed. Round 1 had six independent reviewers (external PI; prior work and data; statistics; algorithms and compute; AI-agent failure modes; biophysics and AlphaFold). Round 2 had two (external PI with statistics; data with agent risks). Each reviewer proposed concrete changes within the project's scope or stated that none were needed, and DESIGN.md §8 maps each review to the changes it caused.
 
@@ -125,15 +126,25 @@ Auto-research: Your job is to build the best possible method. Report runtime alo
 Good luck!
 ```
 
-## 9. Follow-up requests
+## 9. Follow-up messages (verbatim)
 
-The follow-up messages from the human were not stored verbatim in the repository. Their content, as recorded by the PI agent in AGENT_SETUP.md and in decisions D19 and D20 of the research tree, was:
+The following is the content of manuscript/FOLLOWUP_PROMPTS.md.
 
-1. A question about how the method handles homo- and heterodimers (multimers).
-2. A question about the use of the GPUs.
-3. A question about remaining ideas.
-4. A time extension of 3–4 h after the main report (D19).
-5. A request for a manuscript for PLOS Computational Biology and a publishable release repository, with the agent experiment flagged at the top of both, the agent setup described in the Methods, credit to the literature, a supporting text on methods that did not work, and use of the edit-for-clarity writing guide (D20).
+```
+The initial prompt is PROMPT.md (repository root). After the project's first completion the human sent these messages. Agent-to-agent briefs were not archived as files; they exist only in the local session transcripts, which are not distributed.
 
-[The verbatim text of these messages should be added here by the submitting authors from the session transcript.]
+1. (after the first final summary)
+   > I have some questions about the results.
+   > 1. Does it work with multimers/dimers and was there any testing of this?
+   > 2. Does it use GPU for running?
+   > 3. Have we exhausted all ideas for speed optimzation and performance gains?
+
+2. > Okay, we have some more time (3-4 hours) you can iterate some more.
+
+3. > Are we done then? Is this finalized?
+
+4. > You remain the PI of this computational project. Now your goal is to write the results of the project into a manuscript that explains the winning method and presents your benchmarking of it, formatted for the journal PLOS Computational Biology. This should be accompanied by an mvp github repository that will include the predictions and will allow readers to implement the method themselves (set up the repo and allow me to publish it myself). In both the paper and the repo, you should explicitly flag at the beginning that this predictive task was an activity in testing the ability of agents to run bioinformatics projects; the repo should include the original prompt, and the methods section should explain the agent and sub-agent setup. For the final method that worked, you should give credit to the ideas that you extracted from the literature. Write a supplementary file detailing the major methods you tried that did not work. In the paper, explain the method both conceptually and technically. Use this skill for writing https://github.com/jurgjn/euler-vibe/blob/main/home/euler-claude/.claude/skills/edit-for-clarity/SKILL.md. Mention and explain all important decisions you took and clearly explain your approach. Be critical and do not overstate. Stay precise, keep it short and to the point when possible. Make sure there is no personal or confidential data in the repo and write a sensible .gitignore.
+
+Also: twice the session was restarted by the environment ("Continue" messages, no content), and the human did not otherwise intervene.
+```
 

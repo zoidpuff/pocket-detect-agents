@@ -19,14 +19,16 @@ from refs import REFS, vancouver, bibtex  # noqa: E402
 
 EMBED = "--no-embed" not in sys.argv
 
-AUTHOR_PLACEHOLDER = "[Author list to be completed by the submitting authors]"
+AUTHOR_PLACEHOLDER = "[Author list, affiliations and corresponding author to be completed by the submitting authors]"
+RUNNING_TITLE = "**Running title:** BURROW: agent-built pocket detection"
 AI_STATEMENT = (
     "**AI-contribution statement.** All content of this article (study design, code, data curation, "
     "analyses, figures and text) was produced by AI agents: a principal-investigator agent and the "
     "sub-agents that it launched (Claude Code; Claude Opus 5.5 and Claude Sonnet 5.5; Anthropic). "
-    "The human authors set up the computing environment, wrote the initial prompt, granted one time "
-    "extension, asked three follow-up questions, requested this manuscript, and take responsibility "
-    "for its submission. See the box below, Methods and S2 Text."
+    "The human authors set up the computing environment, wrote the initial prompt, asked four "
+    "follow-up questions, granted one time extension, requested this manuscript, and take responsibility "
+    "for its submission. [The human authors will state here what they verified before submission.] "
+    "See the box below, Methods and S2 Text."
 )
 
 # --------------------------------------------------------------------------- parsing helpers
@@ -260,8 +262,9 @@ def convert(src, tables, caps, citer, kind="main"):
         if s == "@@AUTHORS@@":
             flush()
             md.append(AUTHOR_PLACEHOLDER + "\n")
+            md.append(RUNNING_TITLE + "\n")
             md.append(AI_STATEMENT + "\n")
-            tex.append("\\newline\n\\\\\\relax\n" + tex_inline(AUTHOR_PLACEHOLDER) + "\n\\\\\n\\bigskip\n" + tex_inline(AI_STATEMENT) + "\n\\end{flushleft}\n")
+            tex.append("\\newline\n\\\\\\relax\n" + tex_inline(AUTHOR_PLACEHOLDER) + "\n\\\\\n\\bigskip\n" + tex_inline(RUNNING_TITLE) + "\n\\\\\n\\bigskip\n" + tex_inline(AI_STATEMENT) + "\n\\end{flushleft}\n")
             i += 1
             continue
         if s == "@@BOX@@":

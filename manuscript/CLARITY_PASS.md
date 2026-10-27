@@ -70,3 +70,12 @@ Procedure: every section was drafted with the six patterns in mind, then given a
 
 ## Figure captions
 - Taken from manuscript/figures/CAPTIONS.md (figure agent) and edited for the patterns above; repository paths and "Sources:" lists were removed from the captions (they remain in CAPTIONS.md and figure_data.csv).
+
+# Revision 1 (after manuscript/REVIEW.md and REFERENCES_CHECK.md)
+
+All 19 rewrites W1–W19 from the referee's sample were applied:
+- Pattern 5: W1 "candidate volume elements" → "candidate points … each standing for a small volume of space"; W4 "volume-element candidate points" → "candidate points that each stand for a small volume of space"; W7 "cluster-bootstrap intervals over 30% sequence-identity clusters" → "intervals from a paired bootstrap that resamples clusters of chains with at least 30% sequence identity"; W8 "v1 test prediction files" → "the files with the v1 predictions on the test sets"; W10 split into three statements.
+- Pattern 1: W5 "enclosure by chemistry" → "first-hit chemistry" everywhere (also Table 1), with "a rough proxy for the cost of desolvation"; W16 "label-free rule" → explicit rule (Jaccard ≥ 0.5, does not use site labels); W17 "ran detached" → "ran as background processes"; W18 "typical of fast research" → "also occur in human projects that run under time pressure".
+- Pattern 6: W13 long opening phrase on per-process timing split into two sentences; W15 side-chain tolerance sentence split, λ defined; W19 metal-candidate rule rewritten as three sentences (checked against src/pocketdetect/burrow/features.py); new sentence "The design target … was therefore met only by the fast preset" → "Only the fast preset therefore met the design target …".
+- Precision/overclaim: W2 "Per process" made explicit; W3 author summary generalisation narrowed; W6 "Together, this makes its scores comparable" → "These two choices are meant to make scores comparable … we did not analyse calibration directly"; W9 P1K superiority wording; W11 miss counts made precise (403 misses with the closest pocket within 12 Å but ranked beyond N+2; 5 with no pocket within 12 Å); W12 "apo cryptic sites" defined; W14 opacity ramp stated exactly (transparent below pLDDT 40, opaque from 80).
+- New text added in the revision (Methods agent setup, Data availability, dimer and AF caveats, Discussion speed targets) was drafted and re-scanned with the same checklist.

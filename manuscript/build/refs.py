@@ -132,6 +132,18 @@ REFS = {
     "schmidtke2010b": dict(type="article", authors=["Schmidtke P", "Barril X"],
         title="Understanding and predicting druggability. A high-throughput method for detection of drug binding sites",
         journal="J Med Chem", year="2010", volume="53", pages="5858-5867", doi="10.1021/jm100574m"),
+    "lin2008": dict(type="article", authors=["Lin CP", "Huang SW", "Lai YL", "Yen SC", "Shih CH", "Lu CH"], etal=True,
+        title="Deriving protein dynamical properties from weighted protein contact number",
+        journal="Proteins", year="2008", volume="72", pages="929-935", doi="10.1002/prot.21983",
+        flag="added in revision (referee D-f); verified on Crossref"),
+    "chernozhukov2018": dict(type="article", authors=["Chernozhukov V", "Chetverikov D", "Demirer M", "Duflo E", "Hansen C", "Newey W"], etal=True,
+        title="Double/debiased machine learning for treatment and structural parameters",
+        journal="Econom J", year="2018", volume="21", pages="C1-C68", doi="10.1111/ectj.12097",
+        flag="added in revision (referee D-f); verified on Crossref"),
+    "durr2023": dict(type="article", authors=["Dürr SL", "Levy A", "Rothlisberger U"],
+        title="Metal3D: a general deep learning framework for accurate metal ion location prediction in proteins",
+        journal="Nat Commun", year="2023", volume="14", pages="2713", doi="10.1038/s41467-023-37870-6",
+        flag="added in revision (referee D-f); verified on Crossref"),
 }
 
 

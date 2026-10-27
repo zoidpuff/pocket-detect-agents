@@ -2,7 +2,7 @@
 
 @@@TABLE roster
 title: Agent roster.
-caption: All agent roles in the BURROW project (Table 4 of the main text lists roles 1–25; roles 26–27 produced this manuscript), with the model used, the main files each role produced (paths in the project repository), and how the role's output was checked by an agent that did not produce it. Opus, Claude Opus 5.5; Sonnet, Claude Sonnet 5.5.
+caption: All agent roles in the BURROW project (roles 1–25 during the project; roles 26–30 for the release repository and this manuscript; Table 4 of the main text gives a short version). Several roles were served by one long-lived agent that was resumed many times, with the model used, the main files each role produced (paths in the project repository), and how the role's output was checked by an agent that did not produce it. Opus, Claude Opus 5.5; Sonnet, Claude Sonnet 5.5.
 colspec: p{0.6cm}p{3.0cm}p{1.3cm}p{5.0cm}p{4.0cm}
 | # | Role | Model | Main outputs | Independent check |
 |---|---|---|---|---|
@@ -25,8 +25,11 @@ colspec: p{0.6cm}p{3.0cm}p{1.3cm}p{5.0cm}p{4.0cm}
 | 22–23 | Process retrospectives | Sonnet ×2 | reviews/process/M2_retro.md, FINAL_retro.md | – |
 | 24 | Report writer and number checker | Opus | REPORT.md; scripts/check_report_numbers.py | External report reviewer (25) |
 | 25 | External report reviewer | Opus | reviews/report/REPORT_REVIEW.md | – |
-| 26 | Manuscript writer | Opus | This manuscript (manuscript/) | Submitting authors |
-| 27 | Figure maker | [to be confirmed] | manuscript/figures/ (every plotted value read from committed result files) | Submitting authors |
+| 26 | Release-repository builder | Opus | release/burrow (scrubbed MVP repository) | Privacy scrub check |
+| 27 | Figure maker (dataviz skill) | Opus | manuscript/figures (every plotted value read from committed result files) | Manuscript reviewer (30) |
+| 28 | Manuscript writer (edit-for-clarity skill) | Opus | This manuscript (manuscript/main.*, S1–S2 Text, S1 Table) | Reference verifier (29); manuscript reviewer (30); number check by script |
+| 29 | Reference verifier | Opus | Verified bibliography (manuscript/REFERENCES_CHECK.md) | – |
+| 30 | Manuscript reviewer | Opus | Referee-style review (manuscript/REVIEW.md) | – |
 @@@END
 
 @@TABLE roster@@
