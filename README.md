@@ -59,10 +59,11 @@ Per input `<stem>`:
 * `out/timing.csv` — status and per-structure timings.
 
 ## Presets and the output floor
-| preset | what | typical cost (fast backend, 1 core) |
+| preset | what | typical cost (fast backend, 1 core, excl. parsing) |
 |---|---|---|
 | `default` | 30 rays, rays up to 16 Å, 3 Å coarse sub-lattice, only buried points scored | ≈ 80 ms / structure (estimate) |
 | `accurate` | 60 rays up to 24 Å, 2 Å sub-lattice, all points scored (≈ +1–2 pt on non-ion sites) | ≈ 200 ms / structure (estimate) |
+| `fast` | 1.5 Å grid, 12 rays, small point model (≈ −1 pt top-N+2, −1.5 pt DCA4 vs default on dev; CPU only for now) | ≈ 31 ms / structure (measured, speed200) |
 
 **Output score floor (`--min-score`, default 0.03 in FREEZE v2).** Pockets with score < 0.03 are
 dropped once 3 pockets are listed. This shortens the list from ~40 to ~6–8 pockets per structure and
@@ -76,6 +77,8 @@ For exhaustive pocket discovery use `--min-score none` (identical to FREEZE v1 o
   Each JSON contains the point model, the pocket ranker, the feature design, the output settings and
   provenance (training-manifest, test-union and exclusion-list sha256, git commit, seed).
 * `results/dev/freeze/models/` — FREEZE v1 (same models, no output floor).
+* `results/dev/freeze_fast/models/burrow_{all,small}_fast_s{0,1,2}.json` — additional `--preset fast`
+  ([results/dev/FREEZE_fast.md](results/dev/FREEZE_fast.md); not pre-registered).
 
 ## Data and citation
 Every dataset used (PDB, AFDB, BioLiP2, LIGYSIS, COACH420, HOLO4K, CryptoBench, PocketMiner,

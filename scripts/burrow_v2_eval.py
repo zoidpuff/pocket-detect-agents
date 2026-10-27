@@ -83,27 +83,29 @@ def main(argv=None):
     ap.add_argument("--name", required=True)
     ap.add_argument("--model", type=Path, required=True)
     ap.add_argument("--variant", choices=["all", "small"], required=True)
-    ap.add_argument("--v1", type=Path, default=None)
+    ap.add_argument("--v1", type=Path, default=None, help="reference model JSON (default: frozen v1 default s0)")
+    ap.add_argument("--ref-name", default=None, help="cache name of the reference predictions")
     ap.add_argument("--sets", default="biolip,apo,apotd,af")
     ap.add_argument("--jobs", type=int, default=8)
     a = ap.parse_args(argv)
     v1 = a.v1 or ROOT / f"results/dev/freeze/models/burrow_{a.variant}_default_s0.json"
+    REF = a.ref_name or f"v1_{a.variant}_default_s0"
     sets = a.sets.split(",")
     rows = []
     t0 = time.time()
     if "biolip" in sets:
         files = (B / "inputs_audited.list").read_text().split()
-        for nm, mp_ in ((a.name, a.model), (f"v1_{a.variant}_default_s0", v1)):
+        for nm, mp_ in ((a.name, a.model), (REF, v1)):
             predict_dir(mp_, [str(ROOT / f) for f in files], B / "v2_preds" / nm, a.jobs)
         by = sites_by_structure(read_sites(B / f"dev_sites_{a.variant}.tsv"))
         g = {s: ss[0].meta.get("group") for s, ss in by.items()}
-        r = compare(by, g, B / "v2_preds" / a.name, B / "v2_preds" / f"v1_{a.variant}_default_s0",
+        r = compare(by, g, B / "v2_preds" / a.name, B / "v2_preds" / REF,
                     ["recall_topn", "recall_topn2", "recall_ldca_topn2"])
         rows.append(dict(name=a.name, variant=a.variant, set=f"biolip_dev_{a.variant}", **r))
         print(f"[{time.time() - t0:.0f}s]", rows[-1], flush=True)
     if "apo" in sets:
         files = sorted(str(p) for p in APO_IN.glob("*.pdb"))
-        for nm, mp_ in ((a.name, a.model), (f"v1_{a.variant}_default_s0", v1)):
+        for nm, mp_ in ((a.name, a.model), (REF, v1)):
             predict_dir(mp_, files, B / "v2_apo_preds" / nm, a.jobs)
         uni = {}
         for f in ("sites.tsv", "sites_noncryptic.tsv"):
@@ -111,23 +113,23 @@ def main(argv=None):
                 uni[r["structure_id"]] = r["uniprot"].split()[0]
         for t, f in (("apo_cryptic", "sites.tsv"), ("apo_noncryptic", "sites_noncryptic.tsv")):
             by = sites_by_structure(read_sites(GT_APO / f))
-            r = compare(by, uni, B / "v2_apo_preds" / a.name, B / "v2_apo_preds" / f"v1_{a.variant}_default_s0",
+            r = compare(by, uni, B / "v2_apo_preds" / a.name, B / "v2_apo_preds" / REF,
                         ["recall_topn", "recall_topn2", "recall_ldca_topn2"])
             rows.append(dict(name=a.name, variant=a.variant, set=t, **r))
             print(f"[{time.time() - t0:.0f}s]", rows[-1], flush=True)
     if "apotd" in sets:  # Track A2 apo chains of DEV proteins (extra apo guard)
         D = B / "apo_track_dev"
         files = sorted(str(p) for p in (D / "inputs").glob("*.cif"))
-        for nm, mp_ in ((a.name, a.model), (f"v1_{a.variant}_default_s0", v1)):
+        for nm, mp_ in ((a.name, a.model), (REF, v1)):
             predict_dir(mp_, files, B / "v2_apotd_preds" / nm, a.jobs)
         by = sites_by_structure(read_sites(D / f"sites_{a.variant}.tsv"))
         g = {s: ss[0].meta.get("group") for s, ss in by.items()}
-        r = compare(by, g, B / "v2_apotd_preds" / a.name, B / "v2_apotd_preds" / f"v1_{a.variant}_default_s0",
+        r = compare(by, g, B / "v2_apotd_preds" / a.name, B / "v2_apotd_preds" / REF,
                     ["recall_topn", "recall_topn2", "recall_ldca_topn2"])
         rows.append(dict(name=a.name, variant=a.variant, set=f"apo_track_dev_{a.variant}", **r))
         print(f"[{time.time() - t0:.0f}s]", rows[-1], flush=True)
     if "af" in sets:
-        for nm, mp_ in ((a.name, a.model), (f"v1_{a.variant}_default_s0", v1)):
+        for nm, mp_ in ((a.name, a.model), (REF, v1)):
             if not (B / "af_preds" / nm).exists():
                 subprocess.run([sys.executable, str(ROOT / "scripts/af_dev_predict.py"), "--config", "prune_soft",
                                 "--model", str(mp_), "--name", nm, "--out-root", str(B / "af_preds"),
@@ -135,7 +137,7 @@ def main(argv=None):
         st = read_sites(AF_SITES)
         by = sites_by_structure(st)
         g = {s: ss[0].meta.get("group") for s, ss in by.items()}
-        r = compare(by, g, B / "af_preds" / a.name, B / "af_preds" / f"v1_{a.variant}_default_s0",
+        r = compare(by, g, B / "af_preds" / a.name, B / "af_preds" / REF,
                     ["recall_topn", "recall_topn2", "recall_ldca_topn2"])
         rows.append(dict(name=a.name, variant=a.variant, set="af_dev_all", **r))
         print(f"[{time.time() - t0:.0f}s]", rows[-1], flush=True)

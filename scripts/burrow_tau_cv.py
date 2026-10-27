@@ -103,7 +103,10 @@ def main(argv=None):
     ap.add_argument("--run", required=True)
     ap.add_argument("--variant", choices=["all", "small"], required=True)
     ap.add_argument("--jobs", type=int, default=12)
+    ap.add_argument("--grid", choices=["full", "v2"], default="full",
+                    help="v2: only tau=none (v1) and the frozen v2 rule (tau 0.03, min_keep 3)")
     a = ap.parse_args(argv)
+    grid = GRID if a.grid == "full" else [GRID[0], dict(min_score=0.03, min_keep=3, max_out=50)]
     t0 = time.time()
     pdir = ROOT / "results/dev/cache/pockets" / a.run
     meta = pickle.loads((pdir / "meta.pkl").read_bytes())
@@ -129,10 +132,10 @@ def main(argv=None):
         if ss:
             st[s] = ss
     scores = {s: scores[s] for s in st}
-    fcs = [replace(FormationConfig(), **g) for g in GRID]
+    fcs = [replace(FormationConfig(), **g) for g in grid]
     _G.update(light={s: data[s][2] for s in scores}, scores=scores, sites=st, fcs=fcs)
     rows = []
-    for gi, g in enumerate(GRID):
+    for gi, g in enumerate(grid):
         with ProcessPoolExecutor(a.jobs, mp_context=mp.get_context("fork")) as ex:
             res = list(ex.map(_job, [(s, gi) for s in scores], chunksize=16))
         rows.append(dict(**g, **metrics(res)))
@@ -144,7 +147,7 @@ def main(argv=None):
     for c in ("topn2", "dca4", "P1K_1to1", "topn"):
         ok &= df[c] >= ref[c] - 0.5
     df["admissible"] = ok
-    out = ROOT / f"results/dev/biolip/tau_cv_{a.run}.csv"
+    out = ROOT / f"results/dev/biolip/tau_cv_{a.run}{'' if a.grid == 'full' else '_v2rule'}.csv"
     df.round(3).to_csv(out, index=False)
     print(df.round(2).to_string(index=False))
     best = df[df.admissible].sort_values("criterion", ascending=False).iloc[0]

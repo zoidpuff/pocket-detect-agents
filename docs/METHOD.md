@@ -97,8 +97,11 @@ else the nearest atom's residue. Output-only (ranking is unaffected); never empt
 |---|---|---|---|---|---|---|
 | **default** | 30 | 6/10/16 | 3 Å | 250 × 63 | b ≥ 0.7 or metal (~45 %) | ≈ 80 ms/structure/core |
 | accurate | 60 | 6/10/16/24 | 2 Å | 250 × 63 | all | ≈ 200 ms/structure/core |
+| fast (additional, not pre-registered) | 12 | 6/10/16 | 1.5 Å grid, sub-lattice 2, shell 5.5 Å, PSP 6 Å | 100 × 31 | b ≥ 0.85 (~20 %) | 30.7 ms measured (speed200 median) |
 
-Everything else is shared, including the output floor. Choice by the PI's rule (default within
+Everything else is shared, including the output floor (`fast` also scales pocket formation with its 1.5 Å
+grid: link 3.08 Å, min volume 3 points; selection and dev numbers in `results/dev/biolip/FAST_PRESET.md`;
+the fast GPU path does not support the 1.5 Å grid yet). Choice by the PI's rule (default within
 0.5 pt of the best setting on top-N+2 and DCA4 on dev); `accurate` is shipped because it is > 1 pt
 better on non-ion sites. Sweep and estimates: `results/dev/biolip/PHASE2.md`.
 

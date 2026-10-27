@@ -37,7 +37,7 @@ from scipy.spatial import cKDTree
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
-from burrow_featurize_biolip import cfg_args, feats_dir, make_cfg  # noqa: E402
+from burrow_featurize_biolip import cfg_args, cfg_from_args, feats_dir, make_cfg  # noqa: E402
 from burrow_train_dev import emit, rank_params, rank_target  # noqa: E402
 from pocketdetect.burrow.biolip import ASM, entries, sites, structure_ids  # noqa: E402
 from pocketdetect.burrow.model import (POINT_PARAMS, RANK_PARAMS, BurrowModel, FormationConfig,  # noqa: E402
@@ -146,10 +146,12 @@ def main(argv=None):
     ap.add_argument("--save-pockets", choices=["none", "features", "full"], default="none",
                     help="cache candidate pockets (features, targets, centres; 'full' adds train point sets)")
     ap.add_argument("--extra", default="", help="extra training inputs: 'af', 'scd' (comma list)")
+    ap.add_argument("--link", type=float, default=None, help="pocket single-linkage distance (default 2.05 Å)")
+    ap.add_argument("--min-vol", type=float, default=None, help="minimum pocket volume in points (default 10)")
     cfg_args(ap)
     a = ap.parse_args(argv)
     from dataclasses import asdict
-    fcfg = make_cfg(a.n_rays, a.max_len, a.subsample)
+    fcfg = cfg_from_args(a)
     name = a.name or f"burrow_{a.variant}_s{a.seed_idx}"
     t0 = time.time()
     log = lambda msg: print(f"[{time.time() - t0:6.0f}s] {msg}", flush=True)
@@ -173,7 +175,12 @@ def main(argv=None):
     dv = [s for s, _, _ in structure_ids(md, False) if (fdir / f"{s}.npz").exists()]
     grp_of = dict(zip(mt.entry_id, mt.cluster30))
     npz = dict(zip(pd.concat([mt.entry_id, md.entry_id]), pd.concat([mt.npz, md.npz])))
+    from dataclasses import replace as _rep
     fc = FormationConfig()
+    if a.link is not None:
+        fc = _rep(fc, link=a.link)
+    if a.min_vol is not None:
+        fc = _rep(fc, min_vol=a.min_vol)
     _G.update(feats=str(fdir), variant=a.variant, seed_idx=a.seed_idx, pos_frac=a.pos_frac, neg_frac=a.neg_frac,
               npz=npz, fc=fc, score_floor=a.score_floor,
               afnpz=dict(zip(afm.entry_id, afm.npz)) if afm is not None else {}, aponpz=aponpz)
@@ -233,7 +240,7 @@ def main(argv=None):
     for nm, store in stores.items():
         (rd / f"{nm}.pkl").write_bytes(pickle.dumps(store))
     (OUT / "models").mkdir(parents=True, exist_ok=True)
-    BurrowModel(pm.model_to_string(), names, R.model_to_string(), fn,
+    BurrowModel(pm.model_to_string(), names, R.model_to_string(), fn, formation=asdict(fc),
                 meta=dict(trained_on="BioLiP2 train (Track A, docs/TRAINSET.md)", extra_inputs=a.extra, variant=a.variant, rank_label="graded", score_floor=a.score_floor,
                           point_leaves=a.point_leaves, feature_cfg=asdict(fcfg),
                           seed=SEEDS[a.seed_idx], n_train_inputs=len(tr_ids), point_rounds=a.point_rounds,

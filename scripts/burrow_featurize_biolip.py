@@ -78,15 +78,25 @@ def _job(args):
         return dict(structure_id=sid, status=f"error: {type(ex).__name__}: {ex}")
 
 
-def make_cfg(n_rays=60, max_len=24.0, subsample=2) -> BurrowConfig:
+def make_cfg(n_rays=60, max_len=24.0, subsample=2, spacing=1.0, max_dist=6.0, psp_length=8.0,
+             metal=True) -> BurrowConfig:
     lengths = (6.0, 10.0, 16.0, 24.0) if max_len >= 24 else (6.0, 10.0, 16.0)
-    return BurrowConfig(n_rays=n_rays, lengths=lengths, subsample=subsample)
+    return BurrowConfig(n_rays=n_rays, lengths=lengths, subsample=subsample, spacing=spacing, max_dist=max_dist,
+                        psp_length=psp_length, metal=metal)
 
 
 def cfg_args(ap):
     ap.add_argument("--n-rays", type=int, default=60)
     ap.add_argument("--max-len", type=float, default=24.0)
     ap.add_argument("--subsample", type=int, default=2)
+    ap.add_argument("--spacing", type=float, default=1.0, help="grid spacing (Å)")
+    ap.add_argument("--max-dist", type=float, default=6.0, help="solvent-shell outer radius (Å)")
+    ap.add_argument("--psp-length", type=float, default=8.0)
+    ap.add_argument("--no-metal", action="store_true")
+
+
+def cfg_from_args(a) -> BurrowConfig:
+    return make_cfg(a.n_rays, a.max_len, a.subsample, a.spacing, a.max_dist, a.psp_length, not a.no_metal)
 
 
 def feats_dir(cfg: BurrowConfig | None = None):
@@ -101,7 +111,7 @@ def main(argv=None):
     ap.add_argument("--extra", default="", help="train only: extra inputs 'af' (AF models) and/or 'scd' (side-chain dropout)")
     cfg_args(ap)
     a = ap.parse_args(argv)
-    _CFG[0] = make_cfg(a.n_rays, a.max_len, a.subsample)
+    _CFG[0] = cfg_from_args(a)
     outdir = feats_dir(_CFG[0])
     print("config", _CFG[0], outdir, flush=True)
     outdir.mkdir(parents=True, exist_ok=True)

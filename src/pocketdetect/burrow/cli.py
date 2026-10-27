@@ -21,6 +21,9 @@ DEFAULT_MODELS = {  # FREEZE v2 (results/dev/FREEZE_v2.md; D13): v1 models + out
     ("small", "default"): "results/dev/freeze_v2/models/burrow_small_default_s0.json",
     ("all", "accurate"): "results/dev/freeze_v2/models/burrow_all_accurate_s0.json",
     ("small", "accurate"): "results/dev/freeze_v2/models/burrow_small_accurate_s0.json",
+    # additional speed preset (results/dev/FREEZE_fast.md): coarser grid, fewer rays, smaller point model
+    ("all", "fast"): "results/dev/freeze_fast/models/burrow_all_fast_s0.json",
+    ("small", "fast"): "results/dev/freeze_fast/models/burrow_small_fast_s0.json",
 }
 # AF-mode ranker (owned by the AF-mode developer, burrow/af_rank.py); retrained after the feature freeze.
 DEFAULT_AF_RANKER = None  # decision D8: --af-mode default = standard ranker (pruning + soft occlusion only)
@@ -47,7 +50,7 @@ def _stem(path):
     return Path(n).stem
 
 
-USAGE = """burrow predict <files|dirs|@list> --out OUT [--ranker all|small|geometry] [--preset default|accurate]
+USAGE = """burrow predict <files|dirs|@list> --out OUT [--ranker all|small|geometry] [--preset default|accurate|fast]
                [--min-score none|<float>] [--af-mode [--af-ranker PATH]] [--model M.json]
                [--device cpu|cuda:N[,M,...]] [--workers N] [--backend auto|fast|reference] [--no-points]"""
 
@@ -131,7 +134,7 @@ def _run_fast(a, paths, out: Path):
         lst = Path(td) / "inputs.list"
         lst.write_text("\n".join(paths) + "\n")
         argv = ["predict", f"@{lst}", "--out", str(out), "--device", a.device, "--workers", str(a.workers),
-                "--ranker", a.ranker, "--preset", a.preset]
+                "--ranker", a.ranker]                      # the model path (below) selects the preset
         mp_ = _model_file(a)
         if mp_ is not None and a.min_score is not None:
             mp_ = _min_score_override(mp_, a.min_score, Path(td))
@@ -163,7 +166,8 @@ def main(argv=None):
     p.add_argument("--af-ranker", type=Path, default=None,
                    help="optional AF-mode ranker JSON (default: none -> standard ranker; D8); reference backend only")
     p.add_argument("--ranker", choices=["all", "small", "geometry"], default="all")
-    p.add_argument("--preset", choices=["default", "accurate"], default="default")
+    p.add_argument("--preset", choices=["default", "accurate", "fast"], default="default",
+                   help="default | accurate (slower, +1-2 pt on non-ion sites) | fast (speed preset, FREEZE_fast.md)")
     p.add_argument("--model", type=Path, default=None, help="override model JSON")
     p.add_argument("--min-score", default=None,
                    help="override the model's output score floor (v2 models: 0.03); 'none' = output the full "

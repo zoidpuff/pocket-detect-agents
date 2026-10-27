@@ -46,7 +46,7 @@ def _same(a, b, files):
 
 
 @pytest.mark.slow
-@pytest.mark.parametrize("extra", [[], ["--min-score", "none"], ["--af-mode"], ["--ranker", "small"]])
+@pytest.mark.parametrize("extra", [[], ["--min-score", "none"], ["--af-mode"], ["--ranker", "small"], ["--preset", "fast"]])
 def test_reference_equals_fast_cpu(tmp_path, extra):
     files = _inputs()
     ref = _run(tmp_path, "ref", files, "--backend", "reference", *extra)
