@@ -30,6 +30,7 @@ Literature done; six round-1 reviews consolidated into DESIGN v2 (pre-registered
 Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness, geometry cascade, Track A (train/dev), Track C (AF set), Track D (dimer set). Next: reproduce the LIGYSIS published table with our harness, then first point/pocket models on dev.
 
 ## Decisions log
+- D19 (user-granted extension, +3–4 h): three tracks — (T1) GPU feeding/speed engineering with exact-output guarantee; (T2) per-protein relative output floor as candidate v3 (last allowed test version) with a gate fixed now: BioLiP-dev non-ion closest top-N+2 ≥ +2.0 (paired CI>0) AND max recall ≥ v2 +3 AND DCA4 ≥ v2 −0.5 AND P1K ≥ v2 −1 (both rankers) AND apo-dev cryptic ≥ v2 −1 AND AF-dev ≥ v2 −1; selection on train cluster-CV only, dev once; (T3) BURROW isolated-chain dimer row (descriptive).
 - D18 (08:29): Remaining ~6 h → `--preset fast` (speed goal) + AF filter descriptive row; no change to pre-registered default; fast preset evaluated on dev, test rows descriptive only.
 - D17 (07:15): API session limit paused all agents ~02:40–07:10 (≈4.5 h lost). Descriptive predictions had completed in detached jobs. Re-plan: descriptive scoring + error analysis by ~08:30, report fill + independent report review by ~10:30, final retro/branch by ~12:00. 8 orphaned P2Rank-2.4.2 JVMs (idle, ~16 GB RSS, from 16:28 smoke tests) could not be killed (permission denied) — reported to user.
 - D16 (02:01): No further test version: three dev cycles show saturation on non-ion ranking; use remaining time for completeness, external report review, error analysis.
@@ -109,6 +110,10 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [!] 7.4 Human proteome (AFDB v6; 23,586 models / 20,550 proteins, fragments merged): naive 169 s (8,374/min), --af-mode 129 s (10,996/min) on 3 GPUs × 8 workers, 17.5 GB RAM; incl. tar extraction 6.5–7.9k/min. Top-3 pockets with mean pLDDT<50: 8.0% naive → 0.9% AF mode (34.9% → 3.6% in ≥50%-disordered proteins); P2Rank -c alphafold 1.6% (500-protein subset), 960/min vs ~2,800/min. Known HOTPocket/BioLiP2 sites in top-3: 40% (descriptive; overlaps train/test)
   - [x] 7.1 Geometry primitives CPU+GPU: cascade candidates 39–48 ms/core (300-res), canonical PCA frame → rotation-invariant (|Δb| 0.025→1.5e-6), Triton device fix, tiling (3j3q 2.4M atoms: 33 s CPU16 / 3.4 s GPU); GPU ~530 structs/s (excl. parsing)
   - [x] 7.2 BURROW fast backend: exact Numba/Triton ports, 60/60 dev structures identical CPU & GPU; [!] GPU 3,324 structs/min (1 GPU, incl. parsing), 6,542/min (3 GPUs), CPU-32 workers 4,845/min; CPU 1-core 166 ms (features 105 ms dominate) → needs method-side cuts (D5)
+- [~] 9. Extension (D19)
+  - [~] 9.1 T1 GPU feeding / speed
+  - [~] 9.2 T2 relative output floor (candidate v3)
+  - [~] 9.3 T3 isolated-chain dimer row
 - [x] 8. Final benchmark + REPORT.md
   - [!] 8.1 Test v1 scored — family 1 PASS (C1, C1-strict, C2; all seeds, both comparators); family 2: O2b, O5 pass; O2a, O3, O4, O6 inconclusive (results/test/v1/SUMMARY.md)
   - [x] 8.0 Ablations (dev, seed 0; results/ablations/ABLATIONS.md): A3 shuffled labels −28/−36 (control OK); A2 CHEN11-only −3.2 (small) / −10.8 (all, no ion labels); [!] A1 fold-disjoint training −0.6/−0.3 (CIs include 0) → no evidence of fold memorisation; A4 feature-group drops each ≤ 2.5 pts (metal −2.5 on all, atom densities −1.7) → redundant feature set; retraining v1 is bit-identical
