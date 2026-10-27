@@ -76,7 +76,7 @@ Each sub-agent was a fresh Claude Code agent with its own context. The PI launch
 
 ## 8. The project prompt (verbatim)
 
-The following is the content of PROMPT.md, which the PI agent saved verbatim at the start of the project.
+The following is the content of PROMPT.md, which the PI agent saved verbatim at the start of the project. One internal file-system path has been replaced by "[redacted: shared data path]"; nothing else was changed.
 
 ```
 /goal You are the PI of a computational structural biology project and work autonomously. You lead a team of agents (Opus 5.5 or Sonnet 5.5, as you see fit). You delegate, review, integrate and decide; you keep the research record. The goal is the best possible outcome, not the fastest completion. Make decisions yourself, document why, and keep going.
@@ -109,7 +109,7 @@ Where to write. Large or generated output into the workspace, which is on projec
 
 We have 4 rtx 4090s, 64 CPUs, and 128GB of RAM available for use. We also prefetched the AFDB and the PDB. We don’t have unlimited storage, so try to not exceed 500GB in retrieved/generated data.
 
-/cluster/work/beltrao/shared on euler has:
+[redacted: shared data path] on euler has:
 alphafold/  - copy of the alphafold database
 rsyncPDB/  - copy of the PDB
 
