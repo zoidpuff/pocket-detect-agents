@@ -64,15 +64,6 @@ def predict_protein(P: Protein, model: BurrowModel | None, cfg: BurrowConfig = B
             if ctx:  # within-protein / pocket-pair context features (phase 3)
                 Fx, nx = context_features(Fp, fn, np.array([p.center for p in pk]), ctx)
                 Fp, fn = np.concatenate([Fp, Fx], 1), fn + nx
-            if model.meta.get("apo_feats"):  # v2/H3 apo-oriented pocket aggregates
-                from .model import APO_NAMES, apo_pocket_features
-                Fx = apo_pocket_features([p.idx for p in pk], ps.vol, ps.feats, ps.names)
-                Fp, fn = np.concatenate([Fp, Fx], 1), fn + APO_NAMES
-            if model.meta.get("if_feats"):  # v3/(b) interface-aware pocket features
-                from .model import IF_NAMES, interface_pocket_features
-                Fx = interface_pocket_features([p.idx for p in pk], np.array([p.center for p in pk]), ps.points,
-                                               P.coords, P.chain)
-                Fp, fn = np.concatenate([Fp, Fx], 1), fn + IF_NAMES
             if model.meta.get("propensity"):  # atom-type ligand-contact propensity (phase 3)
                 from .propensity import PROP_NAMES, atom_logodds, pocket_propensity
                 lo = atom_logodds(P, model.meta["propensity"])
