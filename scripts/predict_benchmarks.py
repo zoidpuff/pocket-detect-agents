@@ -194,6 +194,7 @@ def main(argv=None):
     ap.add_argument("--model-small", type=Path, default=None)
     ap.add_argument("--af-ranker", type=Path, default=None, help="--prefix mode: AF-mode ranker JSON (reference CLI flag)")
     ap.add_argument("--force-ranker", choices=["all", "small"], default=None, help="--prefix mode: override the PREREG ranker mapping")
+    ap.add_argument("--no-af", action="store_true", help="--prefix mode: run without --af-mode (naive) even where PREREG uses it")
     ap.add_argument("--presets", default="default,accurate")
     ap.add_argument("--seeds", default="0,1,2", help="indices into SEEDS (model files _s<i>)")
     ap.add_argument("--benchmarks", default="all")
@@ -240,6 +241,8 @@ def main(argv=None):
                 inp, ranker, af, suffix = PLAN[b]
                 if a.prefix and a.force_ranker:
                     ranker = a.force_ranker
+                if a.prefix and a.no_af:
+                    af = False
                 model = fz["models"].get((ranker, preset, seed))
                 if model is None:
                     raise SystemExit(f"FREEZE.md lacks burrow_{ranker}_{preset}_s{seed}.json")
