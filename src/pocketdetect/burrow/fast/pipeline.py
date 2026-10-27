@@ -53,7 +53,29 @@ class FastModel:
 
     @classmethod
     def load(cls, path) -> "FastModel":
-        return cls.from_model(BurrowModel.load(path))
+        """Load a model JSON; the flattened forests are cached on disk (keyed by the file's sha256)
+        so that worker processes do not need to import LightGBM (~1 s of start-up per process)."""
+        import hashlib
+        import json
+        raw = open(path, "rb").read()
+        model = BurrowModel(**json.loads(raw))
+        key = hashlib.sha256(raw).hexdigest()[:32]
+        cdir = _cache_dir()
+        f = cdir / f"{key}.npz" if cdir is not None else None
+        if f is not None and f.exists():
+            try:
+                forests = _load_forests(f)
+                pb, rb, extra = forests[0], forests[1], forests[2:]
+                return cls(model, pb, rb, FormationConfig(**model.formation), list(extra), model_cfg(model))
+            except Exception:  # noqa: BLE001  (corrupt / old cache -> rebuild)
+                pass
+        fm = cls.from_model(model)
+        if f is not None:
+            try:
+                _save_forests(f, [fm.point, fm.rank] + list(fm.rank_extra))
+            except OSError:
+                pass
+        return fm
 
     def point_index(self, names):
         return [names.index(n) for n in self.model.point_features]
@@ -64,6 +86,55 @@ class FastModel:
         if self.rank_extra:
             s = (s + sum(f.predict(X) for f in self.rank_extra)) / (1 + len(self.rank_extra))
         return s
+
+
+_FF_ARRAYS = ("feat", "thr", "thr32", "left", "right", "default_left", "missing", "leaf", "roots")
+_FF_SCALARS = ("n_features", "sigmoid", "average_output", "max_depth")
+
+
+def _cache_dir():
+    import os
+    from pathlib import Path
+    d = os.environ.get("BURROW_FAST_CACHE") or os.path.join(os.path.expanduser("~"), ".cache", "pocketdetect",
+                                                            "fastmodel")
+    if d.lower() in ("0", "off", "none"):
+        return None
+    try:
+        Path(d).mkdir(parents=True, exist_ok=True)
+    except OSError:
+        return None
+    return Path(d)
+
+
+def _save_forests(f, forests):
+    """npz (no pickle): arrays + scalars + feature names of each FlatForest (None = absent)."""
+    import json
+    import os
+    arrs = {"n": np.array(len(forests))}
+    for i, ff in enumerate(forests):
+        arrs[f"{i}_present"] = np.array(ff is not None)
+        if ff is None:
+            continue
+        for k in _FF_ARRAYS:
+            arrs[f"{i}_{k}"] = getattr(ff, k)
+        arrs[f"{i}_meta"] = np.array(json.dumps({k: getattr(ff, k) for k in _FF_SCALARS} |
+                                                {"feature_names": ff.feature_names}))
+    tmp = f.with_name(f"{f.name}.{os.getpid()}.tmp.npz")
+    np.savez(tmp, **arrs)
+    os.replace(tmp, f)
+
+
+def _load_forests(f):
+    import json
+    out = []
+    with np.load(f, allow_pickle=False) as z:
+        for i in range(int(z["n"])):
+            if not bool(z[f"{i}_present"]):
+                out.append(None)
+                continue
+            meta = json.loads(str(z[f"{i}_meta"]))
+            out.append(FlatForest(**{k: z[f"{i}_{k}"].copy() for k in _FF_ARRAYS}, **meta))
+    return out
 
 
 def geo_values(F, names):

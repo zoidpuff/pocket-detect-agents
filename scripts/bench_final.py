@@ -40,7 +40,7 @@ from bench_burrow import bench_driver, bench_inprocess, load_avg, speed200, summ
 from pocketdetect.burrow.cli import DEFAULT_MODELS  # noqa: E402
 
 PY = sys.executable
-PRESETS = ("fast", "default", "accurate")
+PRESETS = ["fast", "default", "accurate"]
 LIST = "baselines/ligysis_speed200.txt"
 BOUT = ROOT / "baselines/outputs/speed200_final"
 
@@ -102,8 +102,9 @@ def write_md(R, path):
          "(fast: `results/dev/freeze_fast`, default/accurate: `results/dev/freeze_v2`), fast backend, BLAS/Numba "
          "pinned to 1 thread per process.\n",
          "| method | 1 core warm, excl. parsing: median / p90 ms | 1 core warm, incl. parsing: median / p90 ms | "
-         "1 process on 200 chains, wall s (amortised ms; start-up incl.) | 32 CPU workers, structures/s | "
-         "1 GPU (10 workers), structures/s | 3 GPUs (10 workers each), structures/s |",
+         f"1 process on 200 chains, wall s (amortised ms; start-up incl.) | {R.get('cpu_workers', 32)} CPU workers, "
+         f"structures/s | 1 GPU ({R.get('gpu_workers', 10)} workers), structures/s | 3 GPUs ({R.get('gpu_workers', 10)} "
+         "workers each), structures/s |",
          "|---|---|---|---|---|---|---|"]
     for p in PRESETS:
         s = B[p]["cpu1"]
@@ -113,7 +114,7 @@ def write_md(R, path):
         one = dr.get("cpu1w")
         L.append(f"| BURROW {p} | {s['total']['median']} / {s['total']['p90']} | {s['total_incl_parse']['median']} / "
                  f"{s['total_incl_parse']['p90']} | {one['wall_s']} ({1e3 * one['wall_s'] / max(one['ok'], 1):.0f}) | "
-                 f"{f('cpu32')} | {f('gpu1')} | {f('gpu3')} |")
+                 f"{f('cpuN') if 'cpuN' in dr else f('cpu32')} | {f('gpu1')} | {f('gpu3')} |")
     b = R.get("baselines", {})
     if "p2rank" in b:
         x = b["p2rank"]
@@ -152,7 +153,12 @@ def main():
     ap.add_argument("--md", type=Path, default=ROOT / "results/perf/bench_final.md")
     ap.add_argument("--md-only", action="store_true")
     ap.add_argument("--skip-baselines", action="store_true")
+    ap.add_argument("--cpu-workers", type=int, default=24)
+    ap.add_argument("--gpu-workers", type=int, default=8, help="CPU workers per GPU")
+    ap.add_argument("--large", type=int, default=50, help="speed200 x LARGE for the steady-state rows (0 = off)")
+    ap.add_argument("--presets", default="fast,default,accurate")
     a = ap.parse_args()
+    PRESETS[:] = a.presets.split(",")
     if a.md_only:
         write_md(json.loads(a.out.read_text()), a.md)
         return
@@ -160,7 +166,8 @@ def main():
     dirty = subprocess.run(["git", "status", "--porcelain", "src/pocketdetect/burrow"], cwd=ROOT, capture_output=True,
                            text=True).stdout.strip()
     R = dict(date=time.strftime("%Y-%m-%d %H:%M"), host=platform.node(), commit=commit + (" + uncommitted fast-backend "
-             "changes" if dirty else ""), load_start=loadavg3(), presets={})
+             "changes" if dirty else ""), load_start=loadavg3(), presets={}, cpu_workers=a.cpu_workers,
+             gpu_workers=a.gpu_workers, gpus=a.gpus, large=a.large)
     paths = speed200()
     gpus = [g for g in a.gpus.split(",") if g]
     tmp = Path(tempfile.mkdtemp(prefix="burrow_final_"))
@@ -179,9 +186,16 @@ def main():
     if not a.skip_baselines:
         baselines(R)
     # 3) CLI runs
-    configs = [("cpu1w", l1, "cpu", 1, 1), ("cpu32", lN, "cpu", 32, 1)]
+    configs = [("cpu1w", l1, "cpu", 1, 1), ("cpuN", lN, "cpu", a.cpu_workers, 1)]
     if gpus:
-        configs += [("gpu1", lN, f"cuda:{gpus[0]}", 10, 32), ("gpu3", lN, "cuda:" + ",".join(gpus), 10, 32)]
+        configs += [("gpu1", lN, f"cuda:{gpus[0]}", a.gpu_workers, 32),
+                    ("gpu3", lN, "cuda:" + ",".join(gpus), a.gpu_workers, 32)]
+    if a.large:
+        lL = tmp / f"speed200x{a.large}.txt"
+        lL.write_text("\n".join([p for _, p in paths] * a.large) + "\n")
+        configs += [("cpuN_large", lL, "cpu", a.cpu_workers, 1)]
+        if gpus:
+            configs += [("gpu3_large", lL, "cuda:" + ",".join(gpus), a.gpu_workers, 32)]
     for lab, lst, dev, w, b in configs:
         for p in PRESETS:
             l0 = loadavg3()

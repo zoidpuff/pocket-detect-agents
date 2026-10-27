@@ -188,10 +188,9 @@ def _march(pts, pb, grid, cfg, dev):
 
 def _neighbor_sums(pts, pb, X, batch, props, wcn_col, radii, B, dev):
     """S (P, R, F) identical to the CPU reference: integer-valued props via the fp64-distance Triton
-    kernel (fp32 dot is exact for integers), the continuous ``wcn`` column via float64 pair sums
-    (a float64 sum of these float32 values is exact in any order)."""
+    kernel (fp32 dot is exact for integers); the continuous ``wcn`` column as float64 sums in the
+    same kernel (a float64 sum of these float32 values is exact in any order)."""
     import torch
-    from ...geometry._torch_cells import TorchCellList
     from ...geometry.torch_utils import batch_bounds
     from .gpu_kernels import _launch, _nf64_kernel
     P, F = len(pts), props.shape[1]
@@ -241,24 +240,34 @@ def _neighbor_sums(pts, pb, X, batch, props, wcn_col, radii, B, dev):
                        (loc // dims[bb, 2]) % dims[bb, 1], loc % dims[bb, 2], bb], 1).to(torch.int32).contiguous()
     th = torch.tensor([r * r for r in radii] + [-1.0] * (4 - R), dtype=torch.float64, device=dev)
     out = torch.zeros((P, R, FP), dtype=torch.float32, device=dev)
+    outw = torch.zeros((P, R), dtype=torch.float64, device=dev)
+    w_s = props[aord, wcn_col].double().contiguous()
     _launch(_nf64_kernel, (blk.shape[0],), dev, pts[pord].contiguous(), X[aord].contiguous(), props_s, cstart, blk,
-            dims.to(torch.int32).contiguous(), base.contiguous(), th, out, KR=2, BP=bp, BA=16, NJ=R, FP=FP,
-            num_warps=4, num_stages=1)
+            dims.to(torch.int32).contiguous(), base.contiguous(), th, out, w_s, outw, KR=2, BP=bp, BA=16, NJ=R,
+            FP=FP, num_warps=4, num_stages=1)
     S[pord] = out[:, :, :F]
-    # ---- wcn column: float64 pair sums, nested radii
+    # wcn column: float64 sums in the same kernel (exact in any order), nested radii
+    S[pord, :, wcn_col] = outw.float()
+    return S
+
+
+def _wcn_pairs_torch(pts, pb, X, batch, props, wcn_col, radii, B, dev):
+    """Previous float64 pair-sum implementation of the wcn column (kept for tests)."""
+    import torch
+    from ...geometry._torch_cells import TorchCellList
+    P, R = len(pts), len(radii)
     X64 = X.double()
     P64 = pts.double()
     acc = torch.zeros((P, R), dtype=torch.float64, device=dev)
     w64 = props[:, wcn_col].double()
     r2 = torch.tensor([r * r for r in radii], dtype=torch.float64, device=dev)
-    for qi, aj, d2 in TorchCellList(X64, batch, rcut / 2.0, B).pairs(P64, pb, rcut):
+    for qi, aj, d2 in TorchCellList(X64, batch, max(radii) / 2.0, B).pairs(P64, pb, max(radii)):
         diff = X64[aj] - P64[qi]
         d2 = (diff[:, 0] * diff[:, 0] + diff[:, 1] * diff[:, 1]) + diff[:, 2] * diff[:, 2]
         for ri in range(R):
             m = d2 <= r2[ri]
             acc[:, ri].index_add_(0, qi[m], w64[aj[m]])
-    S[:, :, wcn_col] = acc.float()
-    return S
+    return acc.float()
 
 
 def _metal_geometry(pts, pb, Xco, bco, B, dev, r=2.8, max_nb=16):

@@ -30,19 +30,102 @@ Presets (`results/dev/FREEZE.md`): **default** = 30 rays, 6/10/16 Å, 3 Å sub-l
 
 **Fix 2026-10-27 (GPU, `--preset fast`):** the GPU ray march received 1/spacing as a Python float (fp32 in Triton); 1/1.5 Å is not fp32-exact, so the fast preset (1.5 Å grid) was rejected on GPU and the CLI fell back to the reference implementation. 1/spacing is now passed as an fp64 tensor (as the CPU reference computes it). Verified exact vs the reference on 40 random BioLiP dev structures for `burrow_{all,small}_fast_s0` (GPUs 1/2) and 40 AF dev models in AF mode (`all`, GPU 1); regression tests: `fast` added to the parametrised equivalence tests (CPU + GPU) and `test_gpu_march_non_fp32_spacing`.
 
-## Final like-for-like timing (one session: 2026-10-27 09:33, host eu-g6-048, commit 2241cbe + uncommitted fast-backend changes)
+## Track T1: GPU path and per-structure latency, before / after (same session, 2026-10-27 12:01 -> 2026-10-27 12:12)
+
+Before = commit d57fdf6; after = c7da4db + uncommitted fast-backend changes. Same node (eu-g6-048), same 200 LIGYSIS speed chains, `scripts/bench_final.py` run back to back for both trees (CPU workers <= 24; GPUs 0,1,3, 8 CPU workers per GPU). Outputs are byte-identical between the two trees (see the equivalence section). Throughput rows include process start-up, parsing and writing.
+
+| preset | measurement | before | after | after / before |
+|---|---|---|---|---|
+| fast | 1 core warm, excl. parsing, median / p90 ms | 31.4 / 75.1 | 28.4 / 69.1 | 1.11x |
+| fast | 1 core warm, incl. parsing, median / p90 ms | 41.6 / 100.2 | 31.5 / 77.7 | 1.32x |
+| fast | parse (median ms) | 10.5 | 3.1 | 3.39x |
+| fast | CLI, 1 worker, 200 chains: wall s (ms / structure) | 12.6 (63) | 9.7 (48) | 1.30x |
+| fast | CLI, 24 CPU workers, 2,000 structures: structures/s | 214.2 | 371.3 | 1.73x |
+| fast | CLI, 1 GPU (8 workers), 2,000 structures: structures/s | 129.1 | 202.9 | 1.57x |
+| fast | CLI, 3 GPUs (8 workers each), 2,000 structures: structures/s | 177.3 | 336.8 | 1.90x |
+| fast | CLI, 24 CPU workers, 10,000 structures: structures/s | 406.7 | 544.7 | 1.34x |
+| fast | CLI, 3 GPUs (8 workers each), 10,000 structures: structures/s | 436.4 | 646.3 | 1.48x |
+| default | 1 core warm, excl. parsing, median / p90 ms | 99.3 / 271.3 | 96.0 / 264.9 | 1.03x |
+| default | 1 core warm, incl. parsing, median / p90 ms | 110.6 / 296.8 | 99.2 / 273.0 | 1.11x |
+| default | parse (median ms) | 11.3 | 3.3 | 3.42x |
+| default | CLI, 1 worker, 200 chains: wall s (ms / structure) | 31.3 (156) | 28.4 (142) | 1.10x |
+| default | CLI, 24 CPU workers, 2,000 structures: structures/s | 123.2 | 149.6 | 1.21x |
+| default | CLI, 1 GPU (8 workers), 2,000 structures: structures/s | 96.6 | 129.4 | 1.34x |
+| default | CLI, 3 GPUs (8 workers each), 2,000 structures: structures/s | 162.4 | 236.6 | 1.46x |
+| default | CLI, 24 CPU workers, 10,000 structures: structures/s | 155.3 | 171.0 | 1.10x |
+| default | CLI, 3 GPUs (8 workers each), 10,000 structures: structures/s | 326.9 | 411.4 | 1.26x |
+| accurate | 1 core warm, excl. parsing, median / p90 ms | 205.7 / 500.4 | 203.0 / 493.4 | 1.01x |
+| accurate | 1 core warm, incl. parsing, median / p90 ms | 216.8 / 528.2 | 206.4 / 501.5 | 1.05x |
+| accurate | parse (median ms) | 11.3 | 3.2 | 3.53x |
+| accurate | CLI, 1 worker, 200 chains: wall s (ms / structure) | 57.6 (288) | 54.2 (271) | 1.06x |
+| accurate | CLI, 24 CPU workers, 2,000 structures: structures/s | 72.6 | 79.5 | 1.10x |
+| accurate | CLI, 1 GPU (8 workers), 2,000 structures: structures/s | 77.5 | 107.7 | 1.39x |
+| accurate | CLI, 3 GPUs (8 workers each), 2,000 structures: structures/s | 141.0 | 195.9 | 1.39x |
+| accurate | CLI, 24 CPU workers, 10,000 structures: structures/s | 83.2 | 88.2 | 1.06x |
+| accurate | CLI, 3 GPUs (8 workers each), 10,000 structures: structures/s | 269.2 | 338.1 | 1.26x |
+
+Node load (1/5/15 min) before run: 25.23 26.21 27.75 -> 38.11 35.78 32.07; after run: 38.11 35.78 32.07 -> 37.67 33.53 30.87. *after / before*: speed-up factor (time ratio for latency rows, throughput ratio for throughput rows).
+
+
+**What changed in T1 (all in `burrow/fast/`, outputs byte-identical):**
+
+- GPU driver: CPU workers start first (forkserver with the pipeline pre-imported); while the GPU process imports torch, creates the CUDA context and warms up the kernels (~3-5 s), the workers predict whole structures on the CPU path (identical outputs), so no worker idles; if the input runs out first the GPU is never touched; if the GPU cannot be initialised the run finishes on the CPU path.
+- Model load: flattened forests cached on disk (`~/.cache/pocketdetect/fastmodel/<sha256>.npz`, override `BURROW_FAST_CACHE`), so workers no longer import LightGBM / scikit-learn / pandas (worker start-up 2.5 s -> 0.9 s).
+- Parsing: `burrow/fast/io.py` builds the Protein from `gemmi.FlatStructure` arrays (vectorised residue classification, altloc and hydrogen filters; per-(element, atom, residue) chemistry from the reference functions, cached) - identical to `protein_from_structure(load_structure(...))`; ~3x faster; general per-atom fallback when a guard fails (8-character names, unexpected residue grouping). AF / `--compact` runs keep the reference loader (they need the full Structure).
+- Metal candidates: the clash test uses an any-within kernel instead of building neighbour lists (5.3 -> 2.9 ms; identical candidates).
+- GPU neighbour sums: the float64 `wcn` sums are accumulated in the Triton neighbour kernel instead of torch pair lists (default preset GPU featurisation 4.6 -> 2.5 ms / structure).
+- Driver bookkeeping: O(1) back-pressure on the post-processing queue (was O(n) per batch).
+
+Re-verification after T1 (`scripts/verify_burrow_fast.py`, 40 random dev structures / AF dev models per run, fast backend vs the reference implementation; `results/perf/verify_t1/`):
+
+| model | mode | device | structures | with pLDDT 60/70 atoms | top-10 identical | exact |
+|---|---|---|---|---|---|---|
+| burrow_all_accurate_s0.json | standard | cpu | 40 | 0 | 40 | 40 |
+| burrow_all_accurate_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_all_accurate_s0.json | standard | cuda:3 | 40 | 0 | 40 | 40 |
+| burrow_all_accurate_s0.json | AF | cuda:3 | 40 | 8 | 40 | 40 |
+| burrow_all_default_s0.json | standard | cpu | 40 | 0 | 40 | 40 |
+| burrow_all_default_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_all_default_s0.json | standard | cuda:0 | 40 | 0 | 40 | 40 |
+| burrow_all_default_s0.json | AF | cuda:0 | 40 | 8 | 40 | 40 |
+| burrow_all_fast_s0.json | standard | cpu | 40 | 0 | 40 | 40 |
+| burrow_all_fast_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_all_fast_s0.json | standard | cuda:1 | 40 | 0 | 40 | 40 |
+| burrow_all_fast_s0.json | AF | cuda:1 | 40 | 8 | 40 | 40 |
+| burrow_small_fast_s0.json | standard | cpu | 40 | 0 | 40 | 40 |
+| burrow_small_fast_s0.json | AF | cpu | 40 | 8 | 40 | 40 |
+| burrow_small_fast_s0.json | standard | cuda:1 | 40 | 0 | 40 | 40 |
+| burrow_small_fast_s0.json | AF | cuda:1 | 40 | 8 | 40 | 40 |
+
+Fast loader: `scripts/verify_burrow_fast_io.py` on 4,413 structures (BioLiP dev, apo-dev, AF dev, 1,500 whole PDB entries from the train manifest (mmCIF with ligands, waters, altlocs), 1,000 human AFDB models, speed200): every Protein field identical (values and dtypes) for 4,413 / 4,413; median 33.16 -> 6.79 ms (16 parallel processes).
+
+End-to-end CLI check (before tree vs after tree, every output file byte-compared, timing.csv excluded):
+
+```
+fast     standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+fast     standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+fast     AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok
+default  standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+default  standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+default  AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok
+accurate standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+accurate standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+accurate AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok
+```
+
+## Final like-for-like timing (one session: 2026-10-27 12:12, host eu-g6-048, commit c7da4db + uncommitted fast-backend changes)
 
 Same 200 LIGYSIS chains for every tool (`baselines/ligysis_speed200.txt`, median 1,803 atoms), same node (AMD EPYC 9554, 4x RTX 4090), measured back to back by `scripts/bench_final.py`; nothing else of this project ran on the node. **Shared node:** other users' jobs ran concurrently. Node load (1/5/15 min) is given for every measurement. BURROW = the CLI default models for each preset with the `all` ranker (fast: `results/dev/freeze_fast`, default/accurate: `results/dev/freeze_v2`), fast backend, BLAS/Numba pinned to 1 thread per process.
 
-| method | 1 core warm, excl. parsing: median / p90 ms | 1 core warm, incl. parsing: median / p90 ms | 1 process on 200 chains, wall s (amortised ms; start-up incl.) | 32 CPU workers, structures/s | 1 GPU (10 workers), structures/s | 3 GPUs (10 workers each), structures/s |
+| method | 1 core warm, excl. parsing: median / p90 ms | 1 core warm, incl. parsing: median / p90 ms | 1 process on 200 chains, wall s (amortised ms; start-up incl.) | 24 CPU workers, structures/s | 1 GPU (8 workers), structures/s | 3 GPUs (8 workers each), structures/s |
 |---|---|---|---|---|---|---|
-| BURROW fast | 30.9 / 74.1 | 41.3 / 98.8 | 12.9 (64) | 255.6 | 131.8 | 176.1 |
-| BURROW default | 98.4 / 267.3 | 109.7 / 295.0 | 31.4 (157) | 139.6 | 102.3 | 153.8 |
-| BURROW accurate | 206.1 / 496.8 | 216.6 / 524.6 | 57.4 (287) | 88.9 | 88.3 | 131.2 |
-| P2Rank 2.5.1 (batch, one JVM, 1 thread) | – (batch only) | – (batch only) | 53.9 (270) | – | – | – |
-| fpocket 4.2.3 (1 process) | – | 396.0 / 1117.4 (fpocket call) | 120.83 (604) | – | – | – |
+| BURROW fast | 28.4 / 69.1 | 31.5 / 77.7 | 9.7 (48) | 371.3 | 202.9 | 336.8 |
+| BURROW default | 96.0 / 264.9 | 99.2 / 273.0 | 28.4 (142) | 149.6 | 129.4 | 236.6 |
+| BURROW accurate | 203.0 / 493.4 | 206.4 / 501.5 | 54.2 (271) | 79.5 | 107.7 | 195.9 |
+| P2Rank 2.5.1 (batch, one JVM, 1 thread) | – (batch only) | – (batch only) | 41.73 (209) | – | – | – |
+| fpocket 4.2.3 (1 process) | – | 400.0 / 1090.8 (fpocket call) | 121.08 (605) | – | – | – |
 
-Loads (1/5/15 min) per measurement: BURROW fast 1-core 21.11 23.34 26.24 -> 20.71 23.15 26.13; BURROW default 1-core 20.71 23.15 26.13 -> 20.21 22.80 25.92; BURROW accurate 1-core 20.21 22.80 25.92 -> 19.56 22.16 25.52; cpu1w fast 22.16 23.76 25.65 -> 21.52 23.57 25.56; cpu32 fast 18.68 22.00 24.82 -> 23.89 23.01 25.11; gpu1 fast 34.12 25.62 25.91 -> 32.67 25.71 25.93; gpu3 fast 30.96 26.12 26.06 -> 33.07 26.80 26.28; cpu1w default 21.52 23.57 25.56 -> 19.03 22.74 25.21; cpu32 default 23.89 23.01 25.11 -> 28.23 23.96 25.40; gpu1 default 32.67 25.71 25.93 -> 32.12 26.00 26.02; gpu3 default 33.07 26.80 26.28 -> 35.68 27.57 26.54; cpu1w accurate 19.03 22.74 25.21 -> 18.68 22.00 24.82; cpu32 accurate 28.23 23.96 25.40 -> 34.12 25.62 25.91; gpu1 accurate 32.12 26.00 26.02 -> 30.96 26.12 26.06; gpu3 accurate 35.68 27.57 26.54 -> 37.85 28.42 26.84; p2rank 19.56 22.16 25.52 -> 26.75 23.33 25.70; fpocket 26.75 23.33 25.70 -> 22.16 23.76 25.65.
+Loads (1/5/15 min) per measurement: BURROW fast 1-core 38.11 35.78 32.07 -> 35.26 35.25 31.94; BURROW default 1-core 35.26 35.25 31.94 -> 29.31 33.85 31.56; BURROW accurate 1-core 29.31 33.85 31.56 -> 23.05 31.33 30.83; cpu1w fast 17.77 25.50 28.68 -> 17.71 25.36 28.62; cpuN fast 17.96 23.55 27.69 -> 19.81 23.84 27.76; gpu1 fast 28.52 25.66 28.21 -> 27.88 25.62 28.17; gpu3 fast 27.42 25.85 28.16 -> 28.67 26.14 28.24; cpuN_large fast 28.44 26.24 28.24 -> 30.66 26.85 28.40; gpu3_large fast 40.41 33.00 30.52 -> 37.31 32.77 30.50; cpu1w default 17.71 25.36 28.62 -> 18.08 24.71 28.30; cpuN default 19.81 23.84 27.76 -> 24.59 24.70 27.98; gpu1 default 27.88 25.62 28.17 -> 29.18 26.04 28.27; gpu3 default 28.67 26.14 28.24 -> 29.97 26.45 28.33; cpuN_large default 30.66 26.85 28.40 -> 37.27 29.46 29.20; gpu3_large default 37.31 32.77 30.50 -> 38.29 33.31 30.72; cpu1w accurate 18.08 24.71 28.30 -> 17.96 23.55 27.69; cpuN accurate 24.59 24.70 27.98 -> 28.52 25.66 28.21; gpu1 accurate 29.18 26.04 28.27 -> 27.42 25.85 28.16; gpu3 accurate 29.97 26.45 28.33 -> 28.44 26.24 28.24; cpuN_large accurate 37.27 29.46 29.20 -> 40.41 33.00 30.52; gpu3_large accurate 38.29 33.31 30.72 -> 37.67 33.53 30.87; p2rank 23.05 31.33 30.83 -> 20.71 29.71 30.31; fpocket 20.71 29.71 30.31 -> 17.77 25.50 28.68.
 
 Columns: *1 core warm* = per-structure wall time in one warm process (first structure run twice before timing), excl. or incl. reading/parsing the PDB file; *1 process on 200 chains* = complete CLI run with one worker (`python -m pocketdetect.burrow.fast predict --workers 1`; interpreter start, imports, model load, parsing, writing) and, for the baselines, the project wrappers with the same input list (P2Rank: gemmi cleaning + one JVM over all 200 files, JVM start included; fpocket: gemmi cleaning + one fpocket process per structure, sequential); throughput columns = speed200 x 10 (2,000 structures) through the BURROW CLI incl. parsing and writing, process start-up included. Baseline per-structure medians: P2Rank batch mode gives only the amortised time (JVM total / 200); fpocket's column is the fpocket call per structure (it includes fpocket's own parsing), gemmi cleaning median 3.0 ms in addition. Multi-thread baseline numbers (P2Rank 8/32 threads 49/47 ms, fpocket 32 processes 39 ms per structure) are from the earlier session in results/baselines/SPEED.md (load 20-68).
 

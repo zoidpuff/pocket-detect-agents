@@ -334,8 +334,11 @@ def _march64_kernel(pts_ptr, org_ptr, dims_ptr, base_ptr, dirs_ptr, mu_ptr, mub_
 
 @triton.jit
 def _nf64_kernel(pts_ptr, atoms_ptr, props_ptr, cstart_ptr, blk_ptr, dims_ptr, base_ptr, th_ptr, out_ptr,
+                 wcn_ptr, outw_ptr,
                  KR: tl.constexpr, BP: tl.constexpr, BA: tl.constexpr, NJ: tl.constexpr, FP: tl.constexpr):
-    """Radius sums of integer-valued props (fp32 dot is exact) with float64 distances."""
+    """Radius sums of integer-valued props (fp32 dot is exact) with float64 distances, plus float64
+    sums of one continuous column (``wcn``; a float64 sum of these float32 values is exact in any
+    order, so the result equals the reference after the float32 cast)."""
     blk = tl.program_id(0)
     pstart = tl.load(blk_ptr + blk * 6 + 0)
     pcount = tl.load(blk_ptr + blk * 6 + 1)
@@ -362,6 +365,10 @@ def _nf64_kernel(pts_ptr, atoms_ptr, props_ptr, cstart_ptr, blk_ptr, dims_ptr, b
     t1 = tl.load(th_ptr + 1)
     t2 = tl.load(th_ptr + 2)
     t3 = tl.load(th_ptr + 3)
+    w0 = tl.zeros([BP], dtype=tl.float64)
+    w1 = tl.zeros([BP], dtype=tl.float64)
+    w2 = tl.zeros([BP], dtype=tl.float64)
+    w3 = tl.zeros([BP], dtype=tl.float64)
     W: tl.constexpr = 2 * KR + 1
     for oi in range(W * W * W):
         nx = cx + oi // (W * W) - KR
@@ -384,14 +391,19 @@ def _nf64_kernel(pts_ptr, atoms_ptr, props_ptr, cstart_ptr, blk_ptr, dims_ptr, b
             d2 = tl.where((t + tl.arange(0, BA))[None, :] < e, d2, 1.0e300)
             ai2 = t + tl.arange(0, BA)[:, None]
             pr = tl.load(props_ptr + ai2 * FP + fi[None, :], mask=ai2 < e, other=0.0)
+            wv = tl.load(wcn_ptr + ai, mask=am, other=0.0)[None, :]
             if NJ > 0:
                 a0 += tl.dot(tl.where(d2 <= t0, 1.0, 0.0).to(tl.float32), pr, input_precision="ieee")
+                w0 += tl.sum(tl.where(d2 <= t0, wv, 0.0), axis=1)
             if NJ > 1:
                 a1 += tl.dot(tl.where(d2 <= t1, 1.0, 0.0).to(tl.float32), pr, input_precision="ieee")
+                w1 += tl.sum(tl.where(d2 <= t1, wv, 0.0), axis=1)
             if NJ > 2:
                 a2 += tl.dot(tl.where(d2 <= t2, 1.0, 0.0).to(tl.float32), pr, input_precision="ieee")
+                w2 += tl.sum(tl.where(d2 <= t2, wv, 0.0), axis=1)
             if NJ > 3:
                 a3 += tl.dot(tl.where(d2 <= t3, 1.0, 0.0).to(tl.float32), pr, input_precision="ieee")
+                w3 += tl.sum(tl.where(d2 <= t3, wv, 0.0), axis=1)
     if NJ > 0:
         tl.store(out_ptr + (prow[:, None] * NJ + 0) * FP + fi[None, :], a0, mask=pm[:, None])
     if NJ > 1:
@@ -400,6 +412,14 @@ def _nf64_kernel(pts_ptr, atoms_ptr, props_ptr, cstart_ptr, blk_ptr, dims_ptr, b
         tl.store(out_ptr + (prow[:, None] * NJ + 2) * FP + fi[None, :], a2, mask=pm[:, None])
     if NJ > 3:
         tl.store(out_ptr + (prow[:, None] * NJ + 3) * FP + fi[None, :], a3, mask=pm[:, None])
+    if NJ > 0:
+        tl.store(outw_ptr + prow * NJ + 0, w0, mask=pm)
+    if NJ > 1:
+        tl.store(outw_ptr + prow * NJ + 1, w1, mask=pm)
+    if NJ > 2:
+        tl.store(outw_ptr + prow * NJ + 2, w2, mask=pm)
+    if NJ > 3:
+        tl.store(outw_ptr + prow * NJ + 3, w3, mask=pm)
 
 
 def _launch(kernel, grid, dev, *args, **kw):

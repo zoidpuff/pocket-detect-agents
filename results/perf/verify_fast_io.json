@@ -1,0 +1,19 @@
+{
+ "summary": {
+  "n": 4413,
+  "identical": 4413,
+  "mismatches": 0,
+  "ref_ms_median": 33.16,
+  "fast_ms_median": 6.79,
+  "date": "2026-10-27 11:51",
+  "inputs": [
+   "@results/dev/biolip/inputs_audited.list",
+   "@/tmp/claude-548918/-cluster-project-beltrao-gmagnus-pocket-detect/f1a80349-aa5f-42a0-8ccb-27a0243dc340/scratchpad/apo.txt",
+   "@/tmp/claude-548918/-cluster-project-beltrao-gmagnus-pocket-detect/f1a80349-aa5f-42a0-8ccb-27a0243dc340/scratchpad/af_dev.txt",
+   "@/tmp/claude-548918/-cluster-project-beltrao-gmagnus-pocket-detect/f1a80349-aa5f-42a0-8ccb-27a0243dc340/scratchpad/train1500.txt",
+   "@/tmp/claude-548918/-cluster-project-beltrao-gmagnus-pocket-detect/f1a80349-aa5f-42a0-8ccb-27a0243dc340/scratchpad/prot1000.txt",
+   "@/tmp/claude-548918/-cluster-project-beltrao-gmagnus-pocket-detect/f1a80349-aa5f-42a0-8ccb-27a0243dc340/scratchpad/s200.txt"
+  ]
+ },
+ "mismatches": []
+}

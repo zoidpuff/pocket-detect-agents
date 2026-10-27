@@ -1,0 +1,9 @@
+fast     standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+fast     standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+fast     AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok
+default  standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+default  standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+default  AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok
+accurate standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after CPU      : 800 files, 0 differ; 400 structures ok
+accurate standard 400 structures (speed200 + 200 BioLiP dev): before CPU vs after 3 GPUs   : 800 files, 0 differ; 400 structures ok
+accurate AF mode 100 AF dev models                         : before CPU vs after 3 GPUs   : 200 files, 0 differ; 100 structures ok

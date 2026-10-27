@@ -1,0 +1,1 @@
+{"n": 40, "model": "burrow_small_fast_s0.json", "device": "cuda:1", "ranker": "learned", "af_mode": true, "n_with_exact_w075_or_w05_atoms": 8, "top10_identical": 40, "exact": 40, "date": "2026-10-27 11:55"}

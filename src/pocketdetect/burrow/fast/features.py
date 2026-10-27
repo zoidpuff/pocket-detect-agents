@@ -99,6 +99,42 @@ def _within_csr(q, pts, r, origin, dims, start, order, cs):
 
 
 @njit(cache=True)
+def _any_within_unmasked(q, pts, mask, r, origin, dims, start, order, cs):
+    """True where some pts[j] with mask[j] == False lies within r (d^2 <= r^2) of the query."""
+    n = q.shape[0]
+    out = np.zeros(n, np.bool_)
+    r2 = r * r
+    for i in range(n):
+        x, y, z = q[i, 0], q[i, 1], q[i, 2]
+        x0, x1 = cell_range(x, origin[0], cs, r, dims[0])
+        y0, y1 = cell_range(y, origin[1], cs, r, dims[1])
+        z0, z1 = cell_range(z, origin[2], cs, r, dims[2])
+        hit = False
+        for cx in range(x0, x1):
+            for cy in range(y0, y1):
+                for cz in range(z0, z1):
+                    cc = (cx * dims[1] + cy) * dims[2] + cz
+                    for t in range(start[cc], start[cc + 1]):
+                        j = order[t]
+                        if mask[j]:
+                            continue
+                        dx = q[i, 0] - pts[j, 0]
+                        dy = q[i, 1] - pts[j, 1]
+                        dz = q[i, 2] - pts[j, 2]
+                        if dx * dx + dy * dy + dz * dz <= r2:
+                            hit = True
+                            break
+                    if hit:
+                        break
+                if hit:
+                    break
+            if hit:
+                break
+        out[i] = hit
+    return out
+
+
+@njit(cache=True)
 def _nearest_dist(q, pts, origin, dims, start, order, cs):
     """sqrt(min squared distance) to pts (expanding cell shells), float64."""
     n = q.shape[0]
@@ -143,6 +179,9 @@ class _Tree:
 
     def ball(self, q, r):
         return _within_csr(q, self.p, float(r), self.origin, self.dims, self.start, self.order, self.cs)
+
+    def any_unmasked(self, q, r, mask):
+        return _any_within_unmasked(q, self.p, mask, float(r), self.origin, self.dims, self.start, self.order, self.cs)
 
     def nearest(self, q):
         return _nearest_dist(q, self.p, self.origin, self.dims, self.start, self.order, self.cs)
@@ -209,11 +248,7 @@ def metal_candidates(X, P, cfg: BurrowConfig):
         return np.zeros((0, 3), np.float32), np.zeros(0, np.int32)
     tall = _Tree(X, cfg.metal_clash)
     ok = tall.nearest(cand) >= cfg.metal_rmin
-    ptr, lst = tall.ball(cand, cfg.metal_clash)
-    cm = np.asarray(P.coord_mask, bool)
-    bad = np.zeros(len(cand), bool)
-    nb = ~cm[lst]
-    np.logical_or.at(bad, np.repeat(np.arange(len(cand)), np.diff(ptr)), nb)
+    bad = tall.any_unmasked(cand, cfg.metal_clash, np.ascontiguousarray(P.coord_mask, np.bool_))
     cand = cand[ok & ~bad]
     if len(cand) == 0:
         return np.zeros((0, 3), np.float32), np.zeros(0, np.int32)

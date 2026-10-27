@@ -12,6 +12,12 @@ Outputs are identical to ``python -m pocketdetect.burrow predict`` (same writer,
 * GPU: one process per listed GPU; each owns a pool of ``--workers`` CPU processes that parse and
   prepare structures (and run pocket formation / ranking / writing) while the GPU featurizes and
   scores batches of ``--batch`` structures.  Input files are distributed round-robin over GPUs.
+  Until a GPU process is ready (torch import, CUDA context, kernel warm-up) its workers predict
+  whole structures on the CPU path (identical outputs); small inputs therefore never wait for the GPU.
+
+Worker pools use a forkserver that pre-imports the pipeline (``BURROW_FAST_START=spawn`` to
+disable); ``BURROW_FAST_HYBRID=0`` disables the CPU path during GPU start-up; ``BURROW_FAST_IO=0``
+uses the reference structure loader; ``BURROW_FAST_PROFILE=FILE`` appends per-GPU-process timings.
 """
 from __future__ import annotations
 
@@ -27,6 +33,24 @@ from pathlib import Path
 _SINGLE = {k: "1" for k in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMBA_NUM_THREADS")}
 ROOT = Path(__file__).resolve().parents[4]
 HEADER = "stem,status,n_atoms,n_pockets,total_ms,parse_ms,features_ms,point_score_ms,pockets_ms,rank_ms,device,note"
+
+# Worker processes are forked from a forkserver that has already imported the pipeline (saves
+# ~1 s of imports per worker; the forkserver never runs Numba parallel kernels or CUDA, so forking
+# it is safe).  GPU runner processes themselves are spawned (fresh CUDA context).
+_PRELOAD = ["numpy", "scipy.spatial", "numba", "gemmi", "pocketdetect.structure", "pocketdetect.burrow.prep",
+            "pocketdetect.burrow.af", "pocketdetect.burrow.pipeline", "pocketdetect.burrow.fast.features",
+            "pocketdetect.burrow.fast.formation", "pocketdetect.burrow.fast.pocketfeat",
+            "pocketdetect.burrow.fast.pipeline", "pocketdetect.burrow.fast.gpu", "pocketdetect.burrow.fast.io",
+            "pocketdetect.burrow.fast.run"]
+
+
+def _pool_ctx():
+    if os.environ.get("BURROW_FAST_START", "forkserver") == "forkserver" and "forkserver" in mp.get_all_start_methods():
+        ctx = mp.get_context("forkserver")
+        ctx.set_forkserver_preload(_PRELOAD)
+        return ctx
+    return mp.get_context("spawn")
+
 
 # ---------------------------------------------------------------- worker state (per process)
 _W = {}
@@ -44,6 +68,9 @@ def _init_worker(model_path, ranker, af_mode, out, points, compact=0):
 def _load(path, stem, af):
     """Protein (+ AF weights, note); with ``--compact`` also the per-residue pLDDT of the *full*
     (unpruned) protein, used for the pocket-pLDDT summary columns."""
+    if not af and not _W.get("compact") and os.environ.get("BURROW_FAST_IO", "1") != "0":
+        from .io import load_protein          # == protein_from_structure(load_structure(path)), ~3x faster
+        return load_protein(path, stem), None, "", None
     from ...structure import load_structure
     from ..af import af_protein, residue_plddt
     from ..prep import protein_from_structure
@@ -138,21 +165,103 @@ def _post_task(args):
 # ---------------------------------------------------------------- GPU runner (one process per GPU)
 def gpu_runner(device, tasks, out, model_path, ranker, af_mode, points, workers, batch, rows_file, compact=0):
     os.environ.update(_SINGLE)
-    import torch
-    from .gpu import featurize_batch
-    from .pipeline import FastModel
-    fm = FastModel.load(model_path) if model_path else FastModel.from_model(None)
-    cfg = fm.cfg
-    dev = torch.device(device)
-    ctx = mp.get_context("spawn")
+    T = {"start": time.time()}
     rows, pend = [], []
-    with ctx.Pool(workers, initializer=_init_worker,
-                  initargs=(model_path, ranker, af_mode, str(out), points, compact)) as pool:
+    feat_s = [0.0]
+    wait_s = [0.0]
+    # start the CPU workers first: their start-up overlaps with torch / CUDA / kernel warm-up below
+    with _pool_ctx().Pool(workers, initializer=_init_worker,
+                          initargs=(model_path, ranker, af_mode, str(out), points, compact)) as pool:
+        import threading
+        from collections import deque
+        window = max(2 * batch, 2 * workers)
+        todo = iter(tasks)
+        lock = threading.Lock()
+        q = deque()
+
+        def nxt():
+            with lock:
+                return next(todo, None)
+
+        def fill():
+            while len(q) < window:
+                t = nxt()
+                if t is None:
+                    return
+                q.append(pool.apply_async(_prep_task, (t,)))
+
+        # Until the GPU is ready (torch import, CUDA context, kernel warm-up: a few s), the workers
+        # predict whole structures on the CPU (identical outputs), so they are never idle; if the
+        # input runs out before that, the GPU is not used at all.
+        gpu_ready = threading.Event()
+        G = {}
+        cpu_pend = []
+
+        def gpu_init():
+            try:
+                import torch
+                from .gpu import featurize_batch, prep
+                from .pipeline import FastModel
+                fm_ = FastModel.load(model_path) if model_path else FastModel.from_model(None)
+                G.update(featurize_batch=featurize_batch, fm=fm_, dev=torch.device(device))
+                T["imports_model"] = time.time()
+                if tasks:   # warm-up (CUDA context, Triton kernels) on the first input
+                    try:
+                        P0, w0, _, _ = _load(tasks[0][0], tasks[0][1], af_mode)
+                        featurize_batch([prep(P0, fm_.cfg, w0)], fm_.cfg, G["dev"],
+                                        None if ranker == "geometry" else fm_)
+                    except Exception:  # noqa: BLE001  (the real run reports errors per structure)
+                        pass
+            except Exception as e:  # noqa: BLE001  (no usable GPU -> CPU path for everything)
+                G["error"] = f"{type(e).__name__}: {e}"
+            finally:
+                gpu_ready.set()
+
+        exhausted = False
+        if os.environ.get("BURROW_FAST_HYBRID", "1") != "0":
+            threading.Thread(target=gpu_init, daemon=True).start()
+            inflight = [0]
+            cv = threading.Condition()
+
+            def _done(_r):
+                with cv:
+                    inflight[0] -= 1
+                    cv.notify()
+
+            while not gpu_ready.is_set():
+                with cv:
+                    if inflight[0] >= 2 * workers:
+                        cv.wait(0.02)
+                        continue
+                t = nxt()
+                if t is None:
+                    exhausted = True
+                    break
+                with cv:
+                    inflight[0] += 1
+                cpu_pend.append(pool.apply_async(_cpu_task, (t,), callback=_done, error_callback=_done))
+        else:
+            gpu_init()
+        if not exhausted:
+            gpu_ready.wait()
+            if "error" in G:                       # GPU unusable: finish on the CPU
+                T["gpu_error"] = G["error"]
+                while (t := nxt()) is not None:
+                    cpu_pend.append(pool.apply_async(_cpu_task, (t,)))
+            else:
+                fill()
+        featurize_batch, fm = G.get("featurize_batch"), G.get("fm")
+        cfg, dev = (fm.cfg if fm is not None else None), G.get("dev")
+        T["warmup"] = time.time()
+        T["n_cpu_path"] = len(cpu_pend)
         buf = []
 
         def flush():
             t0 = time.perf_counter()
             res = featurize_batch([b[1][0] for b in buf], cfg, dev, None if ranker == "geometry" else fm)
+            feat_s[0] += time.perf_counter() - t0
+            if "first_batch" not in T:
+                T["first_batch"] = time.time()
             per = (time.perf_counter() - t0) * 1e3 / len(buf)
             for (stem, (it, info), note, parse_ms, prep_ms), (ps, sc) in zip(buf, res):
                 pend.append(pool.apply_async(_post_task, ((stem, it.P, ps, sc, note, parse_ms, prep_ms, per,
@@ -160,21 +269,13 @@ def gpu_runner(device, tasks, out, model_path, ranker, af_mode, points, workers,
             buf.clear()
 
         # bounded pipeline: at most `window` prepared structures / pending post-tasks in memory
-        from collections import deque
-        window = max(2 * batch, 2 * workers)
-        todo = iter(tasks)
-        q = deque()
-
-        def fill():
-            while len(q) < window:
-                t = next(todo, None)
-                if t is None:
-                    return
-                q.append(pool.apply_async(_prep_task, (t,)))
-
-        fill()
+        done = [0]
         while q:
+            tw = time.perf_counter()
             stem, it, note, parse_ms, prep_ms, err = q.popleft().get()
+            wait_s[0] += time.perf_counter() - tw
+            if "first_prep" not in T:
+                T["first_prep"] = time.time()
             fill()
             if err:
                 rows.append(f"{stem},error,,,,,,,,,{device},{err}")
@@ -182,13 +283,23 @@ def gpu_runner(device, tasks, out, model_path, ranker, af_mode, points, workers,
             buf.append((stem, it, note, parse_ms, prep_ms))
             if len(buf) >= batch:
                 flush()
-                busy = [p for p in pend if not p.ready()]
-                while len(busy) > window:          # back-pressure on the post-processing queue
-                    busy[0].wait()
-                    busy = [p for p in busy if not p.ready()]
+                while len(pend) - done[0] > window:   # back-pressure on the post-processing queue
+                    pend[done[0]].wait()
+                    while done[0] < len(pend) and pend[done[0]].ready():
+                        done[0] += 1
         if buf:
             flush()
-        rows += [p.get() for p in pend]
+        T["last_batch"] = time.time()
+        rows += [p.get() for p in cpu_pend] + [p.get() for p in pend]
+        T["posts_done"] = time.time()
+        pool.close()
+        pool.join()
+    T["end"] = time.time()
+    if os.environ.get("BURROW_FAST_PROFILE"):
+        import json
+        T.update(featurize_s=feat_s[0], wait_prep_s=wait_s[0], n=len(tasks), device=str(device))
+        with open(os.environ["BURROW_FAST_PROFILE"], "a") as f:
+            f.write(json.dumps(T) + "\n")
     _dump(rows, rows_file)
 
 
@@ -238,7 +349,7 @@ def main(argv=None):
     t0 = time.perf_counter()
     ctx = mp.get_context("spawn")
     if a.device == "cpu":
-        with ctx.Pool(a.workers, initializer=_init_worker,
+        with _pool_ctx().Pool(a.workers, initializer=_init_worker,
                       initargs=(model_path, a.ranker, a.af_mode, str(a.out), not a.no_points, a.compact)) as pool:
             res = list(pool.imap(_cpu_task, tasks, chunksize=1))
         f = a.out / ".rows_cpu.csv"
