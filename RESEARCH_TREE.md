@@ -114,4 +114,4 @@ Running: round-2 review (2 reviewers), data acquisition, baselines, eval harness
   - [~] 8.6 Packaging: unified CLI (fast backend routing), README, scripts/reproduce_all.sh (+smoke), full pytest
   - [x] 8.7 REPORT.md draft (fresh writer) + checker (1,160 numbers pass); 6 placeholders pending descriptive rows/packaging
     - [!] Non-ion LIGYSIS (LIGYSIS_NI, v2 small): top-N+2 66.4 vs fpocket+PRANK 63.4 / P2Rank 60.9; DCA4 51.3 vs 48.2/44.6; P1K 89.6 vs 82.7/80.8; but any-pocket 71.7 vs 72.9 and one-to-one 66.6 vs 68.5 (fpocket+PRANK ahead) → drug-like sites: at par to modestly better; ions carry most of C1 margin (v2 ion Δ +29.5, 'other' +2.2)
-  - [~] 8.8 Dev error analysis of missed non-ion sites (for follow-ups)
+  - [x] 8.8 Dev non-ion error analysis (805 sites; v2 71.2, fpocket+PRANK 66.0, P2Rank 58.4): of 232 v2 misses 65% dropped by output floor, 22% ranked >N+2, 9% closest rule, 4% no candidate; shallow (buriedness<0.65) and flexible (low WCN) sites, lipids/detergents/additives hardest; cofactors easiest
